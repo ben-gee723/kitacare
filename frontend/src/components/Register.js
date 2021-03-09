@@ -4,7 +4,7 @@ export default function Register() {
     return (
         <div>
             <h1>Registration Page</h1>
-            <button>Create a school</button>
+            <button>Add a kindergarten</button>
             <button>Register as teacher</button>
         </div>
     )
