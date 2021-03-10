@@ -12,12 +12,17 @@ const ChildSchema = new Schema({
     },
     groupName: { type: String, required: true },
     img: { type: String, required: false },
-    allergies: { type: String, required: true },
-    dietaryNeeds: { type: String, required: true },
-    // img: {type:String, required:true},
+    allergies:{type:[{to:String}],required:true },
+    dietaryNeeds:{type:[{requirement:String}],required:true },
+    img: {type:String, required:false},
 
-    // new Schema/Model for emergency contact?
-    emergencyContact: { type: String, required: true }
+    
+    emergencyContact:{
+        type:[{
+            name:String,
+            address:AddressSchema,
+            phoneNumber:String}],
+        required:true } 
 
 })
 
