@@ -11,7 +11,7 @@ const ChildSchema = new Schema({
         required: true
     },
     groupName: { type: String, required: true },
-    img: { type: String, required: true },
+    img: { type: String, required: false },
     allergies: { type: String, required: true },
     dietaryNeeds: { type: String, required: true },
     // img: {type:String, required:true},
