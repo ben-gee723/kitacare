@@ -14,7 +14,7 @@ const userSchema=new Schema({
                 min: '1950-01-01',
                 required:true
               },
-  //img:{type:"string",required:true},
+  img:{type:String,required:false},
   role:{
     type:String,
     enum:[

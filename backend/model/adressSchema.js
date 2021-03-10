@@ -6,7 +6,6 @@ const Address=new Schema({
   number:{type:String,required:true},
   city:{type:String,required:true},
   postcode:{type:Number,required:true}
-
 });
 
 module.exports=Address;
