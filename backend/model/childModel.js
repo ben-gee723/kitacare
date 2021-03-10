@@ -15,8 +15,6 @@ const ChildSchema = new Schema({
     allergies:{type:[{to:String}],required:true },
     dietaryNeeds:{type:[{requirement:String}],required:true },
     img: {type:String, required:false},
-
-    
     emergencyContact:{
         type:[{
             name:String,
@@ -26,5 +24,5 @@ const ChildSchema = new Schema({
 
 })
 
-const ChildModel = mongoose.model("child", ChildSchema)
+const ChildModel = mongoose.model("children", ChildSchema)
 module.exports = ChildModel;
