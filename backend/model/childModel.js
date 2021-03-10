@@ -11,13 +11,11 @@ const ChildSchema = new Schema({
         required: true
     },
     groupName: { type: String, required: true },
-    img: { type: String, required: true },
-    allergies: { type: String, required: true },
-    dietaryNeeds: { type: String, required: true },
-    // img: {type:String, required:true},
-
-    // new Schema/Model for emergency contact?
-    emergencyContact: { type: String, required: true }
+    img: { type: String, required: false },
+    allergies: { type: [{ to: String }], required: true },
+    dietaryNeeds: { type: [{ requirement: String }], required: true },
+    img: { type: String, required: false },
+    emergencyContact: { type: [{ name: String, address: AddressSchema, phoneNumber: String }], required: true }
 
 })
 
