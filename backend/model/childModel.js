@@ -10,17 +10,27 @@ const ChildSchema = new Schema({
         type: AddressSchema,
         required: true
     },
-    groupName: { type: String },
+    groupId: { ref:"groups", type: mongoose.Schema.Types.ObjectId },
     img: { type: String },
     allergies:{type:[{to:String}],required:true },
     dietaryNeeds:{type:[{requirement:String}],required:true },
     img: {type:String, required:false},
-    emergencyContact:{
-        type:[{
-            name:String,
-            address:AddressSchema,
-            phoneNumber:String}],
-        required:true } 
+    emergencyContact: [{
+            name: { type: String, required: true },
+            address: AddressSchema,
+            phoneNumber: { type: String, required: true },
+    }],
+    attendance: [{
+        date: Date,
+        checkIn: {
+            guardian: String,
+            timestamp: Date
+        },
+        checkOut: {
+            guardian: String,
+            timestamp: Date
+        }
+                               
 
 })
 
