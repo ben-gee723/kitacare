@@ -3,6 +3,7 @@ const mongoose=require("mongoose")
 const morgan = require("morgan")
 //routes:
 const indexRoutes=require("./routes/indexRoute")
+const userRoutes=require("./routes/userRoutes")
 //middleware:
 const app=express()
 app.use(express.json())
@@ -11,6 +12,7 @@ require('dotenv').config()
 
 //endpoints:
 app.use("/",indexRoutes)
+app.use("/users",userRoutes)
 
 //connection:
 mongoose.connect(process.env.MONGO_ATLAS,{useNewUrlParser:true,useUnifiedTopology:true},
