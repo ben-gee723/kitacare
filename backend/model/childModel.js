@@ -15,10 +15,10 @@ const ChildSchema = new Schema({
     allergies:{type:[{to:String}],required:true },
     dietaryNeeds:{type:[{requirement:String}],required:true },
     img: {type:String, required:false},
-    emergencyContact: [{
-            name: { type: String, required: true },
-            address: AddressSchema,
-            phoneNumber: { type: String, required: true },
+    emergencyContact: [ {
+        name: { type: String, required: true },
+        address: { type: AddressSchema, required: true },
+        phoneNumber: { type: String, required: true }
     }],
     attendance: [{
         date: Date,
@@ -30,8 +30,15 @@ const ChildSchema = new Schema({
             guardian: String,
             timestamp: Date
         }
-                               
 
+})
+                 
+ChildSchema.pre("validate", function (next) {
+    if (this.emergencyContact !== 0) {
+        return next()
+    }
+    const error = new Error("please provide us with emergency contact details")
+    next(error)
 })
 
 const ChildModel = mongoose.model("children", ChildSchema)
