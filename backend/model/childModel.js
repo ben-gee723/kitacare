@@ -10,8 +10,8 @@ const ChildSchema = new Schema({
         type: AddressSchema,
         required: true
     },
-    groupName: { type: String, required: true },
-    img: { type: String, required: false },
+    groupName: { type: String },
+    img: { type: String },
     allergies:{type:[{to:String}],required:true },
     dietaryNeeds:{type:[{requirement:String}],required:true },
     img: {type:String, required:false},
