@@ -13,7 +13,7 @@ export default function ManagerRegister() {
     number: "",
     city: "",
     postcode: "",
-    kgName: "",
+    kgID: "",
     password: "",
     role: "Admin",
   });
@@ -77,25 +77,19 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Street :
+          Address
           <input
             type='text'
             name='street'
             placeholder='Street'
             onChange={grabValue}
           />
-        </label>
-        <label>
-          Number :
           <input
             type='text'
             name='number'
             placeholder='Number'
             onChange={grabValue}
           />
-        </label>
-        <label>
-          City :
           <input
             type='text'
             name='city'
@@ -104,23 +98,16 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Kindergarten ID :
+          Kindergarten ID
           <input
             type='text'
-            name='kgName'
+            name='kgID'
             placeholder='Kindergarten ID'
             onChange={grabValue}
           />
         </label>
         <label>
-          Role
-          <select name='role' id='role' onChange={grabValue} required>
-            <option value='User'>User</option>
-            <option value='Admin'>Admin</option>
-          </select>
-        </label>
-        <label>
-          Password :
+          Password
           <input
             type='password'
             name='password'
@@ -128,7 +115,6 @@ export default function ManagerRegister() {
             onChange={grabValue}
           />
         </label>
-
         <input type='submit' value='Register' />
         <Link to='/'>
           <input type='submit' value='Cancel' />
