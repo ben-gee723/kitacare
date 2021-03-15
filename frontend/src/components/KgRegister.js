@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import {Link} from "react-router-dom"
 
 export default function KgRegister() {
   const [user, setUser] = useState({
