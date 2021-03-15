@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function KgRegister() {
+export default function ManagerRegister() {
     return (
         <div>
-            <h1>Register as Teacher</h1>
+            
         </div>
     )
 }
