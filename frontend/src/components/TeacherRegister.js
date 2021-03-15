@@ -15,7 +15,7 @@ export default function TeacherRegister() {
     groupName: "",
     verificationCode: "",
     password: "",
-    role: "User",
+    role: "Teacher",
   });
 
   const submitForm = e => {

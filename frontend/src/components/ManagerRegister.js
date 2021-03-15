@@ -8,14 +8,13 @@ export default function ManagerRegister() {
     birthday: "",
     phoneNumber: "",
     email: "",
-    address: "",
     street: "",
     number: "",
     city: "",
     postcode: "",
     kgID: "",
     password: "",
-    role: "Admin",
+    role: "Manager",
   });
 
   const submitForm = e => {
