@@ -2,6 +2,8 @@ import { Route, Link, Switch, withRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Register from "./components/Register";
+import KgRegister from "./components/KgRegister"
+import TeacherRegister from "./components/TeacherRegister"
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
@@ -30,6 +32,8 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/register' component={Register} />
+        <Route path='/kgregister' component={KgRegister} />
+        <Route path='/tregister' component={TeacherRegister} />
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
