@@ -9,12 +9,11 @@ export default function ManagerRegister() {
     phoneNumber: "",
     email: "",
     address: "",
-    street:"",
-    number:"",
-    city:"",
-    postcode:"",
+    street: "",
+    number: "",
+    city: "",
+    postcode: "",
     kgName: "",
-    groupName: "",
     password: "",
     role: "Admin",
   });
@@ -31,7 +30,7 @@ export default function ManagerRegister() {
     <div>
       <form onSubmit={submitForm}>
         <label>
-          First Name :
+          First Name
           <input
             type='text'
             name='firstName'
@@ -40,7 +39,7 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Last Name :
+          Last Name
           <input
             type='text'
             name='lastName'
@@ -50,16 +49,25 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Birthday :
+          Birthday
           <input
-            type="date"
-            name='firstName'
-            placeholder='First Name'
+            type='date'
+            name='birthday'
+            placeholder='Birthday'
             onChange={grabValue}
           />
         </label>
         <label>
-          Email :
+          Phone Number
+          <input
+            type='text'
+            name='phoneNumber'
+            placeholder='Phone Number'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          Email
           <input
             type='email'
             name='email'
@@ -69,13 +77,6 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Role :
-          <select name='role' id='role' onChange={grabValue} required>
-            <option value='User'>User</option>
-            <option value='Admin'>Admin</option>
-          </select>
-        </label>
-        <label>
           Street :
           <input
             type='text'
@@ -83,7 +84,7 @@ export default function ManagerRegister() {
             placeholder='Street'
             onChange={grabValue}
           />
-        </label>       
+        </label>
         <label>
           Number :
           <input
@@ -103,18 +104,35 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
+          Kindergarten ID :
+          <input
+            type='text'
+            name='kgName'
+            placeholder='Kindergarten ID'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          Role
+          <select name='role' id='role' onChange={grabValue} required>
+            <option value='User'>User</option>
+            <option value='Admin'>Admin</option>
+          </select>
+        </label>
+        <label>
           Password :
           <input
             type='password'
             name='password'
-            required
             placeholder='Password'
             onChange={grabValue}
           />
         </label>
 
         <input type='submit' value='Register' />
-        <Link to="/"><input type='submit' value='Cancel' /></Link>
+        <Link to='/'>
+          <input type='submit' value='Cancel' />
+        </Link>
       </form>
     </div>
   );
