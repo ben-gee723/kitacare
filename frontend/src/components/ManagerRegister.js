@@ -39,8 +39,6 @@ export default function ManagerRegister() {
             onChange={grabValue}
           />
         </label>
-        <br />
-
         <label>
           Last Name :
           <input
@@ -51,10 +49,17 @@ export default function ManagerRegister() {
             onChange={grabValue}
           />
         </label>
-        <br />
-
         <label>
-          Email :{" "}
+          Birthday :
+          <input
+            type="date"
+            name='firstName'
+            placeholder='First Name'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          Email :
           <input
             type='email'
             name='email'
@@ -63,8 +68,40 @@ export default function ManagerRegister() {
             onChange={grabValue}
           />
         </label>
-        <br />
-
+        <label>
+          Role :
+          <select name='role' id='role' onChange={grabValue} required>
+            <option value='User'>User</option>
+            <option value='Admin'>Admin</option>
+          </select>
+        </label>
+        <label>
+          Street :
+          <input
+            type='text'
+            name='street'
+            placeholder='Street'
+            onChange={grabValue}
+          />
+        </label>       
+        <label>
+          Number :
+          <input
+            type='text'
+            name='number'
+            placeholder='Number'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          City :
+          <input
+            type='text'
+            name='city'
+            placeholder='City'
+            onChange={grabValue}
+          />
+        </label>
         <label>
           Password :
           <input
@@ -75,37 +112,6 @@ export default function ManagerRegister() {
             onChange={grabValue}
           />
         </label>
-        <br />
-
-        <label>
-          Role :{" "}
-          <select name='role' id='role' onChange={grabValue} required>
-            <option value='User'>User</option>
-            <option value='Admin'>Admin</option>
-          </select>
-        </label>
-        <br />
-
-        <label>
-          Street :
-          <input
-            type='text'
-            name='street'
-            placeholder='Street'
-            onChange={grabValue}
-          />
-        </label>
-        <br />
-        <label>
-          City :
-          <input
-            type='text'
-            name='city'
-            placeholder='City'
-            onChange={grabValue}
-          />
-        </label>
-        <br />
 
         <input type='submit' value='Register' />
         <Link to="/"><input type='submit' value='Cancel' /></Link>
