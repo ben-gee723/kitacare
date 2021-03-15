@@ -1,16 +1,16 @@
-import { Route, Link, Switch, withRouter } from "react-router-dom";
+import { Route, Link, Switch, withRouter, HashRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Register from "./components/Register";
-import KgRegister from "./components/KgRegister"
-import TeacherRegister from "./components/TeacherRegister"
+import KgRegister from "./components/KgRegister";
+import TeacherRegister from "./components/TeacherRegister";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 
 function App() {
-  //const all the useState needed to the user login and apply it on useEffect fnction
   return (
+    <HashRouter>
     <div className='App'>
       <h1>React App</h1>
       <ul>
@@ -20,6 +20,12 @@ function App() {
         </Link>
         <Link to='/register'>
           <li>Register</li>
+        </Link>
+        <Link to='/kgregister'>
+          <li>RegisterKita</li>
+        </Link>
+        <Link to='/tregister'>
+          <li>RegisterTeacher</li>
         </Link>
         <Link to='/login'>
           <li>Login</li>
@@ -39,7 +45,8 @@ function App() {
         <Route component={NotFound} />
       </Switch>
     </div>
+    </HashRouter>
   );
 }
 
-export default withRouter(App);
+export default App;
