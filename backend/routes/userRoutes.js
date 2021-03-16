@@ -1,7 +1,7 @@
 const express=require("express")
 const router=express.Router()
-const { getManagers,getManager,getTeachers,getTeacher } = require("../controllers/userControllers.js/getControllers")
-const { addUser } = require("../controllers/userControllers.js/postControllers")
+const { getManagers,getManager,getTeachers,getTeacher } = require("../controllers/userControllers/getControllers")
+const { addUser } = require("../controllers/userControllers/postControllers")
 
 //GET:
 //users/managers
