@@ -14,6 +14,9 @@ function App() {
   return (
     <div className='App'>
       <Navbar />
+      <Link to="/register">
+              <li>Register</li>
+            </Link>
       <Switch>
         <Route exact path='/'>
           <Home />
