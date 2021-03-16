@@ -7,6 +7,7 @@ import TeacherRegister from "./components/TeacherRegister";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route component={NotFound} />
       </Switch>
     </div>
+    <Footer/>
     </HashRouter>
   );
 }
