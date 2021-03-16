@@ -30,6 +30,7 @@ const ChildSchema = new Schema({
             guardian: String,
             timestamp: Date
         }
+    }]
 
 })
                  
