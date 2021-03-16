@@ -31,7 +31,8 @@ const ChildSchema = new Schema({
             timestamp: Date
         }
 
-    })
+    }]
+})
 
 ChildSchema.pre("validate", function (next) {
     if (this.emergencyContact !== 0) {
