@@ -10,14 +10,36 @@ const ChildSchema = new Schema({
         type: AddressSchema,
         required: true
     },
-    groupName: { type: String, required: true },
-    img: { type: String, required: false },
+    groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
+    img: { type: String },
     allergies: { type: [{ to: String }], required: true },
     dietaryNeeds: { type: [{ requirement: String }], required: true },
     img: { type: String, required: false },
-    emergencyContact: { type: [{ name: String, address: AddressSchema, phoneNumber: String }], required: true }
+    emergencyContact: [{
+        name: { type: String, required: true },
+        address: { type: AddressSchema, required: true },
+        phoneNumber: { type: String, required: true }
+    }],
+    attendance: [{
+        date: Date,
+        checkIn: {
+            guardian: String,
+            timestamp: Date
+        },
+        checkOut: {
+            guardian: String,
+            timestamp: Date
+        }
 
+    })
+
+ChildSchema.pre("validate", function (next) {
+    if (this.emergencyContact !== 0) {
+        return next()
+    }
+    const error = new Error("please provide us with emergency contact details")
+    next(error)
 })
 
-const ChildModel = mongoose.model("child", ChildSchema)
+const ChildModel = mongoose.model("children", ChildSchema)
 module.exports = ChildModel;
