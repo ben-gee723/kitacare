@@ -8,37 +8,16 @@ import ManagerRegister from "./components/ManagerRegister";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className='App'>
-      <ul>
-        {/* Link * --> add ternary operator with isLogin */}
-        <Link to='/'>
-          <li>Home</li>
-        </Link>
-        <Link to='/register'>
-          <li>Register</li>
-        </Link>
-        <Link to='/kgregister'>
-          <li>RegisterKita</li>
-        </Link>
-        <Link to='/tregister'>
-          <li>RegisterTeacher</li>
-        </Link>
-        <Link to='/mregister'>
-          <li>ManagerRegister</li>
-        </Link>
-        <Link to='/login'>
-          <li>Login</li>
-        </Link>
-        <Link to='/logout'>
-          <li>Logout</li>
-        </Link>
-      </ul>
-
+      <Navbar />
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/'>
+          <Home />
+        </Route>
         <Route path='/register' component={Register} />
         <Route path='/kgregister' component={KgRegister} />
         <Route path='/tregister' component={TeacherRegister} />

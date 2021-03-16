@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function KgRegister() {
   const [user, setUser] = useState({
@@ -10,11 +11,43 @@ export default function KgRegister() {
     number: "",
     city: "",
     postcode: "",
-    verificationCode: "",
   });
 
   const submitForm = e => {
     e.preventDefault();
+    //   const formData = new FormData(e.target);
+    //   let user={address:{}};
+    //   for(let pair of formData){
+    //     if(pair[0]==="city"||pair[0]==="street" || pair[0]==="number"|| pair[0]==="postcode"){
+    //       user.address[pair[0]]=pair[1]
+    //     }else{ user[pair[0]]=pair[1]};
+    // };
+  /*  axios({
+      method: "post",
+      url: "",
+      headers: {
+        "Accept" : "application/json",
+        "Content-Type": "application/json",
+      },
+      data: {
+        kgName: e.target.elements.kgName,
+        phoneNumber: e.target.elements.phoneNumber,
+        email: e.target.elements.email,
+        street: e.target.elements.street,
+        number: e.target.elements.number,
+        city: e.target.elements.city,
+        postcode: e.target.elements.postcode,
+      },
+    })
+      .then(response => {
+        if (response.success) {
+          console.log(response.user);
+          // props.history.push("/mregister")
+        } else {
+          console.log(response);
+        }
+      })
+      .catch(err => console.log(err)); */
   };
 
   const grabValue = e => {
@@ -73,17 +106,8 @@ export default function KgRegister() {
             onChange={grabValue}
           />
         </label>
-        <label>
-          Verification Code
-          <input
-            type='text'
-            name='kgID'
-            placeholder='Kindergarten ID'
-            onChange={grabValue}
-          />
-        </label>
-        <input type='submit' value='Register' />
-        <Link to='/'>
+        <input type='submit' value='Next' />
+        <Link to='/mregister'>
           <input type='submit' value='Cancel' />
         </Link>
       </form>
