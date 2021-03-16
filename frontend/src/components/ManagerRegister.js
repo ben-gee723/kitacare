@@ -8,15 +8,13 @@ export default function ManagerRegister() {
     birthday: "",
     phoneNumber: "",
     email: "",
-    address: "",
-    street:"",
-    number:"",
-    city:"",
-    postcode:"",
-    kgName: "",
-    groupName: "",
+    street: "",
+    number: "",
+    city: "",
+    postcode: "",
+    kgID: "",
     password: "",
-    role: "Admin",
+    role: "Manager",
   });
 
   const submitForm = e => {
@@ -31,7 +29,7 @@ export default function ManagerRegister() {
     <div>
       <form onSubmit={submitForm}>
         <label>
-          First Name :
+          First Name
           <input
             type='text'
             name='firstName'
@@ -40,7 +38,7 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Last Name :
+          Last Name
           <input
             type='text'
             name='lastName'
@@ -50,16 +48,25 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Birthday :
+          Birthday
           <input
-            type="date"
-            name='firstName'
-            placeholder='First Name'
+            type='date'
+            name='birthday'
+            placeholder='Birthday'
             onChange={grabValue}
           />
         </label>
         <label>
-          Email :
+          Phone Number
+          <input
+            type='text'
+            name='phoneNumber'
+            placeholder='Phone Number'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          Email
           <input
             type='email'
             name='email'
@@ -69,32 +76,19 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Role :
-          <select name='role' id='role' onChange={grabValue} required>
-            <option value='User'>User</option>
-            <option value='Admin'>Admin</option>
-          </select>
-        </label>
-        <label>
-          Street :
+          Address
           <input
             type='text'
             name='street'
             placeholder='Street'
             onChange={grabValue}
           />
-        </label>       
-        <label>
-          Number :
           <input
             type='text'
             name='number'
             placeholder='Number'
             onChange={grabValue}
           />
-        </label>
-        <label>
-          City :
           <input
             type='text'
             name='city'
@@ -103,18 +97,27 @@ export default function ManagerRegister() {
           />
         </label>
         <label>
-          Password :
+          Kindergarten ID
+          <input
+            type='text'
+            name='kgID'
+            placeholder='Kindergarten ID'
+            onChange={grabValue}
+          />
+        </label>
+        <label>
+          Password
           <input
             type='password'
             name='password'
-            required
             placeholder='Password'
             onChange={grabValue}
           />
         </label>
-
         <input type='submit' value='Register' />
-        <Link to="/"><input type='submit' value='Cancel' /></Link>
+        <Link to='/'>
+          <input type='submit' value='Cancel' />
+        </Link>
       </form>
     </div>
   );
