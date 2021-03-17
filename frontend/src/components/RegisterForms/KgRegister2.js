@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ManagerRegister2 from "./ManagerRegister";
+import ManagerRegister2 from "../ManagerRegister";
 
 export default function KgRegister2() {
   const [data, setData] = useState({});
@@ -42,7 +42,7 @@ export default function KgRegister2() {
     })
       .then(response => {
         if (response.success) {
-          console.log(response.user);
+          console.log(response.data);
           // props.history.push("/mregister")
         } else {
           console.log(response);
@@ -53,29 +53,32 @@ export default function KgRegister2() {
 
   return (
     <div>
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm} className="fcontainer">
+        <h1>Register a Kindergarten!</h1>
         <label>
-          Kindergarten Name
+          Kindergarten Name <br/>
           <input type='text' name='kgName' placeholder='Kindergarten Name' />
         </label>
         <label>
-          Phone Number
+          Phone Number <br/>
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </label>
         <label>
-          Email
+          Email <br/>
           <input type='email' name='email' required placeholder='E-mail' />
         </label>
         <label>
-          Address
+          Address <br/>
           <input type='text' name='street' placeholder='Street' />
           <input type='text' name='number' placeholder='Number' />
           <input type='text' name='city' placeholder='City' />
         </label>
-        <input type='submit' value='Next' className='next' />
-        <Link to='/mregister'>
-          <input type='text' value='Cancel' className='cancel' />
+        <div>
+        <Link to='/'>
+          <input type='submit' value='Cancel' className='cancel' />
         </Link>
+        <input type='submit' value='Next' className='next' />
+        </div>
       </form>
       {data.kg && <ManagerRegister2 kg={data.kg}/> }
     </div>

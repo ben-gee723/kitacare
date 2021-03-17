@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function KgRegister() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+});
 
   const [user, setUser] = useState({
     kgName: "",

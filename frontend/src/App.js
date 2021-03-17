@@ -1,10 +1,10 @@
 import { Route, Link, Switch, withRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./components/Home";
-import Register from "./components/Register";
-import KgRegister2 from "./components/KgRegister";
+import Register from "./components/RegisterForms/Register";
+import KgRegister2 from "./components/RegisterForms/KgRegister2";
 import TeacherRegister from "./components/TeacherRegister";
-import ManagerRegister2 from "./components/ManagerRegister";
+import ManagerRegister2 from "./components/RegisterForms/ManagerRegister2";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";

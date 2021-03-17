@@ -1,32 +1,8 @@
 @import "_reset";
 @import "../components/Navbar/navbar.scss";
+@import"../components/RegisterForms/_registerForm.scss";
 @import "_variables";
+@import "_elements.scss";
 @import "button.module.scss";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,400&display=swap');
 
-.submit {
-    background-color: $primary-orange;
-    border-radius: 0.75rem;
-    color: $light;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.15rem;
-  }
-  
-  .cancel {
-    background-color: $primary-green;
-    border-radius: 0.75rem;
-    color: $light;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.15rem;
-  }
-  
-  .next {
-    background-color: $primary-blue;
-    border-radius: 0.75rem;
-    color: $light;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.15rem;
-  }

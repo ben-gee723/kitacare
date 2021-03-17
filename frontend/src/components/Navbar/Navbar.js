@@ -6,7 +6,7 @@ export default function Navbar() {
         <div>
             <div className='lg'>
                 <NavLink to='/'>
-                  <img src={logo} alt='logo' />
+                  <img src={logo} alt='lg' />
                 </NavLink>
               </div>
         </div>
