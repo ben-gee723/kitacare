@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function KgRegister() {
+  const [data, setData] = useState({
+});
+
   const [user, setUser] = useState({
     kgName: "",
     phoneNumber: "",
@@ -15,14 +18,21 @@ export default function KgRegister() {
 
   const submitForm = e => {
     e.preventDefault();
-    //   const formData = new FormData(e.target);
-    //   let user={address:{}};
-    //   for(let pair of formData){
-    //     if(pair[0]==="city"||pair[0]==="street" || pair[0]==="number"|| pair[0]==="postcode"){
-    //       user.address[pair[0]]=pair[1]
-    //     }else{ user[pair[0]]=pair[1]};
-    // };
-  /*  axios({
+    const formData = new FormData(e.target);
+    let user = { address: {} };
+    for (let pair of formData) {
+      if (
+        pair[0] === "city" ||
+        pair[0] === "street" ||
+        pair[0] === "number" ||
+        pair[0] === "postcode"
+      ) {
+        user.address[pair[0]] = pair[1];
+      } else {
+        user[pair[0]] = pair[1];
+      }
+    }
+    /*  axios({
       method: "post",
       url: "",
       headers: {
@@ -106,9 +116,9 @@ export default function KgRegister() {
             onChange={grabValue}
           />
         </label>
-        <input type='submit' value='Next' />
+        <input type='submit' value='Next' className='next' />
         <Link to='/mregister'>
-          <input type='submit' value='Cancel' />
+          <input type='submit' value='Cancel' className='cancel' />
         </Link>
       </form>
     </div>
