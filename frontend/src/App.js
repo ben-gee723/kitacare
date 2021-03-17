@@ -9,11 +9,12 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar/>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -26,6 +27,8 @@ function App() {
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
       </Switch>
+      
+      <Footer/>
     </div>
   );
 }
