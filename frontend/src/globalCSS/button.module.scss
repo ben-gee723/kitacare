@@ -1,0 +1,44 @@
+.submit {
+  background-color: $primary-orange;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0.5rem;
+}
+
+.cancel {
+  background-color: $primary-green;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0.5rem;
+}
+
+.next {
+  background-color: $primary-blue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+}
+
+.att {
+  background-color: $primary-orange;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
