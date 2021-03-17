@@ -1,7 +1,7 @@
 const express=require("express")
 const router=express.Router()
-const {addKg}=require("../controllers/kgControllers/postControllers")
+const {addKgManager}=require("../controllers/kgControllers/postControllers")
 
-router.post("/",addKg)
+router.post("/register",addKgManager)
 
 module.exports=router

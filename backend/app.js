@@ -1,12 +1,14 @@
 const express = require("express")
 const mongoose=require("mongoose")
 const morgan = require("morgan")
+const cors=require("cors")
 //routes:
 const indexRoutes=require("./routes/indexRoute")
 const userRoutes=require("./routes/userRoutes")
 const kgRoutes=require("./routes/kgRoutes")
 //middleware:
 const app=express()
+app.use(cors())
 app.use(express.json())
 app.use(morgan("dev"))
 require('dotenv').config()
@@ -14,7 +16,7 @@ require('dotenv').config()
 //endpoints:
 app.use("/",indexRoutes)
 app.use("/users",userRoutes)
-app.use("/kgregister",kgRoutes)
+app.use("/kg",kgRoutes)
 
 //connection:
 mongoose.connect(process.env.MONGO_ATLAS,{useNewUrlParser:true,useUnifiedTopology:true})
