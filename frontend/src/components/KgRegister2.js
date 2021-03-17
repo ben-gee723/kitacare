@@ -42,7 +42,7 @@ export default function KgRegister2() {
           Kindergarten Name
           <input type='text' name='kgName' placeholder='Kindergarten Name' />
         </label>
-        <br/>
+        <br/><br/><br/>
         <label>
           Phone Number
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
