@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ManagerRegister2 from "./ManagerRegister";
+import ManagerRegister2 from "./ManagerRegister2";
 
 export default function KgRegister2() {
   const [data, setData] = useState({});
 
-  const submitForm = async(e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     let obj = { address: {} };
     for (let pair of formData) {
       if (
-        pair[0] === "city" ||
+        pair[0] === "city"   ||
         pair[0] === "street" ||
         pair[0] === "number" ||
         pair[0] === "postcode"
@@ -21,26 +21,23 @@ export default function KgRegister2() {
         obj[pair[0]] = pair[1];
       }
     }
-    console.log(e.target)
-    if(e.target.name==="kgForm"){
-      let kg={...obj};
-      return { kg };
-    }else{
-      let manager={...obj}
-      return { manager };
-    }
+    return obj
   }
+
   const submitKgForm=(e)=>{
+    e.preventDefault();
     let kgObj=submitForm(e)
     console.log(kgObj)
     setData({kg:kgObj})
   }
+
   return (
     <div>
-      <form onSubmit={(e)=>submitKgForm(e)} name="kgForm">
+      {!data.kg && 
+      <form onSubmit={submitKgForm} name="kgForm">
         <label>
           Kindergarten Name
-          <input type='text' name='kgName' placeholder='Kindergarten Name' />
+          <input type='text' name='name' placeholder='Kindergarten Name' />
         </label>
         <br/><br/><br/>
         <label>
@@ -60,10 +57,11 @@ export default function KgRegister2() {
           <input type='text' name='number' placeholder='Number' />
           <br/>
           <input type='text' name='city' placeholder='City' />
+          <input type='number' name='postcode' required placeholder='postcode' />
         </label>
         <br/>
         <input type='submit' value='Next' className='next' />
-      </form>
+      </form>}
       {data.kg && <ManagerRegister2 kg={data.kg} submitForm={submitForm}/> }
       <Link to='/home'>Back</Link>
     </div>
