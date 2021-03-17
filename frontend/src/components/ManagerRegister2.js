@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function ManagerRegister() {
+export default function ManagerRegister2(props) {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
@@ -10,24 +11,7 @@ export default function ManagerRegister() {
       }
   }, []);
 
-
-  const submitForm = async(e) =>  {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    let manager = { address: {} };
-    for (let pair of formData) {
-      if (
-        pair[0] === "city" ||
-        pair[0] === "street" ||
-        pair[0] === "number" ||
-        pair[0] === "postcode"
-      ) {
-        manager.address[pair[0]] = pair[1];
-      } else {
-        manager[pair[0]] = pair[1];
-      }
-    }
-    await setFormData({ ...formData, manager: manager });
+  const sendData=()=>{
     let url = "";
     if(props.kg){
         url = "/kg/register"
@@ -35,63 +19,76 @@ export default function ManagerRegister() {
         url = "/users/managers"
     }
     axios({
-        method: "post",
-        url: url,
-        headers: {
-          "Accept" : "application/json",
-          "Content-Type": "application/json",
-        },
-        body:formData
+      method: "post",
+      url: url,
+      headers: {
+        "Accept" : "application/json",
+        "Content-Type": "application/json",
+      },
+      body: formData,
+    })
+      .then(response => {
+        if (response.success) {
+          console.log(response.user);
+          // props.history.push("/mregister")
+        } else {
+          console.log(response);
+        }
       })
-        .then(response => {
-          if (response.success) {
-            console.log(response.manager); // if success redirect to the manager profile.
-          } else {
-            console.log(response); // deal with the error
-          }
-        })
-        .catch(err => console.log(err)); // show the error to the user
-    };
+      .catch(err => console.log(err)); 
+  }
+
+  const submitManagerForm=async(e)=>{
+    let managerObj=props.submitForm(e);
+    await setFormData({...formData,manager:managerObj})
+    sendData()
+  }
+
   return (
     <div>
-      <form onSubmit={submitForm}>
+      <form onSubmit={(e)=>submitManagerForm(e)} name="managerForm">
         <label>
           First Name
           <input type='text' name='firstName' placeholder='First Name' />
         </label>
+        <br/>
         <label>
           Last Name
           <input type='text' name='lastName' required placeholder='Last Name' />
         </label>
+        <br/>
         <label>
           Birthday
           <input type='date' name='birthday' placeholder='Birthday' />
         </label>
+        <br/>
         <label>
           Phone Number
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </label>
+        <br/>
         <label>
           Email
           <input type='email' name='email' required placeholder='E-mail' />
         </label>
+        <br/>
         <label>
           Address
           <input type='text' name='street' placeholder='Street' />
+          <br/>
           <input type='text' name='number' placeholder='Number' />
+          <br/>
           <input type='text' name='city' placeholder='City' />
         </label>
-     
+        <br/>
         <label>
           Password
           <input type='password' name='password' placeholder='Password' />
         </label>
+        <br/>
         <input type='submit' value='Register' />
-
       </form>
-      <Link to='/'>
-          <input type='submit' value='Cancel' />
-        </Link>
+      <Link to='/'>Back</Link>
     </div>
   );
 }

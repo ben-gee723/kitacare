@@ -11,9 +11,6 @@ export default function Register() {
       <Link to='/tregister'>
         <p>Register as Teacher</p>
       </Link>
-      <Link to='/mregister'>
-        <p>Register as Manager</p>
-      </Link>
     </div>
   );
 }

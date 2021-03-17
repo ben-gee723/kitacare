@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import ManagerRegister2 from "./ManagerRegister";
 
 export default function KgRegister2() {
   const [data, setData] = useState({});
 
-  const submitForm = e => {
+  const submitForm = async(e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    let kg = { address: {} };
+    let obj = { address: {} };
     for (let pair of formData) {
       if (
         pair[0] === "city" ||
@@ -17,67 +16,56 @@ export default function KgRegister2() {
         pair[0] === "number" ||
         pair[0] === "postcode"
       ) {
-        kg.address[pair[0]] = pair[1];
+        obj.address[pair[0]] = pair[1];
       } else {
-        kg[pair[0]] = pair[1];
+        obj[pair[0]] = pair[1];
       }
     }
-    setData({ kg: kg });
-     axios({
-      method: "post",
-      url: "",
-      headers: {
-        "Accept" : "application/json",
-        "Content-Type": "application/json",
-      },
-      data: {
-        kgName: e.target.elements.kgName,
-        phoneNumber: e.target.elements.phoneNumber,
-        email: e.target.elements.email,
-        street: e.target.elements.street,
-        number: e.target.elements.number,
-        city: e.target.elements.city,
-        postcode: e.target.elements.postcode,
-      },
-    })
-      .then(response => {
-        if (response.success) {
-          console.log(response.user);
-          // props.history.push("/mregister")
-        } else {
-          console.log(response);
-        }
-      })
-      .catch(err => console.log(err)); 
-  };
-
+    console.log(e.target)
+    if(e.target.name==="kgForm"){
+      let kg={...obj};
+      return { kg };
+    }else{
+      let manager={...obj}
+      return { manager };
+    }
+  }
+  const submitKgForm=(e)=>{
+    let kgObj=submitForm(e)
+    console.log(kgObj)
+    setData({kg:kgObj})
+  }
   return (
     <div>
-      <form onSubmit={submitForm}>
+      <form onSubmit={(e)=>submitKgForm(e)} name="kgForm">
         <label>
           Kindergarten Name
           <input type='text' name='kgName' placeholder='Kindergarten Name' />
         </label>
+        <br/>
         <label>
           Phone Number
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </label>
+        <br/>
         <label>
           Email
           <input type='email' name='email' required placeholder='E-mail' />
         </label>
+        <br/>
         <label>
           Address
           <input type='text' name='street' placeholder='Street' />
+          <br/>
           <input type='text' name='number' placeholder='Number' />
+          <br/>
           <input type='text' name='city' placeholder='City' />
         </label>
+        <br/>
         <input type='submit' value='Next' className='next' />
-        <Link to='/mregister'>
-          <input type='text' value='Cancel' className='cancel' />
-        </Link>
       </form>
-      {data.kg && <ManagerRegister2 kg={data.kg}/> }
+      {data.kg && <ManagerRegister2 kg={data.kg} submitForm={submitForm}/> }
+      <Link to='/home'>Back</Link>
     </div>
   );
 }
