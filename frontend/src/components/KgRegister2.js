@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ManagerRegister2 from "./ManagerRegister";
 
-export default function KgRegister() {
+export default function KgRegister2() {
   const [data, setData] = useState({});
-
-  const [user, setUser] = useState({
-    kgName: "",
-    phoneNumber: "",
-    email: "",
-    street: "",
-    number: "",
-    city: "",
-    postcode: "",
-  });
 
   const submitForm = e => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    let user = { address: {} };
+    let kg = { address: {} };
     for (let pair of formData) {
       if (
         pair[0] === "city" ||
@@ -26,12 +17,13 @@ export default function KgRegister() {
         pair[0] === "number" ||
         pair[0] === "postcode"
       ) {
-        user.address[pair[0]] = pair[1];
+        kg.address[pair[0]] = pair[1];
       } else {
-        user[pair[0]] = pair[1];
+        kg[pair[0]] = pair[1];
       }
     }
-    /*  axios({
+    setData({ kg: kg });
+     axios({
       method: "post",
       url: "",
       headers: {
@@ -56,11 +48,7 @@ export default function KgRegister() {
           console.log(response);
         }
       })
-      .catch(err => console.log(err)); */
-  };
-
-  const grabValue = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+      .catch(err => console.log(err)); 
   };
 
   return (
@@ -68,58 +56,28 @@ export default function KgRegister() {
       <form onSubmit={submitForm}>
         <label>
           Kindergarten Name
-          <input
-            type='text'
-            name='kgName'
-            placeholder='Kindergarten Name'
-            onChange={grabValue}
-          />
+          <input type='text' name='kgName' placeholder='Kindergarten Name' />
         </label>
         <label>
           Phone Number
-          <input
-            type='text'
-            name='phoneNumber'
-            placeholder='Phone Number'
-            onChange={grabValue}
-          />
+          <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </label>
         <label>
           Email
-          <input
-            type='email'
-            name='email'
-            required
-            placeholder='E-mail'
-            onChange={grabValue}
-          />
+          <input type='email' name='email' required placeholder='E-mail' />
         </label>
         <label>
           Address
-          <input
-            type='text'
-            name='street'
-            placeholder='Street'
-            onChange={grabValue}
-          />
-          <input
-            type='text'
-            name='number'
-            placeholder='Number'
-            onChange={grabValue}
-          />
-          <input
-            type='text'
-            name='city'
-            placeholder='City'
-            onChange={grabValue}
-          />
+          <input type='text' name='street' placeholder='Street' />
+          <input type='text' name='number' placeholder='Number' />
+          <input type='text' name='city' placeholder='City' />
         </label>
         <input type='submit' value='Next' className='next' />
         <Link to='/mregister'>
-          <input type='submit' value='Cancel' className='cancel' />
+          <input type='text' value='Cancel' className='cancel' />
         </Link>
       </form>
+      {data.kg && <ManagerRegister2 kg={data.kg}/> }
     </div>
   );
 }
