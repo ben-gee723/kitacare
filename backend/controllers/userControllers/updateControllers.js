@@ -1,6 +1,5 @@
 const UserModel=require("../../model/userModel")
 
-//working
 exports.updateTeacher = async(req,res,next)=>{
   const { id } = req.params;
   try{
@@ -16,12 +15,11 @@ exports.updateTeacher = async(req,res,next)=>{
 exports.updateManager = async(req,res,next)=>{
   const { id } = req.params;
   try{
-  
-  let manager = await UserModel.findById( id )
-  if(teacher){
-    res.send( {success:true,teacher:teacher} )
+  let updatedManager = await UserModel.findByIdAndUpdate( id,req.body,{new:true} )
+  if(updatedManager){
+    res.send( {success:true,updatedManager:updatedManager} )
   }else{
-    res.status(400).send({success:false,message:"no matching teacher found"})
+    res.status(400).send({success:false,message:"no matching manager found"})
   }
   }catch(err){next(err)}
 }
