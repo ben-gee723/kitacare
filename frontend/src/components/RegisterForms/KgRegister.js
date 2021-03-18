@@ -1,33 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ManagerRegister from "./ManagerRegister";
+import {submitForm } from "../../logic/registerLogic";
 
 export default function KgRegister() {
   const [data, setData] = useState({});
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    let obj = { address: {} };
-    for (let pair of formData) {
-      if (
-        pair[0] === "city"   ||
-        pair[0] === "street" ||
-        pair[0] === "number" ||
-        pair[0] === "postcode"
-      ) {
-        obj.address[pair[0]] = pair[1];
-      } else {
-        obj[pair[0]] = pair[1];
-      }
-    }
-    return obj
-  }
-
   const submitKgForm=(e)=>{
     e.preventDefault();
     let kgObj=submitForm(e)
-    console.log(kgObj)
     setData({kg:kgObj})
   }
 
@@ -63,7 +44,7 @@ export default function KgRegister() {
         <Link to='/'><button className="cancel">Cancel</button></Link>
         <input type='submit' value='Next' className='next' />
       </form>}
-      {data.kg && <ManagerRegister kg={data.kg} submitForm={submitForm}/> }
+      {data.kg && <ManagerRegister kg={data.kg}/> }
     </div>
   );
 }

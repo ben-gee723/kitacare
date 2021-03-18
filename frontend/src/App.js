@@ -1,5 +1,4 @@
 import { Route, Link, Switch, withRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
@@ -12,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
 
 function App() {
+
   return (
     <div className='App'>
       <Navbar />
@@ -23,9 +23,9 @@ function App() {
           <Home />
         </Route>
         <Route exact path='/register' component={Register} />
-        <Route path='/kgregister' component={KgRegister} />
-        <Route path='/tregister' component={TeacherRegister} />
-        <Route path='/mregister' component={ManagerRegister} />
+        <Route path='/kgregister' component={KgRegister}/>
+        <Route path='/mregister' component={ManagerRegister}/>
+        <Route path='/tregister' component={TeacherRegister}/>
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
