@@ -1,4 +1,4 @@
-const KgModel = require("../../model/KgModel")
+const KgModel = require("../../model/kgModel")
 
 //users/managers or /users/teachers
 exports.addKg = async(req,res,next)=>{

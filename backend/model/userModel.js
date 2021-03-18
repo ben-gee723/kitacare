@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 const {Schema}=require("mongoose")
-const AddressSchema=require("./adressSchema")
+const AddressSchema=require("./addressSchema")
 
 const userSchema=new Schema({
   firstName:  {type:String,required:true},
