@@ -1,7 +1,7 @@
 import { Route, Link, Switch, withRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./components/Home";
-import Register from "./components/Register";
+import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";

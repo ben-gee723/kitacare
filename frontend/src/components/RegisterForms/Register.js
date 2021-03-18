@@ -10,14 +10,9 @@ export default function Register() {
         <button className="att">Register a Kindergarten</button>
       </Link>
       <Link to='/tregister'>
-<<<<<<< HEAD:frontend/src/components/RegisterForms/Register.js
         <button className="att">Register as Teacher</button>
       </Link>
       </div>
-=======
-        <p>Register as Teacher</p>
-      </Link>
->>>>>>> origin/develop:frontend/src/components/Register.js
     </div>
   );
 }
