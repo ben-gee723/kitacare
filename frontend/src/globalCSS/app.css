@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.submit {
+  background-color: #FF4E13;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.cancel {
+  background-color: #00A881;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.next {
+  background-color: #0C8DA8;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.submit {
+  background-color: #FF4E13;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.cancel {
+  background-color: #00A881;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.next {
+  background-color: #0C8DA8;
+  border-radius: 0.75rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+/*# sourceMappingURL=app.css.map */

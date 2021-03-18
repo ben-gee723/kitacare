@@ -42,5 +42,15 @@ ChildSchema.pre("validate", function (next) {
     next(error)
 })
 
+ChildSchema.pre("validate", function (next) {
+    if (this.emergencyContact !== 0) {
+        return next()
+    }
+    const error = new Error("please provide us with emergency contact details")
+    next(error)
+})
+
 const ChildModel = mongoose.model("children", ChildSchema)
+
 module.exports = ChildModel;
+
