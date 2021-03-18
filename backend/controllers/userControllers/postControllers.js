@@ -1,4 +1,5 @@
 const UserModel = require("../../model/userModel")
+//think about having only addUser and having role field in req.body 
 
 //users/teachers
 //avaliable to manager role
@@ -6,9 +7,9 @@ exports.addTeacher = async(req,res,next)=>{
   try{
       const teacher = await UserModel.create({
         ...req.body,
-        role:"Teacher"
+        role:"Teacher",
       });
-      // add kg and from frontend?
+      // add kg and from frontend? //get it from token!!
       //not send the whole user, select the keys you dont want to send back in response!
       res.send({success:true,teacher:teacher,message:"teacher saved into db"})
   }catch(err){next(err)}
