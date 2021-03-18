@@ -97,9 +97,9 @@ export default function ManagerRegister2(props) {
           <input type='password' name='password' placeholder='Password' required />
         </label>
         <br/>
+        <Link to='/'><button className="cancel">Cancel</button></Link>
         <input type='submit' value='Register' />
       </form>
-      <Link to='/'>Back</Link>
     </div>
   );
 }

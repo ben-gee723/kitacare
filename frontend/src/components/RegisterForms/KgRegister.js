@@ -60,10 +60,10 @@ export default function KgRegister2() {
           <input type='number' name='postcode' required placeholder='postcode' />
         </label>
         <br/>
+        <Link to='/'><button className="cancel">Cancel</button></Link>
         <input type='submit' value='Next' className='next' />
       </form>}
       {data.kg && <ManagerRegister kg={data.kg} submitForm={submitForm}/> }
-      <Link to='/'>Cancel</Link>
     </div>
   );
 }
