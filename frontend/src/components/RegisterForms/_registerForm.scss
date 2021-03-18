@@ -1,29 +1,48 @@
 @import "../../globalCSS/variables";
-.fcontainer {
-  width: 80%;
-  height: 50vh;
-  margin: 0 auto;
+
+.kgRegForm {
   display: flex;
-  flex-flow: column nowrap;
+  height: 100vh;
   justify-content: center;
-  h1 {
-    color: $primary-blue;
-    font-weight: 700;
-    font-size: 3rem;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  .inputcontainer{
-      display: block;
-      flex-flow: column nowrap;
-    label {
-        margin: 0 auto;
-        text-align: left;
-        color: $dark;
-      }
-  }
-  .btnform {
-    margin: 0 auto;
-    padding: 2rem;
-  }
+  align-items: center;
+}
+
+.fcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  color:$primary-blue;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.input-box {
+margin-top: 10px;
+}
+
+.cancel {
+  margin-right: 5px;
+}
+
+input::placeholder {
+ padding: 5px;
+}
+
+.address {
+  margin-top: 20px;
+}
+
+.kginfo {
+  margin-top: 20px;
+}
+
+.kgReg {
+  margin-top: 100px;
+  color: $primary-blue;
 }

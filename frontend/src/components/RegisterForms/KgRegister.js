@@ -32,36 +32,51 @@ export default function KgRegister() {
   }
 
   return (
-    <div>
+    <div className='kgRegForm'>      
       {!data.kg && 
       <form onSubmit={submitKgForm} name="kgForm">
-        <label>
-          Kindergarten Name
-          <input type='text' name='name' placeholder='Kindergarten Name' />
-        </label>
-        <br/><br/><br/>
-        <label>
-          Phone Number <br/>
-          <input type='text' name='phoneNumber' placeholder='Phone Number' />
-        </label>
-        <br/>
-        <label>
-          Email <br/>
-          <input type='email' name='email' required placeholder='E-mail' />
-        </label>
-        <br/>
-        <label>
-          Address <br/>
-          <input type='text' name='street' placeholder='Street' />
-          <br/>
+
+      <div className="kgReg">
+        <h1>Register Kindergarten!</h1>
+      </div>
+      
+      <div>
+      <div className='kginfo'>
+        <h3>Information we need:</h3>
+      </div>
+        <div className='input-box'>
+          <label className='details'>Kindergarten name</label><br/>
+          <input type="text" name='name' placeholder='Kindergarten Name'/>
+        </div>
+        <div className='input-box'> 
+          <label className='details'>Phone number</label><br/>
+          <input type="text" name='phoneNumber' placeholder='Phone Number'/>
+        </div>
+        <div className='input-box'>
+          <label className='details'>Email</label><br/>
+          <input type="email" name='email' placeholder='E-mail'/>
+        </div>
+        <div className='address'><h3>Address:</h3></div>
+        <div className='input-box'>
+          <label className='details'>Street</label><br/>
+          <input type='text' name='street' placeholder='Street'/>
+        </div>
+        <div className='input-box'>
+          <label className='details'>Number</label><br/>
           <input type='text' name='number' placeholder='Number' />
-          <br/>
+        </div>
+        <div className='input-box'>
+          <label className='details'>City</label><br/>
           <input type='text' name='city' placeholder='City' />
-          <input type='number' name='postcode' required placeholder='postcode' />
-        </label>
+        </div>
+        <div className='input-box'>
+          <label className='details'>Post code</label><br/>
+          <input type='number' name='postcode' required placeholder='Postcode' />
+        </div>
         <br/>
         <Link to='/'><button className="cancel">Cancel</button></Link>
-        <input type='submit' value='Next' className='next' />
+        <button type='submit' value='Next' className='next'>Next</button>
+      </div>
       </form>}
       {data.kg && <ManagerRegister kg={data.kg} submitForm={submitForm}/> }
     </div>
