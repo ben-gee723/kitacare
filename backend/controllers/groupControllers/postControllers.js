@@ -1,14 +1,13 @@
-const GroupData = require("../../model/groupModel")
+const GroupModel = require("../../model/groupModel")
 
 // addGroup
 exports.addGroup = async (req, res, next) => {
     try {
-        const group = new GroupData(req.body)
+        const group = await GroupModel(req.body)
         group.save()
-        res.status(200).send({ success: true, group: group })
+        res.status(200).send({ success: true, group: group, message: "group saved into db" })
     }
     catch (err) {
-        console.log(err.message)
-        next()
+        next(err)
     }
 }

@@ -9,7 +9,7 @@ exports.getAllGroups = async (req, res, next) => {
             res.status(200).send({ succuess: true, allGroups: allGroups })
         }
         else {
-            res.status(200).send({ succuess: false, message: "No groups found" })
+            res.status(200).send({ succuess: false, message: "No groups found in db" })
         }
     } catch (err) {
         next(err)
@@ -23,21 +23,14 @@ exports.getGroupChidren = async (req, res, next) => {
     try {
         let groupChildren = await GroupModel.findById(id).select("-_id -__v");
 
-        // OR
-        // select("groupName")
-
         if (groupChildren) {
             res.status(200).send({ succuess: true, groupChildren: groupChildren })
         }
         else {
-            res.status(404).send("No such group found with that Id")
+            res.status(404).send("No groups found with that id in db")
         }
 
     } catch (err) {
         next(err)
     }
-}
-
-exports.getGroupTeachers = async (req, res, next) => {
-    let groupTeachers = await GroupData.findById(id).select("teachers");
 }

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 
+// NEEDS CHECK
 // group/classroom of children
 const GroupSchema = new Schema({
     groupName: { type: String, required: true },
@@ -16,6 +17,7 @@ const GroupSchema = new Schema({
     teachers: [{
         ref: "users", type:
             mongoose.Schema.Types.ObjectId
+
     }]
 })
 

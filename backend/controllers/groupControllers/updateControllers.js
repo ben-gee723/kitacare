@@ -6,9 +6,13 @@ exports.udpateGroup = async (req, res, next) => {
         const updatedGroup = await GroupDate.findByIdAndUpdate(id, req.body, {
             new: true,
         });
-        res.status(200).send({ success: true, updatedGroup: updatedGroup })
+        if (updatedGroup) {
+            res.status(200).send({ success: true, updatedGroup: updatedGroup })
+        } else {
+            res.status(400).send({ success: false, message: "no matching group found" })
+        }
     }
     catch (err) {
-        next()
+        next(er)
     }
 }
