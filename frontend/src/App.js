@@ -10,6 +10,7 @@ import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
+import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       <Navbar />
       <Link to='/register'>
         <li>Register</li>
+      </Link>
+      <Link to='/calendar'>
+        <li>Calendar</li>
       </Link>
       <Switch>
         <Route exact path='/'>
@@ -28,6 +32,7 @@ function App() {
         <Route path='/mregister' component={ManagerRegister} />
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
+        <Route path="/calendar" component={Calendar} />
         <Route component={NotFound} />
       </Switch>
     </div>

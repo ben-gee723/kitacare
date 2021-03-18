@@ -1,0 +1,159 @@
+@import "../../globalCSS/variables";
+
+.icon {
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  color: $primary-blue;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.row-middle {
+  align-items: center;
+}
+.column {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+.month {
+  margin-left: 1.15rem;
+}
+
+.calendar {
+  display: block;
+  position: relative;
+  width: 25%;
+  background: $light;
+  border: 0.05rem solid $primary-blue;
+  height: auto;
+  margin: 0 auto;
+}
+.calendar .header {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 1.5em 0;
+  border-bottom: 0.05rem solid $primary-blue;
+}
+.calendar .header .icon {
+  cursor: pointer;
+  transition: 0.15s ease-out;
+}
+.calendar .header .icon:hover {
+  transform: scale(1.25);
+  transition: 0.25s ease-out;
+  color: $primary-orange;
+}
+.calendar .header .icon:first-of-type {
+  margin-left: 3.75em;
+}
+.calendar .header .icon:last-of-type {
+  margin-right: 2em;
+}
+.calendar .days {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+  color: $dark;
+  font-size: 0.5rem;
+  padding: 0.75em 0;
+  border-bottom: 0.05rem solid $primary-blue;
+}
+.calendar .body .cell {
+  position: relative;
+  height: 4em;
+  border-right: 0.05rem solid $primary-lightblue;
+  overflow: hidden;
+  cursor: pointer;
+  background: $light;
+  transition: 0.25s ease-out;
+}
+.calendar .body .cell:hover {
+  transition: 0.5s ease-out;
+}
+
+.calendar .body .row {
+  border-bottom: 0.05rem solid $secondary-blue;
+}
+.calendar .body .row:last-child {
+  border-bottom: none;
+}
+.calendar .body .cell:last-child {
+  border-right: none;
+}
+.calendar .body .cell .number {
+  position: absolute;
+  font-size: 0.85rem;
+  line-height: 1;
+  top: 0.75em;
+  right: 0.75em;
+  font-weight: 700;
+}
+.calendar .body .cell:hover .number,
+.calendar .body .selected .number {
+  visibility: hidden;
+}
+.calendar .body .disabled {
+  color: $light-gray;
+  pointer-events: none;
+}
+.calendar .body .cell .bg {
+  font-weight: 700;
+  line-height: 1;
+  color: $primary-orange;
+  opacity: 0;
+  font-size: 2em;
+  position: absolute;
+  top: 0;
+  right: 0.07em;
+  transition: 0.25s ease-out;
+  letter-spacing: -0.07em;
+}
+.calendar .body .cell:hover .bg,
+.calendar .body .selected .bg {
+  opacity: 0.7;
+  transition: 0.5s ease-in;
+}
+.calendar .body .column {
+  flex-grow: 0;
+  flex-basis: calc(100% / 7);
+  width: calc(100% / 7);
+}
+
+/* Iphone + Android */
+@media only screen and (max-width: 46rem) {
+  .calendar {
+    width: 80%;
+  }
+
+  .calendar .body .cell {
+    height: 2.5em;
+  }
+
+  .month {
+    margin-left: 0.05rem;
+    font-size: 1rem;
+  }
+  .calendar .header .icon:first-of-type {
+    margin-left: 2.75em;
+  }
+  .calendar .header .icon:last-of-type {
+    margin-right: 1em;
+  }
+  .calendar .days {
+    font-size: 0.2rem;
+
+  }
+}
