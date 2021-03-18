@@ -8,6 +8,7 @@ const userSchema=new Schema({
   address:    {type:AddressSchema,required:true},
   phoneNumber:{type:String,required:true},
   email:      {type:String,required:true},
+  //decide!!!
   kg:         {ref:"kindergardens",type:Schema.Types.ObjectId,required:false},
   groupName:  {type:String,required:false},
   birthday:   { type: Date,

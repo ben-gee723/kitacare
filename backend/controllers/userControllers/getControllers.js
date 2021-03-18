@@ -1,5 +1,6 @@
 const UserModel=require("../../model/userModel")
 
+//working
 exports.getManagers=async(req,res,next)=>{
   try{
   let managers=await UserModel.find({role:"Manager"})
@@ -8,10 +9,11 @@ exports.getManagers=async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
+//working
 exports.getManager = async(req,res,next)=>{
   try{
   const { id } = req.params;
-  let manager = await UserModel.findById(id)   // "message": "Cast to ObjectId failed for value \"123\" at path \"_id\" for model \"users\"
+  let manager = await UserModel.findById(id)
   if(manager){
     res.send({success:true,manager:manager})
   }else{
@@ -20,6 +22,7 @@ exports.getManager = async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
+//working
 exports.getTeachers = async(req,res,next)=>{
   try{
   let teachers = await UserModel.find({role:"Teacher"})
@@ -31,17 +34,15 @@ exports.getTeachers = async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
+//working
 exports.getTeacher = async(req,res,next)=>{
   const { id } = req.params;
-    console.log(id);
   try{
   
-
   let teacher = await UserModel.findById( id )
   if(teacher){
     res.send( {success:true,teacher:teacher} )
   }else{
-    console.log("rendering")
     res.status(400).send({success:false,message:"no matching teacher found"})
   }
   }catch(err){next(err)}
