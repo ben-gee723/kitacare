@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ManagerRegister from "./ManagerRegister";
 
-export default function KgRegister2() {
+export default function KgRegister() {
   const [data, setData] = useState({});
 
   const submitForm = (e) => {

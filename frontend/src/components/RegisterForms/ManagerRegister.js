@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function ManagerRegister2(props) {
+export default function ManagerRegister(props) {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function ManagerRegister2(props) {
         "Accept" : "application/json",
         "Content-Type": "application/json",
       },
-      data: formData,
+      data: bodyObj,
     })
       .then(response => {
         if (response.data.success) {
