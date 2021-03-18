@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -11,57 +11,101 @@ ul {
   text-decoration: none;
 }
 
+.lg img {
+  width: 5%;
+  height: 5%;
+}
+
+.fcontainer {
+  width: 80%;
+  height: 50vh;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fcontainer h1 {
+  color: #0C8DA8;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.fcontainer .inputcontainer {
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.fcontainer .inputcontainer label {
+  margin: 0 auto;
+  text-align: left;
+  color: #423F40;
+}
+
+.fcontainer .btnform {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+html body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #FDFEFF;
+}
+
 .submit {
   background-color: #FF4E13;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   color: #FDFEFF;
   text-align: center;
   text-decoration: none;
   font-size: 1.15rem;
+  border: none;
+  padding: 0.5rem;
 }
 
 .cancel {
   background-color: #00A881;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   color: #FDFEFF;
   text-align: center;
   text-decoration: none;
   font-size: 1.15rem;
+  border: none;
+  padding: 0.5rem;
 }
 
 .next {
   background-color: #0C8DA8;
-  border-radius: 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
   color: #FDFEFF;
   text-align: center;
   text-decoration: none;
   font-size: 1.15rem;
+  padding: 0.5rem;
 }
 
-.submit {
+.att {
   background-color: #FF4E13;
-  border-radius: 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
   color: #FDFEFF;
   text-align: center;
   text-decoration: none;
   font-size: 1.15rem;
-}
-
-.cancel {
-  background-color: #00A881;
-  border-radius: 0.75rem;
-  color: #FDFEFF;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.15rem;
-}
-
-.next {
-  background-color: #0C8DA8;
-  border-radius: 0.75rem;
-  color: #FDFEFF;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.15rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 /*# sourceMappingURL=app.css.map */

@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 
 export default function Register() {
   return (
-    <div>
+    <div className="fcontainer">
       <h1>Choose your Account!</h1>
+      <div className="btnform">
       <Link to='/kgregister'>
-        <p>Register a Kindergarten</p>
+        <button className="att">Register a Kindergarten</button>
       </Link>
       <Link to='/tregister'>
-        <p>Register as Teacher</p>
+        <button className="att">Register as Teacher</button>
       </Link>
+      </div>
     </div>
   );
 }
