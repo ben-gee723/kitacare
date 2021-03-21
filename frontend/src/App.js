@@ -10,6 +10,7 @@ import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
+import Footer from "./components/Footer/index"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
       </Switch>
+      <Footer/>
       
       
     </div>

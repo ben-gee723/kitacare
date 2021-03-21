@@ -3,13 +3,13 @@
 display: flex;
 flex-wrap: wrap;
   img {
-      width: 4rem;
-      height: 4rem;
+      width: 3rem;
+      height: 3rem;
   }
 }
 .kita {
   color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -20,7 +20,7 @@ flex-wrap: wrap;
   font-family:Helvetica;
     padding: 0 0.5rem;
     background: #0d0909;
-    height: 70px;
+    height: 55px;
     display: flex;
     flex-wrap:wrap;
     justify-content: space-between;
@@ -35,6 +35,7 @@ flex-wrap: wrap;
   flex-wrap:wrap;
   align-items:center;
   color: white;
+  
 }
 
 .loginbtn { 
@@ -49,6 +50,7 @@ flex-wrap: wrap;
     display: flex;
     align-items: center;
     border-radius:5px;
+
 
     &:hover {
         background: #85d1ff;

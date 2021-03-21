@@ -1,8 +1,7 @@
 @import "../../globalCSS/variables";
 
-.kgRegForm {
+.regForm {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -11,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   flex-direction: column;
   color:$primary-blue;
 }
@@ -24,11 +23,10 @@ input {
 
 .input-box {
 margin-top: 10px;
+align-items: center;
 }
 
-.cancel {
-  margin-right: 5px;
-}
+
 
 input::placeholder {
  padding: 5px;
@@ -38,11 +36,11 @@ input::placeholder {
   margin-top: 20px;
 }
 
-.kginfo {
+.regInfo {
   margin-top: 20px;
 }
 
-.kgReg {
+.reg {
   margin-top: 100px;
   color: $primary-blue;
 }

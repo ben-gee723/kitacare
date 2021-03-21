@@ -16,10 +16,10 @@ export default function Navbar() {
             
             <div className='navbtn'>
                 <Link to='/register'>
-                  <button className="regbtn">Register</button>
+                  <button className="submit">Register</button>
                 </Link>
                 <Link to='/login'>
-                  <button className="loginbtn">Login</button>
+                  <button className="login">Login</button>
                 </Link>
             </div>
         </div>              

@@ -7,10 +7,39 @@
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: black;
+    transition: 0.2 ease-out;
+    border:1px  solid $primary-orange;
+    cursor: pointer;
+    color: $primary-orange;
+  }
 }
 
+.login {
+  background-color: $primary-blue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+
+  &:hover {
+    background: black;
+    transition: 0.2 ease-out;
+    border:1px  solid $primary-blue;
+    cursor: pointer;
+    color: $primary-blue;
+  }
+}
+
+
 .cancel {
-  background-color: $primary-green;
+  background-color: $dark;
   border-radius: 0.25rem;
   color: $light;
   text-align: center;
@@ -18,6 +47,15 @@
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: white;
+    transition: 0.2 ease-out;
+    border:1px  solid $dark;
+    cursor: pointer;
+    color: $dark;
+  }
 }
 
 .next {
@@ -29,6 +67,14 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
+
+  &:hover {
+    background: white;
+    transition: 0.2 ease-out;
+    border:1px  solid $primary-blue;
+    cursor: pointer;
+    color: $primary-blue;
+  }
 }
 
 .att {
@@ -40,5 +86,13 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: white;
+    transition: 0.2 ease-out;
+    border:1px  solid $primary-orange;
+    cursor: pointer;
+    color: $primary-orange;
+  }
 }

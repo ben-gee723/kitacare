@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter} from 'react-icons/fa'
-import { FooterContainer, FooterWrap, SocialMedia, SocialMediaWrap, SocialLogo, SocialIcons, SocialIconLink} from './FooterElements'
+import { Img, FooterContainer, FooterWrap, SocialMedia, SocialMediaWrap, SocialLogo, SocialIcons, SocialIconLink} from './FooterElements'
 import {animateScroll as scroll} from 'react-scroll'
+import logo from "../../images/logo.svg";
 
 const Footer = () => {
 
@@ -14,7 +15,9 @@ const Footer = () => {
             <FooterWrap>
                 <SocialMedia>
                     <SocialMediaWrap>
-                        <SocialLogo to='/' onClick={toggleHome}>KitaCare</SocialLogo>
+                    
+                        <SocialLogo to='/' onClick={toggleHome} >
+                        <Img src={logo} alt='lg' />KitaCare</SocialLogo>
                         <SocialIcons>
 
                             <SocialIconLink href='/' target='_blank' aria-label='Facebook' rel='noopenernoreferrer'>

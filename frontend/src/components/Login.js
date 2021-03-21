@@ -14,33 +14,26 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login!</h1>
+    <div className='fcontainer'>
       <form onSubmit={submitForm}>
-        <label>
-          Email
-          <input
-            type='email'
-            name='email'
-            required
-            placeholder='E-mail'
-            onChange={grabValue}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type='password'
-            name='password'
-            required
-            placeholder='Password'
-            onChange={grabValue}
-          />
-        </label>
-        <input type='submit' value='Login' />
-        <Link to='/'>
-          <input type='submit' value='Cancel' />
-        </Link>
+        <div className="reg">
+            <h1>Login to your account!</h1>
+        </div> 
+
+        <div className='input-box'>
+          <label className='details'>E-mail</label><br/>
+          <input type='email' name='email' placeholder='E-mail' onChange={grabValue}/>
+        </div>
+
+        <div className='input-box'>
+          <label className='details'>Password</label><br/>
+          <input type='password' name='password' placeholder='Password' onChange={grabValue}/>
+        </div>
+
+        <br/>
+
+        <Link to='/'><button className="cancel">Cancel</button></Link>
+        <button type='submit' value='Login' className='next'>Login</button>
       </form>
     </div>
   );

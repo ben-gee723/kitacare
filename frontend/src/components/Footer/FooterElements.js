@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.footer`
     background-color: #0d0909;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin-top: 5rem;
+    padding:0.5rem;
 `;
 
 export const FooterWrap = styled.div`
-    padding: 16px 24px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 1300px;
-    margin: 0 auto;
     
 `;
 
@@ -28,13 +29,17 @@ export const SocialMediaWrap = styled.div`
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
-    margin: 16px auto 0 auto;
-    border-radius: 50;
+   
 
     @media screen and (max-width: 820px) {
         flex-direction: column;
     }
 `;
+
+export const Img = styled.img`
+    width: 3rem;
+    height: 3rem;
+`
 
 export const SocialLogo = styled(Link)`
     color: #fff;
@@ -44,7 +49,6 @@ export const SocialLogo = styled(Link)`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
     font-weight: bold;
 `;
 
