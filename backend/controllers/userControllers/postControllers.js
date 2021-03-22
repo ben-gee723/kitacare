@@ -5,14 +5,14 @@ const UserModel = require("../../model/userModel")
 //avaliable to manager role
 exports.addTeacher = async(req,res,next)=>{
       const {firstName,lastName}=req.body
-      UserModel.findOne({firstName:firstName,lastName:lastName})
+      await UserModel.findOne({firstName:firstName,lastName:lastName})
       .then((teacher)=>{
         if(!teacher){
-        await UserModel.create({
+        UserModel.create({
         ...req.body,
         role:"Teacher",
         });
-        res.send({success:true,teacher:teacher,message:"teacher saved into db"})
+        res.send({success:true,message:"teacher saved into db"})
         }else{
           res.status(400).send({successs:false,message:"teacher already exists in db"})
         }
