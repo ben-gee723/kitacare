@@ -8,7 +8,7 @@ import {
   addDays,
   isSameMonth,
   isSameDay,
-  parse,
+  toDate,
   addMonths,
   subMonths,
 } from "date-fns";
@@ -82,7 +82,7 @@ export default function Calendar() {
                 : ""
             }`}
             key={day}
-            onClick={() => onDateClick(parse(cloneDay))}
+            onClick={() => onDateClick(toDate(cloneDay))}
           >
             <span className='number'>{formattedDate}</span>
             <span className='bg'>{formattedDate}</span>

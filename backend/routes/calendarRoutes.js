@@ -14,11 +14,11 @@ const {
   putUpdateEvent,
 } = require("../controllers/calendarControllers/putControllers");
 
-router.get("/", getAllEvents);
-router.get("/:id", getSingleEvent);
-router.post("/", postNewEvent);
-router.put("/", putUpdateEvent);
-router.delete("/:id", deleteSingleEvent);
+router.get("/calendar", getAllEvents);
+router.get("/calendar:id", getSingleEvent);
+router.post("/calendar", postNewEvent);
+router.put("/calendar", putUpdateEvent);
+router.delete("/calendar:id", deleteSingleEvent);
 
 /* DEFAULT EXPORT */
 module.exports = router;

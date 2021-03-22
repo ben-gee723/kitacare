@@ -8,13 +8,14 @@ export default function CalendarForm(props) {
     name: "",
   });
 
+  console.log(data)
   const date = props.day;
 
   const submitForm = e => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "/",
+      url: "http://localhost:4000/calendar",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
