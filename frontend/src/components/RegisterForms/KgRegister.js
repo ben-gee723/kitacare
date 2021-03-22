@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ManagerRegister from "./ManagerRegister";
 import styles from './registerForm.module.scss';
+import { sendData, submitForm } from "../../logic/registerLogic";
 
 export default function KgRegister() {
   const [data, setData] = useState({});

@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import {Link} from "react-router-dom"
 import { sendData, submitForm } from "../../logic/registerLogic";
+import styles from './registerForm.module.scss';
 
 export default function TeacherRegister() {
   const [formData, setFormData] = useState({});
@@ -30,27 +31,27 @@ export default function TeacherRegister() {
 
         <div className='inputBox'>
           <label className='details'>First name</label><br/>
-          <input type='text' name='firstName' placeholder='First Name' onChange={grabValue}/>
+          <input type='text' name='firstName' placeholder='First Name'/>
         </div>
 
         <div className='inputBox'>
           <label className='details'>Last name</label><br/>
-          <input type='text' name='lastName' placeholder='Last Name' onChange={grabValue}/>
+          <input type='text' name='lastName' placeholder='Last Name'/>
         </div>
 
         <div className='inputBox'>
           <label className='details'>Birthday</label><br/>
-          <input type='date' name='birthday' placeholder='Birthday' onChange={grabValue}/>
+          <input type='date' name='birthday' placeholder='Birthday'/>
         </div>
 
         <div className='inputBox'>
           <label className='details'>Phone number</label><br/>
-          <input type='text' name='phoneNumber' placeholder='Phone Number' onChange={grabValue}/>
+          <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Email</label><br/>
-          <input type='email' name='email' placeholder='E-mail' onChange={grabValue}/>
+          <input type='email' name='email' placeholder='E-mail' />
         </div>
         
         <div className={styles.address}><h3>Address:</h3></div>
@@ -77,17 +78,17 @@ export default function TeacherRegister() {
 
         <div className='inputBox'>
           <label className='details'>Group name</label><br/>
-          <input type='text' name='groupName' placeholder='Group Name' onChange={grabValue}/>
+          <input type='text' name='groupName' placeholder='Group Name' />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Verification Code</label><br/>
-          <input type='text' name='verificationCode' placeholder='Enter the verification code provided by your manager.' onChange={grabValue}/>
+          <input type='text' name='verificationCode' placeholder='Enter the verification code provided by your manager.' />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Password</label><br/>
-          <input type='password' name='password' placeholder='Password' onChange={grabValue}/>
+          <input type='password' name='password' placeholder='Password' />
         </div>
 
         <br/>
