@@ -4,12 +4,12 @@ const GroupModel = require("../../model/groupModel");
 // = just for managers
 exports.getAllGroups = async (req, res, next) => {
     try {
-        let allGroups = await GroupModel.find().populate("children", "-_id -__v").select("-__v");
+        let allGroups = await GroupModel.find().populate("children", "-_id -__v").populate("users", "-_id -__v").select("-__v");
         if (allGroups.length !== 0) {
             res.status(200).send({ succuess: true, allGroups: allGroups })
         }
         else {
-            res.status(200).send({ succuess: false, message: "No groups found in db" })
+            res.status(404).send({ succuess: false, message: "No groups found in db" })
         }
     } catch (err) {
         next(err)
@@ -21,7 +21,7 @@ exports.getAllGroups = async (req, res, next) => {
 exports.getSingleGroup = async (req, res, next) => {
     const { id } = req.params;
     try {
-        let singleGroup = await GroupModel.findById(id).populate("children", "-_id -__v").select("-__v");
+        let singleGroup = await GroupModel.findById(id).populate("children", "-_id -__v").populate("users", "-_id -__v").select("-__v");
 
         if (singleGroup) {
             res.status(200).send({ succuess: true, singleGroup: singleGroup })
