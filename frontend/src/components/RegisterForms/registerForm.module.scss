@@ -1,0 +1,25 @@
+@import "../../globalCSS/variables";
+
+.regForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.regContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+  color:$primary-blue;
+}
+
+form {
+  width: 25rem;
+}
+
+.address {
+  margin-top: 20px;
+}
+

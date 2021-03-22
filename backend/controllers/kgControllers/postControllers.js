@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+const KgModel = require("../../model/kgModel")
+=======
 const KgModel = require("../../model/KgModel")
 const UserModel=require("../../model/userModel")
+>>>>>>> develop
 
 //kg/register
 //working

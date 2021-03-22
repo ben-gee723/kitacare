@@ -17,96 +17,84 @@ export default function TeacherRegister() {
   }
 
   return (
-    <div>
-          <form onSubmit={submitTeacherForm}>
-        <label>
-          First Name
-          <input
-            type='text'
-            name='firstName'
-            placeholder='First Name'
-          />
-        </label>
-        <label>
-          Last Name
-          <input
-            type='text'
-            name='lastName'
-            required
-            placeholder='Last Name'
-          />
-        </label>
-        <label>
-          Birthday
-          <input
-            type='date'
-            name='birthday'
-            placeholder='Birthday'
-          />
-        </label>
-        <label>
-          Phone Number
-          <input
-            type='text'
-            name='phoneNumber'
-            placeholder='Phone Number'
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type='email'
-            name='email'
-            required
-            placeholder='E-mail'
-          />
-        </label>
-        <label>
-          Address
-          <input
-            type='text'
-            name='street'
-            placeholder='Street'
-          />
-          <input
-            type='text'
-            name='number'
-            placeholder='Number'
-          />
-          <input
-            type='text'
-            name='city'
-            placeholder='City'
-          />
-        </label>
-        <label>
-          Group Name
-          <input
-            type='text'
-            name='groupName'
-            placeholder='Group Name'
-          />
-        </label>
-        <label>
-          Verification Code
-          <input
-            type='text'
-            name='verificationCode'
-            placeholder='Enter the verification code provided by your manager.'
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type='password'
-            name='password'
-            placeholder='Password'
-          />
-        </label>
-        <input type='submit' value='Register' />
-        <Link to='/'>
-          <input type='submit' value='Cancel' />
-        </Link>
+    <div className={styles.regForm}>
+      <form onSubmit={submitForm}>
+
+        <div className='reg'>
+          <h1>Register as Teacher!</h1>
+        </div> 
+        
+        <div className='regInfo'>
+          <h3>Information we need:</h3>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>First name</label><br/>
+          <input type='text' name='firstName' placeholder='First Name' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Last name</label><br/>
+          <input type='text' name='lastName' placeholder='Last Name' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Birthday</label><br/>
+          <input type='date' name='birthday' placeholder='Birthday' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Phone number</label><br/>
+          <input type='text' name='phoneNumber' placeholder='Phone Number' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Email</label><br/>
+          <input type='email' name='email' placeholder='E-mail' onChange={grabValue}/>
+        </div>
+        
+        <div className={styles.address}><h3>Address:</h3></div>
+
+        <div className='inputBox'>
+          <label className='details'>Street</label><br/>
+          <input type='text' name='street' placeholder='Street'/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Number</label><br/>
+          <input type='text' name='number' placeholder='Number' />
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>City</label><br/>
+          <input type='text' name='city' placeholder='City' />
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Post code</label><br/>
+          <input type='number' name='postcode' required placeholder='Postcode' />
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Group name</label><br/>
+          <input type='text' name='groupName' placeholder='Group Name' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Verification Code</label><br/>
+          <input type='text' name='verificationCode' placeholder='Enter the verification code provided by your manager.' onChange={grabValue}/>
+        </div>
+
+        <div className='inputBox'>
+          <label className='details'>Password</label><br/>
+          <input type='password' name='password' placeholder='Password' onChange={grabValue}/>
+        </div>
+
+        <br/>
+        
+        <Link to='/'><button className="cancel">Cancel</button></Link>
+        <button type='submit' value='Register' className='next'>Register</button>
+        
       </form>
     </div>
   );

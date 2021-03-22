@@ -4,20 +4,19 @@ import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
+import Footer from "./components/Footer/index"
 
 function App() {
 
   return (
     <div className='App'>
+
       <Navbar />
-      <Link to='/register'>
-        <li>Register</li>
-      </Link>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -30,6 +29,9 @@ function App() {
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
       </Switch>
+      <Footer/>
+      
+      
     </div>
   );
 }
