@@ -5,7 +5,7 @@ import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";

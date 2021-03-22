@@ -6,64 +6,6 @@
           box-sizing: border-box;
 }
 
-ul {
-  list-style-type: none;
-  text-decoration: none;
-}
-
-.lg img {
-  width: 5%;
-  height: 5%;
-}
-
-.fcontainer {
-  width: 80%;
-  height: 50vh;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.fcontainer h1 {
-  color: #0C8DA8;
-  font-weight: 700;
-  font-size: 3rem;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.fcontainer .inputcontainer {
-  display: block;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-}
-
-.fcontainer .inputcontainer label {
-  margin: 0 auto;
-  text-align: left;
-  color: #423F40;
-}
-
-.fcontainer .btnform {
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-html body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #FDFEFF;
-}
-
 .submit {
   background-color: #FF4E13;
   border-radius: 0.25rem;

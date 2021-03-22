@@ -1,20 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
+import styles from './navbar.module.scss';
 
 export default function Navbar() {
     return (
-        <div className='nav'>
-          <div className='lg'>
+        <div className={styles.nav}>
+          <div className={styles.lg}>
               <NavLink to='/'>
                 <img src={logo} alt='lg' />
               </NavLink>
-              <div className='kita'>
+              <div className={styles.kita}>
                 Kitacare
             </div>
           </div>
             
-            <div className='navbtn'>
+            <div className={styles.navbtn}>
                 <Link to='/register'>
                   <button className="submit">Register</button>
                 </Link>

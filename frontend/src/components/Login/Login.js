@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import styles from './Login.module.scss';
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -14,18 +15,18 @@ export default function Login() {
   };
 
   return (
-    <div className='fcontainer'>
+    <div className={styles.fcontainer}>
       <form onSubmit={submitForm}>
         <div className="reg">
-            <h1>Login to your account!</h1>
+            <h1>Login!</h1>
         </div> 
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>E-mail</label><br/>
           <input type='email' name='email' placeholder='E-mail' onChange={grabValue}/>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Password</label><br/>
           <input type='password' name='password' placeholder='Password' onChange={grabValue}/>
         </div>

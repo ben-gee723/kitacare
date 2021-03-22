@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styles from './registerForm.module.scss';
 
 export default function ManagerRegister(props) {
   const [formData, setFormData] = useState({});
@@ -57,9 +58,9 @@ export default function ManagerRegister(props) {
   }
 
   return (
-    <div className='regForm'>
+    <div className={styles.regForm}>
       <form onSubmit={(e)=>submitManagerForm(e)} name="managerForm">
-      <div className="reg">
+      <div className='reg'>
           <h1>Register a Menager!</h1>
         </div> 
         
@@ -67,54 +68,54 @@ export default function ManagerRegister(props) {
           <h3>Information we need:</h3>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>First name</label><br/>
           <input type='text' name='firstName' placeholder='First Name'/>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Last name</label><br/>
           <input type='text' name='lastName' placeholder='Last Name'/>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Birthday</label><br/>
           <input type='date' name='birthday' placeholder='Birthday'/>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Phone number</label><br/>
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Email</label><br/>
           <input type='email' name='email' placeholder='E-mail'/>
         </div>
         
         <div className='address'><h3>Address:</h3></div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Street</label><br/>
           <input type='text' name='street' placeholder='Street'/>
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Number</label><br/>
           <input type='text' name='number' placeholder='Number' />
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>City</label><br/>
           <input type='text' name='city' placeholder='City' />
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Post code</label><br/>
           <input type='number' name='postcode' required placeholder='Postcode' />
         </div>
 
-        <div className='input-box'>
+        <div className='inputBox'>
           <label className='details'>Password</label><br/>
           <input type='password' name='password' placeholder='Password'/>
         </div>
