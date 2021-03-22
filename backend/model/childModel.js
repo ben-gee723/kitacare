@@ -8,17 +8,16 @@ const ChildSchema = new Schema({
     birthday: { type: Date, min: "1950–01–01", required: true },
     address: {
         type: AddressSchema,
-        required: true
+        required: false
     },
     groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
     img: { type: String },
-    allergies: { type: [{ to: String }], required: true },
-    dietaryNeeds: { type: [{ requirement: String }], required: true },
-    img: { type: String, required: false },
+    allergies: { type: [{ to: String }], required: false },
+    dietaryNeeds: { type: [{ requirement: String }], required: false },
     emergencyContact: [{
-        name: { type: String, required: true },
-        address: { type: AddressSchema, required: true },
-        phoneNumber: { type: String, required: true }
+        name: { type: String, required: false },
+        address: { type: AddressSchema, required: false },
+        phoneNumber: { type: String, required: false }
     }],
     attendance: [{
         date: Date,
@@ -42,15 +41,7 @@ ChildSchema.pre("validate", function (next) {
     next(error)
 })
 
-ChildSchema.pre("validate", function (next) {
-    if (this.emergencyContact !== 0) {
-        return next()
-    }
-    const error = new Error("please provide us with emergency contact details")
-    next(error)
-})
-
-const ChildModel = mongoose.model("children", ChildSchema)
+const ChildModel = mongoose.model("children", ChildSchema);
 
 module.exports = ChildModel;
 
