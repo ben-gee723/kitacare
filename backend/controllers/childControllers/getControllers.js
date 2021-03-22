@@ -3,7 +3,7 @@ const ChildModel = require("../../model/childModel");
 // getAllChildren       => just for managers
 exports.getAllChildren = async (req, res, next) => {
     try {
-        let allChildren = await ChildModel.find().populate("children", "-_id - __v").select("-__v");
+        let allChildren = await ChildModel.find().select("-_id");
         if (allChildren) {
             res.status(200).send({ succuess: true, allChildren: allChildren })
         } else {
@@ -14,7 +14,7 @@ exports.getAllChildren = async (req, res, next) => {
     }
 }
 
-// getChildFromGroup    => both
+// getChildSingle    => both
 exports.getChildSingleChild = async (req, res, next) => {
     const { id } = req.params;
     try {
