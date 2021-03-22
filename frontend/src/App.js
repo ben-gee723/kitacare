@@ -10,26 +10,14 @@ import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
-<<<<<<< HEAD
-import Calendar from "./components/Calendar/Calendar";
-=======
 import Footer from "./components/Footer/index"
->>>>>>> develop
+import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   return (
     <div className='App'>
 
       <Navbar />
-<<<<<<< HEAD
-      <Link to='/register'>
-        <li>Register</li>
-      </Link>
-      <Link to='/calendar'>
-        <li>Calendar</li>
-      </Link>
-=======
->>>>>>> develop
       <Switch>
         <Route exact path='/'>
           <Home />
