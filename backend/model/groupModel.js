@@ -5,7 +5,6 @@ const { Schema } = require("mongoose");
 // group/classroom of children
 const GroupSchema = new Schema({
     groupName: { type: String, required: true },
-    teacher: { type: "button/function/list", required: true },
     room: { type: String },
     ageGroup: { type: String },
     description: { type: String },
