@@ -1,58 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { sendData, submitForm } from "../../logic/registerLogic";
 
-export default function ManagerRegister2(props) {
+
+export default function ManagerRegister(props) {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
     if(props.kg){
-      console.log("useEff")
       setFormData({ kg: props.kg });
-    }
+    }else{return}
   }, []);
 
   useEffect(() => {
     if(formData.manager){
-      console.log("manager saved in state")
-        sendData();
+      if(formData.kg){sendData("kg registration",formData)}
+      else{sendData("manager registration",formData);}
     }
   }, [formData])
 
-  const sendData=()=>{
-    console.log("send data running")
-    let url = "";
-    let bodyObj={};
-    if(props.kg){
-        url = "http://localhost:3000/kg/register"
-        bodyObj={kg:props.kg,manager:formData.manager}
-    }else {
-        url = "/users/managers"
-        bodyObj={manager:formData.manager}
-    }
-    axios({
-      method: "POST",
-      url: url,
-      headers: {
-        "Accept" : "application/json",
-        "Content-Type": "application/json",
-      },
-      data: formData,
-    })
-      .then(response => {
-        if (response.data.success) {
-          console.log(response.data.user);
-          // props.history.push("/mprofile ???")
-        } else {
-          console.log(response);
-        }
-      })
-      .catch(err => console.log(err)); 
-  }
-
   const submitManagerForm=(e)=>{
-    let managerObj=props.submitForm(e);
-    console.log(managerObj)
+    let managerObj=submitForm(e);
     setFormData({...formData,manager:managerObj})
   }
 
@@ -97,9 +65,9 @@ export default function ManagerRegister2(props) {
           <input type='password' name='password' placeholder='Password' required />
         </label>
         <br/>
+        <Link to='/'><button className="cancel">Cancel</button></Link>
         <input type='submit' value='Register' />
       </form>
-      <Link to='/'>Back</Link>
     </div>
   );
 }

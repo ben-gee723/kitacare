@@ -1,40 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState,useEffect} from "react";
+import {Link} from "react-router-dom"
+import { sendData, submitForm } from "../../logic/registerLogic";
 
-export default function ManagerRegister() {
-  const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
-    birthday: "",
-    phoneNumber: "",
-    email: "",
-    street: "",
-    number: "",
-    city: "",
-    postcode: "",
-    kgID: "",
-    password: "",
-    role: "Manager",
-  });
+export default function TeacherRegister() {
+  const [formData, setFormData] = useState({});
 
-  const submitForm = e => {
-    e.preventDefault();
-  };
+  useEffect(() => {
+    if(formData.teacher){
+        sendData("teacher registation",formData);
+    }
+  }, [formData])
 
-  const grabValue = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  const submitTeacherForm=(e)=>{
+    let teacherObj=submitForm(e);
+    setFormData({teacher:teacherObj})
+  }
 
   return (
     <div>
-      <form onSubmit={submitForm}>
+          <form onSubmit={submitTeacherForm}>
         <label>
           First Name
           <input
             type='text'
             name='firstName'
             placeholder='First Name'
-            onChange={grabValue}
           />
         </label>
         <label>
@@ -44,7 +34,6 @@ export default function ManagerRegister() {
             name='lastName'
             required
             placeholder='Last Name'
-            onChange={grabValue}
           />
         </label>
         <label>
@@ -53,7 +42,6 @@ export default function ManagerRegister() {
             type='date'
             name='birthday'
             placeholder='Birthday'
-            onChange={grabValue}
           />
         </label>
         <label>
@@ -62,7 +50,6 @@ export default function ManagerRegister() {
             type='text'
             name='phoneNumber'
             placeholder='Phone Number'
-            onChange={grabValue}
           />
         </label>
         <label>
@@ -72,7 +59,6 @@ export default function ManagerRegister() {
             name='email'
             required
             placeholder='E-mail'
-            onChange={grabValue}
           />
         </label>
         <label>
@@ -81,28 +67,32 @@ export default function ManagerRegister() {
             type='text'
             name='street'
             placeholder='Street'
-            onChange={grabValue}
           />
           <input
             type='text'
             name='number'
             placeholder='Number'
-            onChange={grabValue}
           />
           <input
             type='text'
             name='city'
             placeholder='City'
-            onChange={grabValue}
           />
         </label>
         <label>
-          Kindergarten ID
+          Group Name
           <input
             type='text'
-            name='kgID'
-            placeholder='Kindergarten ID'
-            onChange={grabValue}
+            name='groupName'
+            placeholder='Group Name'
+          />
+        </label>
+        <label>
+          Verification Code
+          <input
+            type='text'
+            name='verificationCode'
+            placeholder='Enter the verification code provided by your manager.'
           />
         </label>
         <label>
@@ -111,7 +101,6 @@ export default function ManagerRegister() {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={grabValue}
           />
         </label>
         <input type='submit' value='Register' />

@@ -1,33 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ManagerRegister2 from "./ManagerRegister2";
+import ManagerRegister from "./ManagerRegister";
+import {submitForm } from "../../logic/registerLogic";
 
-export default function KgRegister2() {
+export default function KgRegister() {
   const [data, setData] = useState({});
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    let obj = { address: {} };
-    for (let pair of formData) {
-      if (
-        pair[0] === "city"   ||
-        pair[0] === "street" ||
-        pair[0] === "number" ||
-        pair[0] === "postcode"
-      ) {
-        obj.address[pair[0]] = pair[1];
-      } else {
-        obj[pair[0]] = pair[1];
-      }
-    }
-    return obj
-  }
 
   const submitKgForm=(e)=>{
     e.preventDefault();
     let kgObj=submitForm(e)
-    console.log(kgObj)
     setData({kg:kgObj})
   }
 
@@ -41,17 +22,17 @@ export default function KgRegister2() {
         </label>
         <br/><br/><br/>
         <label>
-          Phone Number
+          Phone Number <br/>
           <input type='text' name='phoneNumber' placeholder='Phone Number' />
         </label>
         <br/>
         <label>
-          Email
+          Email <br/>
           <input type='email' name='email' required placeholder='E-mail' />
         </label>
         <br/>
         <label>
-          Address
+          Address <br/>
           <input type='text' name='street' placeholder='Street' />
           <br/>
           <input type='text' name='number' placeholder='Number' />
@@ -60,10 +41,10 @@ export default function KgRegister2() {
           <input type='number' name='postcode' required placeholder='postcode' />
         </label>
         <br/>
+        <Link to='/'><button className="cancel">Cancel</button></Link>
         <input type='submit' value='Next' className='next' />
       </form>}
-      {data.kg && <ManagerRegister2 kg={data.kg} submitForm={submitForm}/> }
-      <Link to='/home'>Back</Link>
+      {data.kg && <ManagerRegister kg={data.kg}/> }
     </div>
   );
 }

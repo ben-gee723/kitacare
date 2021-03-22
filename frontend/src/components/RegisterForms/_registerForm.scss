@@ -1,0 +1,29 @@
+@import "../../globalCSS/variables";
+.fcontainer {
+  width: 80%;
+  height: 50vh;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  h1 {
+    color: $primary-blue;
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .inputcontainer{
+      display: block;
+      flex-flow: column nowrap;
+    label {
+        margin: 0 auto;
+        text-align: left;
+        color: $dark;
+      }
+  }
+  .btnform {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
