@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"
 
 export default function CalendarForm(props) {
   const [data, setData] = useState({
@@ -7,20 +8,22 @@ export default function CalendarForm(props) {
     name: "",
   });
 
+  const date = props.day;
+
   const submitForm = e => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: url,
+      url: "/",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      data: bodyObj,
+      data: data,
     })
       .then(response => {
         if (response.data.success) {
-          console.log(response.data.user);
+          console.log(response.data.event);
         } else {
           console.log(response);
         }
@@ -36,18 +39,31 @@ export default function CalendarForm(props) {
     <div>
       <h1>Add Event</h1>
       <form onSubmit={submitForm}>
-        <label for="start"> Start Date</label>
+        <label for='start'> Start Date</label>
         <input
           type='date'
-          id='start'
           name='startDate'
-          value='2018-07-22'
+          defaultValue={date}
           min='2018-01-01'
-          max='2018-12-31'
+          max='2022-12-31'
           onChange={grabValue}
         />
-
-        <input type='submit' value='Submit' />
+        <label for='start'> End Date</label>
+        <input
+          type='date'
+          name='endDate'
+          defaultValue={date}
+          min='2018-01-01'
+          max='2022-12-31'
+          onChange={grabValue}
+        />
+         <input
+          type='text'
+          name='name'
+          placeholder="enter event"
+          onChange={grabValue}
+        />
+        <button type='submit' value='Submit'>Submit</button>
       </form>
     </div>
   );

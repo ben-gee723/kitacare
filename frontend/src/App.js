@@ -18,6 +18,7 @@ function App() {
     <div className='App'>
 
       <Navbar />
+      <Link to="/calendar">Calendar</Link>
       <Switch>
         <Route exact path='/'>
           <Home />

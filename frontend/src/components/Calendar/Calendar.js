@@ -17,14 +17,14 @@ import {
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
+import CalendarForm from "./CalendarForm";
 
 export default function Calendar() {
   const left = <FontAwesomeIcon icon={faChevronCircleLeft} />;
   const right = <FontAwesomeIcon icon={faChevronCircleRight} />;
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [event, setEvent] = useState({});
+  const [showForm, setShowForm] = useState(false);
   const header = () => {
     const dateFormat = "MMMM yyyy";
     return (
@@ -110,9 +110,16 @@ export default function Calendar() {
   };
   return (
     <div className='calendar'>
-      <div>{header()}</div>
-      <div>{days()}</div>
-      <div>{cells()}</div>
+      {showForm && (
+        <div>
+          <CalendarForm />
+        </div>
+      )}
+      <>
+        <div>{header()}</div>
+        <div>{days()}</div>
+        <div onClick={() => setShowForm(!showForm)}>{cells()}</div>
+      </>
     </div>
   );
 }
