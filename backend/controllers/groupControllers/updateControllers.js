@@ -1,9 +1,9 @@
-const GroupData = require("../../model/groupModel");
+const GroupModel = require("../../model/groupModel");
 
 // update group
 exports.udpateGroup = async (req, res, next) => {
     try {
-        const updatedGroup = await GroupDate.findByIdAndUpdate(id, req.body, {
+        const updatedGroup = await GroupModel.findByIdAndUpdate(id, req.body, {
             new: true,
         });
         if (updatedGroup) {
