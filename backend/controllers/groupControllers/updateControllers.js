@@ -1,7 +1,7 @@
 const GroupModel = require("../../model/groupModel");
 
 // update group
-exports.udpateGroup = async (req, res, next) => {
+exports.updateGroup = async (req, res, next) => {
     try {
         const updatedGroup = await GroupModel.findByIdAndUpdate(id, req.body, {
             new: true,
