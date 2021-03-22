@@ -17,12 +17,14 @@ import {
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
 export default function Calendar() {
   const left = <FontAwesomeIcon icon={faChevronCircleLeft} />;
   const right = <FontAwesomeIcon icon={faChevronCircleRight} />;
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [event, setEvent] = useState({});
   const header = () => {
     const dateFormat = "MMMM yyyy";
     return (
@@ -33,7 +35,7 @@ export default function Calendar() {
           </div>
         </div>
         <div className='column col-center'>
-          <p className="month">{format(currentDate, dateFormat)}</p>
+          <p className='month'>{format(currentDate, dateFormat)}</p>
         </div>
         <div className='column col-end'>
           <div className='icon' onClick={nextMonth}>
@@ -90,8 +92,7 @@ export default function Calendar() {
       }
       rows.push(
         <div className='row' key={day}>
-          {" "}
-          {days}{" "}
+          {days}
         </div>
       );
       days = [];
