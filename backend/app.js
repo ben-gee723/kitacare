@@ -8,6 +8,8 @@ const userRoutes = require("./routes/userRoutes")
 const kgRoutes = require("./routes/kgRoutes")
 const childRoutes = require("./routes/childRoutes")
 const groupRoutes = require("./routes/groupRoutes")
+const calendarRoutes = require("./routes/calendarRoutes");
+
 //middleware:
 const app = express()
 app.use(cors())
@@ -21,6 +23,7 @@ app.use("/users", userRoutes)
 app.use("/kg", kgRoutes)
 app.use("/child", childRoutes)
 app.use("/group", groupRoutes)
+app.use("/calendar", calendarRoutes);
 
 //connection:
 mongoose.connect(process.env.MONGO_ATLAS, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -44,4 +47,5 @@ app.use((err, req, res, next) => {
 
 
 app.listen(3000 || process.env.PORT, () => console.log("server is running"))
+
 

@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
 import Footer from "./components/Footer/index"
+import Calendar from "./components/Calendar/Calendar";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <div className='App'>
 
       <Navbar />
+      <Link to="/calendar">Calendar</Link>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -27,6 +29,7 @@ function App() {
         <Route path='/tregister' component={TeacherRegister}/>
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
+        <Route path="/calendar" component={Calendar} />
         <Route component={NotFound} />
       </Switch>
       <Footer/>
