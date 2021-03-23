@@ -1,7 +1,7 @@
 const ChildModel = require("../../model/childModel")
 
 // update child
-exports.updateChild = async(req, res, next => {
+exports.updateChild = async (req, res, next) => {
     const { id } = req.params;
     try {
         const updatedChild = await ChildModel.findByIdAndUpdate(id, req.body, {
@@ -15,4 +15,4 @@ exports.updateChild = async(req, res, next => {
     } catch (err) {
         next(err)
     }
-})
+}
