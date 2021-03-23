@@ -1,8 +1,7 @@
-const KgModel = require("../../model/KgModel")
+const KgModel = require("../../model/kgModel")
 const UserModel=require("../../model/userModel")
 
 //kg/register
-//working
 exports.addKgManager = async(req,res,next)=>{
   try{
       const kg = await KgModel.create(req.body.kg);

@@ -33,7 +33,7 @@ const ChildSchema = new Schema({
     }]
 
 })
-                 
+
 ChildSchema.pre("validate", function (next) {
     if (this.emergencyContact !== 0) {
         return next()

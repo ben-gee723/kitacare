@@ -1,15 +1,16 @@
 const UserModel=require("../../model/userModel")
 
-//working
+//managers who are working in a certain kg!!!!
+//:id of kg!
 exports.getManagers=async(req,res,next)=>{
   try{
-  let managers=await UserModel.find({role:"Manager"})
+  const {kgId}=req.params;
+  let managers=await UserModel.find({ "kg._id":kgId, role:"Manager"})
   res.send({success:true,managers:managers})
-  //delete endpoint: think about=> managers.length==1
   }catch(err){next(err)}
 }
 
-//working
+//:id of manager!
 exports.getManager = async(req,res,next)=>{
   try{
   const { id } = req.params;
@@ -22,10 +23,12 @@ exports.getManager = async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
-//working
+//teachers who are working in a certain kg!!!!
+//:id of kg!
 exports.getTeachers = async(req,res,next)=>{
   try{
-  let teachers = await UserModel.find({role:"Teacher"})
+  const {kgId}= req.params;
+  let teachers = await UserModel.find({ "kg._id":kgId,role:"Teacher"})
   if(teachers){
     res.send({success:true,teachers:teachers})
   }else{
@@ -34,11 +37,10 @@ exports.getTeachers = async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
-//working
+//:id of teacher!
 exports.getTeacher = async(req,res,next)=>{
-  const { id } = req.params;
   try{
-  
+  const { id } = req.params;
   let teacher = await UserModel.findById( id )
   if(teacher){
     res.send( {success:true,teacher:teacher} )
