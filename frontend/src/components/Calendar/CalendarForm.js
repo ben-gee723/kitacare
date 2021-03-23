@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
 export default function CalendarForm(props) {
   const [data, setData] = useState({
     startDate: "",
     endDate: "",
     name: "",
+    //creator: "",
   });
 
-  console.log(data)
+  console.log(data);
   const date = props.day;
 
   const submitForm = e => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:4000/calendar",
+      url: "http://localhost:3000/calendar",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -37,34 +38,41 @@ export default function CalendarForm(props) {
   };
 
   return (
-    <div>
-      <h1>Add Event</h1>
+    <div className='cform'>
+      <h1>Add Event!</h1>
       <form onSubmit={submitForm}>
-        <label for='start'> Start Date</label>
+        <div className="date">
+          <label htmlFor='start'> Start Date</label>
+          <input
+            type='date'
+            name='startDate'
+            defaultValue={date}
+            min='2018-01-01'
+            max='2022-12-31'
+            onChange={grabValue}
+          />
+        </div>
+        <div className="date">
+          <label htmlFor='end'> End Date</label>
+          <input
+            type='date'
+            name='endDate'
+            defaultValue={date}
+            min='2018-01-01'
+            max='2022-12-31'
+            onChange={grabValue}
+          />
+        </div>
         <input
-          type='date'
-          name='startDate'
-          defaultValue={date}
-          min='2018-01-01'
-          max='2022-12-31'
-          onChange={grabValue}
-        />
-        <label for='start'> End Date</label>
-        <input
-          type='date'
-          name='endDate'
-          defaultValue={date}
-          min='2018-01-01'
-          max='2022-12-31'
-          onChange={grabValue}
-        />
-         <input
           type='text'
           name='name'
-          placeholder="enter event"
+          placeholder='Enter event'
+          className="text-event"
           onChange={grabValue}
         />
-        <button type='submit' value='Submit'>Submit</button>
+        <button type='submit' value='Submit' className='submit event'>
+          Submit
+        </button>
       </form>
     </div>
   );
