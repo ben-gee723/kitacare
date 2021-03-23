@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import styles from './registerForm.module.scss';
 import { sendData, submitForm } from "../../logic/registerLogic";
 

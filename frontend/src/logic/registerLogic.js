@@ -25,7 +25,7 @@ const submitForm = (e) => {
         {url = "http://localhost:3000/kg/register"}
     else if(type==="manager registration")
         {url = "http://localhost:3000/users/managers"}
-    else
+    else  //"teacher registration"
         {url = "http://localhost:3000/users/teachers"}
     axios({
       method: "POST",
@@ -39,7 +39,6 @@ const submitForm = (e) => {
       .then(response => {
         if (response.data.success) {
           console.log(response.data.user);
-          // props.history.push("/mprofile ???")
         } else {
           console.log(response);
         }
