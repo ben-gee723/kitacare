@@ -8,6 +8,6 @@ exports.encrypt = psw => {
 };
 //compare the password with the one stored in the data base(hash password)
 exports.compare = (psw, hashedpassword) => {
-  let validPassword = bcrypt.compareSync(password, hashedpassword);
+  let validPassword = bcrypt.compareSync(psw, hashedpassword);
   return validPassword;
 };

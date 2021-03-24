@@ -9,11 +9,16 @@ const childRoutes = require("./routes/childRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const calendarRoutes = require("./routes/calendarRoutes");
 
-//middleware:
+//middlewares:
 const app = express();
 app.use(cors());
 app.use(express.json());
 require("dotenv").config();
+const config= require("./config/configuration")
+if(config.environment==="development"){
+  const morgan = require("morgan")
+  app.use(morgan("dev"))
+}
 
 //endpoints:
 app.use("/", indexRoutes);
@@ -23,12 +28,6 @@ app.use("/child", childRoutes);
 app.use("/group", groupRoutes);
 app.use("/calendar", calendarRoutes);
 
-//middlewares
-const config= require("./config/configuration")
-if(config.environment==="development"){
-  const morgan = require("morgan")
-  app.use(morgan("dev"))
-}
 
 //connection:
 mongoose
