@@ -32,7 +32,6 @@ if(config.environment==="development"){
   app.use(morgan("dev"))
 }
 
-
 //connection:
 mongoose
   .connect(process.env.MONGO_ATLAS, {

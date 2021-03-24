@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const AddressSchema = require("./addressSchema");
-const { encrypt, compare } = require("../lib/encryption");
 //hashing password and comparing passwords
 const { encrypt, compare } = require("../lib/encryption");
 //signing token and verifying token
