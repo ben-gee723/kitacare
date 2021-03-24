@@ -1,85 +1,82 @@
 @import "../../globalCSS/variables";
 
 .lg {
-    
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
   img {
-      width: 3rem;
-      height: 3rem;
+    width: 3rem;
+    height: 3rem;
   }
 }
 .kita {
   color: #fff;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .nav {
-  font-family:Helvetica;
-    padding: 0 0.5rem;
-    background: #0d0909;
-    height: 55px;
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    align-items:center;
-    font-weight: 700;
-    color: white;
-    border-radius: 5px;
+  font-family: Helvetica;
+  padding: 0 0.5rem;
+  background: #0d0909;
+  height: 55px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
 }
 
 .navbtn {
   display: flex;
-  flex-wrap:wrap;
-  align-items:center;
+  flex-wrap: wrap;
+  align-items: center;
   color: white;
-  
 }
 
-.loginbtn { 
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    height:3rem;
-    border: none;
-    background: #ff4e13;
-    color: #fff;
-    transition: 0.2s ease-out;
-    text-decoration:none;
-    display: flex;
-    align-items: center;
-    border-radius:5px;
+.loginbtn {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  height: 3rem;
+  border: none;
+  background: #ff4e13;
+  color: #fff;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
 
-
-    &:hover {
-        background: #85d1ff;
-        transition: 0.2 ease-out;
-        cursor: pointer;
-        color: #000;
-    }
+  &:hover {
+    background: #85d1ff;
+    transition: 0.2 ease-out;
+    cursor: pointer;
+    color: #000;
+  }
 }
 
 .regbtn {
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    height:3rem;
-    border: none;
-    background: #ff4e13;
-    color: #fff;
-    transition: 0.2s ease-out;
-    text-decoration:none;
-    display: flex;
-    align-items: center;
-    border-radius:5px;
-    margin-right: 3px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  height: 3rem;
+  border: none;
+  background: #ff4e13;
+  color: #fff;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-right: 3px;
 
-    &:hover {
-        background: #85d1ff;
-        transition: 0.2 ease-out;
-        cursor: pointer;
-        color: #000;
-    }
+  &:hover {
+    background: #85d1ff;
+    transition: 0.2 ease-out;
+    cursor: pointer;
+    color: #000;
+  }
 }
