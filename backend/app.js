@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const morgan = require("morgan");
 const cors = require("cors");
 //routes:
 const indexRoutes = require("./routes/indexRoute");
@@ -14,7 +13,6 @@ const calendarRoutes = require("./routes/calendarRoutes");
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(morgan("dev"));
 require("dotenv").config();
 
 //endpoints:
@@ -54,4 +52,4 @@ app.use((err, req, res, next) => {
   res.send({ success: false, message: err.message });
 });
 
-app.listen(3000 || process.env.PORT, () => console.log("server is running"));
+app.listen(3001 || process.env.PORT, () => console.log("server is running"));
