@@ -4,7 +4,7 @@ exports.auth = async (req, res, next) => {
   try {
     //first need to grab the token and receive from the header
     //taken out the token provided by the user --> call the findByToken method --> find the user and see if the token is valid.
-    const token = req.header("x-auth");
+    const token = req.cookies["x-access-token"];
     const user = await UserModel.findByToken(token);
     if (!user) {
       throw new Error("invalid token");

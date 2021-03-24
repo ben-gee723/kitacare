@@ -7,7 +7,7 @@ const { encrypt, compare } = require("../lib/encryption");
 const JWT = require("jsonwebtoken");
 const config = require("../config/configuration");
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   address: { type: AddressSchema, required: true },
@@ -27,7 +27,57 @@ const userSchema = new Schema({
     ],
     required: true,
   },
+  tokens: [{ token: { type: String, required: true } }],
 });
 
-const UserModel = mongoose.model("users", userSchema);
+//Hash password before storing into database
+UserSchema.pre("save", function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = encrypt(this.password);
+  next();
+});
+
+//compare user password with hashed password
+UserSchema.methods.checkPassword = function (password) {
+  return compare(password, this.password);
+};
+
+//create a token for user and push it into the tokens array.
+UserSchema.methods.generateAuthToken = function () {
+  const user = this;
+  console.log(process.env.SECRET_KEY);
+  //payload + secret_key --> optional: expiration.
+  const token = JWT.sign(
+    { _id: user._id, email: user.email },
+    config.secret_key,
+    {
+      expiresIn: "1d",
+    }
+  );
+  console.log(token);
+  //push token into user's Tokens array
+  user.tokens.push({ token: token });
+  user.save();
+  return token;
+};
+
+//verify auth token and find user into database
+UserSchema.statics.findByToken = function (token) {
+  const user = this;
+  let decoded;
+  try {
+    decoded = JWT.verify(token, config.secret_key);
+  } catch (err) {
+    return;
+  }
+  let searchedUser = user
+    .findOne({
+      _id: decoded._id,
+      "tokens.token": token,
+    })
+    .select("-password -__v");
+  return searchedUser;
+};
+
+const UserModel = mongoose.model("users", UserSchema);
 module.exports = UserModel;
