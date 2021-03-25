@@ -14,6 +14,8 @@ import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [token, setToken] = useState(null);
 
   return (
     <div className='App'>

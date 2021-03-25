@@ -9,6 +9,7 @@ const {
 const {
   addManager,
   addTeacher,
+  login,
 } = require("../controllers/userControllers/postControllers");
 const {
   deleteManager,
@@ -32,6 +33,7 @@ router.get("/teachers", getTeachers); //:kg id
 //POST:
 router.post("/manager", addManager);
 router.post("/teacher", addTeacher);
+router.post("/login", login);
 
 //PUT:
 router.put("/managers/:id", updateManager);

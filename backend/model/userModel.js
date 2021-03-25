@@ -8,6 +8,7 @@ const JWT = require("jsonwebtoken");
 const config = require("../config/configuration");
 
 const UserSchema = new Schema({
+  password: { type: String, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   address: { type: AddressSchema, required: true },
@@ -27,7 +28,6 @@ const UserSchema = new Schema({
     ],
     required: true,
   },
-  tokens: [{ token: { type: String, required: true } }],
 });
 
 //Hash password before storing into database
@@ -56,8 +56,8 @@ UserSchema.methods.generateAuthToken = function () {
   );
   console.log(token);
   //push token into user's Tokens array
-  user.tokens.push({ token: token });
-  user.save();
+  // user.tokens.push({ token: token });
+  // user.save();
   return token;
 };
 
