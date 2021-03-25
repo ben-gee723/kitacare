@@ -5,7 +5,7 @@ const { addChild } = require("../controllers/childControllers/postControllers")
 const { updateChild } = require("../controllers/childControllers/updateControllers")
 
 //GET:
-router.get("/:id", getChildSingleChild)
+router.get("/getChildSingleChild/:id", getChildSingleChild)
 router.get("/getAllChildren", getAllChildren)
 
 //POST:

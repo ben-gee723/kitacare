@@ -5,7 +5,7 @@ const { addGroup } = require("../controllers/groupControllers/postControllers")
 const { updateGroup } = require("../controllers/groupControllers/updateControllers")
 
 //GET:
-router.get("/:id", getSingleGroup)
+router.get("/getSingleGroup/:id", getSingleGroup)
 router.get("/getAllGroups", getAllGroups)
 
 //POST:
