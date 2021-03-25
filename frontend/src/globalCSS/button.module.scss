@@ -10,9 +10,9 @@
   margin-right: 0.5rem;
 
   &:hover {
-    background: black;
+    background:black;
     transition: 0.2 ease-out;
-    border:1px  solid $primary-orange;
+    border: 1px solid $primary-orange;
     cursor: pointer;
     color: $primary-orange;
   }
@@ -31,12 +31,11 @@
   &:hover {
     background: black;
     transition: 0.2 ease-out;
-    border:1px  solid $primary-blue;
+    border: 1px solid $primary-blue;
     cursor: pointer;
     color: $primary-blue;
   }
 }
-
 
 .cancel {
   background-color: $dark;
@@ -52,7 +51,7 @@
   &:hover {
     background: white;
     transition: 0.2 ease-out;
-    border:1px  solid $dark;
+    border: 1px solid $dark;
     cursor: pointer;
     color: $dark;
   }
@@ -71,7 +70,7 @@
   &:hover {
     background: white;
     transition: 0.2 ease-out;
-    border:1px  solid $primary-blue;
+    border: 1px solid $primary-blue;
     cursor: pointer;
     color: $primary-blue;
   }
@@ -91,8 +90,47 @@
   &:hover {
     background: white;
     transition: 0.2 ease-out;
-    border:1px  solid $primary-orange;
+    border: 1px solid $primary-orange;
     cursor: pointer;
     color: $primary-orange;
+  }
+}
+
+.add {
+  background-color: $secondary-orange;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: $light;
+    transition: 0.2 ease-out;
+    border: 1px solid $secondary-orange;
+    cursor: pointer;
+    color: $secondary-orange;
+  }
+}
+
+.view {
+  background-color: $primary-green;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+
+  &:hover {
+    background: $light;
+    transition: 0.2 ease-out;
+    border: 1px solid $primary-green;
+    cursor: pointer;
+    color: $primary-green;
   }
 }

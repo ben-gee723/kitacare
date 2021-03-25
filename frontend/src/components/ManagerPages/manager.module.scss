@@ -1,0 +1,22 @@
+@import "../../globalCSS/_variables";
+
+.container {
+  background-color: $light;
+  width: 85%;
+  height: 85%;
+  margin: 0 auto;
+}
+
+.card {
+  border: 0.01rem solid $secondary-blue;
+  border-radius: 0.25rem;
+  background-color: $white;
+  width: 20%;
+  display: flex;
+  flex-flow: row wrap;
+   h1 {
+    color: $primary-blue;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
