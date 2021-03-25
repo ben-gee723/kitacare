@@ -3,7 +3,7 @@ const ChildModel = require("../../model/childModel");
 // getAllChildren       => just for managers
 exports.getAllChildren = async (req, res, next) => {
     try {
-        let allChildren = await ChildModel.find().select("-_id");
+        let allChildren = await ChildModel.find();
         if (allChildren) {
             res.status(200).send({ succuess: true, allChildren: allChildren })
         } else {
