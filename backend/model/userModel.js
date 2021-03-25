@@ -16,7 +16,7 @@ const UserSchema = new Schema({
   //change it to required later!!!
   kg: { ref: "kindergardens", type: Schema.Types.ObjectId, required: false },
   groupName: { type: String, required: false },
-  birthday: { type: Date, min: "1950-01-01", required: true },
+  birthday: { type: Date, required: true },
   img: { type: String, required: false },
   role: {
     type: String,

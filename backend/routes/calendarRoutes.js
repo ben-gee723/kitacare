@@ -15,10 +15,10 @@ const {
 } = require("../controllers/calendarControllers/putControllers");
 
 router.get("/getAllEvents", getAllEvents);
-router.get("/:id", getSingleEvent);
+router.get("/getSingleEvent/:id", getSingleEvent);
 router.post("/postNewEvent", postNewEvent);
 router.put("/putUpdateEvent", putUpdateEvent);
-router.delete("/:id", deleteSingleEvent);
+router.delete("/deleteSingleEvent/:id", deleteSingleEvent);
 
 /* DEFAULT EXPORT */
 module.exports = router;
