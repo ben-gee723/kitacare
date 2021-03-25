@@ -5,7 +5,7 @@ const AddressSchema = require("./addressSchema")
 const ChildSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    birthday: { type: Date, min: "1950–01–01", required: true },
+    birthday: { type: Date, required: true },
     address: {
         type: AddressSchema,
         required: false
