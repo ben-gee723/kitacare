@@ -2,6 +2,7 @@ const GroupModel = require("../../model/groupModel");
 
 // update group
 exports.updateGroup = async (req, res, next) => {
+    const { id } = req.params;
     try {
         const updatedGroup = await GroupModel.findByIdAndUpdate(id, req.body, {
             new: true,
