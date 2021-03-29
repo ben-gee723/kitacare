@@ -39,7 +39,7 @@ router.post("/login", login);
 router.put("/managers/:id", updateManager);
 router.put("/teachers/:id", updateTeacher);
 
-//DELETE:
+//DELETE
 router.delete("/managers/:id", deleteManager);
 router.delete("/teachers/:id", deleteTeacher);
 
