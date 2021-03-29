@@ -16,7 +16,7 @@ export default function CalendarForm(props) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:3000/calendar",
+      url: "http://localhost:3001/calendar/postNewEvent",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

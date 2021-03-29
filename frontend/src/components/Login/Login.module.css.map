@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,WAAW,CAAC;EACR,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,IAAI;EACZ,cAAc,EAAE,MAAM;EACtB,KAAK,ECPM,OAAO;CDQnB",
+    "sources": [
+        "Login.module.scss",
+        "../../globalCSS/_variables.scss"
+    ],
+    "names": [],
+    "file": "Login.module.css"
+}
