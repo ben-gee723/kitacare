@@ -32,7 +32,6 @@ exports.addManager = async (req, res, next) => {
       lastName: lastName,
       birthday: birthday,
     });
-
     if (!manager) {
       await UserModel.create({ ...req.body, role: "Manager" });
       res.send({ success: true, message: "manager saved into db" });
@@ -64,16 +63,17 @@ exports.login = async (req, res, next) => {
         .status(400)
         .send({ success: false, message: "password wasn't found" });
     }
-    if(user.checkPassword(password) === true){
+    if (user.checkPassword(password) === true) {
       const token = user.generateAuthToken();
-      return res.cookie('x-access-token', token, {
-        httpOnly: true,
-        secure: false,
-        sameSite: 'lax'
-      }).send({success:true, message: "user login successfuly"})
+      return res
+        .cookie("x-access-token", token, {
+          httpOnly: true,
+          secure: false,
+          sameSite: "lax",
+        })
+        .send({ success: true, message: "user login successfuly" });
     }
   } catch (err) {
     next(err);
   }
 };
-
