@@ -16,7 +16,6 @@ const GroupSchema = new Schema({
     teachers: [{
         ref: "users", type:
             mongoose.Schema.Types.ObjectId
-
     }]
 })
 
