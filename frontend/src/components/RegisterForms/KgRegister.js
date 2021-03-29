@@ -16,7 +16,7 @@ export default function KgRegister() {
   return (
     <div className={styles.regForm}>      
       {!data.kg && 
-      <form onSubmit={submitKgForm} name="kgForm">
+      <form className={styles.formContainer} onSubmit={submitKgForm} name="kgForm">
 
         <div className='reg'>
           <h1>Register Kindergarten!</h1>
@@ -64,10 +64,10 @@ export default function KgRegister() {
         </div>
 
         <br/>
-
-        <Link to='/'><button className="cancel">Cancel</button></Link>
-        <Link to='mregister'><button type='submit' value='Next' className='next'>Next</button></Link>
-      
+        <div className={styles.btnContainer}>
+          <Link to='/'><button className="cancel">Cancel</button></Link>
+          <Link to='mregister'><button type='submit' value='Next' className='next'>Next</button></Link>
+        </div>
       </form>}
       {data.kg && <ManagerRegister kg={data.kg}/> }
     </div>

@@ -4,22 +4,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  align-content: center;
 }
 
 .regContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
   flex-direction: column;
   color:$primary-blue;
 }
 
-form {
-  width: 25rem;
+.btnContainer {
+  display: flex;
+  width: 66%;
+}
+
+.formContainer {
+  display: grid;
+  place-items: center;
 }
 
 .address {
   margin-top: 20px;
+  width: 66%;
 }
+
+.regH {
+  font-size: 3rem;
+
+}
+
 

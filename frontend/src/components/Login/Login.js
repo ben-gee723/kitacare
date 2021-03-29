@@ -16,9 +16,9 @@ export default function Login() {
 
   return (
     <div className={styles.fcontainer}>
-      <form onSubmit={submitForm}>
+      <form className={styles.loginContainer} onSubmit={submitForm}>
         <div className="reg">
-            <h1>Login!</h1>
+            <h1>Login to Account!</h1>
         </div> 
 
         <div className='inputBox'>
@@ -32,9 +32,10 @@ export default function Login() {
         </div>
 
         <br/>
-
-        <Link to='/'><button className="cancel">Cancel</button></Link>
-        <button type='submit' value='Login' className='next'>Login</button>
+        <div className={styles.btnContainer}>
+          <Link to='/'><button className="cancel">Cancel</button></Link>
+          <button type='submit' value='Login' className='next'>Login</button>
+        </div>
       </form>
     </div>
   );
