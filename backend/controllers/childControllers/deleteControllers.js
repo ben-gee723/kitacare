@@ -2,11 +2,10 @@ const ChildModel = require("../../model/childModel")
 
 //Managers --> validate eto check if manager
 exports.deleteChild = async (req, res, next) => {
+    const { id } = req.params;
     try {
-        const { id } = req.param;
-        const child = await ChildModel.findById(id)
+        const child = await ChildModel.findByIdAndRemove(id)
         if (child) {
-            await ChildModel.remove()
             res.send({ success: true, message: "child removed from db" })
         } else {
             res.status(404).send({ success: false, message: "no matching child found in db" })

@@ -2,6 +2,7 @@ const ChildModel = require("../../model/childModel");
 
 // getAllChildren       => just for managers
 exports.getAllChildren = async (req, res, next) => {
+    const { id } = req.params;
     try {
         let allChildren = await ChildModel.find();
         if (allChildren) {
