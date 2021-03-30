@@ -11,6 +11,10 @@ import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
 import Footer from "./components/Footer/index"
 import Tpage from "./components/Tpage/Tpage"
+import Mpage from "./components/Mpage/Mpage"
+import createTeacher from "./components/Mpage/createTeacher"
+import Teachers from "./components/Mpage/Teachers"
+
 
 function App() {
 
@@ -27,6 +31,10 @@ function App() {
         <Route path='/mregister' component={ManagerRegister}/>
         <Route path='/tregister' component={TeacherRegister}/>
         <Route path='/login' component={Login} />
+        <Route path='/mpage' component={Mpage} />
+        <Route path='/cteacher' component={createTeacher} />
+        <Route path='/teachers' component={Teachers} />
+
         <Route path='/tpage' component={Tpage} />
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />

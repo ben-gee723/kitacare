@@ -22,6 +22,8 @@ export default function Tpage() {
                 <div className={styles.tGroup}>
                     <h3>Class room name</h3>
                     <p>Class room description</p>
+                    <li>Group age: 3-5</li>
+                    <li>Room: 123</li>
                     <br/>
                     <button type='submit' value='Next' className='next'>View</button>
                 </div>
