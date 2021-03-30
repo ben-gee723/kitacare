@@ -43,16 +43,6 @@ export default function Login() {
         <div className='reg'>
           <h1>Login!</h1>
         </div>
-        <div className='inputBox'>
-          <label className='details'>E-mail</label>
-          <br />
-          <input
-            type='email'
-            name='email'
-            placeholder='E-mail'
-            onChange={grabValue}
-          />
-        </div>
 
         <div className='inputBox'>
           <label className='details'>E-mail</label>
