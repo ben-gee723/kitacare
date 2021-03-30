@@ -13,12 +13,12 @@ import "./globalCSS/app.scss";
 import Footer from "./components/Footer/index"
 import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
+import Container from "./Container";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [token, setToken] = useState(null);
 
   return (
+    <Container>
     <div className='App'>
 
       <Navbar />
@@ -41,6 +41,7 @@ function App() {
       
       
     </div>
+    </Container>
   );
 }
 

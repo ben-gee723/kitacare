@@ -8,7 +8,6 @@ const kgSchema=new Schema({
   address:{type:AddressSchema,required:true},
   phoneNumber:{type:String,required:true},
   email:{type:String,required:false},
-  // users:[{ref:"users",type:Schema.Types.ObjectId}],
   calendar: [{}],
 })
 
