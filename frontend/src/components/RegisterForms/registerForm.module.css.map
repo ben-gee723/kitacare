@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACP,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;CACpB;;AAED,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,IAAI;EACZ,cAAc,EAAE,MAAM;EACtB,KAAK,ECbQ,OAAO;CDcrB;;AAED,AAAA,IAAI,CAAC;EACH,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,QAAQ,CAAC;EACP,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "registerForm.module.scss",
+        "../../globalCSS/_variables.scss"
+    ],
+    "names": [],
+    "file": "registerForm.module.css"
+}

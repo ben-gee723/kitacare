@@ -1,8 +1,8 @@
 const UserModel=require("../../model/userModel")
 
 exports.updateTeacher = async(req,res,next)=>{
-  const { id } = req.params;
   try{
+  const { id } = req.params;
   let updatedTeacher = await UserModel.findByIdAndUpdate( id,req.body,{new:true} )
   if(updatedTeacher){
     res.send( {success:true,updatedTeacher:updatedTeacher} )

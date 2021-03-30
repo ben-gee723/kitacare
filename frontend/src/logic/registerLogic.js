@@ -22,11 +22,11 @@ const submitForm = (e) => {
   const sendData=(type,payload)=>{
     let url = "";
     if(type==="kg registration")
-        {url = "http://localhost:3000/kg/register"}
+        {url = "http://localhost:3001/kg/register"}
     else if(type==="manager registration")
-        {url = "http://localhost:3000/users/managers"}
-    else
-        {url = "http://localhost:3000/users/teachers"}
+        {url = "http://localhost:3001/users/managers"}
+    else  //"teacher registration"
+        {url = "http://localhost:3001/users/teachers"}
     axios({
       method: "POST",
       url: url,
@@ -39,7 +39,6 @@ const submitForm = (e) => {
       .then(response => {
         if (response.data.success) {
           console.log(response.data.user);
-          // props.history.push("/mprofile ???")
         } else {
           console.log(response);
         }
