@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 import axios from "axios";
+import {MyContext} from "../../Container"
+
 
 export default function Login() {
-  const {token, setToken} = useState({});
-  const {isLogin, setIsLogin} = useState({});
-  const [user, setUser] = useState({
+  const {setIsLogin,setUser} = useContext(MyContext)
+
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
@@ -21,13 +23,12 @@ export default function Login() {
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      data: user,
+      data: formData,
     })
       .then(response => {
         console.log(response)
         if (response.data.success) {
-          console.log(response.data.userInfo)
-          setUser(response.data.userInfo)
+          setUser(response.data.userInfo.user)
           setIsLogin(true)
         } else {
           console.log(response);
@@ -50,7 +51,7 @@ export default function Login() {
             type='email'
             name='email'
             placeholder='E-mail'
-            onChange={(e)=>setUser({...user,email:e.target.value})}
+            onChange={(e)=>setFormData({...formData,email:e.target.value})}
           />
         </div>
 
@@ -61,7 +62,7 @@ export default function Login() {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={(e)=>setUser({...user,password:e.target.value})}
+            onChange={(e)=>setFormData({...formData,password:e.target.value})}
           />
         </div>
 

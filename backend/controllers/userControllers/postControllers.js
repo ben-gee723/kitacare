@@ -19,7 +19,7 @@ exports.addTeacher = async (req, res, next) => {
       }
     })
     .catch(err => next(err));
-  //get kgId from token in frontend and  add it to the req.body!!
+  //get in frontend and  add it to the req.body!!
 };
 
 //avaliable to manager role
@@ -40,7 +40,7 @@ exports.addManager = async (req, res, next) => {
         .status(400)
         .send({ successs: false, message: "manager already exists in db" });
     }
-    //get kgId from token in frontend and  add it to the req.body!!
+    //get kgId in frontend and  add it to the req.body!!
   } catch (err) {
     next(err);
   }
@@ -64,8 +64,8 @@ exports.login = async (req, res, next) => {
         .status(400)
         .send({ success: false, message: "password wasn't found" });
     }
-    let isUser=await user.checkPassword(password)
-    //let isUser=user.password===password?true:false
+    //let isUser=await user.checkPassword(password)
+    let isUser=user.password===password?true:false
     if(isUser){
       console.log("yes,everthing is ok!")
       let userInfo=await user.userInfo()
