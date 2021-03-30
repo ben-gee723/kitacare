@@ -19,11 +19,7 @@ export default function TeacherRegister() {
 
   return (
     <div className={styles.regForm}>
-<<<<<<< HEAD
       <form className={styles.formContainer} onSubmit={submitForm}>
-=======
-      <form onSubmit={submitTeacherForm}>
->>>>>>> develop
 
         <div className='reg'>
           <h1>Register as Teacher!</h1>

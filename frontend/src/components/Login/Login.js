@@ -39,17 +39,10 @@ export default function Login() {
 
   return (
     <div className={styles.fcontainer}>
-<<<<<<< HEAD
       <form className={styles.loginContainer} onSubmit={submitForm}>
         <div className="reg">
             <h1>Login to Account!</h1>
         </div> 
-=======
-      <form onSubmit={submitForm}>
-        <div className='reg'>
-          <h1>Login!</h1>
-        </div>
->>>>>>> develop
 
         <div className='inputBox'>
           <label className='details'>E-mail</label>
@@ -73,20 +66,11 @@ export default function Login() {
           />
         </div>
 
-<<<<<<< HEAD
         <br/>
         <div className={styles.btnContainer}>
           <Link to='/'><button className="cancel">Cancel</button></Link>
           <button type='submit' value='Login' className='next'>Login</button>
         </div>
-=======
-        <Link to='/'>
-          <button className='cancel'>Cancel</button>
-        </Link>
-        <button type='submit' value='Login' className='next'>
-          Login
-        </button>
->>>>>>> develop
       </form>
     </div>
   );
