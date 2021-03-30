@@ -4,7 +4,8 @@ import styles from "./Login.module.scss";
 import axios from "axios";
 
 export default function Login() {
-  const {setIsLogin, setToken} = useState({});
+  const {token, setToken} = useState({});
+  const {isLogin, setIsLogin} = useState({});
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,26 +18,22 @@ export default function Login() {
       withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
-        Accept: "application/json",
+        "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      user: user,
+      data: user,
     })
       .then(response => {
-        console.log(res.cookies.get(["x-access-token"]));
-        let token = res.cookies.get(["x-access-token"]);
-        setToken(token)
-        if (response.user.success) {
-          console.log(response.user);
+        console.log(response)
+        if (response.data.success) {
+          console.log(response.data.userInfo)
+          setUser(response.data.userInfo)
           setIsLogin(true)
         } else {
           console.log(response);
         }
       })
       .catch(err => console.log(err));
-  };
-  const grabValue = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   return (
@@ -53,7 +50,7 @@ export default function Login() {
             type='email'
             name='email'
             placeholder='E-mail'
-            onChange={grabValue}
+            onChange={(e)=>setUser({...user,email:e.target.value})}
           />
         </div>
 
@@ -64,7 +61,7 @@ export default function Login() {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={grabValue}
+            onChange={(e)=>setUser({...user,password:e.target.value})}
           />
         </div>
 
