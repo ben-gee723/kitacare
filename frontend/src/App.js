@@ -1,6 +1,5 @@
-
 import Home from "./components/Home/Home";
-import React from "react"
+import React from "react";
 import { Route, Link, Switch, withRouter } from "react-router-dom";
 import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
@@ -11,47 +10,40 @@ import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import "./globalCSS/app.scss";
-import Footer from "./components/Footer/index"
-import Tpage from "./components/Tpage/Tpage"
-import Mpage from "./components/Mpage/Mpage"
-import createTeacher from "./components/Mpage/createTeacher"
-import Teachers from "./components/Mpage/Teachers"
-
+import Footer from "./components/Footer/index";
+import Tpage from "./components/Tpage/Tpage";
+import Mpage from "./components/Mpage/Mpage";
+import createTeacher from "./components/Mpage/createTeacher";
+import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";
 
 function App() {
-
   return (
     <Container>
-    <div className='App'>
-
-      <Navbar />
-      <Link to="/manager">Manager</Link>
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/register' component={Register} />
-        <Route path='/kgregister' component={KgRegister}/>
-        <Route path='/mregister' component={ManagerRegister}/>
-        <Route path='/tregister' component={TeacherRegister}/>
-        <Route path='/manager' component={Manager}/>
-        <Route path='/login' component={Login} />
-        <Route path='/mpage' component={Mpage} />
-        <Route path='/cteacher' component={createTeacher} />
-        <Route path='/teachers' component={Teachers} />
-
-        <Route path='/tpage' component={Tpage} />
-        <Route path='/logout' component={Logout} />
-        <Route path="/calendar" component={Calendar} />
-        <Route component={NotFound} />
-      </Switch>
-      <Footer/>
-      
-      
-    </div>
+      <div className='App'>
+        <Navbar />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route exact path='/register' component={Register} />
+          <Route path='/kgregister' component={KgRegister} />
+          <Route path='/mregister' component={ManagerRegister} />
+          <Route path='/tregister' component={TeacherRegister} />
+          <Route path='/manager' component={Manager} />
+          <Route path='/login' component={Login} />
+          <Route path='/mpage' component={Mpage} />
+          <Route path='/cteacher' component={createTeacher} />
+          <Route path='/teachers' component={Teachers} />
+          <Route path='/tpage' component={Tpage} />
+          <Route path='/logout' component={Logout} />
+          <Route path='/calendar' component={Calendar} />
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
     </Container>
   );
 }
