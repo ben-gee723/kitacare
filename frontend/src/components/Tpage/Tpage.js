@@ -1,4 +1,5 @@
 import React from 'react'
+import Calendar from '../Calendar/Calendar'
 import  styles from './Tpage.module.scss'
 
 export default function Tpage() {
@@ -34,6 +35,9 @@ export default function Tpage() {
                 </div>
                 <div className={styles.tTodo}>
                     <h3>To do list</h3>
+                </div>
+                <div className={styles.calendar}>
+                    <Calendar/>
                 </div>
             </div>
 
