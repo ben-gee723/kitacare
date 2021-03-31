@@ -1,10 +1,16 @@
 @import "../../globalCSS/variables";
-
 .fcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
     flex-direction: column;
-    color:$primary-blue;
+  }
+  .loginContainer {
+    display: grid;
+    place-items: center;
+  }
+  .btnContainer {
+    display: flex;
+    width: 66%;
   }

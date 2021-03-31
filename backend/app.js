@@ -12,7 +12,6 @@ const calendarRoutes = require("./routes/calendarRoutes");
 
 //middlewares:
 const app = express();
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 require("dotenv").config();
@@ -21,6 +20,8 @@ if(config.environment==="development"){
   const morgan = require("morgan")
   app.use(morgan("dev"))
 }
+app.use(cors());
+
 
 //endpoints:
 app.use("/", indexRoutes);
