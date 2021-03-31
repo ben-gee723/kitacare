@@ -103,9 +103,9 @@
   color: $light;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 
   &:hover {
     background: $light;
@@ -123,8 +123,9 @@
   color: $light;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem;
+  
 
   &:hover {
     background: $light;
@@ -132,5 +133,24 @@
     border: 1px solid $primary-green;
     cursor: pointer;
     color: $primary-green;
+  }
+}
+
+.edit {
+  background-color: $secondary-orange;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  &:hover {
+    background: $light;
+    transition: 0.2 ease-out;
+    border: 1px solid $secondary-orange;
+    cursor: pointer;
+    color: $secondary-orange;
   }
 }

@@ -10,11 +10,12 @@
 }
 
 .mInfo {
-    background-color: cornsilk;
+    background-color: #f5f5f5;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 2rem;
     line-height: 1.5rem;
+    
 }
 
 .mImg {
@@ -35,18 +36,18 @@
 }
 
 .mGroup {
-    background-color: $light-gray;
+    background-color: #f5f5f5;
     padding: 1rem;
     border-radius: 1rem;
-    border: solid 2px $primary-orange;
+    border: solid 1px $primary-orange;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .mTeachers {
-    background-color: $light-gray;
+    background-color: #f5f5f5;
     padding: 1rem;
     border-radius: 1rem;
-    border: solid 2px $primary-blue;
+    border: solid 1px $primary-blue;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -55,4 +56,11 @@
     padding: 1rem;
     background-color: $light-gray;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.calendar {
+    grid-column-start: 2;
+    grid-row-start: 1;
 }

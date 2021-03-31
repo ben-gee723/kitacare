@@ -20,6 +20,7 @@ import Teachers from "./components/Mpage/Teachers"
 import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";
+import Attendance from "./components/Tpage/Attendance"
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
         <Route path='/teachers' component={Teachers} />
 
         <Route path='/tpage' component={Tpage} />
+        <Route path='/attendance' component={Attendance} />
         <Route path='/logout' component={Logout} />
         <Route path="/calendar" component={Calendar} />
         <Route component={NotFound} />
