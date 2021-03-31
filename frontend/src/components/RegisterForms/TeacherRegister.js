@@ -19,7 +19,7 @@ export default function TeacherRegister() {
 
   return (
     <div className={styles.regForm}>
-      <form onSubmit={submitTeacherForm}>
+      <form className={styles.formContainer} onSubmit={submitForm}>
 
         <div className='reg'>
           <h1>Register as Teacher!</h1>
@@ -92,9 +92,10 @@ export default function TeacherRegister() {
         </div>
         
         <br/>
-        
-        <Link to='/'><button className="cancel">Cancel</button></Link>
-        <button type='submit' value='Register' className='next'>Register</button>
+        <div className={styles.btnContainer}>
+          <Link to='/'><button className="cancel">Cancel</button></Link>
+          <button type='submit' value='Register' className='next'>Register</button>
+        </div>
         
       </form>
     </div>

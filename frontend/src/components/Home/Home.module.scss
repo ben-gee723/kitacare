@@ -1,0 +1,54 @@
+@import "../../globalCSS/variables";
+
+.hcontainer {    
+    margin: 0 5rem; 
+    display: block;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.icon { 
+    width: 25%;
+    color: $primary-blue;  
+    text-align: center;
+    background-color: $light;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: -2px 2px 2px 2px rgba(0,0,0,0.85); 
+    box-shadow: -2px 2px 2px 2px rgba(53, 52, 52, 0.85);
+}
+
+.ptag {
+    color: black;
+    line-height: 1.5rem;
+    text-align: left;
+    padding-top: 1rem;
+}
+
+.po {
+    color: $primary-orange;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.header {
+    font-size: 2.5rem;
+    color: $primary-blue;
+    margin-bottom: 2rem;
+}
+
+.svgHome {
+    width: 30rem;
+    height: 30rem;
+    margin:2rem;
+}
