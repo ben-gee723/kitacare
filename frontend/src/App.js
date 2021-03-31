@@ -39,7 +39,6 @@ function App() {
         <Route path='/mpage' component={Mpage} />
         <Route path='/cteacher' component={createTeacher} />
         <Route path='/teachers' component={Teachers} />
-
         <Route path='/tpage' component={Tpage} />
         <Route path='/attendance' component={Attendance} />
         <Route path='/logout' component={Logout} />
