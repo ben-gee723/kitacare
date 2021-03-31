@@ -12,10 +12,7 @@ const calendarRoutes = require("./routes/calendarRoutes");
 
 //middlewares:
 const app = express();
-<<<<<<< HEAD
-=======
 //app.use(cors());
->>>>>>> 1eb29cfe4e86dedf45767474c90d073b683100ca
 app.use(express.json());
 app.use(cookieParser());
 require("dotenv").config();
