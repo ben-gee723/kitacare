@@ -1,7 +1,7 @@
 import React from 'react'
 import  styles from './Mpage.module.scss'
 import { Link } from "react-router-dom";
-
+import Calendar from '../Calendar/Calendar';
 
 export default function Tpage() {
     return (
@@ -17,7 +17,7 @@ export default function Tpage() {
                 <p>Phone number: 123</p>
                 <p>Group: 123</p>
                 <br/>
-                <button type='submit' value='Next' className='next'>Edit</button>
+                <button className='edit'>Edit info</button>
             </div>
         
             <div className={styles.features}>
@@ -26,8 +26,8 @@ export default function Tpage() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus voluptatibus odio perspiciatis asperiores repellendus illo et facere veritatis sint laborum.</p>
                     <li>total number: 9</li>
                     <br/>
-                    <button type='submit' value='Next' className='next'>View</button>
-                    <button type='submit' value='Next' className='next'>Add</button>
+                    <button className='view'>View All</button>
+                    <button className='add'>Add New</button>
                 </div>
                 <div className={styles.mTeachers}>
                     <h3>Teachers</h3>
@@ -35,11 +35,14 @@ export default function Tpage() {
                     <li>Number of teachers: 8</li>
                     <br/>
                     <Link to='/teachers'>
-                        <button type='submit' value='Next' className='next'>View</button>
+                        <button className='view'>View All</button>
                     </Link>
                 </div>
                 <div className={styles.mTodo}>
                     <h3>To do list</h3>
+                </div>
+                <div className={styles.calendar}>
+                    <Calendar/>
                 </div>
             </div>
 
