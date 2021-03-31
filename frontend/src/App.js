@@ -19,6 +19,7 @@ import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";
 import Attendance from "./components/Tpage/Attendance"
+import AllGroups from "./components/GroupsPages/AllGroups";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path='/attendance' component={Attendance} />
         <Route path='/logout' component={Logout} />
         <Route path="/calendar" component={Calendar} />
+        <Route path ="/groups" component = {AllGroups} />
         <Route component={NotFound} />
       </Switch>
       <Footer/>

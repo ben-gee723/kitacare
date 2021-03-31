@@ -30,9 +30,11 @@ export default function Manager() {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <li>total number: 9</li>
             <br />
-            <button type='submit' value='view' className='view'>
-              View
-            </button>
+            <Link to='/groups'>
+              <button type='submit' value='view' className='view'>
+                View
+              </button>
+            </Link>
             <button type='submit' value='add' className='add'>
               Add
             </button>
