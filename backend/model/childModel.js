@@ -16,7 +16,7 @@ const ChildSchema = new Schema({
     dietaryNeeds: { type: [{ requirement: String }], required: false },
     emergencyContact: [{
         name: { type: String, required: false },
-        address: { type: AddressSchema, required: false },
+        email: { type: 'email', required: false },
         phoneNumber: { type: String, required: false }
     }],
     attendance: [{
