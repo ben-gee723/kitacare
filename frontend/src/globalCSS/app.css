@@ -6,6 +6,168 @@
           box-sizing: border-box;
 }
 
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.regInfo {
+  margin-top: 20px;
+}
+
+.reg {
+  margin-top: 100px;
+  color: #0C8DA8;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.inputBox {
+  margin-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input::-webkit-input-placeholder {
+  padding: 5px;
+}
+
+input:-ms-input-placeholder {
+  padding: 5px;
+}
+
+input::-ms-input-placeholder {
+  padding: 5px;
+}
+
+input::placeholder {
+  padding: 5px;
+}
+
+.lg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.lg img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.kita {
+  color: #fff;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav {
+  font-family: Helvetica;
+  padding: 0 0.5rem;
+  background: #0d0909;
+  height: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+}
+
+.navbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.loginbtn {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  height: 3rem;
+  border: none;
+  background: #ff4e13;
+  color: #fff;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+
+.loginbtn:hover {
+  background: #85d1ff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  cursor: pointer;
+  color: #000;
+}
+
+.regbtn {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  height: 3rem;
+  border: none;
+  background: #ff4e13;
+  color: #fff;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  margin-right: 3px;
+}
+
+.regbtn:hover {
+  background: #85d1ff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  cursor: pointer;
+  color: #000;
+}
+
+html body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #FDFEFF;
+}
+
 .submit {
   background-color: #FF4E13;
   border-radius: 0.25rem;
@@ -15,10 +177,40 @@
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.submit:hover {
+  background: black;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #FF4E13;
+  cursor: pointer;
+  color: #FF4E13;
+}
+
+.login {
+  background-color: #0C8DA8;
+  border: none;
+  border-radius: 0.25rem;
+  color: #FDFEFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+}
+
+.login:hover {
+  background: black;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #0C8DA8;
+  cursor: pointer;
+  color: #0C8DA8;
 }
 
 .cancel {
-  background-color: #00A881;
+  background-color: #423F40;
   border-radius: 0.25rem;
   color: #FDFEFF;
   text-align: center;
@@ -26,6 +218,16 @@
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.cancel:hover {
+  background: white;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #423F40;
+  cursor: pointer;
+  color: #423F40;
 }
 
 .next {
@@ -37,7 +239,15 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  margin-left: 1rem;
+}
+
+.next:hover {
+  background: white;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #0C8DA8;
+  cursor: pointer;
+  color: #0C8DA8;
 }
 
 .att {
@@ -49,6 +259,15 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.att:hover {
+  background: white;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #FF4E13;
+  cursor: pointer;
+  color: #FF4E13;
 }
 /*# sourceMappingURL=app.css.map */
