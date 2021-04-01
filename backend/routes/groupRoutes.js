@@ -17,6 +17,9 @@ router.get("/getAllGroups/:id", getAllGroups);
 router.post("/addGroup", addGroup);
 
 //PUT:
-router.put("/updateGroup", updateGroup);
+router.put("/updateGroup/:id", updateGroup)
+
+// DELETE:
+router.delete("/deleteGroup/:id", deleteGroup)
 
 module.exports = router;
