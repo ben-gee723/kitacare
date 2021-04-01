@@ -19,7 +19,6 @@ import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
 import ChildRegister from "./components/RegisterForms/ChildRegister/information";
 import ChildHealth from "./components/RegisterForms/ChildRegister/health";
-import EmergencyContact from "./components/RegisterForms/ChildRegister/emergencsContact";
 
 // Dashboard
 import Tpage from "./components/Tpage/Tpage";
