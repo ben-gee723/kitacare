@@ -39,8 +39,8 @@
   width: 100%;
   background: $light;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 0.05rem solid $primary-blue;
-  border-radius: 1rem;
+  border: 0.15rem solid $primary-blue;
+  border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
 }
@@ -83,6 +83,7 @@
   cursor: pointer;
   background: $light;
   transition: 0.25s ease-out;
+  border-radius: 0.5rem;
 }
 .calendar .body .cell:hover {
   transition: 0.5s ease-out;
