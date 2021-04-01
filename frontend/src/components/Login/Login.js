@@ -17,7 +17,7 @@ export default function Login() {
     e.preventDefault();
     axios({
       method: "POST",
-      withCredentials: true,
+      //withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
         "Accept": "application/json",

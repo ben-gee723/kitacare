@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 //routes:
 const indexRoutes = require("./routes/indexRoute");
 const userRoutes = require("./routes/userRoutes");
@@ -12,56 +12,34 @@ const calendarRoutes = require("./routes/calendarRoutes");
 
 //middlewares:
 const app = express();
-//app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 require("dotenv").config();
-const config= require("./config/configuration")
-if(config.environment==="development"){
-  const morgan = require("morgan")
-  app.use(morgan("dev"))
+const config = require("./config/configuration");
+if (config.environment === "development") {
+  const morgan = require("morgan");
+  app.use(morgan("dev"));
 }
 app.use(cors());
 
-
 //cors:
- const setCors = (req, res, next) => {
-   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-   res.header(
-     "Access-Control-Allow-Headers",
-     "Content-Type, Access"
-   );
-   res.header(
-     "Access-Control-Allow-Credentials",
-     "true"
-   );
-   res.header("Access-Control-Allow-Methods", "*");
-   res.header("Access-Control-Expose-Headers","*")
-   next();
- };
- app.use(setCors)
-
-
-
-// app.use((req, res, next) => {
-//   res.set("ACCESS-CONTROL-ALLOW-ORIGIN", "http://localhost:3000");
-//   res.set("ACCESS-CONTROL-ALLOW-CREDENTIALS", "true");
-//   res.set("ACCESS-CONTROL-ALLOW-HEADERS", "*");
-//   res.set("ACCESS-CONTROL-ALLOW-METHODS", "*");
-//   res.set("ACCESS-CONTROL-EXPOSE-HEADERS", "*")
-
-//   next();
-// });
-
+const setCors = (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Access");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Expose-Headers", "*");
+  next();
+};
+app.use(setCors);
 
 //endpoints:
 app.use("/", indexRoutes);
 app.use("/users", userRoutes);
 app.use("/kg", kgRoutes);
 app.use("/child", childRoutes);
-app.use("/group", groupRoutes);
+app.use("/groups", groupRoutes);
 app.use("/calendar", calendarRoutes);
-
 
 //connection:
 mongoose
@@ -71,6 +49,7 @@ mongoose
   })
   .then(() => console.log("connection established"))
   .catch(err => console.log(err));
+
 
 //ERROR HANDLING:
 app.use((req, res, next) => {

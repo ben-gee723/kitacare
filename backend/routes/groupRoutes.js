@@ -1,17 +1,22 @@
-const express = require("express")
-const router = express.Router()
-const { getAllGroups, getSingleGroup } = require("../controllers/groupControllers/getControllers")
-const { addGroup } = require("../controllers/groupControllers/postControllers")
-const { updateGroup } = require("../controllers/groupControllers/updateControllers")
+const express = require("express");
+const router = express.Router();
+const {
+  getAllGroups,
+  getSingleGroup,
+} = require("../controllers/groupControllers/getControllers");
+const { addGroup } = require("../controllers/groupControllers/postControllers");
+const {
+  updateGroup,
+} = require("../controllers/groupControllers/updateControllers");
 
 //GET:
-router.get("/:id", getSingleGroup)
-router.get("/getAllGroups", getAllGroups)
+router.get("/getSingleGroup/:id", getSingleGroup);
+router.get("/getAllGroups/:id", getAllGroups);
 
 //POST:
-router.post("/addGroup", addGroup)
+router.post("/addGroup", addGroup);
 
 //PUT:
-router.put("/updateGroup", updateGroup)
+router.put("/updateGroup", updateGroup);
 
-module.exports = router
+module.exports = router;
