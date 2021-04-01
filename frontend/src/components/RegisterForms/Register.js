@@ -6,7 +6,9 @@ import styles from './registerForm.module.scss';
 export default function Register() {
   return (
     <div className={styles.regContainer}>
-      <h1>Choose your Account!</h1><br/>
+      <div className='reg'>
+        <h1 >Choose your Account!</h1><br/>
+      </div>
       <div className="btnform">
       <Link to='/kgregister'>
         <button className="att">Register a Kindergarten</button>

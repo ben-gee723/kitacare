@@ -1,0 +1,66 @@
+@import "../../globalCSS/variables";
+
+.mpContainer {
+    height: 100vh;
+    //background-color: cadetblue;
+    margin: 0 5rem;
+    padding: 2rem;
+    display: flex;
+    
+}
+
+.mInfo {
+    background-color: #f5f5f5;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+    padding: 2rem;
+    line-height: 1.5rem;
+    
+}
+
+.mImg {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    background-color: darkorchid;
+    margin-bottom: 1rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 25rem 25rem;
+    grid-template-rows: 15rem 15rem;
+    margin-left: 1rem;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.mGroup {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid 1px $primary-orange;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mTeachers {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid 1px $primary-blue;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mTodo {
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: $light-gray;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.calendar {
+    grid-column-start: 2;
+    grid-row-start: 1;
+}

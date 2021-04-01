@@ -8,7 +8,7 @@ export default function TeacherRegister() {
 
   useEffect(() => {
     if(formData.teacher){
-        sendData("teacher registation",formData);
+      sendData("teacher registation",formData);
     }
   }, [formData])
 
@@ -19,7 +19,7 @@ export default function TeacherRegister() {
 
   return (
     <div className={styles.regForm}>
-      <form onSubmit={submitForm}>
+      <form className={styles.formContainer} onSubmit={submitForm}>
 
         <div className='reg'>
           <h1>Register as Teacher!</h1>
@@ -90,11 +90,12 @@ export default function TeacherRegister() {
           <label className='details'>Password</label><br/>
           <input type='password' name='password' placeholder='Password' />
         </div>
-
-        <br/>
         
-        <Link to='/'><button className="cancel">Cancel</button></Link>
-        <button type='submit' value='Register' className='next'>Register</button>
+        <br/>
+        <div className={styles.btnContainer}>
+          <Link to='/'><button className="cancel">Cancel</button></Link>
+          <button type='submit' value='Register' className='next'>Register</button>
+        </div>
         
       </form>
     </div>

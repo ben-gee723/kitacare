@@ -1,11 +1,16 @@
+@import "./variables";
+
 .regInfo {
     margin-top: 20px;
+    width: 66%;
   }
   
 .reg {
     margin-top: 100px;
     color: $primary-blue;
-  }
+    font-size: 1.2rem;
+    
+}
 
 input {
     width: 100%;
@@ -16,9 +21,11 @@ input {
 .inputBox {
   margin-top: 10px;
   align-items: center;
-  }  
+  width: 66%;
+}  
   
 input::placeholder {
    padding: 5px;
   }
+
 

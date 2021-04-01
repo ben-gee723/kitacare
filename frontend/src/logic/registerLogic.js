@@ -42,13 +42,6 @@ const sendData = (type, payload) => {
     },
     data: payload,
   })
-    .then(response => {
-      if (response.data.success) {
-        console.log(response.data.user);
-      } else {
-        console.log(response);
-      }
-    })
     .catch(err => console.log(err));
 }
 
