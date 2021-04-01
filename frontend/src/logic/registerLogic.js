@@ -23,16 +23,16 @@ const sendData = (type, payload) => {
   let url = "";
 
   // "kg registration"
-  if (type === "kg registration") { url = "http://localhost:3000/kg/register" }
+  if (type === "kg registration") { url = "http://localhost:3001/kg/register" }
 
   // "manager registration"
-  else if (type === "manager registration") { url = "http://localhost:3000/users/managers" }
+  else if (type === "manager registration") { url = "http://localhost:3001/users/managers" }
 
   // "child registration"
-  else if (type === "child registration") { url = "http://localhost:3000/child/addChild" }
+  else if (type === "child registration") { url = "http://localhost:3001/child/addChild" }
 
   //"teacher registration"
-  else { url = "http://localhost:3000/users/teachers" }
+  else { url = "http://localhost:3001/users/teachers" }
   axios({
     method: "POST",
     url: url,
