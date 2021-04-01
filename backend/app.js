@@ -33,16 +33,6 @@ const setCors = (req, res, next) => {
 };
 app.use(setCors);
 
-// app.use((req, res, next) => {
-//   res.set("ACCESS-CONTROL-ALLOW-ORIGIN", "http://localhost:3000");
-//   res.set("ACCESS-CONTROL-ALLOW-CREDENTIALS", "true");
-//   res.set("ACCESS-CONTROL-ALLOW-HEADERS", "*");
-//   res.set("ACCESS-CONTROL-ALLOW-METHODS", "*");
-//   res.set("ACCESS-CONTROL-EXPOSE-HEADERS", "*")
-
-//   next();
-// });
-
 //endpoints:
 app.use("/", indexRoutes);
 app.use("/users", userRoutes);
@@ -59,6 +49,7 @@ mongoose
   })
   .then(() => console.log("connection established"))
   .catch(err => console.log(err));
+
 
 //ERROR HANDLING:
 app.use((req, res, next) => {

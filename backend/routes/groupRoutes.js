@@ -10,8 +10,8 @@ const {
 } = require("../controllers/groupControllers/updateControllers");
 
 //GET:
-router.get("/:id", getSingleGroup);
-router.get("/getAllGroups", getAllGroups);
+router.get("/getSingleGroup/:id", getSingleGroup);
+router.get("/getAllGroups/:id", getAllGroups);
 
 //POST:
 router.post("/addGroup", addGroup);
