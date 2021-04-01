@@ -10,7 +10,10 @@ import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
-import ChildRegister from "./components/RegisterForms/ChildRegisterForm";
+import ChildRegister from "./components/RegisterForms/ChildRegister/information";
+import ChildHealth from "./components/RegisterForms/ChildRegister/health";
+import EmergencyContact from "./components/RegisterForms/ChildRegister/emergencsContact";
+
 
 // Login & Error
 import Login from "./components/Login/Login";
@@ -32,12 +35,13 @@ function App() {
         <Route path='/mregister' component={ManagerRegister} />
         <Route path='/tregister' component={TeacherRegister} />
         <Route path='/cregister' component={ChildRegister} />
+        <Route path='/cregister_health' component={ChildHealth} />
+        <Route path='/cregister_emergencyContact' component={EmergencyContact} />
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
-
 
     </div>
   );
