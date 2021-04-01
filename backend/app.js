@@ -25,34 +25,15 @@ app.use(cors());
 
 
 //cors:
- const setCors = (req, res, next) => {
-   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-   res.header(
-     "Access-Control-Allow-Headers",
-     "Content-Type, Access"
-   );
-   res.header(
-     "Access-Control-Allow-Credentials",
-     "true"
-   );
-   res.header("Access-Control-Allow-Methods", "*");
-   res.header("Access-Control-Expose-Headers","*")
-   next();
- };
- app.use(setCors)
-
-
-
-// app.use((req, res, next) => {
-//   res.set("ACCESS-CONTROL-ALLOW-ORIGIN", "http://localhost:3000");
-//   res.set("ACCESS-CONTROL-ALLOW-CREDENTIALS", "true");
-//   res.set("ACCESS-CONTROL-ALLOW-HEADERS", "*");
-//   res.set("ACCESS-CONTROL-ALLOW-METHODS", "*");
-//   res.set("ACCESS-CONTROL-EXPOSE-HEADERS", "*")
-
-//   next();
-// });
-
+const setCors = (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers","Content-Type, Access");
+  res.header("Access-Control-Allow-Credentials","true");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Expose-Headers","*");
+  next();
+};
+app.use(setCors)
 
 //endpoints:
 app.use("/", indexRoutes);

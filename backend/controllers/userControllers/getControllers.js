@@ -4,8 +4,9 @@ const UserModel=require("../../model/userModel")
 //:id of kg!
 exports.getManagers=async(req,res,next)=>{
   try{
-  const {kgId}=req.params;
-  let managers=await UserModel.find({ "kg._id":kgId, role:"Manager"})
+  const {  id } = req.params;
+  //const {kgId}=req.user.kg
+  let managers=await UserModel.find({ "kg._id":id, role:"Manager"}).populate("kindergardens", "-__v")
   res.send({success:true,managers:managers})
   }catch(err){next(err)}
 }
@@ -14,7 +15,7 @@ exports.getManagers=async(req,res,next)=>{
 exports.getManager = async(req,res,next)=>{
   try{
   const { id } = req.params;
-  let manager = await UserModel.findById(id)
+  let manager = await UserModel.findById(id).populate("kindergardens", "-__v")
   if(manager){
     res.send({success:true,manager:manager})
   }else{
@@ -27,8 +28,8 @@ exports.getManager = async(req,res,next)=>{
 //:id of kg!
 exports.getTeachers = async(req,res,next)=>{
   try{
-  const {kgId}= req.params;
-  let teachers = await UserModel.find({ "kg._id":kgId,role:"Teacher"})
+  const { id }= req.params;
+  let teachers = await UserModel.find({ "kg._id":kgId,role:"Teacher"}).populate("kindergardens", "-__v")
   if(teachers){
     res.send({success:true,teachers:teachers})
   }else{
@@ -41,7 +42,7 @@ exports.getTeachers = async(req,res,next)=>{
 exports.getTeacher = async(req,res,next)=>{
   try{
   const { id } = req.params;
-  let teacher = await UserModel.findById( id )
+  let teacher = await UserModel.findById( id ).populate("kindergardens", "-__v")
   if(teacher){
     res.send( {success:true,teacher:teacher} )
   }else{
