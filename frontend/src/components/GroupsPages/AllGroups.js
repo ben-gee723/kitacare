@@ -43,14 +43,15 @@ export default function AllGroups(props) {
           <div key={group._id}>
             <h2>Groups!</h2>
             <div className={styles.btn}>
-            <p>Total: {groups.length}</p>
+            <p>Total number of groups: </p>
+            <h1>{groups.length}</h1>
             <button type='submit' value='add' className='add'>
                 Add
               </button>
               </div>
             <div className={styles.gContainer}>
               <h3>{group.groupName}</h3>
-              <p>{group.description}</p>
+              <p>{group.description}some text about the group</p>
             <div>
               <button
                 type='submit'
