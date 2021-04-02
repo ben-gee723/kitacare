@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { MyContext } from "../../Container";
+import styles from "./groups.module.scss";
 
 export default function AllGroups(props) {
   const [groups, setGroups] = useState([]);
   const { kg } = useContext(MyContext);
-  console.log({kg})
 
   useEffect(() => {
     axios({
@@ -37,20 +37,21 @@ export default function AllGroups(props) {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {groups.map(group => {
         return (
           <div key={group._id}>
-            <h3>Groups!</h3>
-            <p>Groups Total: {groups.length}</p>
-            <div className='gcontainer'>
-              <h3>{group.groupName}</h3>
-              <p>{group.description}</p>
-            </div>
-            <div>
-              <button type='submit' value='add' className='add'>
+            <h2>Groups!</h2>
+            <div className={styles.btn}>
+            <p>Total: {groups.length}</p>
+            <button type='submit' value='add' className='add'>
                 Add
               </button>
+              </div>
+            <div className={styles.gContainer}>
+              <h3>{group.groupName}</h3>
+              <p>{group.description}</p>
+            <div>
               <button
                 type='submit'
                 value='view'
@@ -59,6 +60,7 @@ export default function AllGroups(props) {
               >
                 View
               </button>
+            </div>
             </div>
           </div>
         );

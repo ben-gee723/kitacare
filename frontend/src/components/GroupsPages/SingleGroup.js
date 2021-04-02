@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import SingleGroupEdit from "./SingleGroupEdit";
+import styles from "./groups.module.scss";
 
 export default function SingleGroup(props) {
   const [showForm, setShowForm] = useState(false);

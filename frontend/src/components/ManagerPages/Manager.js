@@ -5,6 +5,7 @@ import styles from "./manager.module.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MyContext } from "../../Container";
+import managerImg from "../../images/manager.svg";
 
 export default function Manager() {
   const [groups, setGroups] = useState([]);
@@ -56,7 +57,7 @@ export default function Manager() {
         return (
           <div className={styles.mInfo}>
             <div className={styles.mImg}>
-              <img src='' alt='' />
+              <img src={managerImg} alt='manager'/>
             </div>
             <p>
               {manager.firstName} {manager.lastName}
@@ -78,7 +79,7 @@ export default function Manager() {
               <p>Find all the groups information:</p>
               <p>how many children per group, ages, weekely plans and more! </p>
               <br />
-              <p>number: {groups._id.length}</p>
+              <p>Total: {groups._id.length}</p>
               <br />
               <Link to='/groups'>
                 <button type='submit' value='view' className='view'>
@@ -97,7 +98,7 @@ export default function Manager() {
                 necessary information!
               </p>
               <br />
-              <p>Number: {groups.teachers.length}</p>
+              <p>Total: {groups.teachers.length}</p>
               <br />
               <Link to='/teachers'>
                 <button type='submit' value='view' className='view'>

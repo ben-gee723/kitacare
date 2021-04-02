@@ -1,0 +1,46 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container h2 {
+  color: #0c8da8;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.container p {
+  padding-bottom: 0.3rem;
+}
+
+.container .btn {
+  background-color: #f1f1f1;
+  width: 9%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 0.3rem;
+  border: 0.1rem solid #0c8da8;
+  margin-bottom: 2rem;
+}
+
+.gContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 0.1rem solid #0c8da8;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+}
+/*# sourceMappingURL=groups.module.css.map */

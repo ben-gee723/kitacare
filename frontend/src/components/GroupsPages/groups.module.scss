@@ -1,0 +1,39 @@
+@import "../../globalCSS/variables";
+
+//ALL GROUPS
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    color: $primary-blue;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  p {
+    padding-bottom: 0.3rem;
+  }
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  .btn {
+    background-color: $white;
+    width: 9%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0.3rem;
+    border: 0.1rem solid $primary-blue;
+    margin-bottom: 2rem;
+  }
+}
+.gContainer {
+  display: flex;
+  border: 0.1rem solid $primary-blue;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+}
+
+//SINGLE GROUP
+
+//SINGLE GROUP EDIT
