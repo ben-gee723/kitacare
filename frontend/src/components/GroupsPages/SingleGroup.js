@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import SingleGroupEdit from "./SingleGroupEdit";
-import axios from "axios";
-import { MyContext } from "../../Container";
 
 export default function SingleGroup(props) {
   const [showForm, setShowForm] = useState(false);
 
-  const handleEdit = (group) => {
+  const handleEdit = group => {
     setShowForm(!showForm);
     props.history.push({ pathname: "/editgroup", state: { group: group } });
   };

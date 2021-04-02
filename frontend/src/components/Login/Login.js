@@ -1,12 +1,11 @@
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 import axios from "axios";
-import {MyContext} from "../../Container"
-
+import { MyContext } from "../../Container";
 
 export default function Login() {
-  const {setIsLogin,setUser} = useContext(MyContext)
+  const { setIsLogin, setUser } = useContext(MyContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,16 +19,17 @@ export default function Login() {
       //withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       data: formData,
     })
       .then(response => {
-        console.log(response)
+        console.log(response);
         if (response.data.success) {
-          setUser(response.data.userInfo.user)
-          setIsLogin(true)
+          setUser(response.data.userInfo.user);
+          setIsLogin(true);
+          console.log(response.data)
         } else {
           console.log(response);
         }
@@ -40,9 +40,9 @@ export default function Login() {
   return (
     <div className={styles.fcontainer}>
       <form className={styles.loginContainer} onSubmit={submitForm}>
-        <div className="reg">
-            <h1>Login to Account!</h1>
-        </div> 
+        <div className='reg'>
+          <h1>Login to Account!</h1>
+        </div>
 
         <div className='inputBox'>
           <label className='details'>E-mail</label>
@@ -51,7 +51,7 @@ export default function Login() {
             type='email'
             name='email'
             placeholder='E-mail'
-            onChange={(e)=>setFormData({...formData,email:e.target.value})}
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
           />
         </div>
 
@@ -62,14 +62,20 @@ export default function Login() {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={(e)=>setFormData({...formData,password:e.target.value})}
+            onChange={e =>
+              setFormData({ ...formData, password: e.target.value })
+            }
           />
         </div>
 
-        <br/>
+        <br />
         <div className={styles.btnContainer}>
-          <Link to='/'><button className="cancel">Cancel</button></Link>
-          <button type='submit' value='Login' className='next'>Login</button>
+          <Link to='/'>
+            <button className='cancel'>Cancel</button>
+          </Link>
+          <button type='submit' value='Login' className='next'>
+            Login
+          </button>
         </div>
       </form>
     </div>

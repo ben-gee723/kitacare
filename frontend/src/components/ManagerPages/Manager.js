@@ -1,63 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar/Calendar";
 import Dashboard from "./Dashboard";
 import styles from "./manager.module.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MyContext } from "../../Container";
 
 export default function Manager() {
+  const [groups, setGroups] = useState([]);
   const [manager, setManager] = useState([]);
+  const { kg } = useContext(MyContext);
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/users/manager/${kg._id}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(result => {
+        console.log(result);
+        if (result.data.success) {
+          setManager(result.data.manager);
+          console.log(kg._id);
+        } else {
+          console.log(result.data);
+        }
+      })
+      .catch(err => console.log(err));
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/groups/getAllGroups/${kg._id}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(result => {
+        console.log(result);
+        if (result.data.success) {
+          setGroups(result.data.allGroups);
+          console.log(kg._id);
+        } else {
+          console.log(result.data.allGroups);
+        }
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   return (
-    <>
-      <div className={styles.mpContainer}>
-        <div className={styles.mInfo}>
-          <div className={styles.mImg}>
-            <img src='' alt='' />
-          </div>
-          <p>Name Surname</p>
-          <p>E-mail: 123</p>
-          <p>Phone number: 123</p>
-          <p>Group: 123</p>
-          <br />
-          <button type='submit' value='Next' className='next'>
-            Edit
-          </button>
-        </div>
-        <div className={styles.features}>
-          <div className={styles.mGroup}>
-            <h3>Groups</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <li>total number: 9</li>
+    <div className={styles.mpContainer}>
+      {manager.map(manager => {
+        return (
+          <div className={styles.mInfo}>
+            <div className={styles.mImg}>
+              <img src='' alt='' />
+            </div>
+            <p>
+              {manager.firstName} {manager.lastName}
+            </p>
+            <p>{manager.email}</p>
             <br />
-            <Link to='/groups'>
-              <button type='submit' value='view' className='view'>
-                View
-              </button>
-            </Link>
-            <button type='submit' value='add' className='add'>
-              Add
+            <button type='submit' value='Next' className='next'>
+              Edit
             </button>
           </div>
-          <div className={styles.mTeachers}>
-            <h3>Teachers</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <li>Number of teachers: 8</li>
-            <br />
-            <Link to='/teachers'>
-              <button type='submit' value='view' className='view'>
-                View
+        );
+      })}
+      {groups.map(groups => {
+        console.log(groups._id.length);
+        return (
+          <div className={styles.features}>
+            <div className={styles.mGroup}>
+              <h3>Groups</h3>
+              <p>Find all the groups information:</p>
+              <p>how many children per group, ages, weekely plans and more! </p>
+              <br />
+              <p>number: {groups._id.length}</p>
+              <br />
+              <Link to='/groups'>
+                <button type='submit' value='view' className='view'>
+                  View
+                </button>
+              </Link>
+              <button type='submit' value='add' className='add'>
+                Add
               </button>
-            </Link>
+            </div>
+            <div className={styles.mTeachers}>
+              <h3>Teachers</h3>
+              <p>Find all the teacher information:</p>
+              <p>
+                how many children in that teachers group and all the teachers
+                necessary information!
+              </p>
+              <br />
+              <p>Number: {groups.teachers.length}</p>
+              <br />
+              <Link to='/teachers'>
+                <button type='submit' value='view' className='view'>
+                  View
+                </button>
+              </Link>
+            </div>
+            <div className={styles.mTodo}>
+              <Dashboard />
+            </div>
+            <div className={styles.calendar}>
+              <Calendar />
+            </div>
           </div>
-          <div className={styles.mTodo}>
-            <Dashboard />
-          </div>
-          <div className={styles.calendar}>
-            <Calendar />
-          </div>
-        </div>
-      </div>
-    </>
+        );
+      })}
+    </div>
   );
 }
