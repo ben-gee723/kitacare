@@ -1,4 +1,9 @@
+/** @format */
+
 const express = require("express");
+const {
+  deleteGroup,
+} = require("../controllers/groupControllers/deleteControllers");
 const router = express.Router();
 const {
   getAllGroups,
@@ -7,7 +12,7 @@ const {
 const { addGroup } = require("../controllers/groupControllers/postControllers");
 const {
   updateGroup,
-} = require("../controllers/groupControllers/updateControllers");
+} = require("../controllers/groupControllers/putControllers");
 
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);
@@ -17,9 +22,9 @@ router.get("/getAllGroups/:id", getAllGroups);
 router.post("/addGroup", addGroup);
 
 //PUT:
-router.put("/updateGroup/:id", updateGroup)
+router.put("/updateGroup/:id", updateGroup);
 
 // DELETE:
-router.delete("/deleteGroup/:id", deleteGroup)
+router.delete("/deleteGroup/:id", deleteGroup);
 
 module.exports = router;

@@ -1,10 +1,11 @@
-import Home from "./components/Home/Home";
+/** @format */
+
 import React from "react";
 import { Route, Link, Switch, withRouter } from "react-router-dom";
 // Basics
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/index"
+import Footer from "./components/Footer/index";
 import "./globalCSS/app.scss";
 
 // Login & Error
@@ -44,7 +45,7 @@ function App() {
           </Route>
           <Route exact path='/register' component={Register} />
           <Route path='/kgregister' component={KgRegister} />
-          {/* <Route path='/mregister' component={ManagerRegister} /> */}
+          <Route path='/mregister' component={ManagerRegister} />
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
           <Route path='/cregister_health' component={ChildHealth} />
