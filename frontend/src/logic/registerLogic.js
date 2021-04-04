@@ -22,11 +22,23 @@ const submitForm = (e) => {
 
 const sendData = (type, payload) => {
   let url = "";
+
+  // "kg registration"
   if (type === "kg registration") {
     url = "http://localhost:3001/kg/register";
-  } else if (type === "manager registration") {
+  }
+
+  // "manager registration"
+  else if (type === "manager registration") {
     url = "http://localhost:3001/users/managers";
-  } //"teacher registration"
+  }
+
+  // "child registration"
+  else if (type === "child registration") {
+    url = "http://localhost:3001/child/addChild";
+  }
+
+  //"teacher registration"
   else {
     url = "http://localhost:3001/users/teachers";
   }

@@ -1,16 +1,26 @@
 import Home from "./components/Home/Home";
 import React from "react";
 import { Route, Link, Switch, withRouter } from "react-router-dom";
+// Basics
+import Home from "./components/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/index"
+import "./globalCSS/app.scss";
+
+// Login & Error
+import Login from "./components/Login/Login";
+import Logout from "./components/Logout";
+import NotFound from "./components/NotFound";
+
+// Registration
 import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
-import Login from "./components/Login/Login";
-import Logout from "./components/Logout";
-import NotFound from "./components/NotFound";
-import Navbar from "./components/Navbar/Navbar";
-import "./globalCSS/app.scss";
-import Footer from "./components/Footer/index";
+import ChildRegister from "./components/RegisterForms/ChildRegister/information";
+import ChildHealth from "./components/RegisterForms/ChildRegister/health";
+
+// Dashboard
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
 import createTeacher from "./components/Mpage/createTeacher";
@@ -36,6 +46,8 @@ function App() {
           <Route path='/kgregister' component={KgRegister} />
           {/* <Route path='/mregister' component={ManagerRegister} /> */}
           <Route path='/tregister' component={TeacherRegister} />
+          <Route path='/cregister' component={ChildRegister} />
+          <Route path='/cregister_health' component={ChildHealth} />
           <Route path='/manager' component={Manager} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
