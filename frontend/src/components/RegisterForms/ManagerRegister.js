@@ -6,22 +6,12 @@ import { sendData, submitForm } from "../../logic/registerLogic";
 export default function ManagerRegister(props) {
   const [formData, setFormData] = useState({});
 
-  useEffect(() => {
-    if(props.kg){
-      setFormData({ kg: props.kg });
-    }else{return}
-  }, []);
-
-  useEffect(() => {
-    if(formData.manager){
-      if(formData.kg){sendData("kg registration",formData)}
-      else{sendData("manager registration",formData);}
-    }
-  }, [formData])
-
-  const submitManagerForm=(e)=>{
+  const submitManagerForm=async(e)=>{
+    e.preventDefault()    
     let managerObj=submitForm(e);
-    setFormData({...formData,manager:managerObj})
+    await setFormData({...formData,manager:managerObj})
+    if(props.kg){sendData("kg registration",{...formData,kg:props.kg})}
+    else{sendData("manager registration",formData);}
   }
 
   return (

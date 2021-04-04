@@ -1,12 +1,11 @@
 const UserModel=require("../../model/userModel")
 
-//managers who are working in a certain kg!!!!
 //:id of kg!
 exports.getManagers=async(req,res,next)=>{
   try{
   const {  id } = req.params;
   //const {kgId}=req.user.kg
-  let managers=await UserModel.find({ "kg._id":id, role:"Manager"}).populate("kindergardens", "-__v")
+  let managers=await UserModel.find({ kg:id, role:"Manager"}).populate("kindergardens", "-__v")
   res.send({success:true,managers:managers})
   }catch(err){next(err)}
 }
@@ -24,12 +23,11 @@ exports.getManager = async(req,res,next)=>{
   }catch(err){next(err)}
 }
 
-//teachers who are working in a certain kg!!!!
 //:id of kg!
 exports.getTeachers = async(req,res,next)=>{
   try{
   const { id }= req.params;
-  let teachers = await UserModel.find({ "kg._id":kgId,role:"Teacher"}).populate("kindergardens", "-__v")
+  let teachers = await UserModel.find({ kg:id, role:"Teacher"}).populate("kindergardens", "-__v")
   if(teachers){
     res.send({success:true,teachers:teachers})
   }else{

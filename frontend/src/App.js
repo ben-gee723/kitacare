@@ -34,7 +34,7 @@ function App() {
           </Route>
           <Route exact path='/register' component={Register} />
           <Route path='/kgregister' component={KgRegister} />
-          <Route path='/mregister' component={ManagerRegister} />
+          {/* <Route path='/mregister' component={ManagerRegister} /> */}
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/manager' component={Manager} />
           <Route path='/login' component={Login} />

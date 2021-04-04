@@ -9,7 +9,10 @@ const kgSchema=new Schema({
   phoneNumber:{type:String,required:true},
   email:{type:String,required:false},
   calendar: [{}],
+  verificationCodes:[{type:String,required:false}]
 })
+
+
 
 const KgModel = mongoose.model("kindergardens", kgSchema)
 module.exports = KgModel

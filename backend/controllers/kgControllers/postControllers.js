@@ -10,6 +10,8 @@ exports.addKgManager = async (req, res, next) => {
       kg: kg._id,
       role: "Manager"
     })
+    console.log(manager)
+    console.log(kg)
     //not send the whole user, select the keys you dont want to send back in response!
     res.send({ success: true, kg: kg, manager: manager, message: "kindergarden and its manager saved into db" })
   } catch (err) {

@@ -26,7 +26,6 @@ export default function Login() {
       data: formData,
     })
       .then(response => {
-        console.log(response)
         if (response.data.success) {
           setUser(response.data.userInfo.user)
           setIsLogin(true)
