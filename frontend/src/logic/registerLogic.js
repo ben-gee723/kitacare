@@ -40,7 +40,7 @@ const sendData = (type, payload) => {
 
   //"teacher registration"
   else {
-    url = "http://localhost:3001/users/teachers";
+    url = "http://localhost:3001/users/teacher";
   }
   axios({
     method: "POST",

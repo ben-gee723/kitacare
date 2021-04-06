@@ -58,9 +58,7 @@ export default function Login(props) {
           <input
             type='email'
             name='email'
-            placeholder={
-              props.history.state.email ? props.history.state.email : "E-mail"
-            }
+            placeholder='E-mail'
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
