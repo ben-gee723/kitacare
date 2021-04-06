@@ -1,5 +1,3 @@
-/** @format */
-
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
@@ -7,7 +5,8 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, user, setUser } = useContext(MyContext);
+  const { setIsLogin, setUser, user } = useContext(MyContext);
+  console.log(props);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,16 +16,15 @@ export default function Login(props) {
   useEffect(() => {
     if (user.role) {
       user.role === "Manager"
-        ? props.history.push({ pathname: "/mpage" })
+        ? props.history.push({ pathname: "/manager" })
         : props.history.push({ pathname: "/tpage" });
     }
   }, [user]);
 
-  const submitForm = (e) => {
+  const submitForm = e => {
     e.preventDefault();
     axios({
       method: "POST",
-      //withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
         Accept: "application/json",
@@ -34,15 +32,17 @@ export default function Login(props) {
       },
       data: formData,
     })
-      .then((response) => {
+      .then(response => {
+        console.log(response);
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
+          console.log(response.data);
         } else {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   return (
@@ -58,12 +58,8 @@ export default function Login(props) {
           <input
             type='email'
             name='email'
-            placeholder={
-              props.history.state.email ? props.history.state.email : "E-mail"
-            }
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            placeholder='email'
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
           />
         </div>
 
@@ -74,7 +70,7 @@ export default function Login(props) {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={(e) =>
+            onChange={e =>
               setFormData({ ...formData, password: e.target.value })
             }
           />

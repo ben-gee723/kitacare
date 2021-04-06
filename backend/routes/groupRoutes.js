@@ -1,9 +1,6 @@
 /** @format */
 
 const express = require("express");
-const {
-  deleteGroup,
-} = require("../controllers/groupControllers/deleteControllers");
 const router = express.Router();
 const {
   getAllGroups,
