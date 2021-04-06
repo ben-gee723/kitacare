@@ -13,7 +13,11 @@ exports.addTeacher = async (req, res, next) => {
     .then((teacher) => {
       if (!teacher) {
         UserModel.create({ ...req.body, role: "Teacher" });
-        res.send({ success: true, message: "teacher saved into db" });
+        res.send({
+          success: true,
+          email: req.body.email,
+          message: "teacher saved into db",
+        });
       } else {
         res
           .status(400)
@@ -35,7 +39,11 @@ exports.addManager = async (req, res, next) => {
     });
     if (!manager) {
       await UserModel.create({ ...req.body, role: "Manager" });
-      res.send({ success: true, message: "manager saved into db" });
+      res.send({
+        success: true,
+        email: req.body.email,
+        message: "manager saved into db",
+      });
     } else {
       res
         .status(400)
@@ -51,7 +59,6 @@ exports.addManager = async (req, res, next) => {
 //to use with Axios, set request option "withCredentials": true
 exports.login = async (req, res, next) => {
   try {
-    console.log("hey");
     const { email, password } = req.body;
     console.log(email, password);
     const user = await UserModel.findOne({ email: email });
@@ -79,7 +86,7 @@ exports.login = async (req, res, next) => {
           // })
           .send({
             success: true,
-            message: "user login successfuly",
+            message: "user logged in successfuly",
             userInfo: userInfo,
           })
       );
