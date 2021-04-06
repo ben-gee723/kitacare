@@ -1,9 +1,11 @@
 /** @format */
 
 const UserModel = require("../../model/userModel");
+const KgModel = require("../../model/kgModel");
 
 //avaliable to manager role
 exports.addTeacher = async (req, res, next) => {
+  console.log(req.body);
   const { firstName, lastName, birthday } = req.body;
   await UserModel.findOne({
     firstName: firstName,
@@ -12,12 +14,37 @@ exports.addTeacher = async (req, res, next) => {
   })
     .then((teacher) => {
       if (!teacher) {
-        UserModel.create({ ...req.body, role: "Teacher" });
-        res.send({
-          success: true,
-          email: req.body.email,
-          message: "teacher saved into db",
+        //get the varificationcode
+        let { verificationCode } = req.body;
+        //search it through verification codes arrays in kgModels!
+        KgModel.findOne({
+          //verificationCodes: { $in: verificationCode },
+          verificationCodes: verificationCode,
+        }).then((kg) => {
+          if (!kg) {
+            res
+              .status(400)
+              .send({ successs: false, message: "wrong verification code" });
+          } else {
+            //if there is; delete varification code from array
+            kg.verificationCodes = kg.verificationCodes.filter(
+              (code) => code != verificationCode
+            );
+            kg.save();
+            //save teacher with kgId!! of this kg and send 200 to user
+            UserModel.create({
+              ...req.body,
+              kg: kg._id,
+              role: "Teacher",
+            });
+            res.send({
+              success: true,
+              email: req.body.email,
+              message: "teacher saved into db",
+            });
+          }
         });
+        //if there is no, response 400:
       } else {
         res
           .status(400)
@@ -25,7 +52,6 @@ exports.addTeacher = async (req, res, next) => {
       }
     })
     .catch((err) => next(err));
-  //get in frontend and  add it to the req.body!!
 };
 
 //avaliable to manager role
@@ -73,8 +99,8 @@ exports.login = async (req, res, next) => {
         .status(400)
         .send({ success: false, message: "password wasn't found" });
     }
-    //let isUser=await user.checkPassword(password)
-    let isUser = user.password === password ? true : false;
+    let isUser = await user.checkPassword(password);
+    //let isUser = user.password === password ? true : false;
     if (isUser) {
       let userInfo = await user.userInfo();
       // const token = user.generateAuthToken();
