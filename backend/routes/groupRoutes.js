@@ -14,6 +14,10 @@ const {
   updateGroup,
 } = require("../controllers/groupControllers/putControllers");
 
+const {
+  deleteGroup,
+} = require("../controllers/groupControllers/deleteControllers");
+
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);
 router.get("/getAllGroups/:id", getAllGroups);

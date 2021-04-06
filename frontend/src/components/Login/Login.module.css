@@ -13,6 +13,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: #0c8da8;
+}
+
+.loginContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.btnContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 66%;
 }
 /*# sourceMappingURL=Login.module.css.map */

@@ -24,7 +24,7 @@ export default function Container(props) {
     if (user.kg) {
       axios({
         method: "GET",
-        withCredentials: true,
+       // withCredentials: true,
         url: `http://localhost:3001/kg/getKg/${user.kg}`,
         headers: {
           Accept: "application/json",
@@ -35,6 +35,7 @@ export default function Container(props) {
           if (response.data.success) {
             console.log(response.data);
             setKg(response.data.kg);
+            console.log(response.data.kg)
           } else {
             console.log(response);
           }
