@@ -42,7 +42,6 @@ export default function Teachers() {
     })
       .then((response) => {
         if (response.data.success) {
-          console.log(response.data.managers);
           setManagers(response.data.managers);
         } else {
           console.log(response);
@@ -63,7 +62,6 @@ export default function Teachers() {
     })
       .then((response) => {
         if (response.data.success) {
-          console.log(response.data.code);
           setVerificationCode(response.data.code);
         } else {
           console.log(response);

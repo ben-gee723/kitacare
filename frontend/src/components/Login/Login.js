@@ -58,8 +58,10 @@ export default function Login(props) {
           <input
             type='email'
             name='email'
-            placeholder='email'
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            placeholder='E-mail'
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
         </div>
 
