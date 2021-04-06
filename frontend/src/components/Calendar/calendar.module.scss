@@ -44,6 +44,7 @@
   height: auto;
   margin: 0 auto;
 }
+
 .calendar .header {
   text-transform: uppercase;
   font-weight: 500;
@@ -74,6 +75,7 @@
   font-size: 0.5rem;
   padding: 0.75em 0;
   border-bottom: 0.05rem solid $primary-blue;
+  
 }
 .calendar .body .cell {
   position: relative;
@@ -83,6 +85,7 @@
   cursor: pointer;
   background: $light;
   transition: 0.25s ease-out;
+  border-radius: 1rem;
 }
 .calendar .body .cell:hover {
   transition: 0.5s ease-out;
@@ -90,9 +93,11 @@
 
 .calendar .body .row {
   border-bottom: 0.05rem solid $secondary-blue;
+  
 }
 .calendar .body .row:last-child {
   border-bottom: none;
+  
 }
 .calendar .body .cell:last-child {
   border-right: none;

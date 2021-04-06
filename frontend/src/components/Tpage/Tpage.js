@@ -1,13 +1,19 @@
 import React from 'react'
 import Calendar from '../Calendar/Calendar'
+
 import  styles from './Tpage.module.scss'
 import {Link} from "react-router-dom"
+import ToDo from '../ToDo/ToDo'
+
 
 export default function Tpage() {
     return (
         <>
+        <div className={styles.welcome}>
+            <h2>Welcome user!</h2>
+        </div>
         <div className={styles.tpContainer}>
-
+        
             <div className={styles.tInfo}>
                 <div className={styles.tImg}>
                     <img src="" alt=""/>
@@ -28,17 +34,16 @@ export default function Tpage() {
                     <li>Room: 123</li>
                     <br/>
                     <button className='view'>View Group</button>
-                </div>
-                <div className={styles.tAtt}>
-                    <h3>Attendance</h3>
-                    <br/>
-                    <Link to='/attendace'>
-                        <button className='view'>Check</button>
+                    <Link to='/attendance'>
+                        <button className='view'>Check Attendance</button>
                     </Link>
                 </div>
+                
                 <div className={styles.tTodo}>
-                    <h3>To do list</h3>
+                    
+                    <ToDo/>                    
                 </div>
+
                 <div className={styles.calendar}>
                     <Calendar/>
                 </div>

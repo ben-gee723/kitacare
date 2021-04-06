@@ -2,10 +2,14 @@ import React from 'react'
 import  styles from './Mpage.module.scss'
 import { Link } from "react-router-dom";
 import Calendar from '../Calendar/Calendar';
+import ToDo from '../ToDo/ToDo';
 
 export default function Tpage() {
     return (
         <>
+        <div className={styles.welcome}>
+            <h2>Welcome user!</h2>
+        </div>
         <div className={styles.mpContainer}>
 
             <div className={styles.mInfo}>
@@ -39,7 +43,7 @@ export default function Tpage() {
                     </Link>
                 </div>
                 <div className={styles.mTodo}>
-                    <h3>To do list</h3>
+                    <ToDo/>
                 </div>
                 <div className={styles.calendar}>
                     <Calendar/>
