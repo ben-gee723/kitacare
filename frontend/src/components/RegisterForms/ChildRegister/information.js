@@ -65,7 +65,25 @@ export default function ChildRegister() {
         childObj["allergies"] = [...allergies]
         // setChildData({ child: childObj })
 
-        console.log(childObj)
+        console.log(childObj);
+
+        const newChild = {
+            firstName: childData.firstName,
+            lastName: childObj.lastName,
+            emergencyContact1:
+                {
+                    name: { type: String, required: false },
+                    email: { type: String, required: false },
+                    phoneNumber: { type: String, required: false },
+                },
+            emergencyContact2:
+                {
+                    name: { type: String, required: false },
+                    email: { type: String, required: false },
+                    phoneNumber: { type: String, required: false },
+                },
+            attendance: [Date],
+        }
     }
 
     // 

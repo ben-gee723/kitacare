@@ -14,28 +14,21 @@ const ChildSchema = new Schema({
   },
   groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
   img: { type: String },
-  allergies: { type: [{ to: String }], required: false },
+  allergies: { type: [String], required: false },
   dietaryNeeds: { type: [{ requirement: String }], required: false },
-  emergencyContact: [
-    {
-      name: { type: String, required: false },
-      email: { type: String, required: false },
-      phoneNumber: { type: String, required: false },
-    },
-  ],
-  attendance: [
-    {
-      date: Date,
-      checkIn: {
-        guardian: String,
-        timestamp: Date,
-      },
-      checkOut: {
-        guardian: String,
-        timestamp: Date,
-      },
-    },
-  ],
+  emergencyContact1:
+  {
+    name: { type: String, required: false },
+    email: { type: String, required: false },
+    phoneNumber: { type: String, required: false },
+  },
+  emergencyContact2:
+  {
+    name: { type: String, required: false },
+    email: { type: String, required: false },
+    phoneNumber: { type: String, required: false },
+  },
+  attendance: [Date],
 });
 
 ChildSchema.pre("validate", function (next) {
