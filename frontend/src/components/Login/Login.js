@@ -1,47 +1,56 @@
-import { useState, useEffect,useContext } from "react";
+/** @format */
+
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 import axios from "axios";
-import {MyContext} from "../../Container"
+import { MyContext } from "../../Container";
 
-
-export default function Login() {
-  const {setIsLogin,setUser} = useContext(MyContext)
+export default function Login(props) {
+  const { setIsLogin, user, setUser } = useContext(MyContext);
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const submitForm = e => {
+  useEffect(() => {
+    if (user.role) {
+      user.role === "Manager"
+        ? props.history.push({ pathname: "/mpage" })
+        : props.history.push({ pathname: "/tpage" });
+    }
+  }, [user]);
+
+  const submitForm = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
       //withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       data: formData,
     })
-      .then(response => {
+      .then((response) => {
         if (response.data.success) {
-          setUser(response.data.userInfo.user)
-          setIsLogin(true)
+          setUser(response.data.userInfo.user);
+          setIsLogin(true);
         } else {
           console.log(response);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   return (
     <div className={styles.fcontainer}>
       <form className={styles.loginContainer} onSubmit={submitForm}>
-        <div className="reg">
-            <h1>Login to Account!</h1>
-        </div> 
+        <div className='reg'>
+          <h1>Login to Account!</h1>
+        </div>
 
         <div className='inputBox'>
           <label className='details'>E-mail</label>
@@ -49,8 +58,12 @@ export default function Login() {
           <input
             type='email'
             name='email'
-            placeholder='E-mail'
-            onChange={(e)=>setFormData({...formData,email:e.target.value})}
+            placeholder={
+              props.history.state.email ? props.history.state.email : "E-mail"
+            }
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
         </div>
 
@@ -61,14 +74,20 @@ export default function Login() {
             type='password'
             name='password'
             placeholder='Password'
-            onChange={(e)=>setFormData({...formData,password:e.target.value})}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
           />
         </div>
 
-        <br/>
+        <br />
         <div className={styles.btnContainer}>
-          <Link to='/'><button className="cancel">Cancel</button></Link>
-          <button type='submit' value='Login' className='next'>Login</button>
+          <Link to='/'>
+            <button className='cancel'>Cancel</button>
+          </Link>
+          <button type='submit' value='Login' className='next'>
+            Login
+          </button>
         </div>
       </form>
     </div>

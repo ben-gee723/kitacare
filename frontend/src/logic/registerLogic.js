@@ -53,10 +53,12 @@ const sendData = (type, payload) => {
   })
     .then((response) => {
       if (response.data.success) {
-        //res.send({ success: true, kg: kg, manager: manager, message: "kindergarden and its manager saved into db" })
         console.log(response.data);
+        //push user to login page with user's email attached to props:
+        return response.data.email;
       } else {
         console.log(response);
+        return false;
       }
     })
     .catch((err) => console.log(err));
