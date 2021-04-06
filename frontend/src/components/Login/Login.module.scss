@@ -1,5 +1,4 @@
 @import "../../globalCSS/variables";
-
 .fcontainer {
     display: flex;
     justify-content: center;
@@ -8,12 +7,10 @@
     flex-direction: column;
     
   }
-
   .loginContainer {
     display: grid;
     place-items: center;
   }
-
   .btnContainer {
     display: flex;
     width: 66%;

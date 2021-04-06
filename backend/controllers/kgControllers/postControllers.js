@@ -1,5 +1,7 @@
-const KgModel = require("../../model/kgModel")
-const UserModel = require("../../model/userModel")
+/** @format */
+
+const KgModel = require("../../model/kgModel");
+const UserModel = require("../../model/userModel");
 
 //kg/register
 exports.addKgManager = async (req, res, next) => {
@@ -8,12 +10,18 @@ exports.addKgManager = async (req, res, next) => {
     const manager = await UserModel.create({
       ...req.body.manager,
       kg: kg._id,
-      role: "Manager"
-    })
+      role: "Manager",
+    });
     //not send the whole user, select the keys you dont want to send back in response!
-    res.send({ success: true, kg: kg, manager: manager, message: "kindergarden and its manager saved into db" })
+    res.send({
+      success: true,
+      kg: kg,
+      manager: manager,
+      email: manager.email,
+      message: "kindergarden and its manager saved into db",
+    });
   } catch (err) {
     console.log(err);
-    next(err)
+    next(err);
   }
-}
+};
