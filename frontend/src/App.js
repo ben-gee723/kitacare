@@ -37,33 +37,6 @@ import SingleGroup from "./components/GroupsPages/SingleGroup";
 function App() {
   return (
     <Container>
-<<<<<<< HEAD
-    <div className='App'>
-
-      <Navbar />
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/register' component={Register} />
-        <Route path='/kgregister' component={KgRegister}/>
-        <Route path='/mregister' component={ManagerRegister}/>
-        <Route path='/tregister' component={TeacherRegister}/>
-        <Route path='/manager' component={Manager}/>
-        <Route path='/login' component={Login} />
-        <Route path='/mpage' component={Mpage} />
-        <Route path='/cteacher' component={createTeacher} />
-        <Route path='/teachers' component={Teachers} />
-        <Route path='/tpage' component={Tpage} />
-        <Route path='/attendance' component={Attendance} />
-        <Route path='/logout' component={Logout} />
-        <Route path="/calendar" component={Calendar} />
-        <Route component={NotFound} />
-      </Switch>
-      <Footer/>      
-      
-    </div>
-=======
       <div className='App'>
         <Navbar />
         <Switch>
@@ -92,7 +65,6 @@ function App() {
         </Switch>
         <Footer />
       </div>
->>>>>>> develop
     </Container>
   );
 }

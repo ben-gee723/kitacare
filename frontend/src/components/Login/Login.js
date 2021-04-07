@@ -10,11 +10,16 @@ export default function Login(props) {
   const { setIsLogin, user, setUser } = useContext(MyContext);
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email:  '',
+    password: '',
   });
 
   useEffect(() => {
+
+    if (props.location.state){
+      console.log(props.location.state);
+      setFormData({email: props.location.state.email, password: props.location.state.password})
+    }
     if (user.role) {
       user.role === "Manager"
         ? props.history.push({ pathname: "/mpage" })
@@ -59,6 +64,7 @@ export default function Login(props) {
             type='email'
             name='email'
             placeholder='E-mail'
+            value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
@@ -72,6 +78,7 @@ export default function Login(props) {
             type='password'
             name='password'
             placeholder='Password'
+            value={formData.password}
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
