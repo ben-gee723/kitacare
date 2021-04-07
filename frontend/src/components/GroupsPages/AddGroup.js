@@ -38,7 +38,7 @@ export default function AddGroup() {
       <form onSubmit={submitForm}>
         <div className={styles.addcontainer}>
           <div className={styles.addinfo}>
-            <label c>Group Name</label>
+            <label>Group Name</label>
             <br />
             <input
               type='text'

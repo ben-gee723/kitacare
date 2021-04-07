@@ -8,7 +8,7 @@ export default function SingleGroupEdit(props) {
   const [editedGroup, setEditedGroup] = useState([]);
   const group = props.location.state.group;
 
-  const handleDelete = (props) => {
+  const handleDelete = props => {
     axios(
       `http://localhost:3001/groups/getSingleGroup/${props.location.state.group}`,
       {
@@ -53,38 +53,91 @@ export default function SingleGroupEdit(props) {
         <div className='reg'>
           <h1>Edit Group!</h1>
         </div>
-
-        <div className='inputBox'>
-          <label className='details'>First name</label>
+        <div className={styles.addinfo}>
+          <label>Group Name</label>
           <br />
-          <input type='text' name='firstName' placeholder='First Name' onChange={editedValue}/>
+          <input
+            type='text'
+            name='groupName'
+            placeholder={group.groupName}
+            onChange={editedValue}
+          />
         </div>
-
-        <div className='inputBox'>
-          <label className='details'>Last name</label>
+        <div className={styles.addinfo}>
+          <label>Room</label>
           <br />
-          <input type='text' name='lastName' placeholder='Last Name' onChange={editedValue} />
+          <input
+            type='text'
+            name='room'
+            placeholder={group.room}
+            onChange={editedValue}
+          />
         </div>
-        <div className='inputBox'>
-          <label className='details'>Phone number</label>
+        <div className={styles.addinfo}>
+          <label className='details'>Age Group</label>
           <br />
-          <input type='text' name='phoneNumber' placeholder='Phone Number' onChange={editedValue}/>
+          <input
+            type='text'
+            name='ageGroup'
+            placeholder={group.ageGroup}
+            onChange={editedValue}
+          />
+        </div>
+        <div className={styles.addinfo}>
+          <label>Description</label>
+          <br />
+          <input
+            type='text'
+            name='description'
+            placeholder={group.description}
+            onChange={editedValue}
+          />
+        </div>
+        <div className={styles.addinfo}>
+          <label>Children</label>
+          <br />
+          <input
+            type='text'
+            name='children'
+            placeholder='please enter the child id'
+            onChange={editedValue}
+          />
+        </div>
+        <div className={styles.addinfo}>
+          <label>Teachers</label>
+          <br />
+          <input
+            type='text'
+            name='teachers'
+            placeholder='please enter the teacher id'
+            onChange={editedValue}
+          />
+        </div>
+        <div className={styles.addinfo}>
+          <label>Kindergarten</label>
+          <br />
+          <input
+            type='text'
+            name='kg'
+            placeholder={group.kg}
+            onChange={editedValue}
+          />
         </div>
         <br />
+        <button
+          type='submit'
+          value='delete'
+          className='next'
+          onClick={() => handleDelete(group.id)}
+        >
+          Delete
+        </button>
         <div className={styles.btnContainer}>
           <Link to='/groups'>
             <button className='cancel'>Cancel</button>
           </Link>
           <button type='submit' value='Edit' className='att'>
             Submit
-          </button>
-          <button
-            type='submit'
-            value='delete'
-            className='delete'
-            onClick={() => handleDelete(group.id)}
-          >
-            Delete
           </button>
         </div>
       </form>
