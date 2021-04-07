@@ -103,3 +103,40 @@
 }
 
 //SINGLE GROUP EDIT
+
+
+
+//ADD GROUP
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+  .addcontainer {
+    width: 19%;
+    margin: 0 auto;
+
+  }
+  .title {
+    h3{
+      color: $primary-blue;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+    padding: 2rem;
+  }
+  .addinfo {
+    padding: 0.5rem;
+    label {
+      font-size: 0.95rem;
+      padding-left: 0.4rem;
+    }
+  }
+}
+.btn {
+  width: 17%;
+  margin: 0 auto;
+}
