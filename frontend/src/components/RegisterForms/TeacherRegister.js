@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import { sendData, submitForm } from "../../logic/registerLogic";
 import styles from "./registerForm.module.scss";
 
-export default function TeacherRegister() {
+export default function TeacherRegister(props) {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
     if (formData.teacher) {
       sendData("teacher registation", formData.teacher);
+      props.history.push({pathname: '/login', state: {email: formData.teacher.email, password: formData.teacher.password}})
     }
   }, [formData]);
 
@@ -123,9 +124,11 @@ export default function TeacherRegister() {
           <Link to='/'>
             <button className='cancel'>Cancel</button>
           </Link>
+          
           <button type='submit' value='Register' className='next'>
             Register
           </button>
+          
         </div>
       </form>
     </div>
