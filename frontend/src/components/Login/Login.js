@@ -5,8 +5,8 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, setUser, user } = useContext(MyContext);
-  console.log(props);
+  const { setIsLogin, setUser, user} = useContext(MyContext);
+  const [kg, setKg] = useState({});
 
   const [formData, setFormData] = useState({
     email: "",
@@ -16,7 +16,7 @@ export default function Login(props) {
   useEffect(() => {
     if (user.role) {
       user.role === "Manager"
-        ? props.history.push({ pathname: "/manager" })
+        ? props.history.push({ pathname: "/manager" , state: { kg: kg }})
         : props.history.push({ pathname: "/tpage" });
     }
   }, [user]);
@@ -37,6 +37,7 @@ export default function Login(props) {
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
+          setKg(response.data.kg)
           console.log(response.data);
         } else {
           console.log(response);

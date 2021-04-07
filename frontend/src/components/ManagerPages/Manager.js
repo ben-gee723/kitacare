@@ -9,31 +9,12 @@ import managerImg from "../../images/manager.svg";
 
 export default function Manager() {
   const [groups, setGroups] = useState([]);
-  const [manager, setManager] = useState([]);
-  const { kg } = useContext(MyContext);
+  const { kg, user } = useContext(MyContext);
 
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:3001/users/manager/${kg._id}`,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then(result => {
-        console.log(result);
-        if (result.data.success) {
-          setManager(result.data.manager);
-          console.log(kg._id);
-        } else {
-          console.log(result.data);
-        }
-      })
-      .catch(err => console.log(err));
-    axios({
-      method: "GET",
-      url: `http://localhost:3001/groups/getAllGroups/${kg._id}`,
+      url: `http://localhost:3001/groups/getAllGroups/${kg_id} `,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -43,7 +24,7 @@ export default function Manager() {
         console.log(result);
         if (result.data.success) {
           setGroups(result.data.allGroups);
-          console.log(kg._id);
+          //  console.log(kg._id);
         } else {
           console.log(result.data.allGroups);
         }
@@ -53,23 +34,20 @@ export default function Manager() {
 
   return (
     <div className={styles.mpContainer}>
-      {manager.map(manager => {
-        return (
-          <div className={styles.mInfo}>
-            <div className={styles.mImg}>
-              <img src={managerImg} alt='manager'/>
-            </div>
-            <p>
-              {manager.firstName} {manager.lastName}
-            </p>
-            <p>{manager.email}</p>
-            <br />
-            <button type='submit' value='Next' className='next'>
-              Edit
-            </button>
-          </div>
-        );
-      })}
+      <div className={styles.mInfo}>
+        <div className={styles.mImg}>
+          <img src={managerImg} alt='manager' />
+        </div>
+        <p>
+          {user.firstName} {user.lastName}
+        </p>
+        <p>{user.email}</p>
+        <br />
+        <button type='submit' value='Next' className='next'>
+          Edit
+        </button>
+      </div>
+
       {groups.map(groups => {
         console.log(groups._id.length);
         return (
@@ -106,15 +84,15 @@ export default function Manager() {
                 </button>
               </Link>
             </div>
-            <div className={styles.mTodo}>
-              <Dashboard />
-            </div>
-            <div className={styles.calendar}>
-              <Calendar />
-            </div>
           </div>
         );
       })}
+      <div className={styles.mTodo}>
+        <Dashboard />
+      </div>
+      <div className={styles.calendar}>
+        <Calendar />
+      </div>
     </div>
   );
 }

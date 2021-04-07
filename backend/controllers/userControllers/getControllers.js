@@ -4,6 +4,7 @@ const UserModel = require("../../model/userModel");
 exports.getManagers = async (req, res, next) => {
   try {
     const { kgId } = req.params;
+    console.log(kgId)
     let managers = await UserModel.find({
       "kg._id": kgId,
       role: "Manager",
@@ -18,6 +19,7 @@ exports.getManagers = async (req, res, next) => {
 exports.getManager = async (req, res, next) => {
   try {
     const { id } = req.params;
+    console.log(id)
     let manager = await UserModel.find({ kg: id, role: "Manager" }).populate(
       "kindergardens",
       "-__v"

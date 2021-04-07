@@ -24,7 +24,7 @@ import ChildHealth from "./components/RegisterForms/ChildRegister/health";
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
 import createTeacher from "./components/Mpage/createTeacher";
-import Teachers from "./components/Mpage/Teachers";
+import Teachers from "./components/ManagerPages/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";

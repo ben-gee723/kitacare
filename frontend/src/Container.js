@@ -35,7 +35,6 @@ export default function Container(props) {
           if (response.data.success) {
             console.log(response.data);
             setKg(response.data.kg);
-            console.log(response.data.kg)
           } else {
             console.log(response);
           }

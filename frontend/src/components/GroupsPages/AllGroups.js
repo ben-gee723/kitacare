@@ -8,25 +8,29 @@ export default function AllGroups(props) {
   const { kg } = useContext(MyContext);
 
   useEffect(() => {
-    axios({
-      method: "GET",
-      url: `http://localhost:3001/groups/getAllGroups/${kg._id}`,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then(result => {
-        console.log(result);
-        if (result.data.success) {
-          setGroups(result.data.allGroups);
-         
-          console.log(kg._id);
-        } else {
-          console.log(result.data.allGroups);
-        }
+    if (kg !== null) {
+      axios({
+        method: "GET",
+        url: `http://localhost:3001/groups/getAllGroups/${kg}`,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       })
-      .catch(err => console.log(err));
+        .then(result => {
+          console.log(result);
+          if (result.data.success) {
+            setGroups(result.data.allGroups);
+
+            console.log(kg._id);
+          } else {
+            console.log(result.data.allGroups);
+          }
+        })
+        .catch(err => console.log(err));
+    } else {
+      console.log(kg);
+    }
   }, []);
 
   const handleView = group => {
@@ -43,25 +47,25 @@ export default function AllGroups(props) {
           <div key={group._id}>
             <h2>Groups!</h2>
             <div className={styles.btn}>
-            <p>Total number of groups: </p>
-            <h1>{groups.length}</h1>
-            <button type='submit' value='add' className='add'>
+              <p>Total number of groups: </p>
+              <h1>{groups.length}</h1>
+              <button type='submit' value='add' className='add'>
                 Add
               </button>
-              </div>
+            </div>
             <div className={styles.gContainer}>
               <h3>{group.groupName}</h3>
               <p>{group.description}some text about the group</p>
-            <div>
-              <button
-                type='submit'
-                value='view'
-                className='view'
-                onClick={() => handleView(group)}
-              >
-                View
-              </button>
-            </div>
+              <div>
+                <button
+                  type='submit'
+                  value='view'
+                  className='view'
+                  onClick={() => handleView(group)}
+                >
+                  View
+                </button>
+              </div>
             </div>
           </div>
         );
