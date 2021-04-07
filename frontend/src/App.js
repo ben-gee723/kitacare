@@ -24,15 +24,15 @@ import ChildHealth from "./components/RegisterForms/ChildRegister/health";
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
 import createTeacher from "./components/Mpage/createTeacher";
-import Teachers from "./components/ManagerPages/Teachers";
+import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
-import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";
 import Attendance from "./components/Tpage/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
 import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
 import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
+import AddGroup from "./components/GroupsPages/AddGroup";
 
 
 function App() {
@@ -50,7 +50,6 @@ function App() {
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
           <Route path='/cregister_health' component={ChildHealth} />
-          <Route path='/manager' component={Manager} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
           <Route path='/cteacher' component={createTeacher} />
@@ -63,6 +62,7 @@ function App() {
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
           <Route path="/children" component ={AllChildren} />
+          <Route path="/addgroup" component={AddGroup} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

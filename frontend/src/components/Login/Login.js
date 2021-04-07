@@ -23,7 +23,7 @@ export default function Login(props) {
     }
     if (user.role) {
       user.role === "Manager"
-        ? props.history.push({ pathname: "/manager" , state: { kg: kg }})
+        ? props.history.push({ pathname: "/mpage" , state: { kg: kg }})
         : props.history.push({ pathname: "/tpage" });
     }
   }, [user]);

@@ -1,59 +1,102 @@
-import React from 'react'
-import  styles from './Mpage.module.scss'
+import React, { useState, useEffect, useContext } from "react";
+import styles from "./Mpage.module.scss";
 import { Link } from "react-router-dom";
-import Calendar from '../Calendar/Calendar';
-import ToDo from '../ToDo/ToDo';
+import Calendar from "../Calendar/Calendar";
+import ToDo from "../ToDo/ToDo";
+import axios from "axios";
+import { MyContext } from "../../Container";
+import managerImg from "../../images/manager.svg";
 
-export default function Tpage() {
-    return (
-        <>
-        <div className={styles.welcome}>
-            <h2>Welcome user!</h2>
+export default function Mpage() {
+  const [groups, setGroups] = useState([]);
+  const { kg, user } = useContext(MyContext);
+  console.log(kg)
+  console.log(user)
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/groups/getAllGroups/${user.kg} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(result => {
+        console.log(result);
+        if (result.data.success) {
+          setGroups(result.data.allGroups);
+        } else {
+          console.log(result.data.allGroups);
+        }
+      })
+      .catch(err => console.log(err));
+  }, []);
+  return (
+    <>
+      <div className={styles.welcome}>
+        <h2>Welcome {user.firstName}!</h2>
+      </div>
+      <div className={styles.mpContainer}>
+        <div className={styles.mInfo}>
+          <div className={styles.mImg}>
+          <img src={managerImg} alt='manager' />
+          </div>
+          <p>
+            {user.firstName} {user.lastName}
+          </p>
+          <p>{user.email}</p>
+          <br />
+          <button type='submit' value='edit' className='edit'>
+            Edit info
+          </button>
         </div>
-        <div className={styles.mpContainer}>
 
-            <div className={styles.mInfo}>
-                <div className={styles.mImg}>
-                    <img src="" alt=""/>
-                </div>
-                <p>Name Surname</p>
-                <p>E-mail: 123</p>
-                <p>Phone number: 123</p>
-                <p>Group: 123</p>
-                <br/>
-                <button className='edit'>Edit info</button>
-            </div>
-        
             <div className={styles.features}>
-                <div className={styles.mGroup}>
-                    <h3>Groups</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus voluptatibus odio perspiciatis asperiores repellendus illo et facere veritatis sint laborum.</p>
-                    <li>total number: 9</li>
-                    <br/>
-                    <button className='view'>View All</button>
-                    <button className='add'>Add New</button>
-                </div>
-                <div className={styles.mTeachers}>
-                    <h3>Teachers</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus voluptatibus odio perspiciatis asperiores repellendus illo et facere veritatis sint laborum.</p>
-                    <li>Number of teachers: 8</li>
-                    <br/>
-                    <Link to='/teachers'>
-                        <button className='view'>View All</button>
-                    </Link>
-                </div>
-                <div className={styles.mTodo}>
-                    <ToDo/>
-                </div>
-                <div className={styles.calendar}>
-                    <Calendar/>
-                </div>
-            </div>
-
-            
+              <div className={styles.mGroup}>
+                <h3>Groups</h3>
+                <br/>
+                <p>Find all the groups information:</p>
+                <p>
+                  how many children per group, ages, weekely plans and more!
+                </p>
+                <br />
+                <p>Total: {groups.length}</p>
+                <br />
+                <Link to='/groups'>
+                  <button type='submit' value='view' className='view'>
+                    View
+                  </button>
+                </Link>
+                <button type='submit' value='add' className='add'>
+                  Add
+                </button>
+              </div>
+              <div className={styles.mTeachers}>
+                <h3>Teachers</h3>
+                <br/>
+                <p>Find all the teacher information:</p>
+                <p>
+                  how many children in that teachers group and all the teachers
+                  necessary information!
+                </p>
+                <br />
+                <p>Total: {groups.length}</p>
+                <br />
+                <Link to='/teachers'>
+                  <button type='submit' value='view' className='view'>
+                    View
+                  </button>
+                </Link>
+              </div>
+        <div className={styles.mTodo}>
+          <ToDo />
         </div>
-        
-            
-        </>
-    )
+        <div className={styles.calendar}>
+          <Calendar />
+        </div>
+      </div>
+      </div>
+    </>
+  );
 }
