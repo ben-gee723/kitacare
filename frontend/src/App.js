@@ -1,8 +1,7 @@
-import Home from "./components/Home/Home";
 import React from "react";
 import { Route, Link, Switch, withRouter } from "react-router-dom";
 // Basics
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/index"
 import "./globalCSS/app.scss";

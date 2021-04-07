@@ -63,6 +63,8 @@ export default function ChildRegister() {
 
         let childObj = submitForm(e)
         childObj["allergies"] = [...allergies]
+
+
         // setChildData({ child: childObj })
 
         console.log(childObj)
@@ -124,7 +126,7 @@ export default function ChildRegister() {
                     <input onChange={handleChange} type='text' name='allergiesDietary' placeholder='Other allergies or dietary requirements' />
                 </div>
 
-                <div className={styles.address}><h3>Emergency Contact:</h3></div>
+                {/* <div className={styles.address}><h3>Emergency Contact:</h3></div> */}
 
                 <div className='inputBox' >
                     <label className='details'>First name</label> <br />
