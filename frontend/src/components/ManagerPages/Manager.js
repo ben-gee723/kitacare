@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar/Calendar";
 import Dashboard from "./Dashboard";
@@ -20,7 +22,7 @@ export default function Manager() {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
+      .then((result) => {
         console.log(result);
         if (result.data.success) {
           setGroups(result.data.allGroups);

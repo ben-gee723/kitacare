@@ -14,6 +14,13 @@ export default function Login(props) {
   });
 
   useEffect(() => {
+    if (props.location.state) {
+      console.log(props.location.state);
+      setFormData({
+        email: props.location.state.email,
+        password: props.location.state.password,
+      });
+    }
     if (user.role) {
       user.role === "Manager"
         ? props.history.push({ pathname: "/manager" , state: { kg: kg }})
@@ -60,9 +67,8 @@ export default function Login(props) {
             type='email'
             name='email'
             placeholder='E-mail'
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            value={formData.email}
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
           />
         </div>
 
@@ -73,6 +79,7 @@ export default function Login(props) {
             type='password'
             name='password'
             placeholder='Password'
+            value={formData.password}
             onChange={e =>
               setFormData({ ...formData, password: e.target.value })
             }
