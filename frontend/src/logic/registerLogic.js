@@ -26,14 +26,14 @@ const submitForm = (e) => {
       pair[0] === "emerNumber1"
 
     ) {
-      obj.emergencyContact[0].push([pair[0]] = pair[1]);
+      obj.emergencyContact[0][pair[0]] = pair[1];
     } else if (
       pair[0] === "emerName2" ||
       pair[0] === "emerEmail2" ||
       pair[0] === "emerNumber2"
 
     ) {
-      obj.emergencyContact[1].Emergency2[pair[0]] = pair[1];
+      obj.emergencyContact[1][pair[0]] = pair[1];
     } else if (
       pair[0] === "Eggs" ||
       pair[0] === "Milk" ||
