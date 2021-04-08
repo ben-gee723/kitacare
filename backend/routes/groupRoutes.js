@@ -1,4 +1,5 @@
 const express = require("express");
+const { deleteGroup } = require("../controllers/groupControllers/deleteControllers");
 const router = express.Router();
 const {
   getAllGroups,
@@ -7,7 +8,8 @@ const {
 const { addGroup } = require("../controllers/groupControllers/postControllers");
 const {
   updateGroup,
-} = require("../controllers/groupControllers/updateControllers");
+} = require("../controllers/groupControllers/putControllers");
+
 
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);

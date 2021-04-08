@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const AddressSchema = require("./addressSchema")
 
+const EmergencyContactSchema = new Schema({
+    name: { type: String, required: false },
+    email: { type: String, required: false },
+    number: { type: String, required: false }
+});
+
 const ChildSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -11,26 +17,15 @@ const ChildSchema = new Schema({
         required: false
     },
     groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
+    kg: { ref: "kindergardens", type: mongoose.Schema.Types.ObjectId },
     img: { type: String },
     allergies: { type: [{ to: String }], required: false },
     dietaryNeeds: { type: [{ requirement: String }], required: false },
-    emergencyContact: [{
-        name: { type: String, required: false },
-        email: { type: 'email', required: false },
-        phoneNumber: { type: String, required: false }
-    }],
-    attendance: [{
-        date: Date,
-        checkIn: {
-            guardian: String,
-            timestamp: Date
-        },
-        checkOut: {
-            guardian: String,
-            timestamp: Date
-        }
-
-    }]
+    emergencyContact1: EmergencyContactSchema,
+    emergencyContact2: EmergencyContactSchema,
+    attendance: [
+        { date: Date }
+    ]
 })
 
 ChildSchema.pre("validate", function (next) {

@@ -49,31 +49,22 @@ exports.addManager = async (req, res, next) => {
 //to use with Axios, set request option "withCredentials": true
 exports.login = async (req, res, next) => {
   try {
-    console.log(req.body)
     const { email, password } = req.body;
-    const user = await UserModel.findOne({ email: email });
+    console.log(email, password);
+    const user = await UserModel.findOne({ email: email }); console.log(user);
     if (!user) {
-      return res
-        .status(400)
-        .send({ success: false, message: "user wasn't found" });
-
+      return res.status(400).send({ success: false, message: "user wasn't found" });
     }
     if (!password) {
-      return res
-        .status(400)
-        .send({ success: false, message: "password wasn't found" });
+      return res.status(400).send({ success: false, message: "password wasn't found" });
     }
-    //let isUser=await user.checkPassword(password)
-    let isUser=user.password===password?true:false
-    if(isUser){
-      let userInfo=await user.userInfo()
+    let isUser = await user.checkPassword(password);
+    let isUser = user.password === password ? true : false; if (isUser) {
+      let userInfo = await user.userInfo();
       const token = user.generateAuthToken();
-      return res.cookie('x-access-token', token, {
-        secure: false,
-        sameSite: 'lax'
-      }).send({success:true, message: "user login successfuly",userInfo:userInfo})
+      return (res.cookie("x-access-token", token, { secure: false, sameSite: "lax", }).send({ success: true, message: "user logged in successfuly", userInfo: userInfo, }));
     }
   } catch (err) {
-    next(err);
+
   }
-};
+}
