@@ -10,7 +10,7 @@
   margin-right: 0.5rem;
 
   &:hover {
-    background:black;
+    background: black;
     transition: 0.2 ease-out;
     border: 1px solid $primary-orange;
     cursor: pointer;
@@ -125,7 +125,7 @@
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem;
-  
+  margin-right: 0.5rem;
 
   &:hover {
     background: $light;

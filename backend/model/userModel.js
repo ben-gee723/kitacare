@@ -52,7 +52,6 @@ UserSchema.methods.userInfo = function () {
 //create a token for user and push it into the tokens array.
 UserSchema.methods.generateAuthToken = function () {
   const user = this;
-  console.log(process.env.SECRET_KEY);
   //payload + secret_key --> optional: expiration.
   const token = JWT.sign(
     { _id: user._id, email: user.email },
@@ -61,7 +60,6 @@ UserSchema.methods.generateAuthToken = function () {
       expiresIn: "1d",
     }
   );
-  console.log(token);
   //push token into user's Tokens array
   // user.tokens.push({ token: token });
   // user.save();

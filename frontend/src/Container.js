@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 const MyContext = createContext("");
@@ -22,28 +24,29 @@ export default function Container(props) {
     if (user.kg) {
       axios({
         method: "GET",
-        withCredentials: true,
+       // withCredentials: true,
         url: `http://localhost:3001/kg/getKg/${user.kg}`,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
       })
-        .then(response => {
+        .then((response) => {
           if (response.data.success) {
+            console.log(response.data);
             setKg(response.data.kg);
+            console.log(response.data.kg)
           } else {
             console.log(response);
           }
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     }
   }, [user]);
 
   return (
     <MyContext.Provider
-      value={{ user, setUser, isLogin, setIsLogin, kg, setKg }}
-    >
+      value={{ user, setUser, isLogin, setIsLogin, kg, setKg }}>
       {props.children}
     </MyContext.Provider>
   );

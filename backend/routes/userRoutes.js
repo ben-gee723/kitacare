@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+const auth = require('../middlewares/authentication')
 
 const {
   getManagers,
@@ -25,12 +26,12 @@ const {
 //users/manager
 //users/managers
 router.get("/manager/:id", getManager); //:manager id
-router.get("/managers", getManagers); //:kg id
+router.get("/managers/:id",getManagers);//:kgId
 
 //users/teacher
 //users/teachers
 router.get("/teacher/:id", getTeacher); //:teacher id
-router.get("/teachers", getTeachers); //:kg id
+router.get("/teachers/:id", getTeachers);//:kgId
 
 //POST:
 router.post("/manager", addManager);

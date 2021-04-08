@@ -6,7 +6,7 @@
       flex-wrap: wrap;
 }
 
-.lg img {
+.logo {
   width: 3rem;
   height: 3rem;
 }
@@ -55,60 +55,5 @@
       -ms-flex-align: center;
           align-items: center;
   color: white;
-}
-
-.loginbtn {
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  height: 3rem;
-  border: none;
-  background: #ff4e13;
-  color: #fff;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-}
-
-.loginbtn:hover {
-  background: #85d1ff;
-  -webkit-transition: 0.2 ease-out;
-  transition: 0.2 ease-out;
-  cursor: pointer;
-  color: #000;
-}
-
-.regbtn {
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  height: 3rem;
-  border: none;
-  background: #ff4e13;
-  color: #fff;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-  margin-right: 3px;
-}
-
-.regbtn:hover {
-  background: #85d1ff;
-  -webkit-transition: 0.2 ease-out;
-  transition: 0.2 ease-out;
-  cursor: pointer;
-  color: #000;
 }
 /*# sourceMappingURL=navbar.module.css.map */
