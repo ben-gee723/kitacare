@@ -18,18 +18,14 @@ const ChildSchema = new Schema({
         type: AddressSchema,
         required: false,
     },
-    groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
-    img: { type: String },
-    allergies: { type: [{ to: String }], required: false },
-    dietaryNeeds: { type: [{ requirement: String }], required: false },
-
-    groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
     kg: { ref: "kindergardens", type: mongoose.Schema.Types.ObjectId },
     img: { type: String },
     allergies: { type: [{ to: String }], required: false },
     dietaryNeeds: { type: [{ requirement: String }], required: false },
-    emergencyContact1: EmergencyContactSchema,
-    emergencyContact2: EmergencyContactSchema,
+    emergencyContact: [
+        { EmergencyContactSchema },
+        { EmergencyContactSchema }
+    ],
     attendance: [
         { date: Date }
     ]

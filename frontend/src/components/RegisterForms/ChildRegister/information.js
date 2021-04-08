@@ -22,15 +22,14 @@ export default function ChildRegister() {
     ]);
 
     useEffect(() => {
-        if (childData.child) {
-            setFormData(new FormData());
+        if (childData) {
             sendData("child registration", childData)
         } else { return }
     }, [childData])
 
     const handleChange = (e) => {
-        setChildData({
-            ...childData,
+        setFormData({
+            ...formData,
             [e.target.name]: e.target.value.trim()
         })
     }
@@ -61,11 +60,39 @@ export default function ChildRegister() {
         })
             .map((x) => { return x.name });
 
-        let childObj = submitForm(e)
-        childObj["allergies"] = [...allergies]
+        let childObj = {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            birthday: formData.birthday,
+            /* 
+                address: {
+                type: AddressSchema,
+                required: false,
+            },
+            */
+            kg: kg._id,
+            img: formData.img,
+            allergies: [...allergies],
+            dietaryNeeds: formData.dietaryNeeds,
+            emergencyContact: [
+                {
+                    emerName1: formData.emerName1,
+                    emerEmail1: formData.emerEmail1,
+                    emerNumber1: formData.emerNumber1
+                },
+                {
+                    emerName2: formData.emerName2,
+                    emerEmail2: formData.emerEmail2,
+                    emerNumber2: formData.emerNumber2
+                }
+            ],
+            attendance: [
+                { date: Date }
+            ]
+        }
 
 
-        // setChildData({ child: childObj })
+        setChildData({ child: childObj })
 
         console.log(childObj)
     }
@@ -123,29 +150,41 @@ export default function ChildRegister() {
 
                 <div className='inputBox' >
                     <label className='details'>Other Dietary Requirements</label> <br />
-                    <input onChange={handleChange} type='text' name='allergiesDietary' placeholder='Other allergies or dietary requirements' />
+                    <input onChange={handleChange} type='text' name='dietaryNeeds' placeholder='Other allergies or dietary requirements' />
                 </div>
 
-                {/* <div className={styles.address}><h3>Emergency Contact:</h3></div> */}
+                <div className={styles.address}><h3>Emergency Contact1:</h3></div>
 
                 <div className='inputBox' >
                     <label className='details'>First name</label> <br />
-                    <input onChange={handleChange} type='text' name='emerFirstName' placeholder='First Name' />
-                </div>
-
-                <div className='inputBox' >
-                    <label className='details' >Last name</label> <br />
-                    <input onChange={handleChange} type='text' name='emerLastName' placeholder='Last Name' />
+                    <input onChange={handleChange} type='text' name='emerName1' placeholder='First Name' />
                 </div>
 
                 <div className='inputBox'>
                     <label className='details'>Email</label><br />
-                    <input onChange={handleChange} type='email' name='emerEmail' placeholder='E-mail' />
+                    <input onChange={handleChange} type='email' name='emerEmail1' placeholder='E-mail' />
                 </div>
 
                 <div className='inputBox'>
                     <label className='details'>Number</label><br />
-                    <input onChange={handleChange} type='text' name='emerNumber' placeholder='Number' />
+                    <input onChange={handleChange} type='text' name='emerNumber1' placeholder='Number' />
+                </div>
+
+                <div className={styles.address}><h3>Emergency Contact1:</h3></div>
+
+                <div className='inputBox' >
+                    <label className='details'>First name</label> <br />
+                    <input onChange={handleChange} type='text' name='emerName2' placeholder='First Name' />
+                </div>
+
+                <div className='inputBox'>
+                    <label className='details'>Email</label><br />
+                    <input onChange={handleChange} type='email' name='emerEmail2' placeholder='E-mail' />
+                </div>
+
+                <div className='inputBox'>
+                    <label className='details'>Number</label><br />
+                    <input onChange={handleChange} type='text' name='emerNumber2' placeholder='Number' />
                 </div>
 
                 <div className={styles.submitButtons}>
