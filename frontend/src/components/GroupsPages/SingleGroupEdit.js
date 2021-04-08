@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./groups.module.scss";
@@ -128,7 +128,7 @@ export default function SingleGroupEdit(props) {
           type='submit'
           value='delete'
           className='next'
-          onClick={() => handleDelete(group.id)}
+          onClick={() => handleDelete(group._id)}
         >
           Delete
         </button>

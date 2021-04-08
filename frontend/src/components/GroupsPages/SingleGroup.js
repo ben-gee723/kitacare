@@ -13,6 +13,7 @@ export default function SingleGroup(props) {
 
   const group = props.location.state.group;
   return (
+    <div>
     <div className={styles.scontainer} key={group._id}>
       {showForm && (
         <div>
@@ -26,13 +27,13 @@ export default function SingleGroup(props) {
             <p className={styles.bold2}>{group.groupName}</p>
           </div>
           <div className={styles.col}>
-            <p className={styles.info}>Teacher:{group.teachers}</p>
+            <p className={styles.info}>Teacher:{group.teachers.firstName}</p>
             <p className={styles.info}>
-              teacher.firstName teacher.lastName{group.teachers}
+              {group.teachers.lastName}
             </p>
           </div>
           <div className={styles.col}>
-            <p className={styles.info}>Room:</p>
+            <p className={styles.info1}>Room:</p>
             <p className={styles.info}>{group.room}</p>
           </div>
           <div className={styles.col}>
@@ -57,5 +58,7 @@ export default function SingleGroup(props) {
         </div>
       </>
     </div>
+     <Link to="/groups"><button type="submit" value="back" className="back">Go Back</button></Link>
+     </div>
   );
 }

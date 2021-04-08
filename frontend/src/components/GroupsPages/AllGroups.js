@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { MyContext } from "../../Container";
 import styles from "./groups.module.scss";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function AllGroups(props) {
   const [groups, setGroups] = useState([]);
@@ -42,10 +42,10 @@ export default function AllGroups(props) {
         <div className={styles.btn}>
           <p>Total number of groups: </p>
           <h1>{groups.length}</h1>
-          <Link to="/addgroup">
-          <button type='submit' value='add' className='add'>
-            Add
-          </button>
+          <Link to='/addgroup'>
+            <button type='submit' value='add' className='add'>
+              Add
+            </button>
           </Link>
         </div>
         {groups.map(group => {
@@ -66,6 +66,11 @@ export default function AllGroups(props) {
             </div>
           );
         })}
+        <Link to='/mpage'>
+          <button type='submit' value='back' className='back'>
+            Go Back
+          </button>
+        </Link>
       </div>
     </div>
   );
