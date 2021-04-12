@@ -1,7 +1,6 @@
 /** @format */
 
 const express = require("express");
-const { deleteGroup } = require("../controllers/groupControllers/deleteControllers");
 const router = express.Router();
 const {
   getAllGroups,
@@ -12,12 +11,9 @@ const {
   updateGroup,
 } = require("../controllers/groupControllers/putControllers");
 
-<<<<<<< HEAD
-=======
 const {
   deleteGroup,
 } = require("../controllers/groupControllers/deleteControllers");
->>>>>>> develop
 
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);
