@@ -8,7 +8,7 @@ const GroupSchema = new Schema({
   room: { type: String },
   ageGroup: { type: String },
   description: { type: String },
-  weeklyPlan: {},
+  weeklyPlan: {}, //? for now it is not being added when a new group is added to the database
   children: [
     {
       ref: "children",

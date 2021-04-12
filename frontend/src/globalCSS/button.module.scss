@@ -10,7 +10,7 @@
   margin-right: 0.5rem;
 
   &:hover {
-    background:black;
+    background: black;
     transition: 0.2 ease-out;
     border: 1px solid $primary-orange;
     cursor: pointer;
@@ -126,7 +126,6 @@
   font-size: 1rem;
   padding: 0.5rem;
   margin-right: 0.5rem;
-  
 
   &:hover {
     background: $light;
@@ -153,5 +152,27 @@
     border: 1px solid $secondary-orange;
     cursor: pointer;
     color: $secondary-orange;
+  }
+}
+
+
+.back {
+  background-color: $secondary-orange-tranparent;
+  border-radius: 0.25rem;
+  color: $dark;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 2rem;
+
+  &:hover {
+    background: white;
+    transition: 0.2 ease-out;
+    border: 1px solid $dark;
+    cursor: pointer;
+    color: $dark;
   }
 }

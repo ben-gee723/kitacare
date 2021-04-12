@@ -1,3 +1,5 @@
+/** @format */
+
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const AddressSchema = require("./addressSchema");
@@ -17,16 +19,16 @@ const UserSchema = new Schema({
   email: { type: String, required: true },
   //change it to required later!!!
   kg: { ref: "kindergardens", type: Schema.Types.ObjectId, required: false },
-  groupName: { type: String, required: false },
+  group: {
+    ref: "groups",
+    type: Schema.Types.ObjectId,
+    required: false,
+  },
   birthday: { type: Date, required: true },
   img: { type: String, required: false },
   role: {
     type: String,
-    enum: [
-      "Manager",
-      "Teacher",
-      //,"unverified"
-    ],
+    enum: ["Manager", "Teacher"],
     required: true,
   },
 });
@@ -46,7 +48,7 @@ UserSchema.methods.checkPassword = function (password) {
 //kg-user info
 UserSchema.methods.userInfo = function () {
   //decide what you need!
-  return {user:this}
+  return { user: this };
   //kg_how to populate???//it is giving the id!
 };
 
@@ -56,7 +58,7 @@ UserSchema.methods.generateAuthToken = function () {
   //payload + secret_key --> optional: expiration.
   const token = JWT.sign(
     { _id: user._id, email: user.email },
-    process.env.SECRET_KEY,//config.secret_key want working! try later!
+    process.env.SECRET_KEY, //config.secret_key want working! try later!
     {
       expiresIn: "1d",
     }
@@ -67,6 +69,7 @@ UserSchema.methods.generateAuthToken = function () {
   return token;
 };
 
+<<<<<<< HEAD
 //verify auth token and find user into database
 // UserSchema.statics.findByToken = function (token) {
 //   const user = this;
@@ -84,6 +87,25 @@ UserSchema.methods.generateAuthToken = function () {
 //     .select("-password -__v");
 //   return searchedUser;
 // };
+=======
+//verify auth token and find user in database
+UserSchema.statics.findByToken = function (token) {
+  const user = this;
+  let decoded;
+  try {
+    decoded = JWT.verify(token, config.secret_key);
+  } catch (err) {
+    return;
+  }
+  let searchedUser = user
+    .findOne({
+      _id: decoded._id,
+      "tokens.token": token,
+    })
+    .select("-password -__v");
+  return searchedUser;
+};
+>>>>>>> develop
 
 const UserModel = mongoose.model("users", UserSchema);
 module.exports = UserModel;

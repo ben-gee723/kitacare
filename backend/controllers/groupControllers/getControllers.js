@@ -1,18 +1,17 @@
+/** @format */
+
 const GroupModel = require("../../model/groupModel");
-const kgModel = require("../../model/kgModel")
+const kgModel = require("../../model/kgModel");
 
 // GET ALL of the groups from MongoDB
 // = just for managers
 exports.getAllGroups = async (req, res, next) => {
   try {
-    console.log(req.params.id);
     const kg = await kgModel.findById(req.params.id);
-    console.log(kg);
-    let allGroups = await GroupModel.find({"kg": kg._id})
+    let allGroups = await GroupModel.find({ kg: kg._id })
       .populate("children", "-_id -__v")
       .populate("users", "-_id -__v")
       .select("-__v");
-    console.log(allGroups);
     if (allGroups.length !== 0) {
       res.status(200).send({ success: true, allGroups: allGroups });
     } else {
@@ -24,7 +23,6 @@ exports.getAllGroups = async (req, res, next) => {
     next(err);
   }
 };
-
 
 // GET a SINGLE group from MongoDB
 // jsut for managers

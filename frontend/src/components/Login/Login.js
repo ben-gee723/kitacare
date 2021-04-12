@@ -7,18 +7,21 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, user, setUser } = useContext(MyContext);
+  const { setIsLogin, setUser, user } = useContext(MyContext);
+  const [kg, setKg] = useState({});
 
   const [formData, setFormData] = useState({
-    email:  '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   useEffect(() => {
-
-    if (props.location.state){
+    if (props.location.state) {
       console.log(props.location.state);
-      setFormData({email: props.location.state.email, password: props.location.state.password})
+      setFormData({
+        email: props.location.state.email,
+        password: props.location.state.password,
+      });
     }
     if (user.role) {
       user.role === "Manager"
@@ -40,9 +43,12 @@ export default function Login(props) {
       data: formData,
     })
       .then((response) => {
+        console.log(response);
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
+          setKg(response.data.kg)
+          console.log(response.data);
         } else {
           console.log(response);
         }

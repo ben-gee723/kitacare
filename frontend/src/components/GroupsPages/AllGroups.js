@@ -1,63 +1,61 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { MyContext } from "../../Container";
+import styles from "./groups.module.scss";
+import { Link } from "react-router-dom";
 
 export default function AllGroups(props) {
   const [groups, setGroups] = useState([]);
-  const { kg } = useContext(MyContext);
+  const { user } = useContext(MyContext);
 
   useEffect(() => {
     axios({
       method: "GET",
-      // withCredentials: true,
-      url: `http://localhost:3001/groups/getAllGroups/${kg._id}`,
+      url: `http://localhost:3001/groups/getAllGroups/${user.kg}`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
+      .then((result) => {
         console.log(result);
         if (result.data.success) {
           setGroups(result.data.allGroups);
-          //  console.log(result.data.groups);
-          console.log(kg._id);
         } else {
           console.log(result.data.allGroups);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
-  const handleView = group => {
-    props.history.push({ pathname: "/group", state: { group: group } });
+  const handleView = (group) => {
+    props.history.push({
+      pathname: ["/group"],
+      state: { group: group },
+    });
   };
 
   return (
-    <div>
-      <h1>Groups</h1>
-      <div>
+    <div className={styles.container}>
+      <h2>Groups!</h2>
+      <div key={groups._id} className={styles.cContainer}>
+        <div className={styles.btn}>
+          <p>Total number of groups: </p>
+          <h1>{groups.length}</h1>
+          <Link to='/addgroup'>
+            <button type='submit' value='add' className='add'>
+              Add
+            </button>
+          </Link>
+        </div>
         {groups.map(group => {
           return (
-            <div key={group._id}>
-              <div
-                style={{
-                  width: "42em",
-                  margin: "0 auto",
-                  border: "0.1rem solid black",
-                  padding: "1.5rem",
-                  display: "flex",
-                }}
-              >
-                <h1>{group._id}</h1>
-                <h3>{group.groupName}</h3>
-                <p>{group.description}</p>
-                <p>{group.ageGroup}</p>
-              </div>
+            <div className={styles.gContainer}>
+              <h3>{group.groupName}</h3>
+              <p>{group.description}some text about the group</p>
               <div>
-                <button type='submit' value='add' className='add'>
-                  Add
-                </button>
                 <button
                   type='submit'
                   value='view'
@@ -70,6 +68,11 @@ export default function AllGroups(props) {
             </div>
           );
         })}
+        <Link to='/mpage'>
+          <button type='submit' value='back' className='back'>
+            Go Back
+          </button>
+        </Link>
       </div>
     </div>
   );

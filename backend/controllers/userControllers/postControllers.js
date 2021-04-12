@@ -95,9 +95,7 @@ exports.login = async (req, res, next) => {
         .send({ success: false, message: "user wasn't found" });
     }
     if (!password) {
-      return res
-        .status(400)
-        .send({ success: false, message: "password wasn't found" });
+      return res.status(400).send({ success: false, message: "password wasn't found" });
     }
     let isUser = await user.checkPassword(password);
     //let isUser = user.password === password ? true : false;
@@ -118,6 +116,6 @@ exports.login = async (req, res, next) => {
       );
     }
   } catch (err) {
-    next(err);
+
   }
-};
+}

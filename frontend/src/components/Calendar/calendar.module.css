@@ -46,9 +46,12 @@
 .calendar {
   display: block;
   position: relative;
-  width: 25%;
+  width: 100%;
   background: #fdfeff;
-  border: 0.05rem solid #0c8da8;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 0.15rem solid #0c8da8;
+  border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
 }
@@ -102,6 +105,7 @@
   background: #fdfeff;
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
+  border-radius: 0.5rem;
 }
 
 .calendar .body .cell:hover {
