@@ -65,12 +65,8 @@ function App() {
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
-<<<<<<< HEAD
-          <Route path='/children' component={AllChildren} />
-=======
-          <Route path="/children" component ={AllChildren} />
+          <Route path="/children" component={AllChildren} />
           <Route path="/addgroup" component={AddGroup} />
->>>>>>> irina
           <Route component={NotFound} />
         </Switch>
         <Footer />

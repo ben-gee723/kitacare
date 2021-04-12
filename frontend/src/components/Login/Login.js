@@ -7,7 +7,7 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, setUser, user} = useContext(MyContext);
+  const { setIsLogin, setUser, user } = useContext(MyContext);
   const [kg, setKg] = useState({});
 
   const [formData, setFormData] = useState({
@@ -23,11 +23,11 @@ export default function Login(props) {
         password: props.location.state.password,
       });
     }
-    // if (user.role) {
-    //   user.role === "Manager"
-    //     ? props.history.push({ pathname: "/manager" })
-    //     : props.history.push({ pathname: "/tpage" });
-    // }
+    if (user.role) {
+      user.role === "Manager"
+        ? props.history.push({ pathname: "/mpage" })
+        : props.history.push({ pathname: "/tpage" });
+    }
   }, [user]);
 
   const submitForm = (e) => {

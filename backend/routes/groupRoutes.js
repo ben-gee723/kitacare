@@ -7,13 +7,8 @@ const {
   getSingleGroup,
 } = require("../controllers/groupControllers/getControllers");
 const { addGroup } = require("../controllers/groupControllers/postControllers");
-const {
-  updateGroup,
-} = require("../controllers/groupControllers/putControllers");
-
-const {
-  deleteGroup,
-} = require("../controllers/groupControllers/deleteControllers");
+const { updateGroup } = require("../controllers/groupControllers/putControllers");
+const { deleteGroup } = require("../controllers/groupControllers/deleteControllers");
 
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);

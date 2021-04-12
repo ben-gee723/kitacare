@@ -4,44 +4,23 @@ const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const AddressSchema = require("./addressSchema");
 
-const EmergencyContactSchema = new Schema({
-    name: { type: String, required: false },
-    email: { type: String, required: false },
-    number: { type: String, required: false }
-});
-
 const ChildSchema = new Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    birthday: { type: Date, required: true },
+    firstName: { type: String, required: false },
+    lastName: { type: String, required: false },
+    birthday: { type: Date, required: false },
     address: {
         type: AddressSchema,
         required: false,
     },
-    groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
-    img: { type: String },
-    allergies: { type: [{ to: String }], required: false },
-    dietaryNeeds: { type: [{ requirement: String }], required: false },
-
-    groupId: { ref: "groups", type: mongoose.Schema.Types.ObjectId },
     kg: { ref: "kindergardens", type: mongoose.Schema.Types.ObjectId },
     img: { type: String },
-    allergies: { type: [{ to: String }], required: false },
-    dietaryNeeds: { type: [{ requirement: String }], required: false },
-    emergencyContact1: EmergencyContactSchema,
-    emergencyContact2: EmergencyContactSchema,
+    allergies: { type: [], required: false },
+    dietaryNeeds: { type: String, required: false },
+    emergencyContact: { type: [], required: false },
     attendance: [
         { date: Date }
     ]
 })
-
-ChildSchema.pre("validate", function (next) {
-    if (this.emergencyContact !== 0) {
-        return next();
-    }
-    const error = new Error("please provide us with emergency contact details");
-    next(error);
-});
 
 const ChildModel = mongoose.model("children", ChildSchema);
 
