@@ -62,9 +62,6 @@ export default function Mpage() {
                 View
               </button>
             </Link>
-            <button type='submit' value='add' className='add'>
-              Add
-            </button>
           </div>
           <div className={styles.mTeachers}>
             <h3>Teachers</h3>

@@ -30,13 +30,10 @@ export default function AllGroups(props) {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleView = (group) => {
-    props.history.push({
-      pathname: ["/group"],
-      state: { group: group },
-    });
+  
+  const handleEdit = (group) => {
+    props.history.push({ pathname: "/editgroup", state: { group: group } });
   };
-
   return (
     <div className={styles.container}>
       <h2>Groups!</h2>
@@ -52,20 +49,43 @@ export default function AllGroups(props) {
         </div>
         {groups.map(group => {
           return (
-            <div className={styles.gContainer}>
-              <h3>{group.groupName}</h3>
-              <p>{group.description}some text about the group</p>
-              <div>
-                <button
-                  type='submit'
-                  value='view'
-                  className='view'
-                  onClick={() => handleView(group)}
-                >
-                  View
-                </button>
-              </div>
+            <div className={styles.scontainer} key={group._id}>
+            <div className={styles.col1}>
+              <p className={styles.bold}>Group:</p>
+              <p className={styles.bold2}>{group.groupName}</p>
             </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Teacher:{group.teachers.firstName}</p>
+              <p className={styles.info}>
+                {group.teachers.lastName}
+              </p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info1}>Room:</p>
+              <p className={styles.info}>{group.room}</p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Group size:</p>
+              <p className={styles.info}>{group.children.length}</p>
+              <Link to='/children'>
+                {" "}
+                <button type='submit' value='view' className='view'>
+                  view children
+                </button>
+              </Link>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Group age:</p>
+              <p className={styles.info}>{group.ageGroup}</p>
+            </div>
+            <button
+              type='submit'
+              value='edit'
+              className='edit'
+              onClick={() => handleEdit(group)}>
+              Edit
+            </button>
+          </div>
           );
         })}
         <Link to='/mpage'>
