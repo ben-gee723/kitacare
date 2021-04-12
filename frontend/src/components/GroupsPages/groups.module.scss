@@ -2,9 +2,7 @@
 
 //ALL GROUPS
 .container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  display: block;
   h2 {
     color: $primary-blue;
     text-align: center;
@@ -13,42 +11,50 @@
   p {
     padding-bottom: 0.3rem;
   }
-  padding: 1rem;
-  width: 100%;
+  padding: 2rem;
+  width: 70%;
   margin: 0 auto;
   .btn {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    p {
+      padding: 0.95rem;
+    }
     width: auto;
-    margin: 0 20px;
+    margin: 0 auto;
     h1 {
       text-align: center;
       font-size: 1.75rem;
       color: $dark;
     }
-    p {
-      text-align: left;
-      font-size: 1rem;
-    }
     border-radius: 0.3rem;
-    border: 0.01rem solid $primary-blue;
     padding: 0.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
+}
+
+.cContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 .gContainer {
   h3 {
+    color: $dark;
     text-align: center;
-    border-bottom: 0.01rem solid $primary-blue;
+    border-bottom: 0.01rem solid $secondary-orange;
+    background-color: $secondary-orange-tranparent;
+    border-radius: 0.3rem;
     padding: 0.1rem;
   }
   p {
     padding: 0.4rem;
   }
-  border: 0.01rem solid $secondary-blue;
-  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-  width: auto;
+  border: 0.2px solid $primary-orange;
+  box-shadow: $dark-gray 0 0.313rem 0.938rem;
+  width: 20%;
   margin: 0 auto;
   border-radius: 0.3rem;
-  padding: 0.2rem;
+  padding: 0.6rem;
 }
 
 //SINGLE GROUP
@@ -57,26 +63,34 @@
   flex-direction: row wrap;
   justify-content: center;
   padding: 2rem 0 2rem 0;
-  width: 22em;
+  width: 52em;
   margin: 2rem auto;
   background-color: $white;
   border: 0.1rem solid $primary-orange;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-  .col1{
+  .col1 {
     display: flex;
     flex-direction: row wrap;
     width: 100%;
     padding: 0.5rem;
+    justify-content: center;
   }
   .col {
     display: flex;
     flex-direction: row wrap;
     width: 100%;
     border-top: 0.1rem solid $secondary-orange;
-    padding: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    .info1 {
+      padding-right: 2rem;
+      padding-left: 0.15rem;
+    }
     .info {
-      padding-right: 2.7rem;
+      padding-right: 1.7rem;
       padding-left: 0.15rem;
     }
   }
@@ -99,3 +113,47 @@
 }
 
 //SINGLE GROUP EDIT
+.regForm {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  h1 {
+    padding-bottom: 2rem;
+  }
+}
+
+//ADD GROUP
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+  .addcontainer {
+    width: 19%;
+    margin: 0 auto;
+  }
+  .title {
+    h3 {
+      color: $primary-blue;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+    padding: 2rem;
+  }
+  .addinfo {
+    padding: 0.5rem;
+    label {
+      font-size: 0.95rem;
+      padding-left: 0.4rem;
+    }
+  }
+}
+.btn {
+  width: 17%;
+  margin: 0 auto;
+}

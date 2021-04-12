@@ -29,7 +29,7 @@ export default function AllChildren() {
       {children.map(child => {
         return (
           <div key={child.id}>
-            <h2>Groups!</h2>
+            <h2>Children!</h2>
             <div className={styles.btn}>
               <p>Total number of children: </p>
               <h1>{child.length}</h1>

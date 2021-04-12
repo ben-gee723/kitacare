@@ -154,3 +154,25 @@
     color: $secondary-orange;
   }
 }
+
+
+.back {
+  background-color: $secondary-orange-tranparent;
+  border-radius: 0.25rem;
+  color: $dark;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 2rem;
+
+  &:hover {
+    background: white;
+    transition: 0.2 ease-out;
+    border: 1px solid $dark;
+    cursor: pointer;
+    color: $dark;
+  }
+}

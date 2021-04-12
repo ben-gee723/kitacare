@@ -17,7 +17,7 @@ const {
 
 //GET:
 router.get("/getSingleGroup/:id", getSingleGroup);
-router.get("/getAllGroups/:id", getAllGroups);
+router.get("/getAllGroups/:id", getAllGroups); //kg._id
 
 //POST:
 router.post("/addGroup", addGroup);
