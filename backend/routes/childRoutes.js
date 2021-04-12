@@ -4,9 +4,9 @@ const { getAllChildren, getChildSingleChild } = require("../controllers/childCon
 const { addChild } = require("../controllers/childControllers/postControllers")
 const { updateChild } = require("../controllers/childControllers/putControllers")
 const { deleteChild } = require("../controllers/childControllers/deleteControllers")
-
+const auth = require("../middlewares/authentication")
 //GET:
-router.get("/getChildSingleChild/:id", getChildSingleChild)
+router.get("/getChildSingleChild/:id",  getChildSingleChild)
 router.get("/getAllChildren", getAllChildren)
 
 //POST:

@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Calendar from '../Calendar/Calendar'
-
 import  styles from './Tpage.module.scss'
 import {Link} from "react-router-dom"
 import ToDo from '../ToDo/ToDo'
+import { MyContext } from '../../Container'
 
 
 export default function Tpage() {
 
-
+    const { user } = useContext(MyContext)
     return (
         <>
         <div className={styles.welcome}>
-            <h2>Welcome user!</h2>
+            <h2>Welcome {user.firstName}!</h2>
         </div>
         <div className={styles.tpContainer}>
         
@@ -20,10 +20,10 @@ export default function Tpage() {
                 <div className={styles.tImg}>
                     <img src="" alt=""/>
                 </div>
-                <p>Name Surname</p>
-                <p>E-mail: 123</p>
-                <p>Phone number: 123</p>
-                <p>Group: 123</p>
+                <p>{user.firstName} {user.lastName}</p>
+                <p>{user.email}</p>
+                <p>{user.phoneNumber}</p>
+                <p>{user.group}</p>
                 <br/>
                 <button className='edit'>Edit Info</button>
             </div>

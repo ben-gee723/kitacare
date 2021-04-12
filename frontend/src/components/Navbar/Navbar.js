@@ -17,10 +17,6 @@ export default function Navbar() {
       </div>
       {token ? (
         <div className={styles.navbtn}>
-          <Link to="/tpage">
-            <button className="submit">My Profile</button>
-          </Link>
-
           <button className="login">Logout</button>
         </div>
       ) : (
