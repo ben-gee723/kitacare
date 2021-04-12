@@ -65,7 +65,7 @@ function App() {
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
-          <Route path="/children" component ={AllChildren} />
+          <Route path="/children" component={AllChildren} />
           <Route path="/addgroup" component={AddGroup} />
           <Route component={NotFound} />
         </Switch>
