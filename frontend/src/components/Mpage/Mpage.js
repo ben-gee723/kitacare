@@ -10,8 +10,8 @@ import managerImg from "../../images/manager.svg";
 export default function Mpage() {
   const [groups, setGroups] = useState([]);
   const { kg, user } = useContext(MyContext);
-  console.log(kg)
-  console.log(user)
+  console.log(kg);
+  console.log(user);
 
   useEffect(() => {
     axios({
@@ -40,62 +40,53 @@ export default function Mpage() {
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
-          <img src={managerImg} alt='manager' />
+            <img src={managerImg} alt='manager' />
           </div>
           <p>
             {user.firstName} {user.lastName}
           </p>
           <p>{user.email}</p>
-          <br />
           <button type='submit' value='edit' className='edit'>
             Edit info
           </button>
         </div>
 
-            <div className={styles.features}>
-              <div className={styles.mGroup}>
-                <h3>Groups</h3>
-                <br/>
-                <p>Find all the groups information:</p>
-                <p>
-                  how many children per group, ages, weekely plans and more!
-                </p>
-                <br />
-                <p>Total: {groups.length}</p>
-                <br />
-                <Link to='/groups'>
-                  <button type='submit' value='view' className='view'>
-                    View
-                  </button>
-                </Link>
-                <button type='submit' value='add' className='add'>
-                  Add
-                </button>
-              </div>
-              <div className={styles.mTeachers}>
-                <h3>Teachers</h3>
-                <br/>
-                <p>Find all the teacher information:</p>
-                <p>
-                  how many children in that teachers group and all the teachers
-                  necessary information!
-                </p>
-                <br />
-                <p>Total: {groups.length}</p>
-                <br />
-                <Link to='/teachers'>
-                  <button type='submit' value='view' className='view'>
-                    View
-                  </button>
-                </Link>
-              </div>
-        <div className={styles.mTodo}>
-          <ToDo />
+        <div className={styles.features}>
+          <div className={styles.mGroup}>
+            <h3>Groups</h3>
+            <p>Find all the groups information:</p>
+            <p>how many children per group, ages, weekely plans and more!</p>
+            <p>Total: {groups.length}</p>
+            <Link to='/groups'>
+              <button type='submit' value='view' className='view'>
+                View
+              </button>
+            </Link>
+            <button type='submit' value='add' className='add'>
+              Add
+            </button>
+          </div>
+          <div className={styles.mTeachers}>
+            <h3>Teachers</h3>
+            <p>Find all the teacher information:</p>
+            <p>
+              how many children in that teachers group and all the teachers
+              necessary information!
+            </p>
+            <p>Total: {groups.length}</p>
+            <Link to='/teachers'>
+              <button type='submit' value='view' className='view'>
+                View
+              </button>
+            </Link>
+          </div>
+          <div className={styles.mTodo}>
+            <ToDo />
+          </div>
+          <div className={styles.calendar}>
+            <Calendar />
+          </div>
         </div>
-        <div className={styles.calendar}>
-          <Calendar />
-        </div>
-      </div>
       </div>
     </>
   );
