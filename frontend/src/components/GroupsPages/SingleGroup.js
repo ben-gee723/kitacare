@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useContext } from "react";
 import SingleGroupEdit from "./SingleGroupEdit";
 import axios from "axios";
@@ -5,19 +7,19 @@ import { MyContext } from "../../Container";
 
 export default function SingleGroup(props) {
   const [deletedGroup, setDeleteGroup] = useState([]);
-  console.log(props.location)
+  console.log(props.location);
 
-  const handleEdit = id => {
+  const handleEdit = (id) => {
     <SingleGroupEdit />;
   };
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     axios(
       `http://localhost:3001/groups/getSingleGroup/${props.location.state.group}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       }
-    ).then(result => {
+    ).then((result) => {
       if (result.success) {
         setDeleteGroup(result.deletedGroup);
       } else {
@@ -28,7 +30,7 @@ export default function SingleGroup(props) {
 
   const group = props.location.state.group;
 
-  return ( 
+  return (
     <div>
       <h1>Groups</h1>
       <div>
@@ -42,16 +44,14 @@ export default function SingleGroup(props) {
               type='submit'
               value='delete'
               className='delete'
-              onClick={() => handleDelete(group.id)}
-            >
+              onClick={() => handleDelete(group.id)}>
               Delete
             </button>
             <button
               type='submit'
               value='edit'
               className='edit'
-              onClick={() => handleEdit(group.id)}
-            >
+              onClick={() => handleEdit(group.id)}>
               Edit
             </button>
           </div>

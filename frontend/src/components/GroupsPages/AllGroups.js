@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { MyContext } from "../../Container";
@@ -16,7 +18,7 @@ export default function AllGroups(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
+      .then((result) => {
         console.log(result);
         if (result.data.success) {
           setGroups(result.data.allGroups);
@@ -26,10 +28,10 @@ export default function AllGroups(props) {
           console.log(result.data.allGroups);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
-  const handleView = group => {
+  const handleView = (group) => {
     props.history.push({ pathname: "/group", state: { group: group } });
   };
 
@@ -37,7 +39,7 @@ export default function AllGroups(props) {
     <div>
       <h1>Groups</h1>
       <div>
-        {groups.map(group => {
+        {groups.map((group) => {
           return (
             <div key={group._id}>
               <div
@@ -47,8 +49,7 @@ export default function AllGroups(props) {
                   border: "0.1rem solid black",
                   padding: "1.5rem",
                   display: "flex",
-                }}
-              >
+                }}>
                 <h1>{group._id}</h1>
                 <h3>{group.groupName}</h3>
                 <p>{group.description}</p>
@@ -62,8 +63,7 @@ export default function AllGroups(props) {
                   type='submit'
                   value='view'
                   className='view'
-                  onClick={() => handleView(group)}
-                >
+                  onClick={() => handleView(group)}>
                   View
                 </button>
               </div>

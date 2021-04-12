@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../../Container";
 import axios from "axios";
+import UserCard from "./UserCard";
+import { CardGroup } from "react-bootstrap";
 
 export default function Teachers() {
   const { kg } = useContext(MyContext);
@@ -10,7 +12,7 @@ export default function Teachers() {
   const [managers, setManagers] = useState([]);
   const [verificationCode, setVerificationCode] = useState("");
 
-  //get all teachers and managers working at this kg!
+  //getting all teachers and managers working at this kg:
   useEffect(() => {
     axios({
       method: "GET",
@@ -23,7 +25,6 @@ export default function Teachers() {
     })
       .then((response) => {
         if (response.data.success) {
-          console.log(response.data.teachers);
           setTeachers(response.data.teachers);
         } else {
           console.log(response);
@@ -74,31 +75,34 @@ export default function Teachers() {
     <div>
       <div>
         <h4>Managers</h4>
-        {managers &&
-          managers.map((manager) => {
-            return (
-              <ul>
-                <li key={manager._id}>
-                  {manager.firstName} {manager.lastName}
-                </li>
-              </ul>
-            );
-          })}
+        <CardGroup>
+          {managers &&
+            managers.map((manager, i) => {
+              return (
+                <UserCard
+                  user={manager}
+                  imageNum={i > 3 ? i % 4 : i}
+                  key={manager.email}
+                />
+              );
+            })}
+        </CardGroup>
       </div>
       <div>
         <h4>Teachers</h4>
-        {teachers &&
-          teachers.map((teacher) => {
-            return (
-              <ul>
-                <li key={teacher._id}>
-                  {teacher.firstName} {teacher.lastName}
-                </li>
-              </ul>
-            );
-          })}
+        <CardGroup>
+          {teachers &&
+            teachers.map((teacher, i) => {
+              return (
+                <UserCard
+                  user={teacher}
+                  imageNum={i > 3 ? i % 4 : i}
+                  key={teacher.email}
+                />
+              );
+            })}
+        </CardGroup>
       </div>
-      <button className='next'>Create Teacher</button>
       <button className='next' onClick={generateCodeHandler}>
         Generate Code
       </button>

@@ -14,13 +14,13 @@ export default function Login(props) {
     password: "",
   });
 
-  useEffect(() => {
-    if (user.role) {
-      user.role === "Manager"
-        ? props.history.push({ pathname: "/mpage" })
-        : props.history.push({ pathname: "/tpage" });
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.role) {
+  //     user.role === "Manager"
+  //       ? props.history.push({ pathname: "/mpage" })
+  //       : props.history.push({ pathname: "/tpage" });
+  //   }
+  // }, [user]);
 
   const submitForm = (e) => {
     e.preventDefault();

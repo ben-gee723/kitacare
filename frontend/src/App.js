@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Route, Link, Switch, withRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Basics
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
@@ -29,6 +30,9 @@ import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Manager from "./components/ManagerPages/Manager";
 import Container from "./Container";
+//for product:
+//import Container from "./Container_product";
+
 import Attendance from "./components/Tpage/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
 import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
