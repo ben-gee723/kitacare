@@ -7,26 +7,33 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, user, setUser } = useContext(MyContext);
+  const { setIsLogin, setUser, user } = useContext(MyContext);
+  console.log(props);
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // useEffect(() => {
-  //   if (user.role) {
-  //     user.role === "Manager"
-  //       ? props.history.push({ pathname: "/mpage" })
-  //       : props.history.push({ pathname: "/tpage" });
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (props.location.state) {
+      console.log(props.location.state);
+      setFormData({
+        email: props.location.state.email,
+        password: props.location.state.password,
+      });
+    }
+    // if (user.role) {
+    //   user.role === "Manager"
+    //     ? props.history.push({ pathname: "/manager" })
+    //     : props.history.push({ pathname: "/tpage" });
+    // }
+  }, [user]);
 
   const submitForm = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
-      //withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
         Accept: "application/json",
@@ -35,9 +42,11 @@ export default function Login(props) {
       data: formData,
     })
       .then((response) => {
+        console.log(response);
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
+          console.log(response.data);
         } else {
           console.log(response);
         }
@@ -59,6 +68,7 @@ export default function Login(props) {
             type='email'
             name='email'
             placeholder='E-mail'
+            value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
@@ -72,6 +82,7 @@ export default function Login(props) {
             type='password'
             name='password'
             placeholder='Password'
+            value={formData.password}
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }

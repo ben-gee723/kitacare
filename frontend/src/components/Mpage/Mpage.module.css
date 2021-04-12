@@ -1,0 +1,76 @@
+.mpContainer {
+  height: 100vh;
+  margin: 0 5rem;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mInfo {
+  background-color: #f5f5f5;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
+  padding: 2rem;
+  line-height: 1.5rem;
+}
+
+.mImg {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  background-color: darkorchid;
+  margin-bottom: 1rem;
+}
+
+.features {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25rem 25rem;
+      grid-template-columns: 25rem 25rem;
+  -ms-grid-rows: 15rem 15rem;
+      grid-template-rows: 15rem 15rem;
+  margin-left: 1rem;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.mGroup {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: solid 1px #ff4e13;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mTeachers {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: solid 1px #0c8da8;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mTodo {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #cbcac4;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+}
+
+.calendar {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+}
+/*# sourceMappingURL=Mpage.module.css.map */

@@ -13,11 +13,13 @@ ul {
 
 .regInfo {
   margin-top: 20px;
+  width: 66%;
 }
 
 .reg {
   margin-top: 100px;
   color: #0c8da8;
+  font-size: 1.2rem;
 }
 
 input {
@@ -31,6 +33,7 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 66%;
 }
 
 input::-webkit-input-placeholder {
@@ -57,7 +60,7 @@ input::placeholder {
       flex-wrap: wrap;
 }
 
-.lg img {
+.logo {
   width: 3rem;
   height: 3rem;
 }
@@ -108,61 +111,6 @@ input::placeholder {
   color: white;
 }
 
-.loginbtn {
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  height: 3rem;
-  border: none;
-  background: #ff4e13;
-  color: #fff;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-}
-
-.loginbtn:hover {
-  background: #85d1ff;
-  -webkit-transition: 0.2 ease-out;
-  transition: 0.2 ease-out;
-  cursor: pointer;
-  color: #000;
-}
-
-.regbtn {
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  height: 3rem;
-  border: none;
-  background: #ff4e13;
-  color: #fff;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-  margin-right: 3px;
-}
-
-.regbtn:hover {
-  background: #85d1ff;
-  -webkit-transition: 0.2 ease-out;
-  transition: 0.2 ease-out;
-  cursor: pointer;
-  color: #000;
-}
-
 /* CALENDAR */
 .icon {
   font-style: normal;
@@ -211,9 +159,12 @@ input::placeholder {
 .calendar {
   display: block;
   position: relative;
-  width: 25%;
+  width: 100%;
   background: #fdfeff;
-  border: 0.05rem solid #0c8da8;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 0.15rem solid #0c8da8;
+  border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
 }
@@ -267,6 +218,7 @@ input::placeholder {
   background: #fdfeff;
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
+  border-radius: 0.5rem;
 }
 
 .calendar .body .cell:hover {
@@ -538,9 +490,9 @@ html body {
   color: #fdfeff;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .add:hover {
@@ -559,7 +511,7 @@ html body {
   color: #fdfeff;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem;
 }
 
@@ -570,5 +522,25 @@ html body {
   border: 1px solid #00a881;
   cursor: pointer;
   color: #00a881;
+}
+
+.edit {
+  background-color: #F9A26B;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fdfeff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.edit:hover {
+  background: #fdfeff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #F9A26B;
+  cursor: pointer;
+  color: #F9A26B;
 }
 /*# sourceMappingURL=app.css.map */

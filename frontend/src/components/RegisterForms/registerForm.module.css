@@ -8,6 +8,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .regContainer {
@@ -20,7 +26,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 90vh;
+  height: 80vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -28,11 +34,66 @@
   color: #0c8da8;
 }
 
-form {
-  width: 25rem;
+.btnContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 66%;
+}
+
+.formContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
 }
 
 .address {
   margin-top: 20px;
+  width: 66%;
+}
+
+.listUnstyled {
+  display: inline;
+  border: 5xp black solid;
+  margin: 10px;
+  list-style-type: none;
+}
+
+.listUnstyled li {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.listUnstyled input {
+  width: 40px;
+}
+
+.submitButtons {
+  margin: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.submitButtons button {
+  width: 100px;
+}
+
+.regH {
+  font-size: 3rem;
 }
 /*# sourceMappingURL=registerForm.module.css.map */

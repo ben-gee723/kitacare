@@ -2,61 +2,64 @@
 
 import React, { useState, useContext } from "react";
 import SingleGroupEdit from "./SingleGroupEdit";
-import axios from "axios";
-import { MyContext } from "../../Container";
+import styles from "./groups.module.scss";
+import { Link } from "react-router-dom";
 
 export default function SingleGroup(props) {
-  const [deletedGroup, setDeleteGroup] = useState([]);
-  console.log(props.location);
+  const [showForm, setShowForm] = useState(false);
 
-  const handleEdit = (id) => {
-    <SingleGroupEdit />;
-  };
-  const handleDelete = (id) => {
-    axios(
-      `http://localhost:3001/groups/getSingleGroup/${props.location.state.group}`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      }
-    ).then((result) => {
-      if (result.success) {
-        setDeleteGroup(result.deletedGroup);
-      } else {
-        console.log(result);
-      }
-    });
+  const handleEdit = (group) => {
+    setShowForm(!showForm);
+    props.history.push({ pathname: "/editgroup", state: { group: group } });
   };
 
   const group = props.location.state.group;
-
   return (
-    <div>
-      <h1>Groups</h1>
-      <div>
-        <div key={group._id}>
-          <div>
-            <h3>{group.groupName}</h3>
-            <p>{group.description}</p>
-          </div>
-          <div>
-            <button
-              type='submit'
-              value='delete'
-              className='delete'
-              onClick={() => handleDelete(group.id)}>
-              Delete
-            </button>
-            <button
-              type='submit'
-              value='edit'
-              className='edit'
-              onClick={() => handleEdit(group.id)}>
-              Edit
-            </button>
-          </div>
+    <div className={styles.scontainer} key={group._id}>
+      {showForm && (
+        <div>
+          <SingleGroupEdit />
         </div>
-      </div>
+      )}
+      <>
+        <div>
+          <div className={styles.col1}>
+            <p className={styles.bold}>Group:</p>
+            <p className={styles.bold2}>{group.groupName}</p>
+          </div>
+          <div className={styles.col}>
+            <p className={styles.info}>Teacher:{group.teachers}</p>
+            <p className={styles.info}>
+              teacher.firstName teacher.lastName{group.teachers}
+            </p>
+          </div>
+          <div className={styles.col}>
+            <p className={styles.info}>Room:</p>
+            <p className={styles.info}>{group.room}</p>
+          </div>
+          <div className={styles.col}>
+            <p className={styles.info}>Group size:</p>
+            <p className={styles.info}>{group.children.length}</p>
+            <Link to='/children'>
+              {" "}
+              <button type='submit' value='view' className='view'>
+                view children
+              </button>
+            </Link>
+          </div>
+          <div className={styles.col}>
+            <p className={styles.info}>Group age:</p>
+            <p className={styles.info}>{group.ageGroup}</p>
+          </div>
+          <button
+            type='submit'
+            value='edit'
+            className='edit'
+            onClick={() => handleEdit(group)}>
+            Edit
+          </button>
+        </div>
+      </>
     </div>
   );
 }

@@ -37,6 +37,7 @@ import Attendance from "./components/Tpage/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
 import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
 import SingleGroup from "./components/GroupsPages/SingleGroup";
+import AllChildren from "./components/Children/AllChildren";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
+          <Route path='/children' component={AllChildren} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

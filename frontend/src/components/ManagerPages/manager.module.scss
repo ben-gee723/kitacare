@@ -2,7 +2,6 @@
 
 .mpContainer {
   height: 100vh;
-  //background-color: cadetblue;
   margin: 0 5rem;
   padding: 2rem;
   display: flex;
@@ -23,6 +22,11 @@
   height: 10rem;
   background-color: $primary-orange;
   margin-bottom: 1rem;
+  img{
+    margin: -0.25rem 0 0.625rem 0.719rem;
+    width: 90%;
+    height: 100%;
+  }
 }
 
 .features {
