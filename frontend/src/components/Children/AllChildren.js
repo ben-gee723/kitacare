@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./children.module.scss";
+import {Link} from "react-router-dom"
 
 export default function AllChildren() {
   const [children, setChildren] = useState([]);
@@ -15,7 +16,6 @@ export default function AllChildren() {
       },
     })
       .then(result => {
-        console.log(result);
         if (result.data.success) {
           setChildren(result.data.allChildren);
         } else {
@@ -25,21 +25,25 @@ export default function AllChildren() {
       .catch(err => console.log(err));
   }, []);
   return (
-    <div className={StyleSheet.container}>
+    <div className={styles.container}>
       {children.map(child => {
         return (
-          <div key={child.id}>
+          <div key={child._id}>
             <h2>Children!</h2>
             <div className={styles.btn}>
               <p>Total number of children: </p>
-              <h1>{child.length}</h1>
-              <button type='submit' value='add' className='add'>
+              <h1>{children.length}</h1>
+              <Link to='/cregister'>
+                {" "}
+                <button type='submit' value='add' className='add'>
+                  {" "}
                 Add
-              </button>
+              </button></Link>
             </div>
             <div className={styles.gContainer}>
               <h3>{child.firstName}</h3>
               <p>{child.lastName}</p>
+              <p>{child._id}</p>
             </div>
           </div>
         );

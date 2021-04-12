@@ -1,16 +1,7 @@
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 1rem;
-  width: 100%;
+  display: block;
+  padding: 2rem;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -25,12 +16,17 @@
 }
 
 .container .btn {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: auto;
-  margin: 0 20px;
+  margin: 0 auto;
   border-radius: 0.3rem;
-  border: 0.01rem solid #0c8da8;
   padding: 0.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.container .btn p {
+  padding: 0.95rem;
 }
 
 .container .btn h1 {
@@ -39,24 +35,35 @@
   color: #423f40;
 }
 
-.container .btn p {
-  text-align: left;
-  font-size: 1rem;
+.cContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .gContainer {
-  border: 0.01rem solid #0c8d9b;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-          box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-  width: auto;
+  border: 0.2px solid #ff4e13;
+  -webkit-box-shadow: #a5a09c 0 0.313rem 0.938rem;
+          box-shadow: #a5a09c 0 0.313rem 0.938rem;
+  width: 20%;
   margin: 0 auto;
   border-radius: 0.3rem;
-  padding: 0.2rem;
+  padding: 0.6rem;
 }
 
 .gContainer h3 {
+  color: #423f40;
   text-align: center;
-  border-bottom: 0.01rem solid #0c8da8;
+  border-bottom: 0.01rem solid #F9A26B;
+  background-color: rgba(249, 162, 107, 0.3);
+  border-radius: 0.3rem;
   padding: 0.1rem;
 }
 
@@ -76,7 +83,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 2rem 0 2rem 0;
-  width: 22em;
+  width: 52em;
   margin: 2rem auto;
   background-color: #f1f1f1;
   border: 0.1rem solid #ff4e13;
@@ -95,6 +102,9 @@
           flex-direction: row wrap;
   width: 100%;
   padding: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .scontainer .col {
@@ -107,11 +117,19 @@
           flex-direction: row wrap;
   width: 100%;
   border-top: 0.1rem solid #F9A26B;
-  padding: 0.5rem;
+  padding-right: 2rem;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.scontainer .col .info1 {
+  padding-right: 2rem;
+  padding-left: 0.15rem;
 }
 
 .scontainer .col .info {
-  padding-right: 2.7rem;
+  padding-right: 1.7rem;
   padding-left: 0.15rem;
 }
 
@@ -132,5 +150,69 @@
 
 .scontainer h3 {
   text-align: left;
+}
+
+.regForm {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 25%;
+}
+
+.regForm h1 {
+  padding-bottom: 2rem;
+}
+
+.maincontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+}
+
+.maincontainer .addcontainer {
+  width: 19%;
+  margin: 0 auto;
+}
+
+.maincontainer .title {
+  padding: 2rem;
+}
+
+.maincontainer .title h3 {
+  color: #0c8da8;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.maincontainer .addinfo {
+  padding: 0.5rem;
+}
+
+.maincontainer .addinfo label {
+  font-size: 0.95rem;
+  padding-left: 0.4rem;
+}
+
+.btn {
+  width: 17%;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=groups.module.css.map */
