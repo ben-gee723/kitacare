@@ -25,6 +25,7 @@ import ChildHealth from "./components/RegisterForms/ChildRegister/health";
 // Dashboard
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
+import EditProfile from "./components/Mpage/EditProfile";
 import createTeacher from "./components/Mpage/createTeacher";
 import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
@@ -65,8 +66,9 @@ function App() {
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
-          <Route path="/children" component={AllChildren} />
-          <Route path="/addgroup" component={AddGroup} />
+          <Route path='/children' component={AllChildren} />
+          <Route path='/addgroup' component={AddGroup} />
+          <Route path='/editprofile' component={EditProfile} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

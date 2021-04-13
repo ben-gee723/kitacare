@@ -95,27 +95,24 @@ exports.login = async (req, res, next) => {
         .send({ success: false, message: "user wasn't found" });
     }
     if (!password) {
-      return res.status(400).send({ success: false, message: "password wasn't found" });
+      return res
+        .status(400)
+        .send({ success: false, message: "password wasn't found" });
     }
     let isUser = await user.checkPassword(password);
-    //let isUser = user.password === password ? true : false;
     if (isUser) {
-      let userInfo = await user.userInfo();
+      // let userInfo = await user.userInfo();
       const token = user.generateAuthToken();
-      return (
-        res
-           .cookie("x-access-token", token, {
-             secure: false,
-             sameSite: "lax",
-          })
-          .send({
-            success: true,
-            message: "user logged in successfuly",
-            userInfo: userInfo,
-          })
-      );
+      return res
+        .cookie("x-access-token", token, {
+          secure: false,
+          sameSite: "lax",
+        })
+        .send({
+          success: true,
+          message: "user logged in successfuly",
+          user: user,
+        });
     }
-  } catch (err) {
-
-  }
-}
+  } catch (err) {}
+};

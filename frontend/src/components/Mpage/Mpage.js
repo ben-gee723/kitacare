@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./Mpage.module.scss";
 import { Link } from "react-router-dom";
@@ -7,11 +9,13 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 import managerImg from "../../images/manager.svg";
 
-export default function Mpage() {
+export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
   const { kg, user } = useContext(MyContext);
-  console.log(kg);
-  console.log(user);
+
+  const handleEdit = () => {
+    props.history.push({ pathname: "/editUserProfile" });
+  };
 
   useEffect(() => {
     axios({
@@ -22,15 +26,14 @@ export default function Mpage() {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
-        console.log(result);
+      .then((result) => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
-          console.log(result.data.allGroups);
+          console.log(result);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
   return (
     <>
@@ -46,7 +49,11 @@ export default function Mpage() {
             {user.firstName} {user.lastName}
           </p>
           <p>{user.email}</p>
-          <button type='submit' value='edit' className='edit'>
+          <button
+            type='submit'
+            value='edit'
+            className='edit'
+            onClick={() => handleEdit()}>
             Edit info
           </button>
         </div>
