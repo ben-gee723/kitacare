@@ -19,7 +19,7 @@ export default function AllGroups(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((result) => {
+      .then(result => {
         console.log(result);
         if (result.data.success) {
           setGroups(result.data.allGroups);
@@ -27,52 +27,65 @@ export default function AllGroups(props) {
           console.log(result.data.allGroups);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }, []);
 
-  const handleView = (group) => {
-    props.history.push({
-      pathname: ["/group"],
-      state: { group: group },
-    });
+  const handleEdit = group => {
+    props.history.push({ pathname: "/editgroup", state: { group: group } });
   };
-
   return (
     <div className={styles.container}>
       <h2>Groups!</h2>
-      <div key={groups._id} className={styles.cContainer}>
-        <div className={styles.btn}>
-          <p>Total number of groups: </p>
-          <h1>{groups.length}</h1>
-          <Link to='/addgroup'>
+      <Link to='/addgroup'>
             <button type='submit' value='add' className='add'>
               Add
             </button>
           </Link>
-        </div>
+      <div key={groups._id} className={styles.cContainer}>
         {groups.map(group => {
           return (
-            <div className={styles.gContainer}>
-              <h3>{group.groupName}</h3>
-              <p>{group.description}some text about the group</p>
-              <div>
-                <button
-                  type='submit'
-                  value='view'
-                  className='view'
-                  onClick={() => handleView(group)}
-                >
-                  View
-                </button>
+            <div className={styles.scontainer} key={group._id}>
+              <div className={styles.col1}>
+                <p className={styles.bold}>Group:</p>
+                <p className={styles.bold2}>{group.groupName}</p>
               </div>
+              <div className={styles.col}>
+                <p className={styles.info}>
+                  Teacher:{group.teachers.firstName}
+                </p>
+                <p className={styles.info}>{group.teachers.lastName}</p>
+              </div>
+              <div className={styles.col}>
+                <p className={styles.info1}>Room:</p>
+                <p className={styles.info}>{group.room}</p>
+              </div>
+              <div className={styles.col}>
+                <p className={styles.info}>Group size:</p>
+                <p className={styles.info}>{group.children.length}</p>
+              </div>
+              <div className={styles.col2}>
+                <p className={styles.info}>Group age:</p>
+                <p className={styles.info}>{group.ageGroup}</p>
+              </div>
+              <div>
+              <button
+                type='submit'
+                value='edit'
+                className='fixedit'
+                onClick={() => handleEdit(group)}
+              >
+                Edit
+              </button>
+              <Link to='/children'>
+                {" "}
+                <button type='submit' value='view' className='view'>
+                  view children
+                </button>
+              </Link>
+            </div>
             </div>
           );
         })}
-        <Link to='/mpage'>
-          <button type='submit' value='back' className='back'>
-            Go Back
-          </button>
-        </Link>
       </div>
     </div>
   );

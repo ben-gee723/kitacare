@@ -2,7 +2,9 @@
 
 //ALL GROUPS
 .container {
-  display: block;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   h2 {
     color: $primary-blue;
     text-align: center;
@@ -12,24 +14,8 @@
     padding-bottom: 0.3rem;
   }
   padding: 2rem;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
-  .btn {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    p {
-      padding: 0.95rem;
-    }
-    width: auto;
-    margin: 0 auto;
-    h1 {
-      text-align: center;
-      font-size: 1.75rem;
-      color: $dark;
-    }
-    border-radius: 0.3rem;
-    padding: 0.2rem;
-    margin-bottom: 3rem;
-  }
 }
 
 .cContainer {
@@ -37,36 +23,16 @@
   flex-flow: row wrap;
   justify-content: center;
 }
-.gContainer {
-  h3 {
-    color: $dark;
-    text-align: center;
-    border-bottom: 0.01rem solid $secondary-orange;
-    background-color: $secondary-orange-tranparent;
-    border-radius: 0.3rem;
-    padding: 0.1rem;
-  }
-  p {
-    padding: 0.4rem;
-  }
-  border: 0.2px solid $primary-orange;
-  box-shadow: $dark-gray 0 0.313rem 0.938rem;
-  width: 20%;
-  margin: 0 auto;
-  border-radius: 0.3rem;
-  padding: 0.6rem;
-}
 
-//SINGLE GROUP
 .scontainer {
   display: flex;
-  flex-direction: row wrap;
+  flex-direction: column;
   justify-content: center;
-  padding: 2rem 0 2rem 0;
-  width: 52em;
-  margin: 2rem auto;
-  background-color: $white;
-  border: 0.1rem solid $primary-orange;
+  padding: 0.5rem 0 0.5rem 0;
+  width: 21em;
+  margin: 0.5rem;
+  background-color: $black;
+  color: $light;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .col1 {
@@ -76,11 +42,14 @@
     padding: 0.5rem;
     justify-content: center;
   }
-  .col {
+  .col, .col2 {
     display: flex;
     flex-direction: row wrap;
-    width: 100%;
-    border-top: 0.1rem solid $secondary-orange;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: 95%;
+    background-color: $secondary-lightblue-transparent2;
+    border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
     padding-left: 0.5rem;
     padding-top: 0.5rem;
@@ -98,7 +67,7 @@
     color: $primary-blue;
     text-align: left;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 600;
     padding-right: 2rem;
   }
   .bold2 {
@@ -110,6 +79,10 @@
   h3 {
     text-align: left;
   }
+}
+
+.col2 {
+  border-bottom: 0.05rem solid $light-gray;
 }
 
 //SINGLE GROUP EDIT

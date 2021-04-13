@@ -6,7 +6,7 @@ exports.getAllChildren = async (req, res, next) => {
     try {
         let allChildren = await ChildModel.find();
         if (allChildren) {
-            res.status(200).send({ succuess: true, allChildren: allChildren })
+            res.status(200).send({ success: true, allChildren: allChildren })
         } else {
             res.status(404).send({ success: false, message: "no children found in db" })
         }
@@ -21,7 +21,7 @@ exports.getChildSingleChild = async (req, res, next) => {
     try {
         let child = await ChildModel.findById(id);
         if (child) {
-            res.status(200).send({ succuess: true, child: child })
+            res.status(200).send({ success: true, child: child })
         } else {
             res.status(404).send("No matching child found")
         }
