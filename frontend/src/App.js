@@ -38,6 +38,7 @@ import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
 import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
 import AddGroup from "./components/GroupsPages/AddGroup";
+import ChildEdit from "./components/Children/ChildEdit";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path='/mregister' component={ManagerRegister} />
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
+          <Route path="/editchild" component={ChildEdit} />
           <Route path='/cregister_health' component={ChildHealth} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />

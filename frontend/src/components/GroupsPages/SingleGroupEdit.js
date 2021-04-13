@@ -4,29 +4,31 @@ import { Link } from "react-router-dom";
 import styles from "./groups.module.scss";
 
 export default function SingleGroupEdit(props) {
-  const [deletedGroup, setDeleteGroup] = useState([]);
+  const [deleteGroup, setDeleteGroup] = useState([]);
   const [editedGroup, setEditedGroup] = useState([]);
   const group = props.location.state.group;
+  console.log(group)
 
-  const handleDelete = props => {
+  const handleDelete = () => {
     axios(
-      `http://localhost:3001/groups/getSingleGroup/${props.location.state.group}`,
+      `http://localhost:3001/groups/deleteGroup/${group._id}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       }
     ).then(result => {
       if (result.success) {
-        setDeleteGroup(result.deletedGroup);
+        deleteGroup = group.filter((group) => group._id !== result.deleteGroup._id)
+        setDeleteGroup(deleteGroup);
       } else {
         console.log(result);
       }
     });
   };
 
-  const handleEdit = (props, e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
-    axios(`http://localhost:3001/groups/${props.location.state.group}`, {
+    axios(`http://localhost:3001/groups/${group._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     }).then(result => {
