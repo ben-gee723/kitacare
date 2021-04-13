@@ -1,11 +1,24 @@
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import styles from "./navbar.module.scss";
-import { useState } from "react";
+import { useContext} from "react";
+import { MyContext } from "../../Container"
+
 
 export default function Navbar() {
-  const [token, setToken] = useState("");
+  
+  const {isLogin, setIsLogin, setUser } = useContext(MyContext);
+  const history = useHistory();
+
+  const logoutHandle = () =>{
+    console.log('123');
+    localStorage.removeItem('kg')
+    localStorage.removeItem('user')
+    setIsLogin(false)
+    setUser(null);
+    history.push('/login');
+  }
 
   return (
     <div className={styles.nav}>
@@ -15,10 +28,16 @@ export default function Navbar() {
         </NavLink>
         <div className={styles.kita}>Kitacare</div>
       </div>
-      {token ? (
+      {isLogin ? (
         <div className={styles.navbtn}>
-          <button className="login">Logout</button>
+        <Link to='/login'>
+          <button className="submit">My Profile</button>
+        </Link>
+        <div className={styles.navbtn}>
+          <button onClick={logoutHandle} className="login">Logout</button>
         </div>
+        </div>
+        
       ) : (
         <div className={styles.navbtn}>
           <Link to="/register">

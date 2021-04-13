@@ -23,7 +23,7 @@ export default function Tpage() {
                 <p>{user.firstName} {user.lastName}</p>
                 <p>{user.email}</p>
                 <p>{user.phoneNumber}</p>
-                <p>{user.group}</p>
+                <p>{user.groupName}</p>
                 <br/>
                 <button className='edit'>Edit Info</button>
             </div>

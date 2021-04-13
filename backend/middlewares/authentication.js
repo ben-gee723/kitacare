@@ -19,7 +19,8 @@ exports.auth = async (req, res, next) => {
       if(err){
         return res.json("Expired")
       } else {
-        req.user=user
+        req.userID = user._id
+        req.email = user.email
         next()
       }
     })

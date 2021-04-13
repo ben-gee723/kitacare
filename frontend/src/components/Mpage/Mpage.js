@@ -55,34 +55,32 @@ export default function Mpage() {
             <div className={styles.features}>
               <div className={styles.mGroup}>
                 <h3>Groups</h3>
-                <br/>
                 <p>Find all the groups information:</p>
                 <p>
                   how many children per group, ages, weekely plans and more!
                 </p>
-                <br />
+                
                 <p>Total: {groups.length}</p>
-                <br />
+                
                 <Link to='/groups'>
                   <button type='submit' value='view' className='view'>
                     View
                   </button>
                 </Link>
+                <Link to='/addgroup'>
                 <button type='submit' value='add' className='add'>
                   Add
                 </button>
+                </Link>
               </div>
               <div className={styles.mTeachers}>
                 <h3>Teachers</h3>
-                <br/>
                 <p>Find all the teacher information:</p>
                 <p>
                   how many children in that teachers group and all the teachers
                   necessary information!
                 </p>
-                <br />
                 <p>Total: {groups.length}</p>
-                <br />
                 <Link to='/teachers'>
                   <button type='submit' value='view' className='view'>
                     View

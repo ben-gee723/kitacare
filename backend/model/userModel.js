@@ -69,7 +69,6 @@ UserSchema.methods.generateAuthToken = function () {
   return token;
 };
 
-<<<<<<< HEAD
 //verify auth token and find user into database
 // UserSchema.statics.findByToken = function (token) {
 //   const user = this;
@@ -87,7 +86,6 @@ UserSchema.methods.generateAuthToken = function () {
 //     .select("-password -__v");
 //   return searchedUser;
 // };
-=======
 //verify auth token and find user in database
 UserSchema.statics.findByToken = function (token) {
   const user = this;
@@ -105,7 +103,6 @@ UserSchema.statics.findByToken = function (token) {
     .select("-password -__v");
   return searchedUser;
 };
->>>>>>> develop
 
 const UserModel = mongoose.model("users", UserSchema);
 module.exports = UserModel;

@@ -5,11 +5,12 @@ $btnBg: #ff4e13;
 .app {  
   color: black;
   padding: 20px 10px;
+  font-size:1.2rem;
 
   .btn {
     border: none;
-    font-size: 1.2em;
-    padding: 0.5rem;
+    font-size: 1rem;
+    padding: 5px 10px;
     border-radius: 0.5rem;
     width: 70px;
     background: $btnBg;
@@ -25,15 +26,16 @@ $btnBg: #ff4e13;
   }
   
   }
-  .todos-container {    
+  .todos-container {  
+      
     .todo-form {
       .input-item {
         input {
-          padding: 10px;
+          padding: 5px 10px;
           border-radius: 0.5rem;
           border: none;
           background: $inputBg;
-          margin-right: 10px;
+          margin-right: 0;
           color: black;
           font-size: 1.2em;
           
