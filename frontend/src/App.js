@@ -19,8 +19,7 @@ import Register from "./components/RegisterForms/Register";
 import KgRegister from "./components/RegisterForms/KgRegister";
 import TeacherRegister from "./components/RegisterForms/TeacherRegister";
 import ManagerRegister from "./components/RegisterForms/ManagerRegister";
-import ChildRegister from "./components/RegisterForms/ChildRegister/information";
-import ChildHealth from "./components/RegisterForms/ChildRegister/health";
+import ChildRegister from "./components/RegisterForms/ChildRegister";
 
 // Dashboard
 import Tpage from "./components/Tpage/Tpage";
@@ -53,7 +52,6 @@ function App() {
           <Route path='/mregister' component={ManagerRegister} />
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
-          <Route path='/cregister_health' component={ChildHealth} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
           <Route path='/cteacher' component={createTeacher} />
