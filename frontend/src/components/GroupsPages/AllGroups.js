@@ -81,7 +81,7 @@ export default function AllGroups(props) {
             <button
               type='submit'
               value='edit'
-              className='edit'
+              className='fixedit'
               onClick={() => handleEdit(group)}>
               Edit
             </button>

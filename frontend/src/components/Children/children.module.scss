@@ -15,6 +15,7 @@
     width: 100%;
     margin: 0 auto;
     .btn {
+      box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
       width: auto;
       margin: 0 20px;
       h1 {
@@ -27,7 +28,6 @@
         font-size: 1rem;
       }
       border-radius: 0.3rem;
-      border: 0.01rem solid $primary-blue;
       padding: 0.2rem;
       margin-bottom: 2rem;
     }
@@ -41,8 +41,8 @@
     p {
       padding: 0.4rem;
     }
-    border: 0.01rem solid $secondary-blue;
     box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+    background-color: $secondary-blue-tranparent;
     width: auto;
     margin: 0 auto;
     border-radius: 0.3rem;
