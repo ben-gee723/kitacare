@@ -101,13 +101,13 @@ exports.login = async (req, res, next) => {
     //let isUser = user.password === password ? true : false;
     if (isUser) {
       let userInfo = await user.userInfo();
-      // const token = user.generateAuthToken();
+      const token = user.generateAuthToken();
       return (
         res
-          // .cookie("x-access-token", token, {
-          //   secure: false,
-          //   sameSite: "lax",
-          // })
+           .cookie("x-access-token", token, {
+             secure: false,
+             sameSite: "lax",
+          })
           .send({
             success: true,
             message: "user logged in successfuly",

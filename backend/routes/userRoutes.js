@@ -26,7 +26,6 @@ const {
 } = require("../controllers/userControllers/putControllers");
 //GET:
 //users/manager
-//users/managers
 router.get("/manager/:id", getManager); //:manager id
 router.get("/managers/:id", getManagers); //:kgId
 
@@ -45,7 +44,7 @@ router.put("/users/:id", updateUser);
 router.put("/userGroup/:id", deleteUsersGroup);
 
 //DELETE
-router.delete("/managers/:id", deleteManager);
-router.delete("/teachers/:id", deleteTeacher);
+router.delete("/managers/:id",  deleteManager);
+router.delete("/teachers/:id",  deleteTeacher);
 
 module.exports = router;

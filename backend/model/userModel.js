@@ -9,6 +9,7 @@ const { encrypt, compare } = require("../lib/encryption");
 const JWT = require("jsonwebtoken");
 const config = require("../config/configuration");
 
+require("dotenv").config();
 const UserSchema = new Schema({
   password: { type: String, required: true },
   firstName: { type: String, required: true },
@@ -68,6 +69,23 @@ UserSchema.methods.generateAuthToken = function () {
   return token;
 };
 
+//verify auth token and find user into database
+// UserSchema.statics.findByToken = function (token) {
+//   const user = this;
+//   let decoded;
+//   try {
+//     decoded = JWT.verify(token, process.env.SECRET_KEY);
+//   } catch (err) {
+//     return;
+//   }
+//   let searchedUser = user
+//     .findOne({
+//       _id: decoded._id,
+//       "tokens.token": token,
+//     })
+//     .select("-password -__v");
+//   return searchedUser;
+// };
 //verify auth token and find user in database
 UserSchema.statics.findByToken = function (token) {
   const user = this;

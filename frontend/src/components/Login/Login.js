@@ -23,7 +23,7 @@ export default function Login(props) {
         password: props.location.state.password,
       });
     }
-    if (user.role) {
+    if (user && user.role) {
       user.role === "Manager"
         ? props.history.push({ pathname: "/mpage" })
         : props.history.push({ pathname: "/tpage" });
@@ -34,6 +34,7 @@ export default function Login(props) {
     e.preventDefault();
     axios({
       method: "POST",
+      withCredentials: true,
       url: "http://localhost:3001/users/login",
       headers: {
         Accept: "application/json",
@@ -46,7 +47,7 @@ export default function Login(props) {
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
-          setKg(response.data.kg)
+          localStorage.setItem('user', JSON.stringify(response.data.userInfo.user));
           console.log(response.data);
         } else {
           console.log(response);

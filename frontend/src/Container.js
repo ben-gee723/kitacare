@@ -6,22 +6,13 @@ const MyContext = createContext("");
 export { MyContext };
 
 export default function Container(props) {
-  const [user, setUser] = useState({});
-  const [kg, setKg] = useState(null);
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    let data = localStorage.getItem("kitacare");
-    if (data) {
-      let convertedData = JSON.parse(data);
-      //if token is there=> setIsLoggedin(true)
-      //if userInfo there=> setUser(userInfo)???
-    }
-  }, []);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+  const [kg, setKg] = useState(JSON.parse(localStorage.getItem("kg")) || null);
+  const [isLogin, setIsLogin] = useState(Boolean(user));
 
   useEffect(() => {
     console.log(user);
-    if (user.kg) {
+    if (user && user.kg) {
       axios({
         method: "GET",
         withCredentials: true,
@@ -35,6 +26,7 @@ export default function Container(props) {
           if (response.data.success) {
             console.log(response.data);
             setKg(response.data.kg);
+            localStorage.setItem('kg', JSON.stringify(response.data.kg));
           } else {
             console.log(response);
           }

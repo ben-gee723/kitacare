@@ -6,11 +6,12 @@ $btnBg: #ff4e13;
 .app {
   color: black;
   padding: 20px 10px;
+  font-size:1.2rem;
 
   .btn {
     border: none;
-    font-size: 1.2em;
-    padding: 0.5rem;
+    font-size: 1rem;
+    padding: 5px 10px;
     border-radius: 0.5rem;
     width: 70px;
     background: $btnBg;
