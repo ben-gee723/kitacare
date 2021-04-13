@@ -51,6 +51,8 @@
   font-size: 1.2rem;
   padding: 1.25em 0;
   border-bottom: 0.05rem solid $primary-blue;
+  position: relative;
+  left: 1rem;
 }
 .calendar .header .icon {
   cursor: pointer;
@@ -75,6 +77,9 @@
   font-size: 0.5rem;
   padding: 1.75em 0;
   border-bottom: 0.05rem solid $primary-blue;
+  width: 100%;
+  position: relative;
+  left: 1rem;
   
 }
 .calendar .body .cell {
@@ -93,6 +98,8 @@
 
 .calendar .body .row {
   border-bottom: 0.05rem solid $secondary-blue;
+  position: relative;
+  left: 1rem;
   
 }
 .calendar .body .row:last-child {
@@ -113,6 +120,7 @@
 .calendar .body .cell:hover .number,
 .calendar .body .selected .number {
   visibility: hidden;
+  position: relative;
 }
 .calendar .body .disabled {
   color: $light-gray;

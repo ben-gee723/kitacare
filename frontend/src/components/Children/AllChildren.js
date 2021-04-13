@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./children.module.scss";
 import {Link} from "react-router-dom"
 
-export default function AllChildren() {
+export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
 
   useEffect(() => {
@@ -24,30 +24,61 @@ export default function AllChildren() {
       })
       .catch(err => console.log(err));
   }, []);
+  const handleEdit = child => {
+    props.history.push({ pathname: "/editchild", state: { child: child } });
+  };
+
   return (
     <div className={styles.container}>
+    <h2>Groups!</h2>
+    <Link to='/addgroup'>
+          <button type='submit' value='add' className='add'>
+            Add
+          </button>
+        </Link>
+    <div key={children._id} className={styles.cContainer}>
       {children.map(child => {
         return (
-          <div key={child._id}>
-            <h2>Children!</h2>
-            <div className={styles.btn}>
-              <p>Total number of children: </p>
-              <h1>{children.length}</h1>
-              <Link to='/cregister'>
-                {" "}
-                <button type='submit' value='add' className='add'>
-                  {" "}
-                Add
-              </button></Link>
+          <div className={styles.scontainer} key={child._id}>
+            <div className={styles.col1}>
+              <p className={styles.bold2}>{child.firstName} {child.lastName}</p>
             </div>
-            <div className={styles.gContainer}>
-              <h3>{child.firstName}</h3>
-              <p>{child.lastName}</p>
-              <p>{child._id}</p>
+            <div className={styles.col}>
+              <p className={styles.info}>
+                {child.birthday}
+              </p>
             </div>
+            <div className={styles.col}>
+              <p className={styles.info}>{child.address.street} {child.address.number}, {child.address.postcode} {child.address.city}</p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Group size:</p>
+              <p className={styles.info}>{children.length}</p>
+            </div>
+            <div className={styles.col2}>
+              <p className={styles.info}>Age:</p>
+              <p className={styles.info}>{child.age}</p>
+            </div>
+            <div>
+            <button
+              type='submit'
+              value='edit'
+              className='fixedit'
+              onClick={() => handleEdit(child)}
+            >
+              Edit
+            </button>
+            <Link to='/children'>
+              {" "}
+              <button type='submit' value='view' className='view'>
+                view children
+              </button>
+            </Link>
+          </div>
           </div>
         );
       })}
     </div>
+  </div>
   );
 }

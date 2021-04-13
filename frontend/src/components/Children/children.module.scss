@@ -1,50 +1,84 @@
 @import "../../globalCSS/variables";
 .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  h2 {
+    color: $primary-blue;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  p {
+    padding-bottom: 0.3rem;
+  }
+  padding: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.scontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0 0.5rem 0;
+  width: 21em;
+  margin: 0.5rem;
+  background-color: $black;
+  color: $light;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  .col1 {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    h2 {
-      color: $primary-blue;
-      text-align: center;
-      padding-bottom: 2rem;
-    }
-    p {
-      padding-bottom: 0.3rem;
-    }
-    padding: 1rem;
+    flex-direction: row wrap;
     width: 100%;
+    padding: 0.5rem;
+    justify-content: center;
+  }
+  .col, .col2 {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: flex-start;
     margin: 0 auto;
-    .btn {
-      box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-      width: auto;
-      margin: 0 20px;
-      h1 {
-        text-align: center;
-        font-size: 1.75rem;
-        color: $dark;
-      }
-      p {
-        text-align: left;
-        font-size: 1rem;
-      }
-      border-radius: 0.3rem;
-      padding: 0.2rem;
-      margin-bottom: 2rem;
+    width: 95%;
+    background-color: $secondary-lightblue-transparent2;
+    border-top: 0.05rem solid $light-gray;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    .info1 {
+      padding-right: 2rem;
+      padding-left: 0.15rem;
+    }
+    .info {
+      padding-right: 1.7rem;
+      padding-left: 0.15rem;
     }
   }
-  .gContainer {
-    h3 {
-      text-align: center;
-      border-bottom: 0.01rem solid $primary-blue;
-      padding: 0.1rem;
-    }
-    p {
-      padding: 0.4rem;
-    }
-    box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-    background-color: $secondary-blue-tranparent;
-    width: auto;
-    margin: 0 auto;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
+  .bold {
+    color: $primary-blue;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-right: 2rem;
   }
+  .bold2 {
+    color: $primary-orange;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  h3 {
+    text-align: left;
+  }
+}
+
+.col2 {
+  border-bottom: 0.05rem solid $light-gray;
+}
