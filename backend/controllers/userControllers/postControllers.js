@@ -106,21 +106,6 @@ exports.login = async (req, res, next) => {
     if (isUser) {
       // let userInfo = await user.userInfo();
       const token = user.generateAuthToken();
-<<<<<<< HEAD
-      // generateAuthToken --> comment it out to test
-      return (
-        res
-          .cookie("x-access-token", token, {
-            secure: false,
-            sameSite: "lax",
-          })
-          .send({
-            success: true,
-            message: "user logged in successfuly",
-            userInfo: userInfo,
-          })
-      );
-=======
       return res
         .cookie("x-access-token", token, {
           secure: false,
@@ -131,7 +116,6 @@ exports.login = async (req, res, next) => {
           message: "user logged in successfuly",
           user: user,
         });
->>>>>>> develop
     }
-  } catch (err) {}
+  } catch (err) { }
 };
