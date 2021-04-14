@@ -2,7 +2,7 @@ $mainBg: #20272a;
 $inputBg: #a5e89d;
 $btnBg: #00a881;
 
-.app {  
+.app {
   color: black;
   //padding: 20px 10px;
   h3 {
@@ -31,7 +31,7 @@ $btnBg: #00a881;
     }
   }
   
-  }
+}
   .todos-container {       
     .todo-form {   
       label{
@@ -79,3 +79,26 @@ $btnBg: #00a881;
       }
     }
   }
+
+.todones-container {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: $dark;
+  }
+  .todones-item {
+    padding: 5px 10px;
+    background: $inputBg;
+    margin: 10px 0;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
+}
+

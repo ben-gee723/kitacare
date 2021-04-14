@@ -123,7 +123,7 @@ export default function ChildRegister() {
                     <input type='text' name='dietaryNeeds' placeholder='Other allergies or dietary requirements' />
                 </div>
 
-                <div className={styles.address}><h3>Emergency Contact1:</h3></div>
+                <div className={styles.address}><h3>Emergency Contact 1:</h3></div>
 
                 <div className='inputBox' >
                     <label className='details'>First name</label> <br />
@@ -140,7 +140,7 @@ export default function ChildRegister() {
                     <input type='text' name='emerNumber1' placeholder='Number' />
                 </div>
 
-                <div className={styles.address}><h3>Emergency Contact1:</h3></div>
+                <div className={styles.address}><h3>Emergency Contact 2:</h3></div>
 
                 <div className='inputBox' >
                     <label className='details'>First name</label> <br />

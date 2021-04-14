@@ -40,17 +40,16 @@
 }
 
 .month {
-  margin-left: 1.15rem;
+  margin-left: 0.15rem;
 }
 
 .calendar {
   display: block;
   position: relative;
-  width: 100%;
-  background: #fdfeff;
+  width: auto;
+  background: rgba(12, 141, 155, 0.1);
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 0.15rem solid #0c8da8;
   border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
@@ -60,7 +59,7 @@
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1.2rem;
-  padding: 1.5em 0;
+  padding: 1.25em 0;
   border-bottom: 0.05rem solid #0c8da8;
 }
 
@@ -79,7 +78,7 @@
 }
 
 .calendar .header .icon:first-of-type {
-  margin-left: 3.75em;
+  margin-left: 2.75em;
 }
 
 .calendar .header .icon:last-of-type {
@@ -92,7 +91,7 @@
   font-weight: 400;
   color: #423f40;
   font-size: 0.5rem;
-  padding: 0.75em 0;
+  padding: 1.75em 0;
   border-bottom: 0.05rem solid #0c8da8;
 }
 
@@ -130,7 +129,7 @@
   font-size: 0.85rem;
   line-height: 1;
   top: 0.75em;
-  right: 0.75em;
+  right: 0.55em;
   font-weight: 700;
 }
 
