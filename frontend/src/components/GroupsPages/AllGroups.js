@@ -35,12 +35,10 @@ export default function AllGroups(props) {
   };
   return (
     <div className={styles.container}>
-      <h2>Groups!</h2>
-      <Link to='/addgroup'>
-            <button type='submit' value='add' className='add'>
-              Add
-            </button>
-          </Link>
+      <div className={styles.header}>
+      <h2>Groups! </h2>
+      
+          </div>
       <div key={groups._id} className={styles.cContainer}>
         {groups.map(group => {
           return (

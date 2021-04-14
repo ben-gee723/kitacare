@@ -9,7 +9,6 @@ export default function SingleGroup(props) {
   const [showForm, setShowForm] = useState(false);
 
   const handleEdit = (group) => {
-    setShowForm(!showForm);
     props.history.push({ pathname: "/editgroup", state: { group: group } });
   };
 
@@ -17,12 +16,12 @@ export default function SingleGroup(props) {
   return (
     <div>
       <div className={styles.scontainer} key={group._id}>
+        <>
         {showForm && (
           <div>
             <SingleGroupEdit />
           </div>
         )}
-        <>
           <div>
             <div className={styles.col1}>
               <p className={styles.bold}>Group:</p>
@@ -39,17 +38,32 @@ export default function SingleGroup(props) {
             <div className={styles.col}>
               <p className={styles.info}>Group size:</p>
               <p className={styles.info}>{group.children.length}</p>
-              
+              <Link to='/children'>
+                {" "}
+                <button type='submit' value='view' className='view'>
+                  view children
+                </button>
+              </Link>
             </div>
             <div className={styles.col}>
               <p className={styles.info}>Group age:</p>
               <p className={styles.info}>{group.ageGroup}</p>
             </div>
-            
+            <button
+              type='submit'
+              value='edit'
+              className='edit'
+              onClick={() => handleEdit(group)}>
+              Edit
+            </button>
           </div>
         </>
       </div>
-      
+      <Link to='/groups'>
+        <button type='submit' value='back' className='back'>
+          Go Back
+        </button>
+      </Link>
     </div>
   );
 }

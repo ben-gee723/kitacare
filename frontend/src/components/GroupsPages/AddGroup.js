@@ -78,26 +78,6 @@ export default function AddGroup() {
             />
           </div>
           <div className={styles.addinfo}>
-            <label>Children</label>
-            <br />
-            <input
-              type='text'
-              name='children'
-              placeholder='please enter the child id'
-              onChange={grabValue}
-            />
-          </div>
-          <div className={styles.addinfo}>
-            <label>Teachers</label>
-            <br />
-            <input
-              type='text'
-              name='teachers'
-              placeholder='please enter the teacher id'
-              onChange={grabValue}
-            />
-          </div>
-          <div className={styles.addinfo}>
             <label>Kindergarten</label>
             <br />
             <input

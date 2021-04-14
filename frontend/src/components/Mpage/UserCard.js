@@ -41,11 +41,6 @@ export default function UserCard(props) {
   };
 
   const changeGroup = (id) => {
-    //1-it is assaigning the group id but not the group name!!
-    //in the database there is no groupName field anymore, group takes id since it is a ref.
-    //group: "606d6f9fb19f6e86ac57afb6"
-    // groupName: "";
-
     //to assign none as group:
     let obj;
     if (selectedGroup == "empty") {

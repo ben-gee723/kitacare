@@ -1,20 +1,19 @@
 @import "../../globalCSS/variables";
 
 //ALL GROUPS
+.header {
+  text-align: center;
+  color: $primary-blue;
+  box-shadow: $secondary-orange-tranparent 0px 5px 15px;
+  background-color: $black;
+  width: 100%;
+  margin: 0 auto;
+}
 .container {
   
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  h2 {
-    color: $primary-blue;
-    text-align: center;
-    padding-bottom: 2rem;
-  }
-  p {
-    padding-bottom: 0.3rem;
-  }
-  padding: 2rem;
   width: 100%;
   margin: 0 auto;
 }
