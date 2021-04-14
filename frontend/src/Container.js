@@ -6,13 +6,9 @@ const MyContext = createContext("");
 export { MyContext };
 
 export default function Container(props) {
-<<<<<<< HEAD
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
-=======
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
->>>>>>> develop
   console.log(user);
   const [kg, setKg] = useState(JSON.parse(localStorage.getItem("kg")) || null);
   const [isLogin, setIsLogin] = useState(Boolean(user));

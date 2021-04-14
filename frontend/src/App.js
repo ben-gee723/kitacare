@@ -23,6 +23,7 @@ import ChildRegister from "./components/RegisterForms/ChildRegister/information"
 import ChildHealth from "./components/RegisterForms/ChildRegister/health";
 
 // Dashboard
+import EditProfile from "./components/Mpage/EditProfile"; 
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
 import Teachers from "./components/Mpage/Teachers";
