@@ -1,34 +1,34 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./groups.module.scss";
 
 export default function SingleGroupEdit(props) {
-  const [deleteGroup, setDeleteGroup] = useState([]);
-  const [editedGroup, setEditedGroup] = useState([]);
-  const group = props.location.state.group;
-  console.log(group)
+  const [editedGroup, setEditedGroup] = useState({});
+  const [group, setGroup] = useState(
+    props.location.state ? props.location.state.group : {}
+  );
+  //const group = props.location.state.group;
+  //console.log(group)
+  let history = useHistory();
 
   const handleDelete = () => {
-    axios(
-      `http://localhost:3001/groups/deleteGroup/${group._id}`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      }
-    ).then(result => {
-      if (result.success) {
-        deleteGroup = group.filter((group) => group._id !== result.deleteGroup._id)
-        setDeleteGroup(deleteGroup);
+    axios(`http://localhost:3001/groups/deleteGroup/${group._id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }).then(result => {
+      if (result.data.success) {
+        console.log(result.data);
+        history.push("/groups");
       } else {
         console.log(result);
       }
     });
   };
 
-  const handleEdit = (e) => {
+  const handleEdit = e => {
     e.preventDefault();
-    axios(`http://localhost:3001/groups/${group._id}`, {
+    axios(`http://localhost:3001/groups/${group._id}`, editedGroup, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     }).then(result => {
@@ -48,7 +48,7 @@ export default function SingleGroupEdit(props) {
     <div className={styles.regForm}>
       <form
         className={styles.formContainer}
-        onSubmit={id => handleEdit(group._id)}
+        onSubmit={handleEdit}
         name='managerForm'
         key='group._id'
       >
@@ -126,14 +126,6 @@ export default function SingleGroupEdit(props) {
           />
         </div>
         <br />
-        <button
-          type='submit'
-          value='delete'
-          className='next'
-          onClick={() => handleDelete(group._id)}
-        >
-          Delete
-        </button>
         <div className={styles.btnContainer}>
           <Link to='/groups'>
             <button className='cancel'>Cancel</button>
@@ -143,6 +135,14 @@ export default function SingleGroupEdit(props) {
           </button>
         </div>
       </form>
+      <button
+        type='submit'
+        value='delete'
+        className='next'
+        onClick={() => handleDelete(group._id)}
+      >
+        Delete
+      </button>
     </div>
   );
 }
