@@ -1,7 +1,8 @@
-/*
-import React, { useState, useEffect } from 'react'
-import styles from './Tpage.module.scss'
+
+import React, { useState, useEffect, useContext } from 'react'
+import styles from '../Tpage.module.scss'
 import axios from "axios";
+import { MyContext } from "../../../Container";
 
 /*
     Import children/render
@@ -9,6 +10,7 @@ import axios from "axios";
     -> once group of children recieved
         return list of all children
     -> render firstName, lastName, label, input-radioButton of each child
+            yes - no
         use radio buttons to identify if child is/isn't here
 
     using updateChild
@@ -21,14 +23,20 @@ import axios from "axios";
         2. Present List:        --> if here is checked
         3. Not Present List:    --> if not here is checked
 */
-/*
+
 export default function Attendance() {
     const [children, setChildren] = useState([]);
+    const { kg, user } = useContext(MyContext);
+    const [here, setHere] = useState([]);
+    const [notHere, setNotHere] = useState([]);
+
+    console.log(kg);
+    console.log(user);
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:3001/child/getAllChildren`,
+            url: `http://localhost:3001/child/getAllChildren/${user.kg}`,
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -45,8 +53,15 @@ export default function Attendance() {
             .catch(err => console.log(err));
     }, []);
 
-    const updateChildren = (e) => {
+    const submitHandler = (e, childId) => {
         e.preventDefault();
+
+        const formData = new FormData(e.target);
+        let obj = {}
+        for (let pair of formData) {
+            obj[pair[0]] = pair[1];
+        }
+        console.log(obj)
     }
 
     return (
@@ -54,14 +69,21 @@ export default function Attendance() {
             <h1> Attendance: {new Date} </h1>
             {children.map(child => {
                 return (
-                    <div key={child.id} >
+                    <div key={child._id} >
                         <div>
                             <h3>{child.firstName}</h3>
                             <p>{child.lastName}</p>
                         </div>
                         <div>
-                            <label type="radio" ><input>Here</input></label>
-                            <label type="radio" ><input>Not Here</input></label>
+                            <form onSubmit={(e) => submitHandler(e, child._id)} >
+                                <label>
+                                    <input type="radio" name="attendance" value="here" /> Here
+                                </label>
+                                <label>
+                                    <input type="radio" name="attendance" value="notHere" /> Not Here
+                                    </label>
+                                <button type="submit" > Submit </button>
+                            </form>
                         </div>
                     </div>
                 )
@@ -69,4 +91,3 @@ export default function Attendance() {
         </div>
     )
 }
-*/

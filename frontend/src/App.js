@@ -31,7 +31,7 @@ import Container from "./Container";
 //for product:
 //import Container from "./Container_product";
 
-import Attendance from "./components/Tpage/Attendance";
+import Attendance from "./components/Tpage/Attendance/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
 import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
 import SingleGroup from "./components/GroupsPages/SingleGroup";

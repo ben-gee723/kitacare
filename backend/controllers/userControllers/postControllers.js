@@ -102,11 +102,12 @@ exports.login = async (req, res, next) => {
     if (isUser) {
       let userInfo = await user.userInfo();
       const token = user.generateAuthToken();
+      // generateAuthToken --> comment it out to test
       return (
         res
-           .cookie("x-access-token", token, {
-             secure: false,
-             sameSite: "lax",
+          .cookie("x-access-token", token, {
+            secure: false,
+            sameSite: "lax",
           })
           .send({
             success: true,
