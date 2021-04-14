@@ -74,41 +74,42 @@ export default function EditProfile(props) {
         </div>
       )}
       {/* form for changing password: */}
-      {showPasswordForm && ( //style this one!!!!
-        <form
-          className={styles.formContainer}
-          onSubmit={(e) => changePasswordHandler(e)}
-          name='managerForm'>
-          <div className='inputBox'>
-            <label className='details'>Your current password: </label>
-            <input
-              type='password'
-              name='currentPassword'
-              placeholder='current password'
-            />
-          </div>
-          <div className='inputBox'>
-            <label className='details'>Your new password: </label>
-            <input
-              type='password'
-              name='newPassword'
-              placeholder='new password'
-            />
-          </div>
-          <br />
-          <div className={styles.btnContainer}>
-            <button
-              className='cancel'
-              onClick={() => setShowPasswordForm(false)}>
-              Cancel
-            </button>
-            <button type='submit' value='Register' className='att'>
-              Submit
-            </button>
-          </div>
-        </form>
-      )}
-      {!showPasswordForm && (
+      {showPasswordForm &&
+        !showSuccess && ( //style!!!
+          <form
+            className={styles.formContainer}
+            onSubmit={(e) => changePasswordHandler(e)}
+            name='managerForm'>
+            <div className='inputBox'>
+              <label className='details'>Your current password: </label>
+              <input
+                type='password'
+                name='currentPassword'
+                placeholder='current password'
+              />
+            </div>
+            <div className='inputBox'>
+              <label className='details'>Your new password: </label>
+              <input
+                type='password'
+                name='newPassword'
+                placeholder='new password'
+              />
+            </div>
+            <br />
+            <div className={styles.btnContainer}>
+              <button
+                className='cancel'
+                onClick={() => setShowPasswordForm(false)}>
+                Cancel
+              </button>
+              <button type='submit' value='Register' className='att'>
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+      {!showPasswordForm && !showSuccess && (
         <button
           type='submit'
           value='Register'
@@ -153,6 +154,7 @@ export default function EditProfile(props) {
               type='date'
               name='birthday'
               defaultValue={nextUser.birthday}
+              required
             />
           </div>
 

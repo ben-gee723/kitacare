@@ -14,7 +14,7 @@ export default function Mpage(props) {
   const { kg, user } = useContext(MyContext);
 
   const handleEdit = () => {
-    props.history.push({ pathname: "/editUserProfile" });
+    props.history.push({ pathname: "/editprofile" });
   };
 
   useEffect(() => {

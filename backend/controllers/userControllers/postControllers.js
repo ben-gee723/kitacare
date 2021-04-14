@@ -87,7 +87,10 @@ exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     console.log(email, password);
-    const user = await UserModel.findOne({ email: email });
+    const user = await UserModel.findOne({ email: email }).populate(
+      "group",
+      "-__v"
+    );
     console.log(user);
     if (!user) {
       return res
