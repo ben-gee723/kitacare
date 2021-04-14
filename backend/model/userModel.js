@@ -31,6 +31,7 @@ const UserSchema = new Schema({
     enum: ["Manager", "Teacher"],
     required: true,
   },
+  todos: [{ text: String, done: Boolean }],
 });
 
 //Hash password before storing into database
