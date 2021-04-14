@@ -8,55 +8,73 @@
 }
 
 .welcome {
-    margin: 2rem 8rem;
+    margin: 1rem 6rem;
+    text-align: center;
+    color: $primary-blue;
 }
 
 .tInfo {
-    background-color: #f5f5f5;
+    background-color: $primary-lightgreen-transparent;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 2rem;
     line-height: 1.5rem;
+    margin-right: 2rem;
 }
 
 .tImg {
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
-    background-color: darkorchid;
+    background-color: $primary-lightblue;
     margin-bottom: 1rem;
+    img{
+        margin: -0.25rem 0 0.625rem 0.719rem;
+        width: 90%;
+        height: 100%;
+      }
 }
 
 .features {
     display: grid;
     grid-template-columns: 25rem;
-    grid-template-rows: 15rem;
+    grid-template-rows: 16rem;
     margin-left: 1rem;
     column-gap: 1rem;
     row-gap: 1rem;
 }
 
+.gHead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gHeader {
+    color: #ff4e13;
+}
+
 .tGroup {
     color: black;
-    background-color: #F9A26B;
+    background-color: #F5f5f5;
     padding: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     line-height: 1.5rem;
+    
 }
 
 
-.tTodo {
-    
+.tTodo {    
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 1rem;
-    background-color: cornflowerblue;
+    background-color: #f5f5f5;
     grid-column-start: 1;
     grid-row-start: 2;
 }
 
 .calendar {
+    margin-left: 2rem;
     grid-column-start: 2;
     grid-row-start: 1;
 }

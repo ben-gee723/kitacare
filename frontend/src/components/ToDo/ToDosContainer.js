@@ -21,10 +21,12 @@ export default class ToDosContainer extends React.Component {
                 
                     <label className="input-item">
                     <h3>Task List:</h3>
-                    <br/>
-                        <input type="text" name="todo" onChange={(e)=>this.setState({inputFieldValue:e.target.value})}/>
+                        <div className='actions'>
+                            <input type="text" name="todo" onChange={(e)=>this.setState({inputFieldValue:e.target.value})}/>
+                            <button className="btn" type="submit" value="Add">Add </button> 
+                        </div>    
                     </label>
-                    <input className="btn" type="submit" value="Add"/>
+                                  
                 </form>
 
                 <div className="todos">
@@ -32,7 +34,7 @@ export default class ToDosContainer extends React.Component {
                     {this.props.toDos.map(todo=>{
                         return(
                             <div className="todo-item" key={todo.id}> 
-                                <p>{todo.text}</p>
+                                <div>{todo.text}</div>
                                 <div className="actions">
                                     <button className="btn" onClick={ ()=>this.props.updateItem(todo.id) } > &#10004; </button>
                                 </div>

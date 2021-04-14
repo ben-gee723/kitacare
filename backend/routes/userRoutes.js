@@ -23,6 +23,7 @@ const {
 const {
   updateUser,
   deleteUsersGroup,
+  updatePassword,
 } = require("../controllers/userControllers/putControllers");
 //GET:
 //users/manager
@@ -41,10 +42,11 @@ router.post("/login", login);
 
 //PUT:
 router.put("/users/:id", updateUser);
+router.put("/updatePassword/:id", updatePassword);
 router.put("/userGroup/:id", deleteUsersGroup);
 
 //DELETE
-router.delete("/managers/:id",  deleteManager);
-router.delete("/teachers/:id",  deleteTeacher);
+router.delete("/managers/:id", deleteManager);
+router.delete("/teachers/:id", deleteTeacher);
 
 module.exports = router;

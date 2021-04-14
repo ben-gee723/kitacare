@@ -23,6 +23,7 @@ exports.getManager = async (req, res, next) => {
     let manager = await UserModel.findById(id)
       .populate("kg", "-__v")
       .populate("group", "-__v");
+    console.log(manager);
     if (manager) {
       res.send({ success: true, manager: manager });
     } else {
@@ -59,6 +60,7 @@ exports.getTeacher = async (req, res, next) => {
     let teacher = await UserModel.findById(id)
       .populate("kg", "-__v")
       .populate("group", "-__v");
+    console.log(manager);
     if (teacher) {
       res.send({ success: true, teacher: teacher });
     } else {

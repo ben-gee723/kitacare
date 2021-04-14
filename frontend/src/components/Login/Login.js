@@ -43,12 +43,10 @@ export default function Login(props) {
       data: formData,
     })
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
-          setUser(response.data.userInfo.user);
+          setUser(response.data.user);
           setIsLogin(true);
-          localStorage.setItem('user', JSON.stringify(response.data.userInfo.user));
-          console.log(response.data);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
         } else {
           console.log(response);
         }
@@ -93,12 +91,13 @@ export default function Login(props) {
 
         <br />
         <div className={styles.btnContainer}>
+        <button type='submit' value='Login' className='next'>
+            Login
+          </button>
           <Link to='/'>
             <button className='cancel'>Cancel</button>
           </Link>
-          <button type='submit' value='Login' className='next'>
-            Login
-          </button>
+          
         </div>
       </form>
     </div>
