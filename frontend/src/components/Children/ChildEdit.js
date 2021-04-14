@@ -31,7 +31,7 @@ export default function ChildEdit(props) {
       headers: { "Content-Type": "application/json" },
     }).then(result => {
       if (result.success) {
-        setEditedGroup(result.child);
+        setEditedChild(result.child);
       } else {
         console.log(result);
       }
@@ -50,79 +50,163 @@ export default function ChildEdit(props) {
         name='managerForm'
         key='child._id'
       >
-        <div className='reg'>
+        <div className={styles.reg}>
           <h1>Edit Child!</h1>
         </div>
         <div className={styles.addinfo}>
-          <label>Group Name</label>
+          <label>First Name</label>
           <br />
           <input
             type='text'
-            name='groupName'
+            name='firstName'
             placeholder={child.firstName}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label>Room</label>
+          <label>Last Name</label>
           <br />
           <input
             type='text'
-            name='room'
-            placeholder={child}
+            name='lastName'
+            placeholder={child.lastName}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label className='details'>Age Group</label>
+          <label>Birthday</label>
           <br />
           <input
             type='text'
-            name='ageGroup'
-            placeholder={child}
+            name='birthday'
+            placeholder={child.birthday}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label>Description</label>
+          <label className='details'>Address:</label>
           <br />
           <input
             type='text'
-            name='description'
-            placeholder={child}
+            name='street'
+            placeholder={child.address.street}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='number'
+            placeholder={child.address.number}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='postcode'
+            placeholder={child.address.postcode}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='city'
+            placeholder={child.address.city}
+            onChange={editedValue}
+          />
+        </div>
+        
+        <div className={styles.addinfo}>
+          <label className='details'>Emergency Contact 1:</label>
+          <br />
+          <input
+            type='text'
+            name='emerName1'
+            placeholder={child.emergencyContact[0].emerName1}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='emerEmail1'
+            placeholder={child.emergencyContact[0].emerEmail1}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='emerNumber1'
+            placeholder={child.emergencyContact[0].emerNumber1}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label>Children</label>
+          <label className='details'>Emergency Contact 2:</label>
           <br />
           <input
             type='text'
-            name='children'
-            placeholder='please enter the child id'
+            name='emerName2'
+            placeholder={child.emergencyContact[1].emerName2}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='emerEmail2'
+            placeholder={child.emergencyContact[1].emerEmail2}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='emerNumber2'
+            placeholder={child.emergencyContact[1].emerNumber2}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label>Teachers</label>
+          <label className='details'>Allergies:</label>
           <br />
           <input
             type='text'
-            name='teachers'
-            placeholder='please enter the teacher id'
+            name='allergies'
+            placeholder={child.allergies[0]}
+            onChange={editedValue}
+          />
+          <input
+            type='text'
+            name='allergies'
+            placeholder={child.allergies[1]}
+            onChange={editedValue}
+          />
+            <input
+            type='text'
+            name='allergies'
+            placeholder={child.allergies[2]}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='allergies'
+            placeholder={child.allergies[3]}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='allergies'
+            placeholder={child.allergies[4]}
+            onChange={editedValue}
+          />
+           <input
+            type='text'
+            name='allergies'
+            placeholder={child.allergies[5]}
             onChange={editedValue}
           />
         </div>
         <div className={styles.addinfo}>
-          <label>Kindergarten</label>
+          <label>Dietary Needs</label>
           <br />
           <input
             type='text'
-            name='kg'
-            placeholder={child.kg}
+            name='dietaryNeeds'
+            placeholder={child.dietaryNeeds}
             onChange={editedValue}
           />
         </div>
+        
         <br />
         <button
           type='submit'
