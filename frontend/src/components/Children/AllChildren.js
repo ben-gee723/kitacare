@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "./children.module.scss";
 import {Link} from "react-router-dom"
+import {MyContext} from "../../Container"
 
 export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
+  const { user } = useContext(MyContext); 
+  console.log(user.kg);
 
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:3001/child/getAllChildren`,
+      url: `http://localhost:3001/child/getAllChildren/${user.kg}`, 
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -17,6 +20,7 @@ export default function AllChildren(props) {
     })
       .then(result => {
         if (result.data.success) {
+          console.log(result.data);
           setChildren(result.data.allChildren);
         } else {
           console.log(result);
