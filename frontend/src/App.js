@@ -54,7 +54,6 @@ function App() {
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
           <Route path="/editchild" component={ChildEdit} />
-          <Route path='/cregister_health' component={ChildHealth} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
           <Route path='/teachers' component={Teachers} />
