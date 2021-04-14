@@ -4,11 +4,19 @@ import  styles from './Tpage.module.scss'
 import {Link} from "react-router-dom"
 import ToDo from '../ToDo/ToDo'
 import { MyContext } from '../../Container'
+import managerImg from "../../images/manager.svg";
 
 
-export default function Tpage() {
+export default function Tpage(props) {
 
     const { user } = useContext(MyContext)
+
+    const handleView = () => {
+        props.history.push({
+          pathname: ["/group"],
+          state: { group: user.group },
+        });
+      };
     return (
         <>
         <div className={styles.welcome}>
@@ -18,28 +26,29 @@ export default function Tpage() {
         
             <div className={styles.tInfo}>
                 <div className={styles.tImg}>
-                    <img src="" alt=""/>
+                    <img src={managerImg} alt=""/>
                 </div>
                 <p>{user.firstName} {user.lastName}</p>
                 <p>{user.email}</p>
                 <p>{user.phoneNumber}</p>
-                <p>{user.groupName}</p>
-                <br/>
+                {user.group && <p>{user.group.groupName}</p>}
                 <button className='edit'>Edit Info</button>
             </div>
         
             <div className={styles.features}>
-                <div className={styles.tGroup}>
-                    <h3>Class room name</h3>
-                    <p>Class room description</p>
-                    <li>Group age: 3-5</li>
-                    <li>Room: 123</li>
+            {user.group && <div className={styles.tGroup}>
+                    <h3>Group name: {user.group.groupName}</h3>
+                    {user.group.description && <p>{user.group.description}</p>}
+                    {user.group.ageGroup && <li>Group age: {user.group.ageGroup}</li>}
+                    {user.group.room && <li>Room: {user.group.room}</li>}
                     <br/>
-                    <button className='view'>View Group</button>
+                    
+                        <button onClick={()=>handleView()} className='view'>View Group</button>
+                    
                     <Link to='/attendance'>
                         <button className='view'>Check Attendance</button>
                     </Link>
-                </div>
+                </div>}
                 
                 <div className={styles.tTodo}>
                     
