@@ -11,10 +11,15 @@
   margin: 1rem 6rem;
   text-align: center;
   color: $primary-blue;
+  box-shadow: $secondary-orange-tranparent 0px 5px 15px;
+  background-color: $black;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .mInfo {
-  background-color: $primary-lightgreen-transparent;
+  background-color: $light;
+  //background-color: $primary-lightgreen-transparent;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
   padding: 2rem;
@@ -45,7 +50,8 @@
 }
 
 .mGroup {
-  background-color: $secondary-lightblue-transparent;
+  background-color: $light;
+  //background-color: $secondary-lightblue-transparent;
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -55,7 +61,8 @@
 }
 
 .mTeachers {
-  background-color: $secondary-lightblue-transparent;
+  background-color: $light;
+  // background-color: $secondary-lightblue-transparent;
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -67,7 +74,8 @@
 .mTodo {
   border-radius: 1rem;
   padding: 1rem;
-  background-color: $secondary-lightgreen-transparent;
+  background-color: $light;
+  //background-color: $secondary-lightgreen-transparent;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   grid-column-start: 1;
   grid-row-start: 3;

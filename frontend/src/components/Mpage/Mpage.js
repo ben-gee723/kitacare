@@ -12,6 +12,7 @@ import managerImg from "../../images/manager.svg";
 export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
   const { kg, user } = useContext(MyContext);
+  const [teachers, setTeachers] = useState([]);
 
   const handleEdit = () => {
     props.history.push({ pathname: "/editprofile" });
@@ -31,6 +32,25 @@ export default function Mpage(props) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: `http://localhost:3001/users/teachers/${user.kg}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.data.success) {
+          console.log(response.data.teachers);
+          setTeachers(response.data.teachers);
+        } else {
+          console.log(response);
         }
       })
       .catch((err) => console.log(err));
@@ -77,7 +97,7 @@ export default function Mpage(props) {
               how many children in that teachers group and all the teachers
               necessary information!
             </p>
-            <p>Total: {groups.length}</p>
+            <p>Total: {teachers.length}</p>
             <Link to='/teachers'>
               <button type='submit' value='view' className='view'>
                 View
