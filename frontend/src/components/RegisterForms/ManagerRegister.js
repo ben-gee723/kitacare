@@ -17,18 +17,9 @@ export default function ManagerRegister(props) {
             ...formData,
             kg: props.kg,
           });
-          // console.log(email); //undefined!!!!
         } else {
           email = await sendData("manager registration", formData);
         }
-        // if (email) {
-        //   console.log(email);
-        //   console.log(props);
-        //   props.history.push({
-        //     pathname: "/login",
-        //     state: { email: email },
-        //   });
-        // }
       }
       registerHandler();
     }

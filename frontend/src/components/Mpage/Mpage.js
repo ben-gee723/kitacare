@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./Mpage.module.scss";
 import { Link } from "react-router-dom";
@@ -7,12 +9,14 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 import managerImg from "../../images/manager.svg";
 
-export default function Mpage() {
+export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
   const { kg, user } = useContext(MyContext);
-  const [teachers, setTeachers] = useState ([]);
-  console.log(kg);
-  console.log(user);
+  const [teachers, setTeachers] = useState([]);
+
+  const handleEdit = () => {
+    props.history.push({ pathname: "/editprofile" });
+  };
 
   useEffect(() => {
     axios({
@@ -23,34 +27,33 @@ export default function Mpage() {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
-        console.log(result);
+      .then((result) => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
-          console.log(result.data.allGroups);
+          console.log(result);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
-      axios({
-        method: "GET",
-        withCredentials: true,
-        url: `http://localhost:3001/users/teachers/${user.kg}`,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: `http://localhost:3001/users/teachers/${user.kg}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.data.success) {
+          console.log(response.data.teachers);
+          setTeachers(response.data.teachers);
+        } else {
+          console.log(response);
+        }
       })
-        .then((response) => {
-          if (response.data.success) {
-            console.log(response.data.teachers);
-            setTeachers(response.data.teachers);
-          } else {
-            console.log(response);
-          }
-        })
-        .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
   return (
     <>
@@ -66,7 +69,11 @@ export default function Mpage() {
             {user.firstName} {user.lastName}
           </p>
           <p>{user.email}</p>
-          <button type='submit' value='edit' className='edit'>
+          <button
+            type='submit'
+            value='edit'
+            className='edit'
+            onClick={() => handleEdit()}>
             Edit info
           </button>
         </div>
