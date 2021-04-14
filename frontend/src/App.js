@@ -25,7 +25,6 @@ import ChildHealth from "./components/RegisterForms/ChildRegister/health";
 // Dashboard
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
-import createTeacher from "./components/Mpage/createTeacher";
 import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Container from "./Container";
@@ -58,7 +57,6 @@ function App() {
           <Route path='/cregister_health' component={ChildHealth} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
-          <Route path='/cteacher' component={createTeacher} />
           <Route path='/teachers' component={Teachers} />
           <Route path='/tpage' component={Tpage} />
           <Route path='/attendance' component={Attendance} />

@@ -10,7 +10,7 @@ export default function AllChildren(props) {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://localhost:3001/child/getAllChildren`,
+      url: `http://localhost:3001/child/getAllChildren/`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -32,11 +32,6 @@ export default function AllChildren(props) {
   return (
     <div className={styles.container}>
       <h2>Children!</h2>
-      <Link to='/addgroup'>
-        <button type='submit' value='add' className='add'>
-          Add
-        </button>
-      </Link>
       <div key={children._id} className={styles.cContainer}>
         {children.map(child => {
           console.log(child.emergencyContact);
@@ -99,6 +94,11 @@ export default function AllChildren(props) {
           );
         })}
       </div>
+      <Link to='/cregister'>
+        <button type='submit' value='add' className='add'>
+          Add
+        </button>
+      </Link>
     </div>
   );
 }

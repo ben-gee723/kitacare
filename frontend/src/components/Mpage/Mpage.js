@@ -77,6 +77,11 @@ export default function Mpage() {
             <p>Find all the groups information:</p>
             <p>how many children per group, ages, weekely plans and more!</p>
             <p>Total: {groups.length}</p>
+            <Link to='/addgroup'>
+            <button type='submit' value='add' className='add'>
+              Add
+            </button>
+          </Link>
             <Link to='/groups'>
               <button type='submit' value='view' className='view'>
                 View
@@ -91,6 +96,11 @@ export default function Mpage() {
               necessary information!
             </p>
             <p>Total: {teachers.length}</p>
+            <Link to='/tregister'>
+            <button type='submit' value='add' className='add'>
+              Add
+            </button>
+          </Link>
             <Link to='/teachers'>
               <button type='submit' value='view' className='view'>
                 View
