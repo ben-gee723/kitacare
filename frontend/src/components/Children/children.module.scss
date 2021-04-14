@@ -1,4 +1,5 @@
 @import "../../globalCSS/variables";
+
 .container {
   display: flex;
   flex-flow: row wrap;
@@ -8,12 +9,17 @@
     text-align: center;
     padding-bottom: 2rem;
   }
-  p {
-    padding-bottom: 0.3rem;
-  }
   padding: 2rem;
   width: 100%;
   margin: 0 auto;
+}
+
+.kid {
+  width: 60%;
+  margin: 0 auto;
+  background-color: $secondary-lightblue;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 
 .cContainer {
@@ -37,10 +43,11 @@
     display: flex;
     flex-direction: row wrap;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.1rem;
     justify-content: center;
   }
-  .col, .col2 {
+  .col,
+  .col2 {
     display: flex;
     flex-direction: row wrap;
     justify-content: flex-start;
@@ -49,9 +56,8 @@
     background-color: $secondary-lightblue-transparent2;
     border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
-    padding-left: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 0.6rem;
+    padding-top: 0.6rem;
     .info1 {
       padding-right: 2rem;
       padding-left: 0.15rem;
@@ -69,7 +75,7 @@
     padding-right: 2rem;
   }
   .bold2 {
-    color: $primary-orange;
+    color: $secondary-lightgreen;
     text-align: left;
     font-size: 1.5rem;
     font-weight: 600;
@@ -81,4 +87,25 @@
 
 .col2 {
   border-bottom: 0.05rem solid $light-gray;
+}
+
+//Child Edit
+
+.regForm {
+  padding: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  background-color: $light;
+  //border-radius: 0.5rem;
+ // box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  .reg {
+    color: $primary-blue;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+  }
 }

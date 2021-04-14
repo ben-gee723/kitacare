@@ -9,8 +9,8 @@ export default function ToDonesContainer({toDones , updateItem, deleteItem}) {
             {toDones.map(todone=>{
                 return(
                     <div className="todones-item" key={todone.id}>
-                        <p>{todone.text}</p>
-                        <div className="actions">
+                        <div>{todone.text}</div>
+                        <div>
                             <button className="btn" onClick={()=>updateItem(todone.id)}> &#8635; </button>
                             <button className="btn" onClick={()=>deleteItem(todone.id)}> &#x2718; </button>
                         </div>

@@ -22,9 +22,9 @@ import ManagerRegister from "./components/RegisterForms/ManagerRegister";
 import ChildRegister from "./components/RegisterForms/ChildRegister";
 
 // Dashboard
+import EditProfile from "./components/Mpage/EditProfile"; 
 import Tpage from "./components/Tpage/Tpage";
 import Mpage from "./components/Mpage/Mpage";
-import createTeacher from "./components/Mpage/createTeacher";
 import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Container from "./Container";
@@ -37,6 +37,7 @@ import SingleGroupEdit from "./components/GroupsPages/SingleGroupEdit";
 import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
 import AddGroup from "./components/GroupsPages/AddGroup";
+import ChildEdit from "./components/Children/ChildEdit";
 
 function App() {
   return (
@@ -52,9 +53,13 @@ function App() {
           <Route path='/mregister' component={ManagerRegister} />
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
+<<<<<<< HEAD
+=======
+          <Route path="/editchild" component={ChildEdit} />
+          <Route path='/cregister_health' component={ChildHealth} />
+>>>>>>> 09133dde571ea2163be6690b7af8e4d4aa33719e
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
-          <Route path='/cteacher' component={createTeacher} />
           <Route path='/teachers' component={Teachers} />
           <Route path='/tpage' component={Tpage} />
           <Route path='/attendance' component={Attendance} />
@@ -63,8 +68,9 @@ function App() {
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
           <Route path='/group' component={SingleGroup} />
-          <Route path="/children" component={AllChildren} />
-          <Route path="/addgroup" component={AddGroup} />
+          <Route path='/children' component={AllChildren} />
+          <Route path='/addgroup' component={AddGroup} />
+          <Route path='/editprofile' component={EditProfile} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

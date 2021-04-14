@@ -6,12 +6,14 @@ const MyContext = createContext("");
 export { MyContext };
 
 export default function Container(props) {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+  console.log(user);
   const [kg, setKg] = useState(JSON.parse(localStorage.getItem("kg")) || null);
   const [isLogin, setIsLogin] = useState(Boolean(user));
 
   useEffect(() => {
-    console.log(user);
     if (user && user.kg) {
       axios({
         method: "GET",
@@ -24,9 +26,8 @@ export default function Container(props) {
       })
         .then((response) => {
           if (response.data.success) {
-            console.log(response.data);
             setKg(response.data.kg);
-            localStorage.setItem('kg', JSON.stringify(response.data.kg));
+            localStorage.setItem("kg", JSON.stringify(response.data.kg));
           } else {
             console.log(response);
           }

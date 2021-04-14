@@ -9,60 +9,61 @@ export default function SingleGroup(props) {
   const [showForm, setShowForm] = useState(false);
 
   const handleEdit = (group) => {
-    setShowForm(!showForm);
     props.history.push({ pathname: "/editgroup", state: { group: group } });
   };
 
   const group = props.location.state.group;
   return (
     <div>
-    <div className={styles.scontainer} key={group._id}>
-      {showForm && (
-        <div>
-          <SingleGroupEdit />
-        </div>
-      )}
-      <>
-        <div>
-          <div className={styles.col1}>
-            <p className={styles.bold}>Group:</p>
-            <p className={styles.bold2}>{group.groupName}</p>
+      <div className={styles.scontainer} key={group._id}>
+        <>
+        {showForm && (
+          <div>
+            <SingleGroupEdit />
           </div>
-          <div className={styles.col}>
-            <p className={styles.info}>Teacher:{group.teachers.firstName}</p>
-            <p className={styles.info}>
-              {group.teachers.lastName}
-            </p>
+        )}
+          <div>
+            <div className={styles.col1}>
+              <p className={styles.bold}>Group:</p>
+              <p className={styles.bold2}>{group.groupName}</p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Teacher:{group.teachers.firstName}</p>
+              <p className={styles.info}>{group.teachers.lastName}</p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info1}>Room:</p>
+              <p className={styles.info}>{group.room}</p>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Group size:</p>
+              <p className={styles.info}>{group.children.length}</p>
+              <Link to='/children'>
+                {" "}
+                <button type='submit' value='view' className='view'>
+                  view children
+                </button>
+              </Link>
+            </div>
+            <div className={styles.col}>
+              <p className={styles.info}>Group age:</p>
+              <p className={styles.info}>{group.ageGroup}</p>
+            </div>
+            <button
+              type='submit'
+              value='edit'
+              className='edit'
+              onClick={() => handleEdit(group)}>
+              Edit
+            </button>
           </div>
-          <div className={styles.col}>
-            <p className={styles.info1}>Room:</p>
-            <p className={styles.info}>{group.room}</p>
-          </div>
-          <div className={styles.col}>
-            <p className={styles.info}>Group size:</p>
-            <p className={styles.info}>{group.children.length}</p>
-            <Link to='/children'>
-              {" "}
-              <button type='submit' value='view' className='view'>
-                view children
-              </button>
-            </Link>
-          </div>
-          <div className={styles.col}>
-            <p className={styles.info}>Group age:</p>
-            <p className={styles.info}>{group.ageGroup}</p>
-          </div>
-          <button
-            type='submit'
-            value='edit'
-            className='edit'
-            onClick={() => handleEdit(group)}>
-            Edit
-          </button>
-        </div>
-      </>
+        </>
+      </div>
+      <Link to='/groups'>
+        <button type='submit' value='back' className='back'>
+          Go Back
+        </button>
+      </Link>
     </div>
-     <Link to="/groups"><button type="submit" value="back" className="back">Go Back</button></Link>
-     </div>
   );
 }
