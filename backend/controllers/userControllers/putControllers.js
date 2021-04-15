@@ -66,3 +66,37 @@ exports.deleteUsersGroup = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.updateTodo = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { value } = req.body;
+    let user = await UserModel.findById(id);
+    if (user) {
+      let currentStatus;
+      let newTodos = [];
+      user.todos.map((todo) => {
+        if (todo.text == value) {
+          currentStatus = todo.done;
+          newTodos.push({ text: value, done: !currentStatus });
+        } else {
+          newTodos.push(todo);
+        }
+      });
+      user.todos = newTodos;
+      await user.save();
+      res.send({
+        success: true,
+        message: "todo item has been updated",
+        updatedTodos: user.todos,
+      });
+    } else {
+      res
+        .status(400)
+        .send({ success: false, message: "no matching user found" });
+    }
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};

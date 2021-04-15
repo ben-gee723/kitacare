@@ -60,13 +60,30 @@ exports.getTeacher = async (req, res, next) => {
     let teacher = await UserModel.findById(id)
       .populate("kg", "-__v")
       .populate("group", "-__v");
-    console.log(manager);
     if (teacher) {
       res.send({ success: true, teacher: teacher });
     } else {
       res
         .status(400)
         .send({ success: false, message: "no matching teacher found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.getTodos = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    let user = await UserModel.findById(id);
+    if (user) {
+      user.todos.length
+        ? res.send({ success: true, todos: user.todos })
+        : res.send({ success: true, todos: [] });
+    } else {
+      res
+        .status(400)
+        .send({ success: false, message: "no matching user found" });
     }
   } catch (err) {
     next(err);
