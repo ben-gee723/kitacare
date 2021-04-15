@@ -104,7 +104,6 @@ exports.login = async (req, res, next) => {
     }
     let isUser = await user.checkPassword(password);
     if (isUser) {
-      // let userInfo = await user.userInfo();
       const token = user.generateAuthToken();
       return res
         .cookie("x-access-token", token, {

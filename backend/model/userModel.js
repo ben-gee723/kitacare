@@ -46,13 +46,6 @@ UserSchema.methods.checkPassword = function (password) {
   return compare(password, this.password);
 };
 
-// //kg-user info
-// UserSchema.methods.userInfo = function () {
-//   //decide what you need!
-//   return { user: this };
-//   //kg_how to populate???//it is giving the id!
-// };
-
 //create a token for user and push it into the tokens array.
 UserSchema.methods.generateAuthToken = function () {
   const user = this;
