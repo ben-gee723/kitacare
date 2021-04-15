@@ -119,3 +119,34 @@ exports.login = async (req, res, next) => {
     }
   } catch (err) {}
 };
+
+exports.addTodo = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await UserModel.findById(id);
+    console.log(req.body);
+    if (user) {
+      //check the value:
+      if (!user.todos.filter((todo) => todo.text == req.body.text).length) {
+        user.todos.push(req.body);
+        await user.save();
+        res.send({
+          success: true,
+          message: "todo item saved into db",
+          updatedTodos: user.todos,
+        });
+      } else {
+        res
+          .status(400)
+          .send({ successs: false, message: "user already has the same todo" });
+      }
+    } else {
+      res
+        .status(404)
+        .send({ successs: false, message: "no matching user found" });
+    }
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};

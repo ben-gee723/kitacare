@@ -1,74 +1,112 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ToDosContainer from "./ToDosContainer";
 import ToDonesContainer from "./ToDonesContainer";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { MyContext } from "../../Container";
 import "./Todo.scss";
+import axios from "axios";
 
-console.log(localStorage);
+export default function Todo() {
+  let [todos, setTodos] = useState([]);
+  const { user } = useContext(MyContext);
+  let toDos = todos.length ? todos.filter((item) => !item.done) : [];
+  let toDones = todos.length ? todos.filter((item) => item.done) : [];
 
-//schema: todos:[{text:String,done:Boolean}]
+  useEffect(() => {
+    //onload get todos from database:
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/users/getTodos/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.todos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-class ToDo extends React.Component {
-  state = {
-    todos: [],
-    todones: [],
-  };
-
-  componentDidMount() {
-    //onload
-    let data = localStorage.getItem("todoapp");
-    if (data) {
-      let convertedData = JSON.parse(data);
-      this.setState({
-        todoItems: convertedData,
-      });
-    }
-  }
-
-  addItem = (value) => {
-    console.log(this, "this is from App");
+  let addItem = (value) => {
     let item = { text: value, done: false };
-
-    //fetch => update todos
+    axios({
+      method: "POST",
+      url: `http://localhost:3001/users/addTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: item,
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
-  updateItem = (value) => {
-    //find value from todos and update its value as it is not!!
+  let updateItem = (value) => {
+    axios({
+      method: "PUT",
+      url: `http://localhost:3001/users/updateTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: { value: value },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
-  deleteItem = (value) => {
-    //findAndDelete from database
+  let deleteItem = (value) => {
+    axios({
+      method: "DELETE",
+      url: `http://localhost:3001/users/deleteTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: { value: value },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
-  render() {
-    let toDos = this.state.todoItems.filter((item) => !item.done);
-    let toDones = this.state.todoItems.filter((item) => item.done);
-
-    return (
-      <BrowserRouter>
-        <div className='app'>
-          <Switch>
-            <Route exact path='/'>
-              <ToDosContainer
-                toDos={toDos}
-                addItem={this.addItem}
-                updateItem={this.updateItem}
-                deleteItem={this.deleteItem}
-              />
-
-              <ToDonesContainer
-                toDones={toDones}
-                updateItem={this.updateItem}
-                deleteItem={this.deleteItem}
-              />
-            </Route>
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <div className='app'>
+      <ToDosContainer
+        toDos={toDos}
+        addItem={addItem}
+        updateItem={updateItem}
+        deleteItem={deleteItem}
+      />
+      <ToDonesContainer
+        toDones={toDones}
+        updateItem={updateItem}
+        deleteItem={deleteItem}
+      />
+    </div>
+  );
 }
-
-export default ToDo;
