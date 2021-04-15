@@ -1,30 +1,32 @@
+
 import React from 'react'
 
-export default class NotHere extends React.Component {
+export default function NotHere({ notHere, handleAttendance }) {
 
-    state = {
-        inputFieldValue: ""
-    }
-
-    render() {
-        return (
-            <div >
-
-                <div >
-                    <h3>Tasks:</h3>
-                    {this.props.childrenHere.map(child => {
-                        return (
-                            <div className="todo-item" key={child.id}>
-                                <p>{child.firstName, child.lastName}</p>
-                                <div className="actions">
-                                    <button className="btn" onClick={() => this.props.updateChild(child.id)} > &#10004; </button>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-        )
-    }
-
+    return (
+        <div>
+            <h1> Not Here:</h1>
+            {notHere.map(child => {
+                return (
+                    <div key={child._id} >
+                        <div>
+                            <h3>{child.firstName}</h3>
+                            <p>{child.lastName}</p>
+                        </div>
+                        <div>
+                            <form onSubmit={(e) => handleAttendance(e, child._id)} >
+                                <label>
+                                    <input type="radio" name="attendance" value="here" /> Here
+                                </label>
+                                <label>
+                                    <input type="radio" name="attendance" value="notHere" /> Not Here
+                                    </label>
+                                <button type="submit" > Submit </button>
+                            </form>
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    )
 }

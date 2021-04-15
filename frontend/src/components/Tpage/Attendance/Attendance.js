@@ -1,8 +1,13 @@
 
 import React, { useState, useEffect, useContext } from 'react'
 import styles from '../Tpage.module.scss'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import axios from "axios";
 import { MyContext } from "../../../Container";
+
+import Here from './Here';
+import NotHere from './NotHere';
 
 /*
     Import children/render
@@ -30,13 +35,10 @@ export default function Attendance() {
     const [here, setHere] = useState([]);
     const [notHere, setNotHere] = useState([]);
 
-    console.log(kg);
-    console.log(user);
-
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:3001/child/getAllChildren/${user.kg}`,
+            url: `http://localhost:3001/child/getAllChildren/${this.user.kg}`,
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -45,15 +47,16 @@ export default function Attendance() {
             .then(result => {
                 console.log(result);
                 if (result.data.success) {
-                    setChildren(result.data.allChildren);
+                    this.children.setState(result.data.allChildren);
                 } else {
                     console.log(result);
                 }
             })
             .catch(err => console.log(err));
-    }, []);
+    });
 
-    const submitHandler = (e, childId) => {
+
+    const handleAttendance = (e, childId) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
@@ -61,33 +64,38 @@ export default function Attendance() {
         for (let pair of formData) {
             obj[pair[0]] = pair[1];
         }
+
+        // ??
+        axios(`http://localhost:3001/child/updateAttendance/${childId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+        }).then(result => {
+            if (result.success) {
+                this.here.setState();
+            } else {
+                console.log(result);
+            }
+        });
+
         console.log(obj)
     }
 
     return (
-        <div>
-            <h1> Attendance: {new Date} </h1>
-            {children.map(child => {
-                return (
-                    <div key={child._id} >
-                        <div>
-                            <h3>{child.firstName}</h3>
-                            <p>{child.lastName}</p>
-                        </div>
-                        <div>
-                            <form onSubmit={(e) => submitHandler(e, child._id)} >
-                                <label>
-                                    <input type="radio" name="attendance" value="here" /> Here
-                                </label>
-                                <label>
-                                    <input type="radio" name="attendance" value="notHere" /> Not Here
-                                    </label>
-                                <button type="submit" > Submit </button>
-                            </form>
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
+        <BrowserRouter>
+            <div className='app'>
+                <Switch>
+                    <Route exact path='/'>
+                        <Here
+                            here={here}
+                            handleAttendance={this.handleAttendance}
+                        />
+                        <NotHere
+                            notHere={notHere}
+                            handleAttendance={this.handleAttendance}
+                        />
+                    </Route>
+                </Switch>
+            </div>
+        </BrowserRouter>
     )
 }
