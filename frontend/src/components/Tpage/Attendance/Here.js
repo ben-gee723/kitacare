@@ -1,31 +1,30 @@
 
 import React from 'react'
 
-export default function Here({ here, handleAttendance }) {
+export default function Here({ hereChildren, handleAttendance, }) {
 
     return (
         <div>
-            <h1> Here:</h1>
-            {here.map(child => {
+            <h1> Here:  </h1>
+            {hereChildren.map(child => {
                 return (
-                    <div key={child._id} >
+                    <div key={child.attendanceInfo.child._id} >
                         <div>
-                            <h3>{child.firstName}</h3>
-                            <p>{child.lastName}</p>
+                            <h3>{child.attendanceInfo.child.firstName}</h3>
+                            <p>{child.attendanceInfo.child.lastName}</p>
                         </div>
                         <div>
-                            <form onSubmit={(e) => handleAttendance(e, child._id)} >
+                            <form onSubmit={(e) => handleAttendance(e, child.attendanceInfo.child._id)} >
                                 <label>
-                                    <input type="radio" name="attendance" value="here"
+                                    <input type="radio" name="attendanceStatus" value="here"
                                     /> Here
                                 </label>
                                 <label>
-                                    <input type="radio" name="attendance" value="notHere"
+                                    <input type="radio" name="attendanceStatus" value="notHere"
                                     /> Not Here
                                 </label>
                                 <button
                                     type="submit"
-                                    disabled={!this.state.value}
                                 > Submit
                                 </button>
                             </form>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from './registerForm.module.scss';
 import { sendData, submitForm } from "../../logic/registerLogic";
+import { MyContext } from "../../Container";
 
 
 export default function ChildRegister() {
+    const { kg, user } = useContext(MyContext);
     const [formData, setFormData] = useState("");
     const [categories, setCategories] = useState([
         { _id: "0", name: "Eggs" },
@@ -20,7 +22,7 @@ export default function ChildRegister() {
 
     useEffect(() => {
         if (formData.child) {
-            sendData("child registration", formData.child)
+            sendData("child registration", { ...formData.child, kg: kg._id })
         } else { return }
     }, [formData])
 

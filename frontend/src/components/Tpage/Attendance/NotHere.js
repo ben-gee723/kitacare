@@ -1,25 +1,25 @@
 
 import React from 'react'
 
-export default function NotHere({ notHere, handleAttendance }) {
+export default function NotHere({ notHereChildren, handleAttendance }) {
 
     return (
         <div>
             <h1> Not Here:</h1>
-            {notHere.map(child => {
+            {notHereChildren.map(child => {
                 return (
-                    <div key={child._id} >
+                    <div key={child.attendanceInfo.child._id} >
                         <div>
-                            <h3>{child.firstName}</h3>
-                            <p>{child.lastName}</p>
+                            <h3>{child.attendanceInfo.child.firstName}</h3>
+                            <p>{child.attendanceInfo.child.lastName}</p>
                         </div>
                         <div>
-                            <form onSubmit={(e) => handleAttendance(e, child._id)} >
+                            <form onSubmit={(e) => handleAttendance(e, child.attendanceInfo.child._id)} >
                                 <label>
-                                    <input type="radio" name="attendance" value="here" /> Here
+                                    <input type="radio" name="attendanceStatus" value="here" /> Here
                                 </label>
                                 <label>
-                                    <input type="radio" name="attendance" value="notHere" /> Not Here
+                                    <input type="radio" name="attendanceStatus" value="notHere" /> Not Here
                                     </label>
                                 <button type="submit" > Submit </button>
                             </form>
