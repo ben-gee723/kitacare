@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import styles from '../registerForm.module.scss';
-import { sendData, submitForm } from "../../../logic/registerLogic";
-import ChildHealth from "./health";
+import styles from './registerForm.module.scss';
+import { sendData, submitForm } from "../../logic/registerLogic";
 
 
 export default function ChildRegister() {

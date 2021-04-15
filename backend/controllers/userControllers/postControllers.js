@@ -116,7 +116,7 @@ exports.login = async (req, res, next) => {
           user: user,
         });
     }
-  } catch (err) {}
+  } catch (err) { }
 };
 
 exports.addTodo = async (req, res, next) => {
