@@ -5,6 +5,23 @@ const UserModel = require("../../model/userModel");
 exports.updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
+    let user = await UserModel.findById(id);
+    if (req.body.group) {
+      let wantedGroupId = req.body.group;
+      //find the user in group collection and delete
+      let exGroup = await GroupModel.find({ teachers: user._id });
+      //not sure!
+      console.log(exGroup);
+      let filteredGroup = exGroup.teachers.filter(
+        (teacher) => teacher._id !== user._id
+      );
+      exGroup.teachers = filteredGroup;
+      console.log(exGroup);
+      //exGroup.save()
+      //then save the teacher according to wantedGroup
+      let group = await GroupModel.findById(wantedGroupId);
+      group.teachers.push(user._id);
+    }
     let updatedUser = await UserModel.findByIdAndUpdate(id, req.body, {
       new: true,
     });
@@ -55,6 +72,7 @@ exports.deleteUsersGroup = async (req, res, next) => {
     if (user) {
       user.set("group", undefined, { strict: false });
       user.save();
+      //here find the user from group collection and delete there!
       res.send({ success: true, message: "users group updated" });
     } else {
       res

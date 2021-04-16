@@ -41,9 +41,7 @@ exports.getVerificationCode = async (req, res, next) => {
     console.log(code);
     //add it to kg document
     let kg = await KgModel.findById(id);
-    console.log(kg);
     kg.verificationCodes.push(code);
-    console.log(kg.verificationCodes);
     await kg.save();
     res.send({ success: true, code: code });
   } catch (err) {
