@@ -9,6 +9,8 @@ import kid from "../../images/kid_avatar.svg";
 
 export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
+  const [groups, setGroups] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState(null);
   const { user } = useContext(MyContext);
 
   useEffect(() => {
@@ -34,8 +36,66 @@ export default function AllChildren(props) {
       })
       .catch((err) => console.log(err));
   }, []);
+  const getAllGroups = () => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/groups/getAllGroups/${user.kg} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setGroups(result.data.allGroups);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   const handleEdit = (child) => {
     props.history.push({ pathname: "/editchild", state: { child: child } });
+  };
+  const handleEditGroup = (child) => {
+    getAllGroups();
+  };
+  const changeGroup = (id) => {
+    //to assign none as group:
+    let obj;
+    if (selectedGroup == "empty") {
+      obj = {
+        method: "PUT",
+        // withCredentials: true,
+        url: `http://localhost:3001/child/deleteChildsGroup/${id}`,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      };
+    } else {
+      obj = {
+        method: "PUT",
+        // withCredentials: true,
+        url: `http://localhost:3001/child/updateChild/${id}`,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        data: { group: selectedGroup },
+      };
+    }
+    axios(obj)
+      .then((result) => {
+        if (result.data.success) {
+          //reload the page:
+          setGroups(null);
+          // window.location.reload();
+        } else {
+          console.log(result.data);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -43,7 +103,6 @@ export default function AllChildren(props) {
       <h2>Children!</h2>
       <div key={children._id} className={styles.cContainer}>
         {children.map((child) => {
-          console.log(child.emergencyContact);
           return (
             <div className={styles.scontainer} key={child._id}>
               <img src={kid} className={styles.kid} />
@@ -99,6 +158,64 @@ export default function AllChildren(props) {
                     Edit
                   </button>
                 )}
+                {user.role == "Manager" && (
+                  <button
+                    type='submit'
+                    value='edit'
+                    className='add'
+                    onClick={() => handleEditGroup(child)}>
+                    Edit Group
+                  </button>
+                )}
+                {groups && groups.length ? (
+                  <form>
+                    {groups.map((group) => {
+                      return (
+                        <label
+                          key={group.groupName}
+                          htmlFor={group.groupName}
+                          style={{ flexDirection: "row" }}>
+                          <input
+                            style={{
+                              display: "inline",
+                              width: "20px",
+                              height: "20px",
+                            }}
+                            type='radio'
+                            id={group.groupName}
+                            name='group'
+                            value={group.groupName}
+                            onClick={() => setSelectedGroup(group._id)}
+                          />
+                          {group.groupName}
+                        </label>
+                      );
+                    })}
+                    <label
+                      key='none'
+                      htmlFor='none'
+                      style={{ flexDirection: "row" }}>
+                      <input
+                        style={{
+                          display: "inline",
+                          width: "20px",
+                          height: "20px",
+                        }}
+                        type='radio'
+                        id='none'
+                        name='group'
+                        value='none'
+                        onClick={() => setSelectedGroup("empty")}
+                      />
+                      none
+                    </label>
+                    <button
+                      onClick={() => changeGroup(child._id)}
+                      disabled={selectedGroup ? false : true}>
+                      save
+                    </button>
+                  </form>
+                ) : null}
               </div>
             </div>
           );

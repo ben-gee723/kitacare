@@ -1,11 +1,29 @@
 /** @format */
 
 const ChildModel = require("../../model/childModel");
+const GroupModel = require("../../model/groupModel");
 
-// update child
 exports.updateChild = async (req, res, next) => {
   const { id } = req.params;
   try {
+    if (req.body.group) {
+      let wantedGroupId = req.body.group;
+      //find the child in group collection and delete:
+      let exGroups = await GroupModel.find({ children: id });
+      if (exGroups.length) {
+        exGroups.map((groupObj) => {
+          let filteredArr = groupObj.children.filter(
+            (childrenId) => childrenId != id
+          );
+          groupObj.children = filteredArr;
+          groupObj.save();
+        });
+      } //then save the child according to wantedGroup:
+      let group = await GroupModel.findById(wantedGroupId);
+      group.children.push(id);
+      group.save();
+    }
+    //update child document:
     const updatedChild = await ChildModel.findByIdAndUpdate(id, req.body, {
       new: true,
     });
@@ -17,6 +35,29 @@ exports.updateChild = async (req, res, next) => {
         .send({ success: false, message: "no matching child found" });
     }
   } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};
+
+exports.deleteChildsGroup = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const child = await ChildModel.findOne({ _id: id });
+
+    if (child) {
+      child.set("group", undefined, { strict: false });
+      await child.save();
+      //here find the child from group collection and delete there!
+      let newChild = ChildModel.findById(id);
+      res.send({ success: true, updatedChild: newChild });
+    } else {
+      res
+        .status(400)
+        .send({ success: false, message: "no matching user found" });
+    }
+  } catch (err) {
+    console.log(err);
     next(err);
   }
 };
@@ -47,12 +88,10 @@ exports.updateAttendance = async (req, res, next) => {
         { new: true }
       );
       //think about the response!!!
-      res
-        .status(200)
-        .send({
-          success: true,
-          updatedAttendance: { child: child, ...todaysObj },
-        });
+      res.status(200).send({
+        success: true,
+        updatedAttendance: { child: child, ...todaysObj },
+      });
       //{child:..., attendanceStatus: "here/notHere", date: ""}
     } else {
       res
