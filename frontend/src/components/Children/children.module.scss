@@ -5,11 +5,12 @@
   flex-flow: row wrap;
   justify-content: center;
   h2 {
+    background-color: $black;
+    width: 100%;
     color: $primary-blue;
     text-align: center;
-    padding-bottom: 2rem;
+    padding: 0.5rem;
   }
-  padding: 2rem;
   width: 100%;
   margin: 0 auto;
 }

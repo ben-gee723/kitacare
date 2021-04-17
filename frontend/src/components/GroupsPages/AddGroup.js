@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./groups.module.scss";
+import { MyContext } from "../../Container";
 
 export default function AddGroup() {
+  const {user} = useContext(MyContext)
   const [data, setData] = useState({});
+
   const submitForm = e => {
     e.preventDefault();
     axios({
@@ -14,7 +17,7 @@ export default function AddGroup() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      data: data,
+      data: {...data, kg: user.kg}
     })
       .then(response => {
         if (response.data.success) {
@@ -74,16 +77,6 @@ export default function AddGroup() {
               type='text'
               name='description'
               placeholder='group description'
-              onChange={grabValue}
-            />
-          </div>
-          <div className={styles.addinfo}>
-            <label>Kindergarten</label>
-            <br />
-            <input
-              type='text'
-              name='kg'
-              placeholder='please enter the kindergarten id'
               onChange={grabValue}
             />
           </div>

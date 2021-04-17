@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../../Container";
 import axios from "axios";
 import UserCard from "./UserCard";
-import { CardGroup } from "react-bootstrap";
+import styles from "./Teachers.module.scss"
 
 export default function Teachers() {
   const { kg } = useContext(MyContext);
@@ -73,9 +73,10 @@ export default function Teachers() {
 
   return (
     <div>
-      <div>
+      <div className={styles.header}>
         <h4>Managers</h4>
-        <CardGroup>
+        </div>
+        <div className={styles.container}>
           {managers &&
             managers.map((manager, i) => {
               return (
@@ -86,11 +87,11 @@ export default function Teachers() {
                 />
               );
             })}
-        </CardGroup>
-      </div>
-      <div>
+        </div>
+      <div className={styles.header}>
         <h4>Teachers</h4>
-        <CardGroup>
+        </div>
+        <div className={styles.container}>
           {teachers &&
             teachers.map((teacher, i) => {
               return (
@@ -101,8 +102,7 @@ export default function Teachers() {
                 />
               );
             })}
-        </CardGroup>
-      </div>
+        </div>
       <button className='next' onClick={generateCodeHandler}>
         Generate Code
       </button>
