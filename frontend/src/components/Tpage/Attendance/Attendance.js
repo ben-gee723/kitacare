@@ -25,7 +25,6 @@ export default function Attendance() {
             return child.attendance[0]
         } else {
             return
-
         }
 
     })
