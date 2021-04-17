@@ -1,115 +1,94 @@
+/** @format */
 
-import React, { useState, useEffect, useContext } from 'react'
-import styles from '../Tpage.module.scss'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import React, { useState, useEffect, useContext } from "react";
+import styles from "../Tpage.module.scss";
 import axios from "axios";
 import { MyContext } from "../../../Container";
-
-import Here from './Here';
-import NotHere from './NotHere';
+import Here from "./Here";
+import NotHere from "./NotHere";
 
 export default function Attendance() {
-    const [children, setChildren] = useState([]);
-    const { kg, user } = useContext(MyContext);
-    const [attendance, setAttendance] = useState([]);
-    // [{child:..., attendanceStatus: "here/notHere", date: ""}]
-    let date = new Date()
-    console.log(date)
+  const { kg, user } = useContext(MyContext);
+  // [{child:..., attendanceStatus: "here/notHere", date: ""}]
+  const [here, setHere] = useState();
+  const [notHere, setNotHere] = useState();
 
-    let hereChildren = attendance.length ? attendance.filter(obj => obj.attendanceInfo.attendanceStatus == "here") : [];
-    let notHereChildren = attendance.length ? attendance.filter((obj) => obj.attendanceInfo.attendanceStatus == "notHere") : [];
-    console.log(hereChildren)
-    console.log(notHereChildren)
-
-    // Getting the children from the kindergarten
-    useEffect(() => {
-        axios({
-            method: "GET",
-            url: `http://localhost:3001/child/getAllChildren/${kg._id}`,
-            // url: `http://localhost:3001/child/getChildrenFromGroup/${child.group}`,
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        })
-            .then(result => {
-                console.log(result);
-                if (result.data.success) {
-                    let groupChildren = result.data.allChildren.filter(obj =>
-                        obj.group === user.group._id
-                    )
-                    console.log(groupChildren)
-                    setChildren(groupChildren);
-                } else {
-                    console.log(result);
-                }
-            })
-            .catch(err => console.log(err))
-    }, []);
-
-    useEffect(() => {
-        if (children.length) {
-            console.log(children)
-            axios({
-                method: "GET",
-                url: `http://localhost:3001/child/getAttendanceOfChild/${user.group._id}`,
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-            })
-                .then(result => {
-                    console.log(result.data);
-                    if (result.data.success) {
-                        console.log(result.data.attendanceArr)
-                        setAttendance(result.data.attendanceArr);
-                    } else {
-                        console.log(result);
-                    }
-                })
-                .catch(err => console.log(err))
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/child/getAttendanceOfChild/${user.group._id}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          let hereChildren = [];
+          let notHereChildren = [];
+          result.data.attendanceArr.map((childAtt) => {
+            childAtt.attendanceInfo.attendanceStatus == "here"
+              ? hereChildren.push(childAtt.attendanceInfo)
+              : notHereChildren.push(childAtt.attendanceInfo);
+          });
+          setHere(hereChildren);
+          setNotHere(notHereChildren);
+        } else {
+          console.log(result);
         }
-    }, [children])
+      })
+      .catch((err) => console.log(err));
+    // }
+  }, []);
 
-    const handleAttendance = (e, childId) => {
-        e.preventDefault();
+  const handleAttendance = (e, childId) => {
+    e.preventDefault();
 
-        const formData = new FormData(e.target);
-        let obj = {}
-        for (let pair of formData) {
-            obj[pair[0]] = pair[1];
-        }
-        console.log(obj)
-
-
-        axios(`http://localhost:3001/child/updateAttendance/${childId}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            data: obj
-        }).then(result => {
-            if (result.success) {
-                setAttendance(result.data.updatedAttendance);
-            } else {
-                console.log(result);
-            }
-        });
-
-        console.log(obj)
+    const formData = new FormData(e.target);
+    let obj = {};
+    for (let pair of formData) {
+      obj[pair[0]] = pair[1];
     }
 
-    return (
+    axios(`http://localhost:3001/child/updateAttendance/${childId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      data: obj,
+    }).then((result) => {
+      if (result.data.success) {
+        //setAttendance for this child:
+        let id = result.data.updatedAttendance.child._id;
+        if (obj.attendanceStatus == "here") {
+          let newNotHere = notHere.filter((obj) => obj.child._id !== id);
+          setNotHere(newNotHere);
+          let filteredHere = here.filter((obj) => obj.child._id == id);
+          !filteredHere.length &&
+            setHere([...here, result.data.updatedAttendance]);
+        } else {
+          let newHere = here.filter((obj) => obj.child._id !== id);
+          setHere(newHere);
+          let filteredNotHere = notHere.filter((obj) => obj.child._id == id);
+          !filteredNotHere.length &&
+            setNotHere([...notHere, result.data.updatedAttendance]);
+        }
+      } else {
+        console.log(result);
+      }
+    });
+  };
 
-        <div className='app'>
-            <Here
-                hereChildren={hereChildren}
-                handleAttendance={handleAttendance}
-            />
-            <NotHere
-                notHereChildren={notHereChildren}
-                handleAttendance={handleAttendance}
-            />
-        </div>
-
-    )
+  return (
+    <div className='app'>
+      <Here
+        hereChildren={here}
+        notHereChildren={notHere}
+        handleAttendance={handleAttendance}
+      />
+      <NotHere
+        hereChildren={here}
+        notHereChildren={notHere}
+        handleAttendance={handleAttendance}
+      />
+    </div>
+  );
 }
