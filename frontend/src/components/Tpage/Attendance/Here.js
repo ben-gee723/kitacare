@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Here({ hereChildren, handleAttendance }) {
     return (
-        <div className={styles.hereStyle} >
+        <div className={styles.attendance} >
             <h1> Here </h1>
             {hereChildren &&
                 hereChildren.map((child) => {

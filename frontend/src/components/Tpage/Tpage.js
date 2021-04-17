@@ -16,7 +16,7 @@ export default function Tpage(props) {
     });
   };
   return (
-    <>
+    <div className={styles.centering} >
       <div className={styles.welcome}>
         <h2>Welcome {user.firstName}!</h2>
       </div>
@@ -65,6 +65,6 @@ export default function Tpage(props) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
