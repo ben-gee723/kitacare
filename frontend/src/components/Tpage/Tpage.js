@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useContext } from "react";
 import Calendar from "../Calendar/Calendar";
 import styles from "./Tpage.module.scss";
@@ -11,7 +13,7 @@ export default function Tpage(props) {
 
   const handleView = () => {
     props.history.push({
-      pathname: ["/group"],
+      pathname: ["/children"],
       state: { group: user.group },
     });
   };
@@ -23,7 +25,7 @@ export default function Tpage(props) {
       <div className={styles.tpContainer}>
         <div className={styles.tInfo}>
           <div className={styles.tImg}>
-            <img src={managerImg} alt="" />
+            <img src={managerImg} alt='' />
           </div>
           <p>
             {user.firstName} {user.lastName}
@@ -31,7 +33,7 @@ export default function Tpage(props) {
           <p>{user.email}</p>
           <p>{user.phoneNumber}</p>
           {user.group && <p>{user.group.groupName}</p>}
-          <button className="edit">Edit Info</button>
+          <button className='edit'>Edit Info</button>
         </div>
 
         <div className={styles.features}>
@@ -46,12 +48,12 @@ export default function Tpage(props) {
               {user.group.room && <li>Room: {user.group.room}</li>}
               <br />
 
-              <button onClick={() => handleView()} className="view">
+              <button onClick={() => handleView()} className='view'>
                 View Group
               </button>
 
-              <Link to="/attendance">
-                <button className="view">Check Attendance</button>
+              <Link to='/attendance'>
+                <button className='view'>Check Attendance</button>
               </Link>
             </div>
           )}
