@@ -15,7 +15,6 @@ export default function Attendance() {
     const [here, setHere] = useState();
     const [notHere, setNotHere] = useState();
 
-<<<<<<< HEAD
     useEffect(() => {
         axios({
             method: "GET",
@@ -43,36 +42,6 @@ export default function Attendance() {
             .catch((err) => console.log(err));
         // }
     }, []);
-=======
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: `http://localhost:3001/child/getAttendanceOfChild/${user.group._id}`,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((result) => {
-        if (result.data.success) {
-          let hereChildren = [];
-          let notHereChildren = [];
-          console.log(result.data.attendanceArr);
-          result.data.attendanceArr.map((childAtt) => {
-            childAtt.attendanceInfo.attendanceStatus == "here"
-              ? hereChildren.push(childAtt.attendanceInfo)
-              : notHereChildren.push(childAtt.attendanceInfo);
-          });
-          setHere(hereChildren);
-          setNotHere(notHereChildren);
-        } else {
-          console.log(result);
-        }
-      })
-      .catch((err) => console.log(err));
-    // }
-  }, []);
->>>>>>> safiye
 
     const handleAttendance = (e, childId) => {
         e.preventDefault();
