@@ -111,7 +111,7 @@ export default function Attendance() {
     };
 
     return (
-        <div className={styles.tAttendanace}>
+        <div className={styles.tAttendance}>
             <NotHere
                 hereChildren={here}
                 notHereChildren={notHere}
