@@ -17,6 +17,11 @@ export default function SingleGroup(props) {
     <div>
       <div className={styles.scontainer} key={group._id}>
         <>
+        {showForm && (
+          <div>
+            <SingleGroupEdit />
+          </div>
+        )}
           <div>
             <div className={styles.col1}>
               <p className={styles.bold}>Group:</p>

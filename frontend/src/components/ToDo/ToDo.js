@@ -1,102 +1,112 @@
-import React from "react";
+/** @format */
+
+import React, { useEffect, useState, useContext, Children } from "react";
 import ToDosContainer from "./ToDosContainer";
 import ToDonesContainer from "./ToDonesContainer";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import './Todo.scss'
-import {v4} from "uuid" 
+import { MyContext } from "../../Container";
+import "./Todo.scss";
+import axios from "axios";
 
-console.log(localStorage);
+export default function Todo() {
+  let [todos, setTodos] = useState([]);
+  const { user } = useContext(MyContext);
+  let toDos = todos.length ? todos.filter((item) => !item.done) : [];
+  let toDones = todos.length ? todos.filter((item) => item.done) : [];
 
-class ToDo extends React.Component {
-  state = {
-    todoItems: [],
-  };
-
-  componentDidMount() {
-    //onload
-    let data = localStorage.getItem("todoapp");
-    if (data) {
-      let convertedData = JSON.parse(data);
-      this.setState({
-        todoItems: convertedData,
-      });
-    }
-  }
-
-  addItem = (value) => {
-    console.log(this, "this is from App");
-    let item = { id: v4(), text: value, done: false };
-    let copystate = [...this.state.todoItems];
-    copystate.push(item);
-    this.setState(
-      {
-        todoItems: copystate,
+  useEffect(() => {
+    //onload get todos from database:
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/users/getTodos/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      () => {
-        localStorage.setItem("todoapp", JSON.stringify(this.state.todoItems));
-      }
-    );
-  };
-
-  updateItem = (id) => {
-    let updatedItems = this.state.todoItems.map((item) => {
-      if (item.id === id) {
-        item.done = !item.done;
-        return item;
-      } else {
-        return item;
-      }
-    });
-
-    this.setState({
-      todoItems: updatedItems,
-    },  () => {
-      localStorage.setItem("todoapp", JSON.stringify(this.state.todoItems));
-    });
-  };
-
-  deleteItem=(id)=>{
-     /*  let CopyState=[...this.state.todoItems] */
-      let updatedData = this.state.todoItems.filter(item=>item.id!==id)
-      this.setState({
-        todoItems:updatedData
-      },()=>{
-        localStorage.setItem("todoapp", JSON.stringify(this.state.todoItems));
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.todos);
+        } else {
+          console.log(result);
+        }
       })
-  }
+      .catch((err) => console.log(err));
+  }, []);
 
-  render() {
-      
-    let toDos = this.state.todoItems.filter((item) => !item.done);
-    let toDones = this.state.todoItems.filter((item) => item.done);
-    
-    return (
-      <BrowserRouter>
-        <div className="app">
-        
-         
-          <Switch>
-              
-            <Route exact path="/">
-                
-              <ToDosContainer              
-                toDos={toDos}
-                addItem={this.addItem}
-                updateItem={this.updateItem}
-                deleteItem={this.deleteItem}
-              />
-              
-              <ToDonesContainer
-                toDones={toDones}
-                updateItem={this.updateItem}
-                deleteItem={this.deleteItem}
-              />
-            </Route>
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
+  let addItem = (value) => {
+    let item = { text: value, done: false };
+    axios({
+      method: "POST",
+      url: `http://localhost:3001/users/addTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: item,
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  let updateItem = (value) => {
+    axios({
+      method: "PUT",
+      url: `http://localhost:3001/users/updateTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: { value: value },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  let deleteItem = (value) => {
+    axios({
+      method: "DELETE",
+      url: `http://localhost:3001/users/deleteTodo/${user._id} `,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: { value: value },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setTodos(result.data.updatedTodos);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div className='app'>
+      <ToDosContainer
+        toDos={toDos}
+        addItem={addItem}
+        updateItem={updateItem}
+        deleteItem={deleteItem}
+      />
+      <ToDonesContainer
+        toDones={toDones}
+        updateItem={updateItem}
+        deleteItem={deleteItem}
+      />
+    </div>
+  );
 }
-
-export default ToDo;

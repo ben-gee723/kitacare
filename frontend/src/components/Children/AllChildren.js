@@ -1,31 +1,40 @@
-import React, { useState, useEffect } from "react";
+/** @format */
+
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "./children.module.scss";
 import { Link } from "react-router-dom";
+import { MyContext } from "../../Container";
 import kid from "../../images/kid_avatar.svg";
 
 export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
+  const { user } = useContext(MyContext);
 
   useEffect(() => {
+    let url;
+    url =
+      user.role === "Manager"
+        ? `http://localhost:3001/child/getAllChildren/${user.kg}`
+        : `http://localhost:3001/child//getChildrenFromGroup/${user.group._id}`;
     axios({
       method: "GET",
-      url: `http://localhost:3001/child/getAllChildren/`,
+      url: url,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
+      .then((result) => {
         if (result.data.success) {
           setChildren(result.data.allChildren);
         } else {
           console.log(result);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
-  const handleEdit = child => {
+  const handleEdit = (child) => {
     props.history.push({ pathname: "/editchild", state: { child: child } });
   };
 
@@ -33,7 +42,7 @@ export default function AllChildren(props) {
     <div className={styles.container}>
       <h2>Children!</h2>
       <div key={children._id} className={styles.cContainer}>
-        {children.map(child => {
+        {children.map((child) => {
           console.log(child.emergencyContact);
           return (
             <div className={styles.scontainer} key={child._id}>
@@ -81,24 +90,27 @@ export default function AllChildren(props) {
                 </p>
               </div>
               <div>
-                <button
-                  type='submit'
-                  value='edit'
-                  className='fixedit'
-                  onClick={() => handleEdit(child)}
-                >
-                  Edit
-                </button>
+                {user.role == "Manager" && (
+                  <button
+                    type='submit'
+                    value='edit'
+                    className='fixedit'
+                    onClick={() => handleEdit(child)}>
+                    Edit
+                  </button>
+                )}
               </div>
             </div>
           );
         })}
       </div>
-      <Link to='/cregister'>
-        <button type='submit' value='add' className='add'>
-          Add
-        </button>
-      </Link>
+      {user.role == "Manager" && (
+        <Link to='/cregister'>
+          <button type='submit' value='add' className='add'>
+            Add
+          </button>
+        </Link>
+      )}
     </div>
   );
 }

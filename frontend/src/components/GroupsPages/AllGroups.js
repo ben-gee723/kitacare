@@ -42,7 +42,7 @@ export default function AllGroups(props) {
       <div key={groups._id} className={styles.cContainer}>
         {groups.map(group => {
           return (
-            <div className={styles.scontainer} key={group._id}>
+            <div className={styles.acontainer} key={group._id}>
               <div className={styles.col1}>
                 <p className={styles.bold}>Group:</p>
                 <p className={styles.bold2}>{group.groupName}</p>

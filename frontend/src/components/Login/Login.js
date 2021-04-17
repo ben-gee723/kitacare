@@ -91,12 +91,13 @@ export default function Login(props) {
 
         <br />
         <div className={styles.btnContainer}>
+        <button type='submit' value='Login' className='next'>
+            Login
+          </button>
           <Link to='/'>
             <button className='cancel'>Cancel</button>
           </Link>
-          <button type='submit' value='Login' className='next'>
-            Login
-          </button>
+          
         </div>
       </form>
     </div>

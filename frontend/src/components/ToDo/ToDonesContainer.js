@@ -1,23 +1,28 @@
-import React from 'react'
+/** @format */
 
-export default function ToDonesContainer({toDones , updateItem, deleteItem}) {
+import React from "react";
 
- /* const {toDones} = props  */
-    return (
-        <div className="todones-container">
-            <h3>Done:</h3>
-            {toDones.map(todone=>{
-                return(
-                    <div className="todones-item" key={todone.id}>
-                        <p>{todone.text}</p>
-                        <div className="actions">
-                            <button className="btn" onClick={()=>updateItem(todone.id)}> &#8635; </button>
-                            <button className="btn" onClick={()=>deleteItem(todone.id)}> &#x2718; </button>
-                        </div>
-                    </div>
-                )
-            })}
-
-        </div>
-    )
+export default function ToDonesContainer({ toDones, updateItem, deleteItem }) {
+  return (
+    <div className='todones-container'>
+      <h3>Done:</h3>
+      {toDones.map((todone) => {
+        return (
+          <div className='todones-item' key={todone.text}>
+            <div>{todone.text}</div>
+            <div>
+              <button className='btn' onClick={() => updateItem(todone.text)}>
+                {" "}
+                &#8635;{" "}
+              </button>
+              <button className='btn' onClick={() => deleteItem(todone.text)}>
+                {" "}
+                &#x2718;{" "}
+              </button>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }

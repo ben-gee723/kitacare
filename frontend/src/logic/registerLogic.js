@@ -6,11 +6,8 @@ const submitForm = (e) => {
   const formData = new FormData(e.target);
   let obj = {
     address: {},
-    emergencyContact: [
-      {},
-      {}
-    ],
-    allergies: []
+    emergencyContact: [{}, {}],
+    allergies: [],
   };
   for (let pair of formData) {
     if (
@@ -24,14 +21,12 @@ const submitForm = (e) => {
       pair[0] === "emerName1" ||
       pair[0] === "emerEmail1" ||
       pair[0] === "emerNumber1"
-
     ) {
       obj.emergencyContact[0][pair[0]] = pair[1];
     } else if (
       pair[0] === "emerName2" ||
       pair[0] === "emerEmail2" ||
       pair[0] === "emerNumber2"
-
     ) {
       obj.emergencyContact[1][pair[0]] = pair[1];
     } else if (
@@ -47,8 +42,7 @@ const submitForm = (e) => {
       pair[0] === "Raw Veggies"
     ) {
       obj.allergies.push(pair[0]);
-    }
-    else {
+    } else {
       obj[pair[0]] = pair[1];
     }
   }
