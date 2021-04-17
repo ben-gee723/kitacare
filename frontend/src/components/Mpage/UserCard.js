@@ -1,13 +1,13 @@
 /** @format */
 
 import React, { useState, useContext } from "react";
-import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 import axios from "axios";
 import user1 from "../../images/user1.png";
 import user2 from "../../images/user2.png";
 import user3 from "../../images/user3.png";
 import user4 from "../../images/user4.png";
 import { MyContext } from "../../Container";
+import styles from "./Teachers.module.scss"
 
 const images = [user1, user2, user3, user4];
 
@@ -103,50 +103,44 @@ export default function UserCard(props) {
 
   return (
     <div key={user._id}>
-      <Card style={{ width: "18rem", margin: "10px 10px" }} bg='success'>
-        <Card.Img
+      <div className={styles.scontainer} bg='success'>
+        <div className={styles.imgContainer}>
+        <img
           variant='top'
           src={randImg}
-          style={{ width: "100px", height: "100px", margin: "5px auto" }}
         />
-        <Card.Body>
-          <Card.Title style={{ textAlign: "center" }}>
+        </div>
+        <div Classname={styles.cardtitle}>
+          <div style={{ textAlign: "center" }}>
             {user.firstName} {user.lastName}
-          </Card.Title>
-        </Card.Body>
-        <ListGroup className='list-group-flush'>
-          <ListGroupItem style={{ textAlign: "center" }}>
+          </div>
+        </div>
+        <div className={styles.listgroup}>
+          <div className={styles.listgroupitem}>
             {user.group
               ? `Group: ${user.group.groupName}`
               : "Please assign a group"}
-          </ListGroupItem>
-          <ListGroupItem style={{ textAlign: "center" }}>
+          </div>
+          <div className={styles.listgroupitem}>
             {user.role}
-          </ListGroupItem>
-        </ListGroup>
-        <Card.Body style={{ display: "flex", justifyContent: "space-between" }}>
-          <Button
-            variant='primary'
+          </div>
+        </div>
+        <div>
+          <button
             style={{ display: "inline" }}
             onClick={!groups ? () => getAllGroups() : () => setGroups(null)}>
             edit group
-          </Button>
-          <Button
-            variant='primary'
+          </button>
+          <button
             style={{ display: "inline" }}
             onClick={() => setShowRoles(!showRoles)}>
             edit role
-          </Button>
-        </Card.Body>
+          </button>
+        </div>
         {/* Role buttons */}
         {showRoles && (
-          <ListGroup className='list-group-flush'>
-            <ListGroupItem
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}>
+          <div className={styles.listgroupitem}>
+            <div className={styles.listgroupitem}>
               <form>
                 <label htmlFor='Teacher' style={{ flexDirection: "row" }}>
                   <input
@@ -172,27 +166,19 @@ export default function UserCard(props) {
                   Manager
                 </label>
               </form>
-            </ListGroupItem>
-            <Button
-              variant='primary'
+            </div>
+            <button
               style={{ display: "inline" }}
               onClick={() => changeRole(user._id)}
               disabled={selectedRole ? false : true}>
               save
-            </Button>
-          </ListGroup>
+            </button>
+          </div>
         )}
         {/* Group name buttons */}
         {groups && (
-          <ListGroup className='list-group-flush'>
-            <ListGroupItem
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "0",
-              }}>
+          <div className={styles.listgroup}>
+            <div className={styles.listgroupitem}>
               <form>
                 {groups.map((group) => {
                   return (
@@ -218,8 +204,7 @@ export default function UserCard(props) {
                 })}
                 <label
                   key='none'
-                  htmlFor='none'
-                  style={{ flexDirection: "row" }}>
+                  htmlFor='none'>
                   <input
                     style={{
                       display: "inline",
@@ -235,17 +220,16 @@ export default function UserCard(props) {
                   none
                 </label>
               </form>
-            </ListGroupItem>
-            <Button
-              variant='primary'
+            </div>
+            <button
               style={{ display: "inline" }}
               onClick={() => changeGroup(user._id)}
               disabled={selectedGroup ? false : true}>
               save
-            </Button>
-          </ListGroup>
+            </button>
+          </div>
         )}
-      </Card>
+      </div>
     </div>
   );
 }

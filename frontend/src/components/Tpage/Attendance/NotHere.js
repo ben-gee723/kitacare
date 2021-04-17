@@ -4,7 +4,7 @@ import React from "react";
 
 export default function NotHere({ notHereChildren, handleAttendance }) {
     return (
-        <div className={styles.notHereStyle}>
+        <div className={styles.attendance}>
             <h1> Not Here</h1>
             {notHereChildren &&
                 notHereChildren.map((child) => {

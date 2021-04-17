@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div className={styles.hcontainer}>
       <div className={styles.hero}>
-        <div>
-          <h1 className={styles.header}>Best managment tool, for your kindergarten.</h1>
+        <div className={styles.header}>
+          <h1>Best managment tool, for your kindergarten.</h1>
           <h3>
             Kitacare application is a specialised tool that offers multiple
             kindergartens the means to seamlessly manage their classroom.
@@ -21,7 +21,7 @@ export default function Home() {
         </div>
 
         <div className={styles.svgHome}>
-          <img src={kids} alt="kids"/>
+          <img src={kids} alt="kids"className={styles.kids}/>
         </div>
       </div>
 
