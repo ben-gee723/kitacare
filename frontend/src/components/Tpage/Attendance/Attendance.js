@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect, useContext } from "react";
 import styles from "../Tpage.module.scss";
+
 import axios from "axios";
 import { MyContext } from "../../../Container";
+
 import Here from "./Here";
 import NotHere from "./NotHere";
 
@@ -78,13 +80,13 @@ export default function Attendance() {
     };
 
     return (
-        <div className='app'>
-            <Here
+        <div className={styles.tAttendanace}>
+            <NotHere
                 hereChildren={here}
                 notHereChildren={notHere}
                 handleAttendance={handleAttendance}
             />
-            <NotHere
+            <Here
                 hereChildren={here}
                 notHereChildren={notHere}
                 handleAttendance={handleAttendance}
