@@ -26,6 +26,7 @@ export default function Attendance() {
         if (result.data.success) {
           let hereChildren = [];
           let notHereChildren = [];
+          console.log(result.data.attendanceArr);
           result.data.attendanceArr.map((childAtt) => {
             childAtt.attendanceInfo.attendanceStatus == "here"
               ? hereChildren.push(childAtt.attendanceInfo)
