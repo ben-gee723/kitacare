@@ -1,0 +1,28 @@
+.regBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.regForm {
+  padding: 0 5rem;
+  width: 100vh;
+}
+
+.regForm input {
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+  padding: 20px 10px;
+  width: 20rem;
+}
+
+.editHead {
+  color: #0c8da8;
+  font-size: 1rem;
+}
+
+.address {
+  padding-left: 5px;
+}
+/*# sourceMappingURL=Editprofile.module.css.map */
