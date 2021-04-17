@@ -38,6 +38,7 @@ import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
 import AddGroup from "./components/GroupsPages/AddGroup";
 import ChildEdit from "./components/Children/ChildEdit";
+import EditProfile from "./components/Mpage/EditProfile";
 
 function App() {
   return (
