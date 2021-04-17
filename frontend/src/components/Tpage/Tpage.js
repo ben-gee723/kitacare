@@ -17,6 +17,11 @@ export default function Tpage(props) {
       state: { group: user.group },
     });
   };
+
+  const handleEdit = () => {
+    props.history.push({ pathname: "/editprofile" });
+  };
+
   return (
     <div className={styles.centering} >
       <div className={styles.welcome}>
@@ -33,7 +38,12 @@ export default function Tpage(props) {
           <p>{user.email}</p>
           <p>{user.phoneNumber}</p>
           {user.group && <p>{user.group.groupName}</p>}
-          <button className='edit'>Edit Info</button>
+          <button
+          type='submit'
+          value='edit'
+          className='edit'
+          onClick={() => handleEdit()}
+          className="edit">Edit Info</button>
         </div>
 
         <div className={styles.features}>
