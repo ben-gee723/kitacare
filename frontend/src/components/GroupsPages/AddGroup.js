@@ -7,7 +7,11 @@ import { MyContext } from "../../Container";
 export default function AddGroup() {
   const {user} = useContext(MyContext)
   const [data, setData] = useState({});
+  const[setMessage] = useState(false)
 
+  const handleMessage = e => {
+    
+  }
   const submitForm = e => {
     e.preventDefault();
     axios({
@@ -21,6 +25,7 @@ export default function AddGroup() {
     })
       .then(response => {
         if (response.data.success) {
+          setMessage(true, "Thank you! We received your information :)")
           console.log(response.data.group);
         } else {
           console.log(response);

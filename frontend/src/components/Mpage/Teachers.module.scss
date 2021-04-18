@@ -8,6 +8,13 @@
   padding: 0.4rem;
 }
 
+.btn {
+display: flex;
+flex-flow: row wrap;
+justify-content: flex-end;
+padding-top: 0.5rem;
+}
+
 .container {
   display: flex;
   flex-flow: row wrap;

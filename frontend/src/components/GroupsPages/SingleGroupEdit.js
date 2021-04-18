@@ -95,36 +95,6 @@ export default function SingleGroupEdit(props) {
             onChange={editedValue}
           />
         </div>
-        <div className={styles.addinfo}>
-          <label>Children</label>
-          <br />
-          <input
-            type='text'
-            name='children'
-            placeholder='please enter the child id'
-            onChange={editedValue}
-          />
-        </div>
-        <div className={styles.addinfo}>
-          <label>Teachers</label>
-          <br />
-          <input
-            type='text'
-            name='teachers'
-            placeholder='please enter the teacher id'
-            onChange={editedValue}
-          />
-        </div>
-        <div className={styles.addinfo}>
-          <label>Kindergarten</label>
-          <br />
-          <input
-            type='text'
-            name='kg'
-            placeholder={group.kg}
-            onChange={editedValue}
-          />
-        </div>
         <br />
         <div className={styles.btnContainer}>
           <Link to='/groups'>

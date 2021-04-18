@@ -173,7 +173,7 @@ export default function AllChildren(props) {
                         <label
                           key={group.groupName}
                           htmlFor={group.groupName}
-                          style={{ flexDirection: "row" }}>
+                          style={{ flexDirection: "row", color: "black" }}>
                           <input
                             style={{
                               display: "inline",
