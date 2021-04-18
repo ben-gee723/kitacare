@@ -68,9 +68,6 @@ export default function EditProfile(props) {
 
   return (
     <div className={styles.regForm}>
-      <div className={styles.editHead}>
-          <h1 >Edit Your Profile!</h1>
-          </div>
       {showSuccess && ( //style this one!!!!
         <div>
           <p>Your profile has been succeessfully updated </p>
@@ -84,18 +81,18 @@ export default function EditProfile(props) {
             onSubmit={(e) => changePasswordHandler(e)}
             name="managerForm"
           >
-            <div className="inputBox">
+            <div >
               <label className="details">Your current password: </label>
-              <br/>
+              <br />
               <input
                 type="password"
                 name="currentPassword"
                 placeholder="current password"
               />
             </div>
-            <div className="inputBox">
+            <div >
               <label className="details">Your new password: </label>
-              <br/>
+              <br />
               <input
                 type="password"
                 name="newPassword"
@@ -116,16 +113,7 @@ export default function EditProfile(props) {
             </div>
           </form>
         )}
-      {!showPasswordForm && !showSuccess && (
-        <button
-          type="submit"
-          value="Register"
-          className="att"
-          onClick={() => setShowPasswordForm(true)}
-        >
-          Change Password
-        </button>
-      )}
+
       {/* edit form without password: */}
       {!showSuccess && !showPasswordForm && (
         <form
@@ -133,11 +121,9 @@ export default function EditProfile(props) {
           onSubmit={(e) => editHandler(e)}
           name="managerForm"
         >
-          
           <div className={styles.regBox}>
-            
-            <div>          
-              <div className="inputBox">
+            <div>
+              <div >
                 <label className="details">First name</label>
                 <br />
                 <input
@@ -147,7 +133,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Last name</label>
                 <br />
                 <input
@@ -157,7 +143,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Birthday</label>
                 <br />
                 <input
@@ -168,7 +154,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Phone number</label>
                 <br />
                 <input
@@ -178,7 +164,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Email</label>
                 <br />
                 <input
@@ -190,7 +176,7 @@ export default function EditProfile(props) {
             </div>
 
             <div className={styles.address}>
-              <div className="inputBox">
+              <div >
                 <label className="details">Street</label>
                 <br />
                 <input
@@ -200,7 +186,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Number</label>
                 <br />
                 <input
@@ -210,7 +196,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">City</label>
                 <br />
                 <input
@@ -220,7 +206,7 @@ export default function EditProfile(props) {
                 />
               </div>
 
-              <div className="inputBox">
+              <div >
                 <label className="details">Post code</label>
                 <br />
                 <input
@@ -231,14 +217,26 @@ export default function EditProfile(props) {
               </div>
 
               <br />
-              <div className={styles.btnContainer}>
+              <div className={styles.editBtns}>
                 <Link to={user.role == "Manager" ? "/mpage" : "/tpage"}>
                   <button className="cancel">Cancel</button>
                 </Link>
                 <button type="submit" value="Register" className="att">
                   Submit
                 </button>
+                {!showPasswordForm && !showSuccess && (
+                <button
+                  type="submit"
+                  value="Register"
+                  className="att"
+                  onClick={() => setShowPasswordForm(true)}
+                >
+                  Change Password
+                </button>
+              )}
               </div>
+              <br/>
+              
             </div>
           </div>
         </form>
