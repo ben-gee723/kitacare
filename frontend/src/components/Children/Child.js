@@ -3,14 +3,21 @@
 import React, { useContext, useState } from "react";
 import { MyContext } from "../../Container";
 import kid from "../../images/kid_avatar.svg";
+import kid2 from "../../images/kid_avatar2.svg";
+import kid3 from "../../images/kid_avatar3.svg";
+import kid4 from "../../images/kid_avatar4.svg";
 import styles from "./children.module.scss";
 import axios from "axios";
+const images = [kid, kid2, kid3, kid4];
+
 
 export default function Child(props) {
   const { user } = useContext(MyContext);
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const child = props.child;
+  
+  const randImg = images[props.imageNum];
 
   const getAllGroups = () => {
     axios({
@@ -77,12 +84,13 @@ export default function Child(props) {
 
   return (
     <div className={styles.scontainer} key={child._id}>
-      <img src={kid} className={styles.kid} />
+      <img src={randImg} className={styles.kid} />
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
         </p>
       </div>
+      <div className={styles.maininfo}>
       <div className={styles.col}>
         <p className={styles.info}>{child.birthday.split("T")[0]}</p>
       </div>
@@ -119,7 +127,8 @@ export default function Child(props) {
         <p className={styles.info}>Dietary Needs: {child.dietaryNeeds}</p>
       </div>
       <div className={styles.col2}>
-        <p className={styles.info}>Group: {child.group.groupName}</p>
+        <p className={styles.info}>Group: {child.groupName}</p>
+      </div>
       </div>
       <div>
         {user.role == "Manager" && (
@@ -144,11 +153,13 @@ export default function Child(props) {
         {groups && groups.length ? (
           <form>
             <div
+            className={styles.groups}
               style={{
                 padding: "5%",
                 display: "flex",
                 flexFlow: "row wrap",
                 justifyContent: "space-between",
+                color: "black"
               }}>
               {groups.map((group) => {
                 return (

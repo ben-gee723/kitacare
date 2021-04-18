@@ -37,19 +37,11 @@ export default function AllChildren() {
 
   return (
     <div className={styles.container}>
-      <h2>Children!</h2>
       <div className={styles.cContainer}>
         {children.map((child, i) => {
-          return <Child key={i} child={child} />;
+          return <Child key={i} child={child} imageNum={i > 3 ? i % 4 : i}/>;
         })}
       </div>
-      {user.role == "Manager" && (
-        <Link to='/cregister'>
-          <button type='submit' value='add' className='add'>
-            Add
-          </button>
-        </Link>
-      )}
     </div>
   );
 }
