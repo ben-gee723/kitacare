@@ -35,10 +35,6 @@ export default function AllGroups(props) {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-      <h2>Groups! </h2>
-      
-          </div>
       <div key={groups._id} className={styles.cContainer}>
         {groups.map(group => {
           return (
@@ -49,7 +45,7 @@ export default function AllGroups(props) {
               </div>
               <div className={styles.col}>
                 <p className={styles.info}>
-                  Teacher:{group.teachers.firstName}
+                  Teacher:{group.teachers[0]}
                 </p>
                 <p className={styles.info}>{group.teachers.lastName}</p>
               </div>

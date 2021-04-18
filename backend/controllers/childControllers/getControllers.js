@@ -7,7 +7,10 @@ const GroupModel = require("../../model/groupModel");
 exports.getAllChildren = async (req, res, next) => {
   const { id } = req.params;
   try {
-    let allChildren = await ChildModel.find({ kg: id });
+    let allChildren = await ChildModel.find({ kg: id }).populate(
+      "group",
+      "-__v"
+    );
     if (allChildren) {
       res.status(200).send({ success: true, allChildren: allChildren });
     } else {
@@ -38,17 +41,18 @@ exports.getChildSingleChild = async (req, res, next) => {
 exports.getChildrenFromGroup = async (req, res, next) => {
   const { id } = req.params;
   try {
-    let allChildren = await ChildModel.find({ group: id });
+    let allChildren = await ChildModel.find({ group: id }).populate(
+      "group",
+      "-__v"
+    );
     if (allChildren.length) {
       res.status(200).send({ success: true, allChildren: allChildren });
     } else {
-      res
-        .status(200)
-        .send({
-          success: true,
-          allChildren: [],
-          message: "this group doesnt have any child",
-        });
+      res.status(200).send({
+        success: true,
+        allChildren: [],
+        message: "this group doesnt have any child",
+      });
     }
   } catch (err) {
     next(err);

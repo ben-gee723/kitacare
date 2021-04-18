@@ -27,7 +27,6 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  
 
   &:hover {
     background: black;
@@ -47,7 +46,6 @@
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
-  
 
   &:hover {
     background: white;
@@ -107,7 +105,6 @@
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem;
-  
 
   &:hover {
     background: $light;
@@ -158,9 +155,6 @@
     cursor: pointer;
     color: $primary-lightblue;
   }
-
-  
-
 }
 
 .edit {
@@ -177,6 +171,43 @@
     background: $light;
     transition: 0.2 ease-out;
     border: 1px solid $secondary-orange;
+    cursor: pointer;
+    color: $secondary-orange;
+  }
+}
+.edit2 {
+  background-color: $primary-lightblue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  &:hover {
+    background: $light;
+    transition: 0.2 ease-out;
+    border: 1px solid $primary-lightblue;
+    cursor: pointer;
+    color: $secondary-orange;
+  }
+}
+.edit3 {
+  background-color: $secondary-lightblue;
+  border: none;
+  border-radius: 0.25rem;
+  color: $light;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-left: 0.2rem;
+
+  &:hover {
+    background: $light;
+    transition: 0.2 ease-out;
+    border: 1px solid $primary-lightblue;
     cursor: pointer;
     color: $secondary-orange;
   }
