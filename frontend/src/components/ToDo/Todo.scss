@@ -11,18 +11,19 @@ $btnBg: #00a881;
 
   .actions {
     display: flex;
+    
   }
 
 
   .btn {
     border: none;
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 0.5rem;
     width: 70px;
     background: $btnBg;
     color: white;
     cursor: pointer;
-    margin-left: 0.1rem;
+    margin-left: 0.2rem;
     &:focus {
       outline: none;
     }
@@ -35,11 +36,11 @@ $btnBg: #00a881;
   .todos-container {       
     .todo-form {   
       label{
-        display: block;
+        display: flex;
       } 
-      .input-item {          
+      .input-item {     
         input {
-          width: 100%;
+          
           padding: 8px;
           border-radius: 0.5rem;
           border: none;
@@ -63,40 +64,23 @@ $btnBg: #00a881;
       }
     }
   }
-  .todones-container {
-    .todones-item {
-      padding: 5px;
-      background: $inputBg;
-      margin: 10px 0;
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      p {
-        text-align: center;
-        text-decoration: line-through;
-        opacity: 0.5;
-      }
-    }
-  }
+  
 
 .todones-container {
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: black
-  }
+ 
   .todones-item {
-    padding: 5px 10px;
+    padding: 5px;
     background: $inputBg;
     margin: 10px 0;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-decoration: line-through;
+    
 
-    p {
-      text-decoration: line-through;
+    .dones {
+      
       opacity: 0.5;
     }
   }
