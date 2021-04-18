@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useEffect, useContext } from "react";
-import styles from "../Tpage.module.scss";
+import styles from "./Attendance.module.scss";
 
 import axios from "axios";
 import { MyContext } from "../../../Container";

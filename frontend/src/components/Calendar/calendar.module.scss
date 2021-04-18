@@ -149,11 +149,11 @@
   width: calc(100% / 7);
 }
 
-/* Iphone + Android */
-@media only screen and (max-width: 46rem) {
-  .calendar {
-    width: 20.3rem;
-  }
+ /* Iphone + Android */
+ @media only screen and (max-width: 46rem) {
+   .calendar {
+     width: 100%;
+   }
 
    .calendar .body .cell {
      height: 2.5em;

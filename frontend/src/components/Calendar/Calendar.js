@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   format,
   startOfMonth,
@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CalendarForm from "./CalendarForm";
+import axios from "axios";
 
 export default function Calendar() {
   const left = <FontAwesomeIcon icon={faChevronCircleLeft} />;
@@ -25,6 +26,29 @@ export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showForm, setShowForm] = useState(false);
+  const [showEvents, setShowEvents] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/calendar/getAllEvents`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(result => {
+        console.log(result);
+        if (result.data.success) {
+          setShowEvents(result.data.event);
+          console.log(result.data.event)
+        } else {
+          console.log(result.data.getAllEvents);
+        }
+      })
+      .catch(err => console.log(err));
+  }, []);
+
   const header = () => {
     const dateFormat = "MMMM yyyy";
     return (
@@ -60,6 +84,7 @@ export default function Calendar() {
   };
   const cells = () => {
     const monthStart = startOfMonth(currentDate);
+    console.log(currentDate)
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
     const endDate = endOfWeek(monthEnd);

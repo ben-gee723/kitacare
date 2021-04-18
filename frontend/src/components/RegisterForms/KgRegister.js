@@ -85,12 +85,13 @@ export default function KgRegister() {
 
           <br />
           <div className={styles.btnContainer}>
+          <button type='submit' value='Next' className='next'>
+              Next
+            </button>
             <Link to='/'>
               <button className='cancel'>Cancel</button>
             </Link>
-            <button type='submit' value='Next' className='next'>
-              Next
-            </button>
+            
           </div>
         </form>
       )}

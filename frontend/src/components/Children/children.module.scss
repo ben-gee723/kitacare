@@ -4,13 +4,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  h2 {
-    background-color: $black;
-    width: 100%;
-    color: $primary-blue;
-    text-align: center;
-    padding: 0.5rem;
-  }
   width: 100%;
   margin: 0 auto;
 }
@@ -36,7 +29,7 @@
   padding: 0.5rem 0 0.5rem 0;
   width: 21em;
   margin: 0.5rem;
-  background-color: $black;
+  background-color: $light;
   color: $light;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
@@ -54,7 +47,7 @@
     justify-content: flex-start;
     margin: 0 auto;
     width: 95%;
-    background-color: $secondary-lightblue-transparent2;
+    background-color: $secondary-blue;
     border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
     padding-left: 0.6rem;
@@ -76,7 +69,7 @@
     padding-right: 2rem;
   }
   .bold2 {
-    color: $secondary-lightgreen;
+    color: $primary-green;
     text-align: left;
     font-size: 1.5rem;
     font-weight: 600;
@@ -102,7 +95,7 @@
   width: 40%;
   background-color: $light;
   //border-radius: 0.5rem;
- // box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  // box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .reg {
     color: $primary-blue;
     padding: 2rem;

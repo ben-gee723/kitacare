@@ -1,3 +1,13 @@
+.header {
+  text-align: center;
+  color: #0c8da8;
+  -webkit-box-shadow: #f9a26b4d 0px 5px 15px;
+          box-shadow: #f9a26b4d 0px 5px 15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  margin: 0 auto;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,39 +19,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 2rem;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
-}
-
-.container h2 {
-  color: #0c8da8;
-  text-align: center;
-  padding-bottom: 2rem;
-}
-
-.container p {
-  padding-bottom: 0.3rem;
-}
-
-.container .btn {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: auto;
-  margin: 2rem auto;
-  border-radius: 0.3rem;
-  padding: 0.2rem;
-  height: 11rem;
-}
-
-.container .btn p {
-  padding: 0.95rem;
-}
-
-.container .btn h1 {
-  text-align: center;
-  font-size: 1.75rem;
-  color: #423f40;
 }
 
 .cContainer {
@@ -57,6 +36,92 @@
           justify-content: center;
 }
 
+.acontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 0 0.5rem 0;
+  width: 21em;
+  margin: 1rem 1rem;
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+          box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+}
+
+.acontainer .col1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row wrap;
+          flex-direction: row wrap;
+  width: 100%;
+  padding: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.acontainer .col, .acontainer .col2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row wrap;
+          flex-direction: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0 auto;
+  width: 95%;
+  background-color: rgba(104, 227, 230, 0.4);
+  border-top: 0.05rem solid #cbcac4;
+  padding-right: 2rem;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.acontainer .col .info1, .acontainer .col2 .info1 {
+  padding-right: 2rem;
+  padding-left: 0.15rem;
+}
+
+.acontainer .col .info, .acontainer .col2 .info {
+  padding-right: 1.7rem;
+  padding-left: 0.15rem;
+}
+
+.acontainer .bold {
+  color: #0c8da8;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-right: 2rem;
+}
+
+.acontainer .bold2 {
+  color: #ff4e13;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.acontainer h3 {
+  text-align: left;
+}
+
 .scontainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -70,8 +135,9 @@
           justify-content: center;
   padding: 0.5rem 0 0.5rem 0;
   width: 21em;
-  margin: 2rem auto;
-  background-color: rgba(165, 232, 157, 0.2);
+  margin: 5rem 10rem;
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.9);
   border-radius: 0.5rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
           box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
@@ -92,7 +158,7 @@
           justify-content: center;
 }
 
-.scontainer .col {
+.scontainer .col, .scontainer .col2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,20 +170,21 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: 0 auto;
-  width: 80%;
-  border-top: 0.05rem solid #F9A26B;
+  width: 95%;
+  background-color: rgba(104, 227, 230, 0.4);
+  border-top: 0.05rem solid #cbcac4;
   padding-right: 2rem;
   padding-left: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.scontainer .col .info1 {
+.scontainer .col .info1, .scontainer .col2 .info1 {
   padding-right: 2rem;
   padding-left: 0.15rem;
 }
 
-.scontainer .col .info {
+.scontainer .col .info, .scontainer .col2 .info {
   padding-right: 1.7rem;
   padding-left: 0.15rem;
 }
@@ -126,7 +193,7 @@
   color: #0c8da8;
   text-align: left;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 600;
   padding-right: 2rem;
 }
 
@@ -139,6 +206,10 @@
 
 .scontainer h3 {
   text-align: left;
+}
+
+.col2 {
+  border-bottom: 0.05rem solid #cbcac4;
 }
 
 .regForm {
