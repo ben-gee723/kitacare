@@ -11,7 +11,13 @@ export default function TeacherRegister(props) {
   useEffect(() => {
     if (formData.teacher) {
       sendData("teacher registation", formData.teacher);
-      props.history.push({pathname: '/login', state: {email: formData.teacher.email, password: formData.teacher.password}})
+      props.history.push({
+        pathname: "/login",
+        state: {
+          email: formData.teacher.email,
+          password: formData.teacher.password,
+        },
+      });
     }
   }, [formData]);
 
@@ -25,110 +31,109 @@ export default function TeacherRegister(props) {
     <div className={styles.regForm}>
       <form
         className={styles.formContainer}
-        onSubmit={(e) => submitTeacherForm(e)}>
-        <div className='reg'>
+        onSubmit={(e) => submitTeacherForm(e)}
+      >
+        <div className="reg">
           <h1>Register as Teacher!</h1>
         </div>
 
-        <div className='regInfo'>
+        <div className="regInfo">
           <h3>Information we need:</h3>
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>First name</label>
+        <div className="inputBox">
+          <label className="details">First name</label>
           <br />
-          <input type='text' name='firstName' placeholder='First Name' />
+          <input type="text" name="firstName" placeholder="First Name" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Last name</label>
+        <div className="inputBox">
+          <label className="details">Last name</label>
           <br />
-          <input type='text' name='lastName' placeholder='Last Name' />
+          <input type="text" name="lastName" placeholder="Last Name" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Birthday</label>
+        <div className="inputBox">
+          <label className="details">Birthday</label>
           <br />
-          <input type='date' name='birthday' placeholder='Birthday' />
+          <input type="date" name="birthday" placeholder="Birthday" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Phone number</label>
+        <div className="inputBox">
+          <label className="details">Phone number</label>
           <br />
-          <input type='text' name='phoneNumber' placeholder='Phone Number' />
+          <input type="text" name="phoneNumber" placeholder="Phone Number" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Email</label>
+        <div className="inputBox">
+          <label className="details">Email</label>
           <br />
-          <input type='email' name='email' placeholder='E-mail' />
+          <input type="email" name="email" placeholder="E-mail" />
         </div>
 
         <div className={styles.address}>
           <h3>Address:</h3>
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Street</label>
+        <div className="inputBox">
+          <label className="details">Street</label>
           <br />
-          <input type='text' name='street' placeholder='Street' />
+          <input type="text" name="street" placeholder="Street" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Number</label>
+        <div className="inputBox">
+          <label className="details">Number</label>
           <br />
-          <input type='text' name='number' placeholder='Number' />
+          <input type="text" name="number" placeholder="Number" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>City</label>
+        <div className="inputBox">
+          <label className="details">City</label>
           <br />
-          <input type='text' name='city' placeholder='City' />
+          <input type="text" name="city" placeholder="City" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Post code</label>
+        <div className="inputBox">
+          <label className="details">Post code</label>
           <br />
           <input
-            type='number'
-            name='postcode'
+            type="number"
+            name="postcode"
             required
-            placeholder='Postcode'
+            placeholder="Postcode"
           />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Group name</label>
+        <div className="inputBox">
+          <label className="details">Group name</label>
           <br />
-          <input type='text' name='groupName' placeholder='Group Name' />
+          <input type="text" name="groupName" placeholder="Group Name" />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Verification Code</label>
+        <div className="inputBox">
+          <label className="details">Verification Code</label>
           <br />
           <input
-            type='text'
-            name='verificationCode'
-            placeholder='Enter the verification code provided by your manager.'
+            type="text"
+            name="verificationCode"
+            placeholder="Enter the verification code provided by your manager."
           />
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>Password</label>
+        <div className="inputBox">
+          <label className="details">Password</label>
           <br />
-          <input type='password' name='password' placeholder='Password' />
+          <input type="password" name="password" placeholder="Password" />
         </div>
 
         <br />
         <div className={styles.btnContainer}>
-          <Link to='/'>
-            <button className='cancel'>Cancel</button>
-          </Link>
-          
-          <button type='submit' value='Register' className='next'>
+          <button type="submit" value="Register" className="next">
             Register
           </button>
-          
+          <Link to="/">
+            <button className="cancel">Cancel</button>
+          </Link>
         </div>
       </form>
     </div>

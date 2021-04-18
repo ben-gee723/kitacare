@@ -85,7 +85,7 @@
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 
   &:hover {
     background: white;
@@ -232,5 +232,12 @@
     border: 1px solid $dark;
     cursor: pointer;
     color: $dark;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .add {
+    //padding: 5px;
+    font-size: 0.8rem;
   }
 }

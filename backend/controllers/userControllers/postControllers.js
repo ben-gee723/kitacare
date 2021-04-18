@@ -86,12 +86,10 @@ exports.addManager = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
     const user = await UserModel.findOne({ email: email }).populate(
       "group",
       "-__v"
     );
-    console.log(user);
     if (!user) {
       return res
         .status(400)
@@ -116,14 +114,13 @@ exports.login = async (req, res, next) => {
           user: user,
         });
     }
-  } catch (err) { }
+  } catch (err) {}
 };
 
 exports.addTodo = async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = await UserModel.findById(id);
-    console.log(req.body);
     if (user) {
       //check the value:
       if (!user.todos.filter((todo) => todo.text == req.body.text).length) {

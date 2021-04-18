@@ -23,7 +23,7 @@ export default function Tpage(props) {
   };
 
   return (
-    <div className={styles.centering} >
+    <>
       <div className={styles.welcome}>
         <h2>Welcome {user.firstName}!</h2>
       </div>
@@ -32,6 +32,7 @@ export default function Tpage(props) {
           <div className={styles.tImg}>
             <img src={managerImg} alt='' />
           </div>
+          <div>
           <p>
             {user.firstName} {user.lastName}
           </p>
@@ -44,6 +45,7 @@ export default function Tpage(props) {
           className='edit'
           onClick={() => handleEdit()}
           className="edit">Edit Info</button>
+          </div>
         </div>
 
         <div className={styles.features}>
@@ -58,7 +60,7 @@ export default function Tpage(props) {
               {user.group.room && <li>Room: {user.group.room}</li>}
               <br />
 
-              <button onClick={() => handleView()} className='view'>
+              <button onClick={() => handleView()} className='add'>
                 View Group
               </button>
 
@@ -77,6 +79,6 @@ export default function Tpage(props) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
