@@ -1,29 +1,19 @@
 @import "../../globalCSS/variables";
 
 //ALL GROUPS
-.header {
-  text-align: center;
-  color: $primary-blue;
-  box-shadow: $secondary-orange-tranparent 0px 5px 15px;
-  background-color: $black;
-  width: 100%;
-  margin: 0 auto;
-}
+
 .container {
-  
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
 }
-
 .cContainer {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-
 .acontainer {
   display: flex;
   flex-direction: column;
@@ -31,8 +21,8 @@
   padding: 0.5rem 0 0.5rem 0;
   width: 21em;
   margin: 1rem 1rem;
-  background-color: #f5f5f5;
-  color: $black;
+  background-color: $light;
+  color: $light;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .col1 {
@@ -42,13 +32,14 @@
     padding: 0.5rem;
     justify-content: center;
   }
-  .col, .col2 {
+  .col,
+  .col2 {
     display: flex;
     flex-direction: row wrap;
     justify-content: flex-start;
     margin: 0 auto;
     width: 95%;
-    background-color: $secondary-lightblue-transparent2;
+    background-color: $secondary-blue;
     border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
     padding-left: 0.5rem;
@@ -99,7 +90,8 @@
     padding: 0.5rem;
     justify-content: center;
   }
-  .col, .col2 {
+  .col,
+  .col2 {
     display: flex;
     flex-direction: row wrap;
     justify-content: flex-start;
@@ -152,6 +144,9 @@
   h1 {
     padding-bottom: 2rem;
   }
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+  padding-top: 2rem;
 }
 
 //ADD GROUP
@@ -187,4 +182,3 @@
   width: 17%;
   margin: 0 auto;
 }
-

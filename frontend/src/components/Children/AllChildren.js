@@ -40,7 +40,6 @@ export default function AllChildren(props) {
 
   return (
     <div className={styles.container}>
-      <h2>Children!</h2>
       <div key={children._id} className={styles.cContainer}>
         {children.map((child) => {
           console.log(child.emergencyContact);

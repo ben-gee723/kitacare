@@ -7,7 +7,7 @@ import user2 from "../../images/user2.png";
 import user3 from "../../images/user3.png";
 import user4 from "../../images/user4.png";
 import { MyContext } from "../../Container";
-import styles from "./Teachers.module.scss"
+import styles from "./Teachers.module.scss";
 
 const images = [user1, user2, user3, user4];
 
@@ -30,17 +30,17 @@ export default function UserCard(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result.data);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
-  const changeGroup = (id) => {
+  const changeGroup = id => {
     //to assign none as group:
     let obj;
     if (selectedGroup == "empty") {
@@ -66,7 +66,7 @@ export default function UserCard(props) {
       };
     }
     axios(obj)
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           //reload the page:
           setGroups(null);
@@ -75,13 +75,13 @@ export default function UserCard(props) {
           console.log(result.data);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
-  const changeRole = (id) => {
+  const changeRole = id => {
     axios({
       method: "PUT",
-      // withCredentials: true,
+      //withCredentials: true,
       url: `http://localhost:3001/users/users/${id}`,
       headers: {
         Accept: "application/json",
@@ -89,7 +89,7 @@ export default function UserCard(props) {
       },
       data: { role: selectedRole },
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           //close the lines and reload the page:
           setShowRoles(false);
@@ -98,22 +98,19 @@ export default function UserCard(props) {
           console.log(result.data);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   return (
     <div key={user._id}>
       <div className={styles.scontainer} bg='success'>
         <div className={styles.imgContainer}>
-        <img
-          variant='top'
-          src={randImg}
-        />
+          <img variant='top' src={randImg} />
         </div>
-        <div Classname={styles.cardtitle}>
-          <div style={{ textAlign: "center" }}>
+        <div className={styles.card}>
+          <p className={styles.cardtitle}>
             {user.firstName} {user.lastName}
-          </div>
+          </p>
         </div>
         <div className={styles.listgroup}>
           <div className={styles.listgroupitem}>
@@ -121,19 +118,16 @@ export default function UserCard(props) {
               ? `Group: ${user.group.groupName}`
               : "Please assign a group"}
           </div>
-          <div className={styles.listgroupitem}>
-            {user.role}
-          </div>
+          {/* <div className={styles.listgroupitem}>{user.role}</div> */}
         </div>
-        <div>
+        <div className={styles.btn}>
           <button
-            style={{ display: "inline" }}
-            onClick={!groups ? () => getAllGroups() : () => setGroups(null)}>
+            className='edit2'
+            onClick={!groups ? () => getAllGroups() : () => setGroups(null)}
+          >
             edit group
           </button>
-          <button
-            style={{ display: "inline" }}
-            onClick={() => setShowRoles(!showRoles)}>
+          <button className='edit3' onClick={() => setShowRoles(!showRoles)}>
             edit role
           </button>
         </div>
@@ -168,9 +162,12 @@ export default function UserCard(props) {
               </form>
             </div>
             <button
-              style={{ display: "inline" }}
+              type='submit'
+              className='add'
+              style={{ display: "inline", margin: "0 auto" }}
               onClick={() => changeRole(user._id)}
-              disabled={selectedRole ? false : true}>
+              disabled={selectedRole ? false : true}
+            >
               save
             </button>
           </div>
@@ -180,12 +177,13 @@ export default function UserCard(props) {
           <div className={styles.listgroup}>
             <div className={styles.listgroupitem}>
               <form>
-                {groups.map((group) => {
+                {groups.map(group => {
                   return (
                     <label
                       key={group.groupName}
                       htmlFor={group.groupName}
-                      style={{ flexDirection: "row" }}>
+                      style={{ flexDirection: "row" }}
+                    >
                       <input
                         style={{
                           display: "inline",
@@ -202,9 +200,7 @@ export default function UserCard(props) {
                     </label>
                   );
                 })}
-                <label
-                  key='none'
-                  htmlFor='none'>
+                <label key='none' htmlFor='none'>
                   <input
                     style={{
                       display: "inline",
@@ -222,9 +218,12 @@ export default function UserCard(props) {
               </form>
             </div>
             <button
-              style={{ display: "inline" }}
+              type='submit'
+              className='add'
+              style={{ display: "block", margin: "0 auto" }}
               onClick={() => changeGroup(user._id)}
-              disabled={selectedGroup ? false : true}>
+              disabled={selectedGroup ? false : true}
+            >
               save
             </button>
           </div>
