@@ -1,0 +1,80 @@
+.tAttendance {
+  min-height: 30rem;
+  max-height: 90rem;
+}
+
+.attendance, .hereChild, .notHereChild {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.attendance {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #f5f5f5;
+  max-width: 50rem;
+  display: inline-flexbox;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.hereStyle h1, .notHereStyle h1 {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hereChild, .notHereChild {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
+  background-color: #f5f5f5;
+}
+
+.hereChild {
+  background-color: #198da8;
+}
+
+.notHereChild {
+  background-color: lightgray;
+}
+
+.hereChild form, .notHereChild form {
+  border-radius: 1rem;
+  padding: .7rem;
+  margin: 0;
+  background-color: white;
+  width: 14rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  vertical-align: middle;
+}
+
+.hereChild button, .notHereChild button {
+  border-radius: 1rem;
+  width: 5rem;
+  border: none;
+  background-color: #f74d25;
+  color: white;
+}
+
+.hereChild input, .notHereChild input {
+  border-radius: 1rem;
+  margin: .5rem;
+  border: 1px solid  black;
+}
+/*# sourceMappingURL=Attendance.module.css.map */

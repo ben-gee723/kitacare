@@ -13,10 +13,15 @@
   margin: 1rem 6rem;
   text-align: center;
   color: #0c8da8;
+  -webkit-box-shadow: #f9a26b4d 0px 5px 15px;
+          box-shadow: #f9a26b4d 0px 5px 15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  margin: 0 auto;
 }
 
 .mInfo {
-  background-color: rgba(24, 245, 194, 0.2);
+  background-color: #fdfeff;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
@@ -53,7 +58,7 @@
 }
 
 .mGroup {
-  background-color: rgba(104, 227, 230, 0.2);
+  background-color: #fdfeff;
   padding: 1rem;
   border-radius: 1rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -65,7 +70,7 @@
 }
 
 .mTeachers {
-  background-color: rgba(104, 227, 230, 0.2);
+  background-color: #fdfeff;
   padding: 1rem;
   border-radius: 1rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -79,7 +84,7 @@
 .mTodo {
   border-radius: 1rem;
   padding: 1rem;
-  background-color: rgba(165, 232, 157, 0.2);
+  background-color: #fdfeff;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   -ms-grid-column: 1;
@@ -89,13 +94,149 @@
 }
 
 .calendar {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   -ms-grid-column: 2;
       grid-column-start: 2;
   -ms-grid-row: 1;
       grid-row-start: 1;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
+}
+
+/* Iphone + Android */
+@media only screen and (min-width: 414px) and (max-width: 736px) {
+  .mTodo {
+    position: relative;
+    margin-right: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 46rem) {
+  .mpContainer {
+    margin: 0 auto;
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 190vh;
+  }
+  .welcome {
+    margin: 1rem 6rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .welcome h2 {
+    font-size: 1.5rem;
+  }
+  .mInfo {
+    width: 40%;
+    padding: 0;
+    line-height: 1.5rem;
+    margin-right: 0;
+    height: 16.35rem;
+  }
+  .mInfo .mImg {
+    width: 85%;
+    height: 45%;
+    margin: 0 auto;
+  }
+  .mInfo .mImg img {
+    position: relative;
+    right: 0.2rem;
+  }
+  .features {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 50%;
+  }
+  .mGroup {
+    padding: 1rem;
+    font-size: 0.7rem;
+  }
+  .mTeachers {
+    padding: 1rem;
+    font-size: 0.7rem;
+  }
+  .mTodo {
+    position: relative;
+    right: 11rem;
+    margin-left: 1.5rem;
+    bottom: 18.4rem;
+  }
+  .mTodo input {
+    width: 100%;
+  }
+  .calendar {
+    position: relative;
+    width: 150%;
+    padding-top: 0.2rem;
+    padding-right: 20.55rem;
+    bottom: 18rem;
+    right: 5.35rem;
+  }
+}
+
+/*KINDLE + TABLETS + IPAD*/
+@media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
+  .welcome {
+    margin: 1rem 6rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .welcome h2 {
+    font-size: 1.5rem;
+  }
+  .mInfo {
+    width: 40%;
+    padding-top: 2rem;
+    line-height: 1.5rem;
+    margin-right: 0;
+    height: 18rem;
+  }
+  .mInfo .mImg {
+    width: 55%;
+    height: 52%;
+    margin: 0 auto;
+  }
+  .mInfo .mImg img {
+    position: relative;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: 80%;
+  }
+  .features {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 50%;
+  }
+  .mGroup, .mTeachers {
+    padding: 1rem;
+    font-size: 0.85rem;
+    height: 16rem;
+  }
+  .calendar {
+    position: relative;
+    bottom: 45rem;
+    right: 23.5rem;
+  }
 }
 /*# sourceMappingURL=Mpage.module.css.map */

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAC;EACJ,OAAO,EAAE,IAAI;CAGhB;;AAED,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,MAAM;EACf,KAAK,EAAE,KAAK;CAUf;;AAZD,AAII,QAJI,CAIJ,KAAK,CAAC;EACF,gBAAgB,EAAE,SAAS;EAC3B,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,SAAS;EAClB,KAAK,EAAE,KAAK;CACf;;AAIL,AAAA,SAAS,CAAC;EACN,KAAK,ECtBM,OAAO;EDuBlB,SAAS,EAAE,IAAI;CAClB;;AAED,AAAA,QAAQ,CAAC;EACL,YAAY,EAAE,GAAG;CACpB",
+    "sources": [
+        "Editprofile.module.scss",
+        "../../globalCSS/_variables.scss"
+    ],
+    "names": [],
+    "file": "Editprofile.module.css"
+}

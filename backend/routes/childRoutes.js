@@ -12,6 +12,7 @@ const { addChild } = require("../controllers/childControllers/postControllers");
 const {
   updateChild,
   updateAttendance,
+  deleteChildsGroup,
 } = require("../controllers/childControllers/putControllers");
 const {
   deleteChild,
@@ -28,6 +29,7 @@ router.post("/addChild", addChild);
 
 //PUT:
 router.put("/updateChild/:id", updateChild);
+router.put("/deleteChildsGroup/:id", deleteChildsGroup);
 router.put("/updateAttendance/:id", updateAttendance);
 
 //DELETE:

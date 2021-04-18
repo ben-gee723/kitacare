@@ -1,5 +1,5 @@
 /** @format */
-import styles from "../Tpage.module.scss";
+import styles from "./Attendance.module.scss";
 import React from "react";
 
 export default function NotHere({ notHereChildren, handleAttendance }) {

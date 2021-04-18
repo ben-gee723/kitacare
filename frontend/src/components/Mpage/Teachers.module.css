@@ -1,0 +1,73 @@
+.header {
+  text-align: center;
+  color: #0c8da8;
+  -webkit-box-shadow: #f9a26b4d 0px 5px 15px;
+          box-shadow: #f9a26b4d 0px 5px 15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.2rem;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0 auto;
+}
+
+.imgContainer {
+  margin: 0 auto;
+}
+
+.imgContainer img {
+  width: 10rem;
+  height: 10rem;
+}
+
+.scontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 0 0.5rem 0;
+  width: 21em;
+  margin: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fdfeff;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+          box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
+}
+
+.card {
+  color: #423f40;
+  background-color: red;
+}
+
+.cardtitle {
+  background-color: yellow;
+}
+
+.listgroup {
+  background-color: lightblue;
+}
+
+.listgroupitem {
+  background-color: #fdfeff;
+  color: #423f40;
+}
+/*# sourceMappingURL=Teachers.module.css.map */

@@ -18,6 +18,11 @@ const ChildSchema = new Schema({
   dietaryNeeds: { type: String, required: false },
   emergencyContact: { type: [], required: false },
   attendance: [],
+  group: {
+    ref: "groups",
+    type: Schema.Types.ObjectId,
+    required: false,
+  },
 });
 
 const ChildModel = mongoose.model("children", ChildSchema);

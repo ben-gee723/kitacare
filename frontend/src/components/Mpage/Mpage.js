@@ -13,12 +13,13 @@ export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
   const { kg, user } = useContext(MyContext);
   const [teachers, setTeachers] = useState([]);
+  const [children, setChildren] = useState([]);
 
   const handleEdit = () => {
     props.history.push({ pathname: "/editprofile" });
   };
 
-  useEffect(() => {
+  const getAllGroups = () => {
     axios({
       method: "GET",
       url: `http://localhost:3001/groups/getAllGroups/${user.kg} `,
@@ -35,7 +36,8 @@ export default function Mpage(props) {
         }
       })
       .catch((err) => console.log(err));
-
+  };
+  const getAllTeachers = () => {
     axios({
       method: "GET",
       withCredentials: true,
@@ -54,6 +56,31 @@ export default function Mpage(props) {
         }
       })
       .catch((err) => console.log(err));
+  };
+  const getAllChildren = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: `http://localhost:3001/child/getAllChildren/${user.kg}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.data.success) {
+          console.log(response.data.allChildren);
+          setChildren(response.data.allChildren);
+        } else {
+          console.log(response);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    getAllGroups();
+    getAllTeachers();
+    getAllChildren();
   }, []);
   return (
     <>
@@ -85,10 +112,10 @@ export default function Mpage(props) {
             <p>how many children per group, ages, weekely plans and more!</p>
             <p>Total: {groups.length}</p>
             <Link to='/addgroup'>
-            <button type='submit' value='add' className='add'>
-              Add
-            </button>
-          </Link>
+              <button type='submit' value='add' className='add'>
+                Add
+              </button>
+            </Link>
             <Link to='/groups'>
               <button type='submit' value='view' className='view'>
                 View
@@ -104,11 +131,30 @@ export default function Mpage(props) {
             </p>
             <p>Total: {teachers.length}</p>
             <Link to='/tregister'>
-            <button type='submit' value='add' className='add'>
-              Add
-            </button>
-          </Link>
+              <button type='submit' value='add' className='add'>
+                Add
+              </button>
+            </Link>
             <Link to='/teachers'>
+              <button type='submit' value='view' className='view'>
+                View
+              </button>
+            </Link>
+          </div>
+          <div className={styles.mTeachers}>
+            <h3>Childrens</h3>
+            <p>Find all the information of the children:</p>
+            <p>
+              how many children in that kindergarden and all the children
+              necessary information!
+            </p>
+            <p>Total: {children.length}</p>
+            <Link to='/cregister'>
+              <button type='submit' value='add' className='add'>
+                Add
+              </button>
+            </Link>
+            <Link to='/children'>
               <button type='submit' value='view' className='view'>
                 View
               </button>
@@ -117,9 +163,9 @@ export default function Mpage(props) {
           <div className={styles.mTodo}>
             <ToDo />
           </div>
-          <div className={styles.calendar}>
+          {/* <div className={styles.calendar}>
             <Calendar />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

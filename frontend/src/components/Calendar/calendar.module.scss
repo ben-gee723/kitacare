@@ -175,6 +175,34 @@
    }
  }
 
+
+/*KINDLE + IPAD */
+@media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
+  .calendar {
+    width: 19rem;
+  }
+
+  .calendar .body .cell {
+    height: 2.5em;
+  }
+
+  .month {
+    margin-left: 0.05rem;
+    font-size: 0.95rem;
+    color: $dark;
+  }
+  .calendar .header .icon:first-of-type {
+    margin-left: 2.75em;
+  }
+  .calendar .header .icon:last-of-type {
+    margin-right: 1em;
+  }
+  .calendar .days {
+    font-size: 0.5rem;
+  }
+}
+
+
 /*CALENDAR FORM */
 .cform {
   margin: 0 auto;
@@ -218,9 +246,4 @@
   }
 }
 
-/* Iphone + Android */
-@media only screen and (max-width: 46rem) {
-  form {
-    width: 80%;
-  }
-}
+

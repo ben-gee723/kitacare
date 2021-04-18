@@ -52,65 +52,6 @@ ul {
   padding: 5px;
 }
 
-.lg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.logo {
-  width: 3rem;
-  height: 3rem;
-}
-
-.kita {
-  color: #fff;
-  font-size: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.nav {
-  font-family: Helvetica;
-  padding: 0 0.5rem;
-  background: #0d0909;
-  height: 55px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: 700;
-  color: white;
-  border-radius: 5px;
-}
-
-.navbtn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-}
-
 /* CALENDAR */
 .icon {
   font-style: normal;
@@ -132,8 +73,6 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   width: 100%;
 }
 
@@ -160,10 +99,9 @@ ul {
   display: block;
   position: relative;
   width: auto;
-  background: rgba(12, 141, 155, 0.1);
+  background: #fdfeff;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 0.15rem solid #85d1ff;
   border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
@@ -175,6 +113,8 @@ ul {
   font-size: 1.2rem;
   padding: 1.25em 0;
   border-bottom: 0.05rem solid #0c8da8;
+  position: relative;
+  left: 1rem;
 }
 
 .calendar .header .icon {
@@ -207,6 +147,9 @@ ul {
   font-size: 0.5rem;
   padding: 1.75em 0;
   border-bottom: 0.05rem solid #0c8da8;
+  width: 100%;
+  position: relative;
+  left: 1rem;
 }
 
 .calendar .body .cell {
@@ -228,6 +171,8 @@ ul {
 
 .calendar .body .row {
   border-bottom: 0.05rem solid #0c8d9b;
+  position: relative;
+  left: 1rem;
 }
 
 .calendar .body .row:last-child {
@@ -250,6 +195,7 @@ ul {
 .calendar .body .cell:hover .number,
 .calendar .body .selected .number {
   visibility: hidden;
+  position: relative;
 }
 
 .calendar .body .disabled {
@@ -290,7 +236,31 @@ ul {
 /* Iphone + Android */
 @media only screen and (max-width: 46rem) {
   .calendar {
-    width: 80%;
+    width: 20.3rem;
+  }
+  .calendar .body .cell {
+    height: 2.5em;
+  }
+  .month {
+    margin-left: 0.05rem;
+    font-size: 0.95rem;
+    color: #423f40;
+  }
+  .calendar .header .icon:first-of-type {
+    margin-left: 2.75em;
+  }
+  .calendar .header .icon:last-of-type {
+    margin-right: 1em;
+  }
+  .calendar .days {
+    font-size: 0.5rem;
+  }
+}
+
+/*KINDLE + IPAD */
+@media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
+  .calendar {
+    width: 19rem;
   }
   .calendar .body .cell {
     height: 2.5em;
@@ -368,13 +338,6 @@ ul {
   margin: 0.5rem 0 0 6rem;
 }
 
-/* Iphone + Android */
-@media only screen and (max-width: 46rem) {
-  form {
-    width: 80%;
-  }
-}
-
 html body {
   font-family: "Montserrat", sans-serif;
   background-color: #fdfeff;
@@ -430,7 +393,6 @@ html body {
   font-size: 1.15rem;
   border: none;
   padding: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .cancel:hover {
@@ -451,6 +413,7 @@ html body {
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .next:hover {
@@ -484,7 +447,7 @@ html body {
 }
 
 .add {
-  background-color: #F9A26B;
+  background-color: #f9a26b;
   border: none;
   border-radius: 0.25rem;
   color: #fdfeff;
@@ -492,16 +455,15 @@ html body {
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem;
-  margin-left: 0.5rem;
 }
 
 .add:hover {
   background: #fdfeff;
   -webkit-transition: 0.2 ease-out;
   transition: 0.2 ease-out;
-  border: 1px solid #F9A26B;
+  border: 1px solid #f9a26b;
   cursor: pointer;
-  color: #F9A26B;
+  color: #f9a26b;
 }
 
 .view {
@@ -513,7 +475,7 @@ html body {
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .view:hover {
@@ -525,8 +487,31 @@ html body {
   color: #00a881;
 }
 
+.fixedit {
+  background-color: #85d1ff;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fdfeff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 20%;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.fixedit:hover {
+  background: #fdfeff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #85d1ff;
+  cursor: pointer;
+  color: #85d1ff;
+}
+
 .edit {
-  background-color: #F9A26B;
+  background-color: #f9a26b;
   border: none;
   border-radius: 0.25rem;
   color: #fdfeff;
@@ -540,13 +525,13 @@ html body {
   background: #fdfeff;
   -webkit-transition: 0.2 ease-out;
   transition: 0.2 ease-out;
-  border: 1px solid #F9A26B;
+  border: 1px solid #f9a26b;
   cursor: pointer;
-  color: #F9A26B;
+  color: #f9a26b;
 }
 
 .back {
-  background-color: rgba(249, 162, 107, 0.3);
+  background-color: #f9a26b4d;
   border-radius: 0.25rem;
   color: #423f40;
   text-align: center;
