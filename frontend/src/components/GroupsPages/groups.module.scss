@@ -128,25 +128,44 @@
   h3 {
     text-align: left;
   }
-}
-
-.col2 {
-  border-bottom: 0.05rem solid $light-gray;
+  .col2 {
+    border-bottom: 0.05rem solid $light-gray;
+  }
 }
 
 //SINGLE GROUP EDIT
 .regForm {
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 25%;
-  h1 {
-    padding-bottom: 2rem;
-  }
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-  padding-top: 2rem;
+  .formContainer {
+    margin: 0 auto;
+  }
+  h1 {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    color: $primary-blue;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .addinfo {
+    input[type="text"] {
+      margin: 0 auto;
+      border-radius: 0.3rem;
+      background-color: $secondary-orange-tranparent;
+      color: $dark;
+      border: 0.1rem solid $secondary-orange;
+      padding: 5px 5px;
+    }
+    label {
+      color: $dark;
+      font-weight: 500;
+    }
+  }
 }
 
 //ADD GROUP
@@ -155,30 +174,42 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
-  width: 100%;
+  margin: 2rem auto;
+  width: 30%;
   padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .addcontainer {
-    width: 19%;
+    width: 40%;
     margin: 0 auto;
+  }
+  .addinfo {
+    input[type="text"] {
+      border-radius: 0.3rem;
+      background-color: $secondary-orange-tranparent;
+      color: $dark;
+      border: 0.1rem solid $secondary-orange;
+      padding: 5px 5px;
+    }
+    label {
+      color: $dark;
+      font-weight: 500;
+    }
   }
   .title {
     h3 {
       color: $primary-blue;
       font-size: 1.15rem;
       text-align: center;
-    }
-    padding: 2rem;
-  }
-  .addinfo {
-    padding: 0.5rem;
-    label {
-      font-size: 0.95rem;
-      padding-left: 0.4rem;
+      margin-right: 0rem;
+      margin-bottom: 1rem;
     }
   }
-}
-.btn {
-  width: 17%;
-  margin: 0 auto;
+  .btn {
+    width: 100%;
+    margin: 2rem 12rem;
+    p {
+      padding-top: 0.5rem;
+    }
+  }
 }

@@ -73,6 +73,12 @@ export default function Teachers() {
 
   return (
     <div>
+      <div className={styles.btn}>
+       <button className='next' onClick={generateCodeHandler}>
+        Generate Code
+      </button>
+      {verificationCode && <p>VerificationCode: {verificationCode}</p>}
+      </div>
       <div className={styles.header}>
         <h4>Managers</h4>
         </div>
@@ -103,10 +109,7 @@ export default function Teachers() {
               );
             })}
         </div>
-      <button className='next' onClick={generateCodeHandler}>
-        Generate Code
-      </button>
-      {verificationCode && <p>VerificationCode: {verificationCode}</p>}
+     
     </div>
   );
 }

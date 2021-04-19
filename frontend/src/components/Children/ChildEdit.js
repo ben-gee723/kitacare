@@ -217,7 +217,7 @@ export default function ChildEdit(props) {
           Delete
         </button>
         <div className={styles.btnContainer}>
-          <Link to='/groups'>
+          <Link to='/children'>
             <button className='cancel'>Cancel</button>
           </Link>
           <button type='submit' value='Edit' className='att'>

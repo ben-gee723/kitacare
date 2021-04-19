@@ -20,6 +20,7 @@ export default function ToDosContainer(props) {
                 type="text"
                 name="todo"
                 onChange={(e) => setInputFieldValue(e.target.value)}
+                className="input-todo"
               />
               <button className="btn" type="submit" value="Add">
                 Add{" "}

@@ -28,14 +28,14 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   const getAllTeachers = () => {
     axios({
@@ -47,7 +47,7 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
+      .then(response => {
         if (response.data.success) {
           console.log(response.data.teachers);
           setTeachers(response.data.teachers);
@@ -55,7 +55,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   const getAllChildren = () => {
     axios({
@@ -67,7 +67,7 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
+      .then(response => {
         if (response.data.success) {
           console.log(response.data.allChildren);
           setChildren(response.data.allChildren);
@@ -75,7 +75,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   useEffect(() => {
     getAllGroups();
@@ -90,7 +90,7 @@ export default function Mpage(props) {
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
-            <img src={managerImg} alt="manager" />
+            <img src={managerImg} alt='manager' />
           </div>
           <div>
             <p>
@@ -98,11 +98,11 @@ export default function Mpage(props) {
             </p>
             <p>{user.email}</p>
             <button
-              type="submit"
-              value="edit"
-              className="edit"
+              type='submit'
+              value='edit'
+              className='edit'
               onClick={() => handleEdit()}
-              className="edit"
+              className='edit'
             >
               Edit Info
             </button>
@@ -115,13 +115,13 @@ export default function Mpage(props) {
             <p>Find all the groups information:</p>
             <p>how many children per group, ages, weekely plans and more!</p>
             <p>Total: {groups.length}</p>
-            <Link to="/addgroup">
-              <button type="submit" value="add" className="add">
+            <Link to='/addgroup'>
+              <button type='submit' value='add' className='add'>
                 Add
               </button>
             </Link>
-            <Link to="/groups">
-              <button type="submit" value="view" className="view">
+            <Link to='/groups'>
+              <button type='submit' value='view' className='view'>
                 View
               </button>
             </Link>
@@ -133,9 +133,14 @@ export default function Mpage(props) {
               how many children in that teachers group and all the teachers
               necessary information!
             </p>
-            <p>Total: {teachers.length}</p>
-            <Link to="/teachers">
-              <button type="submit" value="view" className="view">
+            <p>Total: {teachers.lengt}</p>
+            <Link to='/tregister'>
+              <button type='submit' value='add' className='add'>
+                Add
+              </button>
+            </Link>
+            <Link to='/teachers'>
+              <button type='submit' value='view' className='view'>
                 View
               </button>
             </Link>
@@ -148,13 +153,13 @@ export default function Mpage(props) {
               necessary information!
             </p>
             <p>Total: {children.length}</p>
-            <Link to="/cregister">
-              <button type="submit" value="add" className="add">
+            <Link to='/cregister'>
+              <button type='submit' value='add' className='add'>
                 Add
               </button>
             </Link>
-            <Link to="/children">
-              <button type="submit" value="view" className="view">
+            <Link to='/children'>
+              <button type='submit' value='view' className='view'>
                 View
               </button>
             </Link>
