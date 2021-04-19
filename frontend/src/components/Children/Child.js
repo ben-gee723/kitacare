@@ -10,13 +10,11 @@ import styles from "./children.module.scss";
 import axios from "axios";
 const images = [kid, kid2, kid3, kid4];
 
-
 export default function Child(props) {
   const { user } = useContext(MyContext);
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const child = props.child;
-  
   const randImg = images[props.imageNum];
 
   const getAllGroups = () => {
@@ -91,44 +89,46 @@ export default function Child(props) {
         </p>
       </div>
       <div className={styles.maininfo}>
-      <div className={styles.col}>
-        <p className={styles.info}>{child.birthday.split("T")[0]}</p>
-      </div>
-      <div className={styles.col}>
-        <p className={styles.info}>
-          {child.address.street} {child.address.number},{" "}
-          {child.address.postcode} {child.address.city}
-        </p>
-      </div>
-      <div className={styles.col}>
-        <p className={styles.info}>Emergency Contact 1:</p>
-        <p className={styles.info}>
-          {child.emergencyContact[0].emerName1}{" "}
-          {child.emergencyContact[0].emerEmail1}{" "}
-          {child.emergencyContact[0].emerNumber1}
-        </p>
-      </div>
-      <div className={styles.col}>
-        <p className={styles.info}>Emergency Contact 2:</p>
-        <p className={styles.info}>
-          {child.emergencyContact[1].emerName2}{" "}
-          {child.emergencyContact[1].emerEmail2}{" "}
-          {child.emergencyContact[1].emerNumber2}
-        </p>
-      </div>
-      <div className={styles.col2}>
-        <p className={styles.info}>
-          Allergies: {child.allergies[0]} {child.allergies[1]}{" "}
-          {child.allergies[2]} {child.allergies[3]}
-          {child.allergies[4]} {child.allergies[5]}
-        </p>
-      </div>
-      <div className={styles.col2}>
-        <p className={styles.info}>Dietary Needs: {child.dietaryNeeds}</p>
-      </div>
-      <div className={styles.col2}>
-        <p className={styles.info}>Group: {child.groupName}</p>
-      </div>
+        <div className={styles.col}>
+          <p className={styles.info}>{child.birthday.split("T")[0]}</p>
+        </div>
+        <div className={styles.col}>
+          <p className={styles.info}>
+            {child.address.street} {child.address.number},{" "}
+            {child.address.postcode} {child.address.city}
+          </p>
+        </div>
+        <div className={styles.col}>
+          <p className={styles.info}>Emergency Contact 1:</p>
+          <p className={styles.info}>
+            {child.emergencyContact[0].emerName1}{" "}
+            {child.emergencyContact[0].emerEmail1}{" "}
+            {child.emergencyContact[0].emerNumber1}
+          </p>
+        </div>
+        <div className={styles.col}>
+          <p className={styles.info}>Emergency Contact 2:</p>
+          <p className={styles.info}>
+            {child.emergencyContact[1].emerName2}{" "}
+            {child.emergencyContact[1].emerEmail2}{" "}
+            {child.emergencyContact[1].emerNumber2}
+          </p>
+        </div>
+        <div className={styles.col2}>
+          <p className={styles.info}>
+            Allergies: {child.allergies[0]} {child.allergies[1]}{" "}
+            {child.allergies[2]} {child.allergies[3]}
+            {child.allergies[4]} {child.allergies[5]}
+          </p>
+        </div>
+        <div className={styles.col2}>
+          <p className={styles.info}>Dietary Needs: {child.dietaryNeeds}</p>
+        </div>
+        <div className={styles.col2}>
+          <p className={styles.info}>
+            Group: {child.group ? child.group.groupName : "none"}
+          </p>
+        </div>
       </div>
       <div className={styles.btn2}>
         {user.role == "Manager" && (
@@ -153,13 +153,13 @@ export default function Child(props) {
         {groups && groups.length ? (
           <form>
             <div
-            className={styles.groups}
+              className={styles.groups}
               style={{
                 padding: "5%",
                 display: "flex",
                 flexFlow: "row wrap",
                 justifyContent: "space-between",
-                color: "black"
+                color: "black",
               }}>
               {groups.map((group) => {
                 return (

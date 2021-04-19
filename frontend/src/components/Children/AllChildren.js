@@ -27,6 +27,7 @@ export default function AllChildren() {
     })
       .then((result) => {
         if (result.data.success) {
+          console.log(result.data.allChildren);
           setChildren(result.data.allChildren);
         } else {
           console.log(result);
@@ -38,9 +39,14 @@ export default function AllChildren() {
   return (
     <div className={styles.container}>
       <div className={styles.cContainer}>
-        {children.map((child, i) => {
-          return <Child key={i} child={child} imageNum={i > 3 ? i % 4 : i}/>;
-        })}
+        {children.length
+          ? children.map((child, i) => {
+              console.log(child);
+              return (
+                <Child key={i} child={child} imageNum={i > 3 ? i % 4 : i} />
+              );
+            })
+          : null}
       </div>
     </div>
   );
