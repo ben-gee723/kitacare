@@ -97,7 +97,7 @@
 }
 
 .add {
-  background-color: $secondary-orange;
+  background-color: $secondary-orange2;
   border: none;
   border-radius: 0.25rem;
   color: $light;
@@ -109,7 +109,7 @@
   &:hover {
     background: $light;
     transition: 0.2 ease-out;
-    border: 1px solid $secondary-orange;
+    border: 1px solid $secondary-orange2;
     cursor: pointer;
     color: $secondary-orange;
   }
@@ -136,7 +136,7 @@
 }
 
 .fixedit {
-  background-color: $primary-lightblue;
+  background-color: $secondary-blue;
   border: none;
   border-radius: 0.25rem;
   color: $light;
@@ -146,6 +146,7 @@
   padding: 0.5rem;
   width: 20%;
   margin-left: 0.5rem;
+  margin-right: 0.2rem;
   margin-top: 0.5rem;
 
   &:hover {
@@ -213,7 +214,6 @@
   }
 }
 
-
 .back {
   background-color: $secondary-orange-tranparent;
   border-radius: 0.25rem;
@@ -237,6 +237,11 @@
 
 @media only screen and (max-width: 600px) {
   .add {
+    //padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  .view {
     //padding: 5px;
     font-size: 0.8rem;
   }

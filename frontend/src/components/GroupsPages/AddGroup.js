@@ -5,11 +5,22 @@ import styles from "./groups.module.scss";
 import { MyContext } from "../../Container";
 
 export default function AddGroup() {
-  const {user} = useContext(MyContext)
+  const { user } = useContext(MyContext);
   const [data, setData] = useState({});
+  const [message, setMessage] = useState({
+    submitting: false,
+    status: null,
+  });
+  
+  const handleMessage = (ok, msg) => {
+    setMessage({
+      submitting: false,
+      status: { ok, msg },
+    })}
 
   const submitForm = e => {
     e.preventDefault();
+    setMessage({ submitting: true });
     axios({
       method: "POST",
       url: "http://localhost:3001/groups/addGroup",
@@ -17,10 +28,14 @@ export default function AddGroup() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      data: {...data, kg: user.kg}
+      data: { ...data, kg: user.kg },
     })
       .then(response => {
         if (response.data.success) {
+          handleMessage(
+            true,
+            "Thank you! We received your information."
+          );
           console.log(response.data.group);
         } else {
           console.log(response);
@@ -82,14 +97,19 @@ export default function AddGroup() {
           </div>
         </div>
         <div className={styles.btn}>
-        <Link to ="/groups">
-        <button type='submit' value='Cancel' className='cancel'>
-          Cancel
-        </button>
-        </Link>
-        <button type='submit' value='Submit' className='submit'>
-          Submit
-        </button>
+          <Link to='/groups'>
+            <button type='submit' value='Cancel' className='cancel'>
+              Cancel
+            </button>
+          </Link>
+          <button type='submit' value='Submit' className='submit'>
+            Submit
+          </button>
+          {message.status && (
+                <p className={!message.status.ok ? "errorMsg" : ""} style={{fontSize: "0.65rem"}}>
+                  {message.status.msg}
+                </p>
+              )}
         </div>
       </form>
     </div>

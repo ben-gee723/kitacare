@@ -8,9 +8,20 @@ export default function SingleGroupEdit(props) {
   const [group, setGroup] = useState(
     props.location.state ? props.location.state.group : {}
   );
+  const [message, setMessage] = useState({
+    submitting: false,
+    status: null,
+  });
   //const group = props.location.state.group;
   //console.log(group)
   let history = useHistory();
+
+  const handleMessage = (ok, msg) => {
+    setMessage({
+      submitting: false,
+      status: { ok, msg },
+    });
+  };
 
   const handleDelete = () => {
     axios(`http://localhost:3001/groups/deleteGroup/${group._id}`, {
@@ -28,12 +39,14 @@ export default function SingleGroupEdit(props) {
 
   const handleEdit = e => {
     e.preventDefault();
+    setMessage({ submitting: true });
     axios(`http://localhost:3001/groups/${group._id}`, editedGroup, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     }).then(result => {
       if (result.success) {
         setEditedGroup(result.group);
+        handleMessage(true, "Thank you! The group was updated.");
       } else {
         console.log(result);
       }
@@ -52,7 +65,7 @@ export default function SingleGroupEdit(props) {
         name='managerForm'
         key='group._id'
       >
-        <div className='reg'>
+        <div>
           <h1>Edit Group!</h1>
         </div>
         <div className={styles.addinfo}>
@@ -95,36 +108,6 @@ export default function SingleGroupEdit(props) {
             onChange={editedValue}
           />
         </div>
-        <div className={styles.addinfo}>
-          <label>Children</label>
-          <br />
-          <input
-            type='text'
-            name='children'
-            placeholder='please enter the child id'
-            onChange={editedValue}
-          />
-        </div>
-        <div className={styles.addinfo}>
-          <label>Teachers</label>
-          <br />
-          <input
-            type='text'
-            name='teachers'
-            placeholder='please enter the teacher id'
-            onChange={editedValue}
-          />
-        </div>
-        <div className={styles.addinfo}>
-          <label>Kindergarten</label>
-          <br />
-          <input
-            type='text'
-            name='kg'
-            placeholder={group.kg}
-            onChange={editedValue}
-          />
-        </div>
         <br />
         <div className={styles.btnContainer}>
           <Link to='/groups'>
@@ -133,13 +116,21 @@ export default function SingleGroupEdit(props) {
           <button type='submit' value='Edit' className='att'>
             Submit
           </button>
+          {message.status && (
+            <p
+              className={!message.status.ok ? "errorMsg" : ""}
+              style={{ fontSize: "0.65rem" }}
+            >
+              {message.status.msg}
+            </p>
+          )}
         </div>
       </form>
       <button
         type='submit'
         value='delete'
         className='next'
-        style={{width: "15%"}}
+        style={{ width: "16%", marginLeft:"8.6rem", marginBottom: "1rem" , marginTop:"0.5rem"}}
         onClick={() => handleDelete(group._id)}
       >
         Delete

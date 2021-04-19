@@ -3,16 +3,26 @@
 import React, { useContext, useState } from "react";
 import { MyContext } from "../../Container";
 import kid from "../../images/kid_avatar.svg";
+import kid2 from "../../images/kid_avatar2.svg";
+import kid3 from "../../images/kid_avatar3.svg";
+import kid4 from "../../images/kid_avatar4.svg";
 import styles from "./children.module.scss";
 import axios from "axios";
+const images = [kid, kid2, kid3, kid4];
+
 
 export default function Child(props) {
   const { user } = useContext(MyContext);
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const child = props.child;
+<<<<<<< HEAD
   console.log(child.firstName);
   console.log(child.group);
+=======
+  
+  const randImg = images[props.imageNum];
+>>>>>>> 2130f0f97a482810b8922f0324e1978bc8532eb0
 
   const getAllGroups = () => {
     axios({
@@ -79,12 +89,13 @@ export default function Child(props) {
 
   return (
     <div className={styles.scontainer} key={child._id}>
-      <img src={kid} className={styles.kid} />
+      <img src={randImg} className={styles.kid} />
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
         </p>
       </div>
+      <div className={styles.maininfo}>
       <div className={styles.col}>
         <p className={styles.info}>{child.birthday.split("T")[0]}</p>
       </div>
@@ -148,11 +159,13 @@ export default function Child(props) {
         {groups && groups.length ? (
           <form>
             <div
+            className={styles.groups}
               style={{
                 padding: "5%",
                 display: "flex",
                 flexFlow: "row wrap",
                 justifyContent: "space-between",
+                color: "black"
               }}>
               {groups.map((group) => {
                 return (

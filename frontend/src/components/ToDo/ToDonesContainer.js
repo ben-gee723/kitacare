@@ -9,7 +9,7 @@ export default function ToDonesContainer({ toDones, updateItem, deleteItem }) {
       {toDones.map((todone) => {
         return (
           <div className='todones-item' key={todone.text}>
-            <div>{todone.text}</div>
+            <div className='dones'>{todone.text}</div>
             <div>
               <button className='btn' onClick={() => updateItem(todone.text)}>
                 {" "}

@@ -1,20 +1,20 @@
 @import "../../globalCSS/variables";
 
 .mpContainer {
-  margin: 0 auto;
+  //margin: 0 auto;
   padding: 1rem;
   display: flex;
   justify-content: center;
 }
 
 .welcome {
-  margin: 1rem 6rem;
+  //margin: 1rem 6rem;
   text-align: center;
   color: $primary-blue;
   box-shadow: $secondary-orange-tranparent 0px 5px 15px;
   background-color: $black;
-  width: 100%;
-  margin: 0 auto;
+  //width: 100%;
+  //margin: 0 auto;
 }
 
 .mInfo {
@@ -50,6 +50,8 @@
 }
 
 .mGroup {
+  grid-column-start: 1;
+  grid-row-start: 1;
   background-color: $light;
   //background-color: $secondary-lightblue-transparent;
   padding: 1rem;
@@ -60,7 +62,20 @@
   }
 }
 
+.mChildren {
+  border-radius: 1rem;
+  padding: 1rem;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  h3 {
+    color: $primary-orange;
+  }
+}
+
 .mTeachers {
+  grid-column-start: 2;
+  grid-row-start: 1;
   background-color: $light;
   // background-color: $secondary-lightblue-transparent;
   padding: 1rem;
@@ -68,6 +83,9 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   h3 {
     color: $primary-orange;
+  }
+  button {
+    margin: 0.2rem;
   }
 }
 
@@ -82,133 +100,76 @@
 }
 
 .calendar {
-  margin-left: 1.5rem;
+  //margin-left: 1.5rem;
   grid-column-start: 2;
-  grid-row-start: 1;
+  grid-row-start: 2;
   border-radius: 1rem;
 }
 
 /* Iphone + Android */
 //IPHONE 6/7
-@media only screen and(min-width: 414px) and(max-width: 736px) {
-  .mTodo {
-    position: relative;
-    margin-right: 2.5rem;
-  }
-}
-@media only screen and (max-width: 46rem) {
+@media only screen and (max-width: 768px) {
+
   .mpContainer {
-    margin: 0 auto;
+    display: block;
     padding: 1rem;
-    display: flex;
-    height: 190vh;
-  }
-  .welcome {
-    margin: 1rem 6rem;
-    text-align: center;
-    padding-top: 0.2rem;
     width: 100%;
-    h2 {
-      font-size: 1.5rem;
-    }
-    margin: 0 auto;
   }
-  .mInfo {
-    width: 40%;
-    padding: 0;
-    line-height: 1.5rem;
-    margin-right: 0;
-    height: 16.35rem;
-    .mImg{
-      width: 85%;
-      height: 45%;
-      margin: 0 auto;
-      img{
-        position: relative;
-        right: 0.2rem;
-      }
-    }
-  }
+
   .features {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mInfo {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 50%;
-  }
-  .mGroup {
+    margin: 0;
+    margin-top: 10px;
+    line-height: normal;
     padding: 1rem;
-    font-size: 0.7rem;
   }
+
   .mTeachers {
-    padding: 1rem;
-    font-size: 0.7rem;
+    margin: 0;
+    margin-top: 10px;
+
+    button {
+      margin: 0;
+    }
+  }
+
+  .mChildren {
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .mImg {
+    margin-right: 1rem;
+  }
+
+  .mGroup {
+    margin: 0;
+    margin-top: 15px;
+    h2 {
+      font-size: 1.2rem;
+    }
   }
 
   .mTodo {
-    position: relative;
-    right: 11rem;
-    margin-left: 1.5rem;
-    bottom: 18.4rem;
-    input {
-      width: 100%;
-    }
+    margin: 0;
+    margin-top: 15px;
   }
-  .calendar {
-    position : relative;
-    width: 150%;
-    padding-top: 0.2rem;
-    padding-right: 20.55rem;
-    bottom: 18rem;
-    right: 5.35rem;
-  }
-}
 
-/*KINDLE + TABLETS + IPAD*/
-@media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
-  .welcome {
-    margin: 1rem 6rem;
-    text-align: center;
-    padding-top: 0.2rem;
+  .calendar {
     width: 100%;
-    h2 {
-      font-size: 1.5rem;
-    }
-    margin: 0 auto;
+    margin: 0;
+    margin-top: 15px;
   }
-  .mInfo {
-    width: 40%;
-    padding-top: 2rem;
-    line-height: 1.5rem;
-    margin-right: 0;
-    height: 18rem;
-    .mImg{
-      width: 55%;
-      height: 52%;
-      margin: 0 auto;
-      img{
-        position: relative;
-        top: 0.2rem;
-        left: 0.2rem;
-        width: 80%;
 
-      }
-    }
-  }
-  .features {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 50%;
-  }
-  
-  .mGroup, .mTeachers {
-    padding: 1rem;
-    font-size: 0.85rem;
-    height: 16rem;
-  }
-  .calendar {
-    position : relative;
-    bottom: 45rem;
-    right: 23.5rem;
+  .welcome {
+    padding-top: 1rem;
+    color: $primary-blue;
+    font-size: 0.7rem;
   }
 }

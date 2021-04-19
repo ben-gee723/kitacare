@@ -8,9 +8,19 @@ export default function CalendarForm(props) {
     name: "",
     //creator: "",
   });
-
+  const [message, setMessage] = useState({
+    submitting: false,
+    status: null,
+  });
   console.log(data);
   const date = props.day;
+
+  const handleMessage = (ok, msg) => {
+    setMessage({
+      submitting: false,
+      status: { ok, msg },
+    });
+  };
 
   const submitForm = e => {
     e.preventDefault();
@@ -26,6 +36,7 @@ export default function CalendarForm(props) {
       .then(response => {
         if (response.data.success) {
           console.log(response.data.event);
+          handleMessage(true, "Event added!");
         } else {
           console.log(response);
         }
@@ -41,7 +52,7 @@ export default function CalendarForm(props) {
     <div className='cform'>
       <h1>Add Event!</h1>
       <form onSubmit={submitForm}>
-        <div className="date">
+        <div className='date'>
           <label htmlFor='start'> Start Date</label>
           <input
             type='date'
@@ -52,7 +63,7 @@ export default function CalendarForm(props) {
             onChange={grabValue}
           />
         </div>
-        <div className="date">
+        <div className='date'>
           <label htmlFor='end'> End Date</label>
           <input
             type='date'
@@ -67,12 +78,20 @@ export default function CalendarForm(props) {
           type='text'
           name='name'
           placeholder='Enter event'
-          className="text-event"
+          className='text-event'
           onChange={grabValue}
         />
         <button type='submit' value='Submit' className='submit event'>
           Submit
         </button>
+        {message.status && (
+          <p
+            className={!message.status.ok ? "errorMsg" : ""}
+            style={{ fontSize: "0.65rem" , margin: "0.5rem"}}
+          >
+            {message.status.msg}
+          </p>
+        )}
       </form>
     </div>
   );

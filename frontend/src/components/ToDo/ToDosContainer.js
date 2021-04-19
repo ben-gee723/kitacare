@@ -12,14 +12,15 @@ export default function ToDosContainer(props) {
   return (
     <div className="todos-container">
       <form className="todo-form" onSubmit={addData}>
+        <h3>Task List:</h3>
         <label className="input-item">
-          <h3>Task List:</h3>
           <div className="actions">
             <label>
               <input
                 type="text"
                 name="todo"
                 onChange={(e) => setInputFieldValue(e.target.value)}
+                className="input-todo"
               />
               <button className="btn" type="submit" value="Add">
                 Add{" "}

@@ -28,14 +28,14 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   const getAllTeachers = () => {
     axios({
@@ -47,7 +47,7 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
+      .then(response => {
         if (response.data.success) {
           console.log(response.data.teachers);
           setTeachers(response.data.teachers);
@@ -55,7 +55,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   const getAllChildren = () => {
     axios({
@@ -67,7 +67,7 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
+      .then(response => {
         if (response.data.success) {
           console.log(response.data.allChildren);
           setChildren(response.data.allChildren);
@@ -75,7 +75,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
   useEffect(() => {
     getAllGroups();
@@ -92,17 +92,21 @@ export default function Mpage(props) {
           <div className={styles.mImg}>
             <img src={managerImg} alt='manager' />
           </div>
-          <p>
-            {user.firstName} {user.lastName}
-          </p>
-          <p>{user.email}</p>
-          <button
-            type='submit'
-            value='edit'
-            className='edit'
-            onClick={() => handleEdit()}>
-            Edit info
-          </button>
+          <div>
+            <p>
+              {user.firstName} {user.lastName}
+            </p>
+            <p>{user.email}</p>
+            <button
+              type='submit'
+              value='edit'
+              className='edit'
+              onClick={() => handleEdit()}
+              className='edit'
+            >
+              Edit Info
+            </button>
+          </div>
         </div>
 
         <div className={styles.features}>
@@ -129,7 +133,7 @@ export default function Mpage(props) {
               how many children in that teachers group and all the teachers
               necessary information!
             </p>
-            <p>Total: {teachers.length}</p>
+            <p>Total: {teachers.lengt}</p>
             <Link to='/tregister'>
               <button type='submit' value='add' className='add'>
                 Add
@@ -141,7 +145,7 @@ export default function Mpage(props) {
               </button>
             </Link>
           </div>
-          <div className={styles.mTeachers}>
+          <div className={styles.mChildren}>
             <h3>Childrens</h3>
             <p>Find all the information of the children:</p>
             <p>
@@ -163,9 +167,9 @@ export default function Mpage(props) {
           <div className={styles.mTodo}>
             <ToDo />
           </div>
-          {/* <div className={styles.calendar}>
+          <div className={styles.calendar}>
             <Calendar />
-          </div> */}
+          </div>
         </div>
       </div>
     </>
