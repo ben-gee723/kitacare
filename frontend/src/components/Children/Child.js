@@ -130,7 +130,7 @@ export default function Child(props) {
         <p className={styles.info}>Group: {child.groupName}</p>
       </div>
       </div>
-      <div>
+      <div className={styles.btn2}>
         {user.role == "Manager" && (
           <button
             type='submit'

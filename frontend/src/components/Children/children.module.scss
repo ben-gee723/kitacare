@@ -9,7 +9,8 @@
 }
 
 .kid {
-  width: 40%;
+  width: 50%;
+  height: 50%;;
   margin: 0 auto;
   background-color: $secondary-lightblue-transparent2;
   border-radius: 50%;
@@ -38,7 +39,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0.5rem 0 0.5rem 0;
-  width: auto;
+  width: 20%;
   margin: 1rem;
   background-color: $light;
   color: $dark;
@@ -89,6 +90,10 @@
   h3 {
     text-align: left;
   }
+}
+
+.btn2 {
+  margin-right: 0.5rem;
 }
 
 .col2 {
