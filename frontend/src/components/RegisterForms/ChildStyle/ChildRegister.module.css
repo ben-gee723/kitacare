@@ -1,0 +1,85 @@
+.formContainter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.childForm {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
+  padding: 5px 5px 0 5px;
+  margin: 1rem;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.childFormContainerInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.childFormInner {
+  margin: 1rem;
+  width: 25rem;
+}
+
+.regInfo {
+  padding: 5px 0px;
+}
+
+.regInfo h3 {
+  font-size: 1rem;
+}
+
+.inputBox input {
+  border: none;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.listUnstyled {
+  margin: 1rem;
+  list-style: none;
+}
+
+.formCheckLabel {
+  margin: 0 1rem 1rem 1rem;
+}
+
+.emerInput label {
+  margin: 5px 0 5px 0;
+}
+
+.emerInput input {
+  border: none;
+  margin: 2px 0;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.att {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem auto;
+  padding: .5rem;
+  width: 9rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-radius: 5px;
+  background-color: darkorange;
+  color: white;
+  font-weight: bold;
+}
+/*# sourceMappingURL=ChildRegister.module.css.map */
