@@ -81,16 +81,21 @@ export default function Attendance() {
 
   return (
     <div className={styles.tAttendance}>
-      <NotHere
-        hereChildren={here}
-        notHereChildren={notHere}
-        handleAttendance={handleAttendance}
-      />
-      <Here
-        hereChildren={here}
-        notHereChildren={notHere}
-        handleAttendance={handleAttendance}
-      />
+      <div>
+        <h3>Attendance</h3>
+        <div className={styles.centering}>
+          <NotHere
+            hereChildren={here}
+            notHereChildren={notHere}
+            handleAttendance={handleAttendance}
+          />
+          <Here
+            hereChildren={here}
+            notHereChildren={notHere}
+            handleAttendance={handleAttendance}
+          />
+        </div>
+      </div>
     </div>
   );
 }

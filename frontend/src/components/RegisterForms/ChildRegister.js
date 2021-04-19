@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import styles from "./registerForm.module.scss";
+import stylesChild from './ChildStyle/ChildRegister.module.scss';
 import { sendData, submitForm } from "../../logic/registerLogic";
 import { MyContext } from "../../Container";
 
