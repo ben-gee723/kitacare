@@ -127,7 +127,7 @@ export default function Child(props) {
           </p>
         </div>
       </div>
-      <div>
+      <div className={styles.btn2}>
         {user.role == "Manager" && (
           <button
             type='submit'
