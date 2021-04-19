@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { MyContext } from "../../Container";
 import Child from "./Child";
 
-export default function AllChildren() {
+export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
   const { user } = useContext(MyContext);
 
@@ -36,6 +36,10 @@ export default function AllChildren() {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleEdit = (child) => {
+    props.history.push({ pathname: "/editchild", state: { child: child } });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.cContainer}>
@@ -43,7 +47,12 @@ export default function AllChildren() {
           ? children.map((child, i) => {
               console.log(child);
               return (
-                <Child key={i} child={child} imageNum={i > 3 ? i % 4 : i} />
+                <Child
+                  key={i}
+                  child={child}
+                  imageNum={i > 3 ? i % 4 : i}
+                  handleEdit={handleEdit}
+                />
               );
             })
           : null}

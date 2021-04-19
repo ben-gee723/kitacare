@@ -36,9 +36,6 @@ export default function Child(props) {
       .catch((err) => console.log(err));
   };
 
-  const handleEdit = (child) => {
-    props.history.push({ pathname: "/editchild", state: { child: child } });
-  };
   const handleEditGroup = (child) => {
     getAllGroups();
   };
@@ -136,7 +133,7 @@ export default function Child(props) {
             type='submit'
             value='edit'
             className='fixedit'
-            onClick={() => handleEdit(child)}>
+            onClick={() => props.handleEdit(child)}>
             Edit
           </button>
         )}
