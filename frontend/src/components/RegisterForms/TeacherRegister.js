@@ -37,10 +37,6 @@ export default function TeacherRegister(props) {
           <h1>Register as Teacher!</h1>
         </div>
 
-        <div className="regInfo">
-          <h3>Information we need:</h3>
-        </div>
-
         <div className="inputBox">
           <label className="details">First name</label>
           <br />
@@ -69,10 +65,6 @@ export default function TeacherRegister(props) {
           <label className="details">Email</label>
           <br />
           <input type="email" name="email" placeholder="E-mail" />
-        </div>
-
-        <div className={styles.address}>
-          <h3>Address:</h3>
         </div>
 
         <div className="inputBox">

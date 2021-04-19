@@ -28,9 +28,7 @@ export default function KgRegister() {
             <h1>Register Kindergarten!</h1>
           </div>
 
-          <div className='regInfo'>
-            <h3>Information we need:</h3>
-          </div>
+          
 
           <div className='inputBox'>
             <label className='details'>Kindergarten name</label>
@@ -50,9 +48,7 @@ export default function KgRegister() {
             <input type='email' name='email' placeholder='E-mail' />
           </div>
 
-          <div className={styles.address}>
-            <h3>Address:</h3>
-          </div>
+         
 
           <div className='inputBox'>
             <label className='details'>Street</label>
