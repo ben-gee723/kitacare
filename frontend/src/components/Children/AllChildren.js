@@ -27,6 +27,7 @@ export default function AllChildren() {
     })
       .then((result) => {
         if (result.data.success) {
+          console.log(result.data.allChildren);
           setChildren(result.data.allChildren);
         } else {
           console.log(result);
@@ -39,9 +40,12 @@ export default function AllChildren() {
     <div className={styles.container}>
       <h2>Children!</h2>
       <div className={styles.cContainer}>
-        {children.map((child, i) => {
-          return <Child key={i} child={child} />;
-        })}
+        {children.length
+          ? children.map((child, i) => {
+              console.log(child);
+              return <Child key={i} child={child} />;
+            })
+          : null}
       </div>
       {user.role == "Manager" && (
         <Link to='/cregister'>

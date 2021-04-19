@@ -11,6 +11,8 @@ export default function Child(props) {
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const child = props.child;
+  console.log(child.firstName);
+  console.log(child.group);
 
   const getAllGroups = () => {
     axios({
@@ -119,7 +121,9 @@ export default function Child(props) {
         <p className={styles.info}>Dietary Needs: {child.dietaryNeeds}</p>
       </div>
       <div className={styles.col2}>
-        <p className={styles.info}>Group: {child.group.groupName}</p>
+        <p className={styles.info}>
+          Group: {child.group ? child.group.groupName : "none"}
+        </p>
       </div>
       <div>
         {user.role == "Manager" && (
