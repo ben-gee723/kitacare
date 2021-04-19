@@ -180,7 +180,7 @@
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .addcontainer {
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
   }
   .addinfo {
@@ -201,13 +201,13 @@
       color: $primary-blue;
       font-size: 1.15rem;
       text-align: center;
-      margin-right: 5rem;
+      margin-right: 0rem;
       margin-bottom: 1rem;
     }
   }
   .btn {
     width: 100%;
-    margin: 1rem 2rem;
+    margin: 2rem 12rem;
     p {
       padding-top: 0.5rem;
     }

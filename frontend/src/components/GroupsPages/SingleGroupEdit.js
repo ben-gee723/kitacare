@@ -130,7 +130,7 @@ export default function SingleGroupEdit(props) {
         type='submit'
         value='delete'
         className='next'
-        style={{ width: "16.5%", marginLeft:"7.3rem", marginBottom: "1rem" }}
+        style={{ width: "16%", marginLeft:"8.6rem", marginBottom: "1rem" , marginTop:"0.5rem"}}
         onClick={() => handleDelete(group._id)}
       >
         Delete
