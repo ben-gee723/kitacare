@@ -23,6 +23,7 @@ export default function Attendance() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -54,6 +55,7 @@ export default function Attendance() {
     axios(`http://localhost:3001/child/updateAttendance/${childId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
       data: obj,
     }).then((result) => {
       if (result.data.success) {

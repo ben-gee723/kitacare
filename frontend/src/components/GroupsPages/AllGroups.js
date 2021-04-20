@@ -18,6 +18,7 @@ export default function AllGroups(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -75,11 +76,6 @@ export default function AllGroups(props) {
                   onClick={() => handleEdit(group)}>
                   Edit
                 </button>
-                {/* <Link
-                  to={{
-                    pathname: "/children",
-                    state: { group: group._id },
-                  }}> */}{" "}
                 <button
                   type='submit'
                   value='view'
@@ -87,7 +83,6 @@ export default function AllGroups(props) {
                   onClick={() => viewChildrenHandler(group._id)}>
                   view children
                 </button>
-                {/* </Link> */}
               </div>
             </div>
           );

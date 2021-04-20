@@ -1,10 +1,11 @@
+/** @format */
+
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 //routes:
-const indexRoutes = require("./routes/indexRoute");
 const userRoutes = require("./routes/userRoutes");
 const kgRoutes = require("./routes/kgRoutes");
 const childRoutes = require("./routes/childRoutes");
@@ -23,7 +24,6 @@ if (config.environment === "development") {
   app.use(morgan("dev"));
 }
 
-
 //cors:
 // const setCors = (req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -36,7 +36,6 @@ if (config.environment === "development") {
 // app.use(setCors);
 
 //endpoints:
-//app.use("/", indexRoutes);
 app.use("/users", userRoutes);
 app.use("/kg", kgRoutes);
 app.use("/child", childRoutes);
@@ -50,8 +49,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("connection established"))
-  .catch(err => console.log(err));
-
+  .catch((err) => console.log(err));
 
 //ERROR HANDLING:
 app.use((req, res, next) => {
