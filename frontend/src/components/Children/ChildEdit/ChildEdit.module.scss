@@ -3,21 +3,20 @@
 .regForm{
     // border: 1px solid red;
     margin: 1rem auto;
-    width: 70%;
+    width: 65%;
     height: auto;
 }
 
 .formContainer{
-    // border: 1px solid orange;
     display: flex;
     justify-content: center;
-    margin: 1rem auto;
+    flex-flow: wrap;
 }
 
 .formContColumn{
     // border: 1px solid yellow;
     margin: 1rem;
-    width: 30%;
+    width: 29%;
 }
 
 .addinfo{
@@ -70,3 +69,36 @@
     }
 }
 
+
+@media only screen and (max-width: 1024px) {
+    .regForm{
+        width: 100%;
+    }
+    .formContColumn{
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .regForm{
+        width: 100%;
+    }
+    .formContColumn{
+        width: 29%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .regForm{
+        width: 80%;
+    }
+    .formContColumn{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .regForm{
+        width: 90%;
+    }
+}

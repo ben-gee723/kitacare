@@ -1,6 +1,6 @@
 .regForm {
   margin: 1rem auto;
-  width: 70%;
+  width: 65%;
   height: auto;
 }
 
@@ -11,12 +11,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 1rem auto;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
 }
 
 .formContColumn {
   margin: 1rem;
-  width: 30%;
+  width: 29%;
 }
 
 .addinfo {
@@ -29,7 +30,7 @@
 }
 
 .addinfo input {
-  background-color: #f1f1f1;
+  background-color: lightgray;
   border-radius: 5px;
   border: none;
   width: 100%;
@@ -63,5 +64,38 @@
 .btnContainer .cancelBtn {
   background-color: #423f40;
   margin-left: 1%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .regForm {
+    width: 100%;
+  }
+  .formContColumn {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .regForm {
+    width: 100%;
+  }
+  .formContColumn {
+    width: 29%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .regForm {
+    width: 80%;
+  }
+  .formContColumn {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .regForm {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=ChildEdit.module.css.map */
