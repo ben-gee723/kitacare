@@ -44,16 +44,11 @@
     margin: 5px auto;
 
     button {
-        // margin: 5px;
         padding: 10px;
         width: 49%;
 
         border-radius: 5px;
-        border: none;
-
         color: white;
-        font-weight: bold;
-
         transition: opacity 1s 1s ease-in-out; 
     }
 
@@ -79,7 +74,12 @@
 
     .cancelBtn{
         background-color: rgb(66,63,64);
+        border: 1px solid rgb(66,63,64);
         margin-left: 1%;
+    }
+    .cancelBtn:hover{
+        background-color: white;
+        color:  rgb(66,63,64);
     }
 }
 
