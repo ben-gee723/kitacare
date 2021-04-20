@@ -40,13 +40,14 @@ export default function Login(props) {
         "Content-Type": "application/json",
       },
       data: formData,
+      withCredentials: true,
     })
       .then((response) => {
         console.log(response);
         if (response.data.success) {
           setUser(response.data.userInfo.user);
           setIsLogin(true);
-          setKg(response.data.kg)
+          setKg(response.data.kg);
           console.log(response.data);
         } else {
           console.log(response);

@@ -2,6 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
+const { auth } = require("../middlewares/authentication");
 const {
   getAllChildren,
   getChildSingleChild,
@@ -17,22 +18,21 @@ const {
 const {
   deleteChild,
 } = require("../controllers/childControllers/deleteControllers");
-const auth = require("../middlewares/authentication");
 //GET:
-router.get("/getChildSingleChild/:id", getChildSingleChild); // child id
-router.get("/getAllChildren/:id", getAllChildren); // kg id
-router.get("/getChildrenFromGroup/:id", getChildrenFromGroup); // group id
-router.get("/getAttendanceOfChild/:id", getAttendanceOfChild); // group id
+router.get("/getChildSingleChild/:id", auth, getChildSingleChild); // child id
+router.get("/getAllChildren/:id", auth, getAllChildren); // kg id
+router.get("/getChildrenFromGroup/:id", auth, getChildrenFromGroup); // group id
+router.get("/getAttendanceOfChild/:id", auth, getAttendanceOfChild); // group id
 
 //POST:
-router.post("/addChild", addChild);
+router.post("/addChild", auth, addChild);
 
 //PUT:
-router.put("/updateChild/:id", updateChild);
-router.put("/deleteChildsGroup/:id", deleteChildsGroup);
-router.put("/updateAttendance/:id", updateAttendance);
+router.put("/updateChild/:id", auth, updateChild);
+router.put("/deleteChildsGroup/:id", auth, deleteChildsGroup);
+router.put("/updateAttendance/:id", auth, updateAttendance);
 
 //DELETE:
-router.delete("/deleteChild/:id", deleteChild);
+router.delete("/deleteChild/:id", auth, deleteChild);
 
 module.exports = router;
