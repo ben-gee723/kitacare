@@ -13,7 +13,6 @@ import {
   toDate,
   addMonths,
   subMonths,
-  parse
 } from "date-fns";
 import {
   faChevronCircleLeft,
@@ -22,6 +21,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CalendarForm from "./CalendarForm";
 import axios from "axios";
+import EventsCalendar from "./EventsCalendar";
 
 export default function Calendar() {
   const left = <FontAwesomeIcon icon={faChevronCircleLeft} />;
@@ -40,14 +40,14 @@ export default function Calendar() {
         "Content-Type": "application/json",
       },
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           setShowEvents(result.data.event);
         } else {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }, []);
 
   const header = () => {
@@ -97,13 +97,12 @@ export default function Calendar() {
 
     let formattedDate = "";
 
-
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
 
-        const relatedEvent = showEvents.find((event) => {
+        const relatedEvent = showEvents.find(event => {
           return isSameDay(Date.parse(day), Date.parse(event.startDate));
         });
 
@@ -117,7 +116,8 @@ export default function Calendar() {
                 : ""
             }`}
             key={day}
-            onClick={() => onDateClick(toDate(cloneDay))}>
+            onClick={() => onDateClick(toDate(cloneDay))}
+          >
             <span className='number'>{formattedDate}</span>
             <span className='bg'>{formattedDate}</span>
           </div>
@@ -134,61 +134,13 @@ export default function Calendar() {
     return <div className='body'>{rows}</div>;
   };
 
-  // const events = () => {
-  //   const monthStart = startOfMonth(currentDate);
-  //   const dateFormat = "d";
-  //   const rows = [];
-  //   let days = [];
-  //   let formattedDate = "";
-  //
-  //     return showEvents.map(events => {
-  //       const eventObj = {
-  //         ...events,
-  //         startDate: events.startDate.split("T"),
-  //         endDate: events.endDate.split("T"),
-  //       };
-  //     //  console.log(eventObj);
-  //       for (const i in eventObj.startDate) {
-  //         let firstDay = new Date(eventObj.startDate[i]);
-  //         const endDay = new Date(eventObj.endDate[i]);
-  //         while (firstDay <= endDay) {
-  //           for (let i = 0; i < 1; i++) {
-  //             formattedDate = format(firstDay, dateFormat);
-  //             const cloneDay = firstDay;
-  //             console.log(firstDay);
-  //             days.push(
-  //               <div
-  //                 className={`column cell ${
-  //                   !isSameMonth(firstDay, monthStart) ? firstDay : false
-  //                 }`}
-  //                 key={firstDay}
-  //                 onClick={() => onDateClick(toDate(cloneDay))}
-  //               >
-  //                 <span className='number'>{formattedDate}</span>
-  //                 <span className='bg'>{formattedDate}</span>
-  //               </div>
-  //             );
-  //             firstDay = addDays(firstDay, 1);
-  //           }
-  //           rows.push(
-  //             <div className='row' key={firstDay}>
-  //               {days}
-  //             </div>
-  //           );
-  //           days = [];
-  //         }
-  //       }
-  //       return <div className='body'>{rows}</div>;
-  //     });
-  // };
-
   const nextMonth = () => {
     setCurrentDate(addMonths(currentDate, 1));
   };
   const prevMonth = () => {
     setCurrentDate(subMonths(currentDate, 1));
   };
-  const onDateClick = (day) => {
+  const onDateClick = day => {
     setSelectedDate(day);
   };
 
@@ -202,9 +154,9 @@ export default function Calendar() {
       <>
         <div>{header()}</div>
         <div>{days()}</div>
-        {/*<div style={{ backgroundColor: "red" }}>{events()}</div>*/}
         <div onClick={() => setShowForm(!showForm)}>{cells()}</div>
       </>
+      <EventsCalendar />
     </div>
   );
 }

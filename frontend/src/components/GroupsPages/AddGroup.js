@@ -12,14 +12,16 @@ export default function AddGroup(props) {
     status: null,
   });
 
+  let timer;
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
     });
-    setTimeout(function () {
+    timer = setTimeout(() => {
       props.history.push({ pathname: "/groups" });
     }, 2000);
+    return () => clearTimeout(timer);
   };
 
   const submitForm = e => {

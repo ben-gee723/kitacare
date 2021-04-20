@@ -16,11 +16,16 @@ export default function SingleGroupEdit(props) {
   //console.log(group)
   let history = useHistory();
 
+  let timer;
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
     });
+    timer = setTimeout(() => {
+      props.history.push({ pathname: "/groups" });
+    }, 2000);
+    return () => clearTimeout(timer);
   };
 
   const handleDelete = () => {
@@ -132,7 +137,7 @@ export default function SingleGroupEdit(props) {
         className='next'
         style={{
           width: "5rem",
-        margin: "0 auto"
+          margin: "0 auto",
         }}
         onClick={() => handleDelete(group._id)}
       >
