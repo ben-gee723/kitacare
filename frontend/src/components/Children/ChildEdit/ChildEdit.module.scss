@@ -53,16 +53,30 @@
 
         color: white;
         font-weight: bold;
+
+        transition: opacity 1s 1s ease-in-out; 
     }
 
     .submitBtn{
         width: 100%;
         background-color: rgb(247,77,37);
+        border: 1px solid rgb(247,77,37);
     }
-    .deleteBtn{
+    .submitBtn:hover {
+        background-color: white;
+        color: rgb(247,77,37);
+    }
+    
+    .deleteBtn {
         background-color: rgb(25,141,168);
+        border:1px solid rgb(25,141,168) ;
         margin-right: 1%;
     }
+    .deleteBtn:hover {
+        background-color: white;
+        color: rgb(25,141,168);
+    }
+
     .cancelBtn{
         background-color: rgb(66,63,64);
         margin-left: 1%;
