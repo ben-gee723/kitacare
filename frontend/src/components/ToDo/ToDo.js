@@ -22,6 +22,7 @@ export default function Todo() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -42,6 +43,7 @@ export default function Todo() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
       data: item,
     })
       .then((result) => {
@@ -62,6 +64,7 @@ export default function Todo() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
       data: { value: value },
     })
       .then((result) => {
@@ -82,6 +85,7 @@ export default function Todo() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
       data: { value: value },
     })
       .then((result) => {

@@ -78,6 +78,7 @@ const sendData = (type, payload) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
+    withCredentials: true,
     data: payload,
   })
     .then((response) => {

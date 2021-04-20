@@ -38,6 +38,7 @@ import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
 import AddGroup from "./components/GroupsPages/AddGroup";
 import ChildEdit from "./components/Children/ChildEdit";
+import SuccessPage from "./components/Children/SuccessPage";
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
           <Route path='/children' component={AllChildren} />
           <Route path='/addgroup' component={AddGroup} />
           <Route path='/editprofile' component={EditProfile} />
+          <Route path='/success' component={SuccessPage} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

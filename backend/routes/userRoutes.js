@@ -2,8 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const cors = require("cors");
-const auth = require("../middlewares/authentication");
+const { auth } = require("../middlewares/authentication");
 
 const {
   getManagers,
@@ -31,31 +30,31 @@ const {
 } = require("../controllers/userControllers/putControllers");
 //GET:
 //users/manager
-router.get("/manager/:id", getManager); //:manager id
-router.get("/managers/:id", getManagers); //:kgId
+router.get("/manager/:id", auth, getManager); //:manager id
+router.get("/managers/:id", auth, getManagers); //:kgId
 
 //users/teacher
 //users/teachers
-router.get("/teacher/:id", getTeacher); //:teacher id
-router.get("/teachers/:id", getTeachers); //:kgId
+router.get("/teacher/:id", auth, getTeacher); //:teacher id
+router.get("/teachers/:id", auth, getTeachers); //:kgId
 //both
-router.get("/getTodos/:id", getTodos);
+router.get("/getTodos/:id", auth, getTodos);
 
 //POST:
-router.post("/manager", addManager);
-router.post("/teacher", addTeacher);
+router.post("/manager", auth, addManager);
+router.post("/teacher", auth, addTeacher);
 router.post("/login", login);
-router.post("/addTodo/:id", addTodo);
+router.post("/addTodo/:id", auth, addTodo);
 
 //PUT:
-router.put("/users/:id", updateUser);
-router.put("/updatePassword/:id", updatePassword);
-router.put("/userGroup/:id", deleteUsersGroup);
-router.put("/updateTodo/:id", updateTodo);
+router.put("/users/:id", auth, updateUser);
+router.put("/updatePassword/:id", auth, updatePassword);
+router.put("/userGroup/:id", auth, deleteUsersGroup);
+router.put("/updateTodo/:id", auth, updateTodo);
 
 //DELETE
-router.delete("/managers/:id", deleteManager);
-router.delete("/teachers/:id", deleteTeacher);
-router.delete("/deleteTodo/:id", deleteTodo);
+router.delete("/managers/:id", auth, deleteManager);
+router.delete("/teachers/:id", auth, deleteTeacher);
+router.delete("/deleteTodo/:id", auth, deleteTodo);
 
 module.exports = router;
