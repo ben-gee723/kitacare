@@ -7,8 +7,9 @@ export default function Register() {
   return (
     <div className={styles.regContainer}>
       <div className='reg'>
-        <h1 >Choose your Account!</h1><br/>
+        Choose your Account!
       </div>
+      <br/>
       <div className="btnform">
       <Link to='/kgregister'>
         <button className="att">Register a Kindergarten</button>

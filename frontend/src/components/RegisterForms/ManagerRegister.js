@@ -38,11 +38,7 @@ export default function ManagerRegister(props) {
         onSubmit={(e) => submitManagerForm(e)}
         name='managerForm'>
         <div className='reg'>
-          <h1>Register a Menager!</h1>
-        </div>
-
-        <div className='regInfo'>
-          <h3>Information we need:</h3>
+          Register a Menager!
         </div>
 
         <div className='inputBox'>
@@ -73,10 +69,6 @@ export default function ManagerRegister(props) {
           <label className='details'>Email</label>
           <br />
           <input type='email' name='email' placeholder='E-mail' />
-        </div>
-
-        <div className={styles.address}>
-          <h3>Address:</h3>
         </div>
 
         <div className='inputBox'>

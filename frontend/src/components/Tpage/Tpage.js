@@ -24,9 +24,6 @@ export default function Tpage(props) {
 
   return (
     <>
-      <div className={styles.welcome}>
-        <h2>Welcome {user.firstName}!</h2>
-      </div>
       <div className={styles.tpContainer}>
         <div className={styles.tInfo}>
           <div className={styles.tImg}>
@@ -53,7 +50,7 @@ export default function Tpage(props) {
             <div className={styles.tGroup}>
               <div className={styles.gHead}>
                 <h2>Group:</h2>
-                <h2 className={styles.gHeader}>{user.group.groupName}</h2>
+                <h3 className={styles.gHeader}>{user.group.groupName}</h3>
               </div>
               {user.group.description && <p>{user.group.description}</p>}
               {user.group.ageGroup && <li>Group age: {user.group.ageGroup}</li>}

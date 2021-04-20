@@ -57,47 +57,48 @@ export default function Login(props) {
   return (
     <div className={styles.fcontainer}>
       <form className={styles.loginContainer} onSubmit={submitForm}>
-        <div className='reg'>
-          <h1>Login to Account!</h1>
+        <div className="reg">
+          Login to Account!
         </div>
 
-        <div className='inputBox'>
-          <label className='details'>E-mail</label>
+        <div className={styles.loginBox}>
+          <div className="inputBox">
+            <label className="details">E-mail</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="inputBox">
+            <label className="details">Password</label>
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
+          </div>
+
           <br />
-          <input
-            type='email'
-            name='email'
-            placeholder='E-mail'
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-        </div>
-
-        <div className='inputBox'>
-          <label className='details'>Password</label>
-          <br />
-          <input
-            type='password'
-            name='password'
-            placeholder='Password'
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-          />
-        </div>
-
-        <br />
-        <div className={styles.btnContainer}>
-        <button type='submit' value='Login' className='next'>
-            Login
-          </button>
-          <Link to='/'>
-            <button className='cancel'>Cancel</button>
-          </Link>
-          
+          <div className={styles.btnContainer}>
+            <button type="submit" value="Login" className="next">
+              Login
+            </button>
+            <Link to="/">
+              <button className="cancel">Cancel</button>
+            </Link>
+          </div>
         </div>
       </form>
     </div>

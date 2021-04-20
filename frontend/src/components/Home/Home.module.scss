@@ -56,10 +56,12 @@
 /* Iphone + Android */
 @media only screen and (max-width: 46rem) {
   .hcontainer {
-    margin: 0 auto;
+    margin: 0;
     width: 100%;
+    padding: 1rem;
   }
   .hero {
+    margin: 0;
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -92,23 +94,19 @@
     left: 9rem;
   }
   .icons {
-    display: flex;
-    flex-direction: column;
-    width: 78rem;
-    margin: 0 auto;
+    display: block;
+    width: 100%;
+    margin: 0;
     font-size: 0.75rem;
   }
-
-  .ptag {
-    line-height: 1rem;
-    padding: 0;
+  
+  .icon{
+    width: 100%;
+    margin: 0;
+    margin-top: 1rem;
   }
 
-  .icon {
-    width: 25.9%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
+  
 }
 
 /*KINDLE + IPAD */

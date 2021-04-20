@@ -1,5 +1,11 @@
 @import "../../globalCSS/variables";
 
+.formContainer {
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
 
 .regBox {
     display: flex;
@@ -13,10 +19,10 @@
 
 .regForm {
     width: 100%;
-    height: max-content;
+    height: 90hv;
 
     input {
-        background-color: $primary-lightblue;
+        background-color: lightgrey;
         border: none;
         border-radius: 5px;
         padding: 5px 5px;
