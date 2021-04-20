@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import styles from './ChildStyle/ChildRegister.module.scss';
+import styles from "./ChildStyle/ChildRegister.module.scss";
 import { sendData, submitForm } from "../../logic/registerLogic";
 import { MyContext } from "../../Container";
 
@@ -16,16 +16,22 @@ export default function ChildRegister(props) {
     { _id: "6", name: "Seefood" },
     { _id: "7", name: "Fish" },
     { _id: "8", name: "Raw Fruit" },
-    { _id: "9", name: "Raw Veggies" }
+    { _id: "9", name: "Raw Veggies" },
   ]);
+  const [message, setMessage] = useState({
+    submitting: false,
+    status: null,
+  });
 
   useEffect(() => {
     if (formData.child) {
-      sendData("child registration", { ...formData.child, kg: kg._id })
-    } else { return }
-  }, [formData])
+      sendData("child registration", { ...formData.child, kg: kg._id });
+    } else {
+      return;
+    }
+  }, [formData]);
 
-  const submitChildForm = (e) => {
+  const submitChildForm = e => {
     e.preventDefault();
     let childObj = submitForm(e);
 
@@ -47,36 +53,37 @@ export default function ChildRegister(props) {
   //
   return (
     <div className={styles.formContainter}>
-
       {/* <div className={styles.reg} >
         <h1>Register Child</h1>
       </div> */}
 
-      <form onSubmit={(e) => submitChildForm(e)} name="childForm" className={styles.childForm} >
-
+      <form
+        onSubmit={e => submitChildForm(e)}
+        name='childForm'
+        className={styles.childForm}
+      >
         <div className={styles.childFormContainerInner}>
-          <div className={styles.childFormInner} >
+          <div className={styles.childFormInner}>
             <div className={styles.regInfo}>
               <h3>Child Information:</h3>
             </div>
 
-            <div className={styles.inputBox} >
+            <div className={styles.inputBox}>
               <label className={styles.details}>First name</label> <br />
               <input type='text' name='firstName' placeholder='First Name' />
             </div>
 
-            <div className={styles.inputBox} >
-              <label className={styles.details} >Last name</label> <br />
+            <div className={styles.inputBox}>
+              <label className={styles.details}>Last name</label> <br />
               <input type='text' name='lastName' placeholder='Last Name' />
             </div>
 
-            <div className={styles.inputBox} >
-              <label className={styles.details} >Birthday</label> <br />
+            <div className={styles.inputBox}>
+              <label className={styles.details}>Birthday</label> <br />
               <input type='date' name='birthday' placeholder='Birthday' />
             </div>
 
-
-            <div className={styles.inputBox} >
+            <div className={styles.inputBox}>
               <label className={styles.details}>Profile Image</label> <br />
               <input type='' name='img' placeholder='img' />
             </div>
@@ -113,7 +120,6 @@ export default function ChildRegister(props) {
                 placeholder='Postcode'
               />
             </div>
-
           </div>
 
           <div className={styles.childFormInner}>
@@ -122,9 +128,9 @@ export default function ChildRegister(props) {
             </div>
             <div className={styles.listUnstyled}>
               {categories.map((c, i) => (
-                <li key={i} >
+                <li key={i}>
                   <input
-                    type="checkbox"
+                    type='checkbox'
                     className={styles.checkBox}
                     name={c.name}
                   />
@@ -133,60 +139,72 @@ export default function ChildRegister(props) {
               ))}
             </div>
 
-            <div className={styles.inputBox} >
-              <label className={styles.details}>Other Dietary Requirements</label> <br />
-              <input type='text' name='dietaryNeeds' placeholder='Other allergies or dietary requirements' />
+            <div className={styles.inputBox}>
+              <label className={styles.details}>
+                Other Dietary Requirements
+              </label>{" "}
+              <br />
+              <input
+                type='text'
+                name='dietaryNeeds'
+                placeholder='Other allergies or dietary requirements'
+              />
             </div>
-
           </div>
 
           <div className={styles.childFormInner}>
+            <div className={styles.regInfo}>
+              <h3>Emergency Contact 1:</h3>
+            </div>
 
-            <div className={styles.regInfo}><h3>Emergency Contact 1:</h3></div>
-
-            <div className={styles.emerInput} >
+            <div className={styles.emerInput}>
               <label className={styles.details}>First name</label> <br />
               <input type='text' name='emerName1' placeholder='First Name' />
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>Email</label><br />
+              <label className={styles.details}>Email</label>
+              <br />
               <input type='email' name='emerEmail1' placeholder='E-mail' />
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>Number</label><br />
+              <label className={styles.details}>Number</label>
+              <br />
               <input type='text' name='emerNumber1' placeholder='Number' />
             </div>
 
-            <div className={styles.regInfo}><h3>Emergency Contact 2:</h3></div>
+            <div className={styles.regInfo}>
+              <h3>Emergency Contact 2:</h3>
+            </div>
 
-            <div className={styles.emerInput} >
+            <div className={styles.emerInput}>
               <label className={styles.details}>First name</label> <br />
               <input type='text' name='emerName2' placeholder='First Name' />
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>Email</label><br />
+              <label className={styles.details}>Email</label>
+              <br />
               <input type='email' name='emerEmail2' placeholder='E-mail' />
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>Number</label><br />
+              <label className={styles.details}>Number</label>
+              <br />
               <input type='text' name='emerNumber2' placeholder='Number' />
             </div>
 
             <div className={styles.submitButtons}>
               {/* <Link to='/'><button className="cancel">Cancel</button></Link>
                     <Link to='cregister_health'><button type='submit' value='Next' className='next'>Next</button></Link> */}
-              <button type='submit' value='Register' className={styles.att}>Submit</button>
+              <button type='submit' value='Register' className={styles.att}>
+                Submit
+              </button>
             </div>
-
           </div>
         </div>
-
-
       </form>
     </div>
-  )
+  );
 }

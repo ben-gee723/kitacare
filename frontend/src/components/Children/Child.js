@@ -80,13 +80,7 @@ export default function Child(props) {
 
   return (
     <div className={styles.scontainer} key={child._id}>
-<<<<<<< HEAD
-      <div className={styles.kidimg}>
-      <img src={randImg} className={styles.kid} />
-      </div>
-=======
       <img src={randImg} className={styles.kid} alt='profileImg' />
->>>>>>> main
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
