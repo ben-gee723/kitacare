@@ -19,7 +19,7 @@
 
 .childFormInner {
     margin: 1rem;
-    width: 22rem;
+    width: 21rem;
 }
 
 .regInfo{
@@ -31,14 +31,19 @@
 }
 
 .inputBox input {
+    padding: 0 .5rem;
     border: none;
     background-color: rgb(241, 241, 241);
     width: 100%;
+    border-radius: 5px;
 }
 
 .listUnstyled{
-    margin: 1rem;
+    margin: .4rem 0rem;
+    padding: .5rem;
+    border-radius: 5px;
     list-style: none;
+    background-color: rgb(241, 241, 241);
 }
 
 .formCheckLabel{
@@ -50,10 +55,12 @@
 }
 
 .emerInput input{
+    padding: 0 .5rem;
     border: none;
     margin: 2px 0;
     background-color: rgb(241, 241, 241);
     width: 100%;
+    border-radius: 5px;
 }
 
 .att {
@@ -70,5 +77,24 @@
     font-weight: bold;
 }
 
+@media only screen and (max-width: 1024px) {
+    .childForm{ 
+        width: 100%;
+    }    
+    .childFormInner {
+        width: 30%;
+    } 
+}
 
+@media only screen and (max-width: 768px) {
+    .childFormInner {
+        width: 29%;
+    } 
+}
+
+@media only screen and (max-width: 540px) { 
+    .childFormInner {
+        width: 100%;
+    }
+}
 
