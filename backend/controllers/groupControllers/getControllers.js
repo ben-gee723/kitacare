@@ -10,7 +10,7 @@ exports.getAllGroups = async (req, res, next) => {
     const kg = await kgModel.findById(req.params.id);
     let allGroups = await GroupModel.find({ kg: kg._id })
       .populate("children", "-_id -__v")
-      .populate("users", "-_id -__v")
+      .populate("teachers", "-_id -__v")
       .select("-__v");
     if (allGroups.length !== 0) {
       res.status(200).send({ success: true, allGroups: allGroups });
@@ -31,7 +31,7 @@ exports.getSingleGroup = async (req, res, next) => {
   try {
     let singleGroup = await GroupModel.findById(id)
       .populate("children", "-_id -__v")
-      .populate("users", "-_id -__v")
+      .populate("teachers", "-_id -__v")
       .select("-__v");
 
     if (singleGroup) {

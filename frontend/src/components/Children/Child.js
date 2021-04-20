@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { MyContext } from "../../Container";
 import kid from "../../images/kid_avatar.svg";
 import kid2 from "../../images/kid_avatar2.svg";
@@ -16,6 +17,7 @@ export default function Child(props) {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const child = props.child;
   const randImg = images[props.imageNum];
+  const history = useHistory();
 
   const getAllGroups = () => {
     axios({
@@ -36,13 +38,14 @@ export default function Child(props) {
       .catch((err) => console.log(err));
   };
 
-  const handleEditGroup = (child) => {
+  const handleEditGroup = () => {
     getAllGroups();
   };
+
   const changeGroup = (id) => {
     //to assign none as group:
     let obj;
-    if (selectedGroup == "empty") {
+    if (selectedGroup === "empty") {
       obj = {
         method: "PUT",
         // withCredentials: true,
@@ -67,9 +70,7 @@ export default function Child(props) {
     axios(obj)
       .then((result) => {
         if (result.data.success) {
-          //reload the page:
-          setGroups(null);
-          // window.location.reload();
+          history.push("/groups");
         } else {
           console.log(result.data);
         }
@@ -79,7 +80,7 @@ export default function Child(props) {
 
   return (
     <div className={styles.scontainer} key={child._id}>
-      <img src={randImg} className={styles.kid} />
+      <img src={randImg} className={styles.kid} alt='profileImg' />
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
@@ -128,7 +129,7 @@ export default function Child(props) {
         </div>
       </div>
       <div className={styles.btn2}>
-        {user.role == "Manager" && (
+        {user.role === "Manager" && (
           <button
             type='submit'
             value='edit'
@@ -137,12 +138,12 @@ export default function Child(props) {
             Edit
           </button>
         )}
-        {user.role == "Manager" && (
+        {user.role === "Manager" && (
           <button
             type='submit'
             value='edit'
             className='add'
-            onClick={() => handleEditGroup(child)}>
+            onClick={() => handleEditGroup()}>
             Edit Group
           </button>
         )}

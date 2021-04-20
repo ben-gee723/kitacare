@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { Route, Link, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Basics
 import Home from "./components/Home/Home";
@@ -53,7 +53,7 @@ function App() {
           <Route path='/mregister' component={ManagerRegister} />
           <Route path='/tregister' component={TeacherRegister} />
           <Route path='/cregister' component={ChildRegister} />
-          <Route path="/editchild" component={ChildEdit} />
+          <Route path='/editchild' component={ChildEdit} />
           <Route path='/login' component={Login} />
           <Route path='/mpage' component={Mpage} />
           <Route path='/teachers' component={Teachers} />

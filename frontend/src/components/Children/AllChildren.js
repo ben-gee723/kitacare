@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "./children.module.scss";
-import { Link } from "react-router-dom";
 import { MyContext } from "../../Container";
 import Child from "./Child";
 
@@ -13,10 +12,17 @@ export default function AllChildren(props) {
 
   useEffect(() => {
     let url;
-    url =
-      user.role === "Manager"
-        ? `http://localhost:3001/child/getAllChildren/${user.kg}`
-        : `http://localhost:3001/child//getChildrenFromGroup/${user.group._id}`;
+    if (
+      user.role === "Manager" &&
+      props.location.state &&
+      props.location.state.group
+    ) {
+      url = `http://localhost:3001/child//getChildrenFromGroup/${props.location.state.group}`;
+    } else if (user.role === "Teacher") {
+      url = `http://localhost:3001/child//getChildrenFromGroup/${user.group._id}`;
+    } else {
+      url = `http://localhost:3001/child/getAllChildren/${user.kg}`;
+    }
     axios({
       method: "GET",
       url: url,
@@ -27,7 +33,6 @@ export default function AllChildren(props) {
     })
       .then((result) => {
         if (result.data.success) {
-          console.log(result.data.allChildren);
           setChildren(result.data.allChildren);
         } else {
           console.log(result);
@@ -45,7 +50,6 @@ export default function AllChildren(props) {
       <div className={styles.cContainer}>
         {children.length
           ? children.map((child, i) => {
-              console.log(child);
               return (
                 <Child
                   key={i}

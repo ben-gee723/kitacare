@@ -10,7 +10,7 @@ import Here from "./Here";
 import NotHere from "./NotHere";
 
 export default function Attendance() {
-  const { kg, user } = useContext(MyContext);
+  const { user } = useContext(MyContext);
   // [{child:..., attendanceStatus: "here/notHere", date: ""}]
   const [here, setHere] = useState();
   const [notHere, setNotHere] = useState();
@@ -28,11 +28,11 @@ export default function Attendance() {
         if (result.data.success) {
           let hereChildren = [];
           let notHereChildren = [];
-          result.data.attendanceArr.map((childAtt) => {
-            childAtt.attendanceInfo.attendanceStatus == "here"
+          result.data.attendanceArr.map((childAtt) =>
+            childAtt.attendanceInfo.attendanceStatus === "here"
               ? hereChildren.push(childAtt.attendanceInfo)
-              : notHereChildren.push(childAtt.attendanceInfo);
-          });
+              : notHereChildren.push(childAtt.attendanceInfo)
+          );
           setHere(hereChildren);
           setNotHere(notHereChildren);
         } else {
@@ -40,7 +40,6 @@ export default function Attendance() {
         }
       })
       .catch((err) => console.log(err));
-    // }
   }, []);
 
   const handleAttendance = (e, childId) => {
@@ -60,16 +59,16 @@ export default function Attendance() {
       if (result.data.success) {
         //setAttendance for this child:
         let id = result.data.updatedAttendance.child._id;
-        if (obj.attendanceStatus == "here") {
+        if (obj.attendanceStatus === "here") {
           let newNotHere = notHere.filter((obj) => obj.child._id !== id);
           setNotHere(newNotHere);
-          let filteredHere = here.filter((obj) => obj.child._id == id);
+          let filteredHere = here.filter((obj) => obj.child._id === id);
           !filteredHere.length &&
             setHere([...here, result.data.updatedAttendance]);
         } else {
           let newHere = here.filter((obj) => obj.child._id !== id);
           setHere(newHere);
-          let filteredNotHere = notHere.filter((obj) => obj.child._id == id);
+          let filteredNotHere = notHere.filter((obj) => obj.child._id === id);
           !filteredNotHere.length &&
             setNotHere([...notHere, result.data.updatedAttendance]);
         }
