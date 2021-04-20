@@ -1,14 +1,12 @@
+@import "../../../globalCSS/_variables";
+
 .formContainter{
     display: flex;
     justify-content: center;
 }
 
 .childForm{ 
-    // box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
-    padding: 5px 5px 0 5px;
-    margin: 1rem 0 0 0;
-    border-radius: 5px;
-    // width: 80%;
+    padding: 0 5px 0 5px;
 }
 
 .childFormContainerInner{
@@ -28,26 +26,34 @@
 
 .regInfo h3 {
     font-size: 1rem;
+    margin-top: 10px;
 }
 
 .inputBox input {
-    padding: 0 .5rem;
     border: none;
-    background-color: rgb(241, 241, 241);
+    background-color: $light-light-gray;
     width: 100%;
     border-radius: 5px;
 }
 
+.inputBox label{
+    margin-top: 5px;
+}
+
+.inputBox input,.emerInput input{
+    padding: 5px 10px;
+}
+
 .listUnstyled{
-    margin: .4rem 0rem;
+    margin: 1rem 0rem;
     padding: .5rem;
     border-radius: 5px;
     list-style: none;
-    background-color: rgb(241, 241, 241);
+    background-color: $light-light-gray;
 }
 
 .formCheckLabel{
-    margin: 0 1rem 1rem 1rem;
+    margin: .6rem 1rem 1rem 1rem;
 }
 
 .emerInput label{
@@ -55,10 +61,9 @@
 }
 
 .emerInput input{
-    padding: 0 .5rem;
     border: none;
-    margin: 2px 0;
-    background-color: rgb(241, 241, 241);
+    margin: 5px 0;
+    background-color: $light-light-gray;
     width: 100%;
     border-radius: 5px;
 }
@@ -90,11 +95,23 @@
     .childFormInner {
         width: 29%;
     } 
+    .formCheckLabel{
+        margin: .34rem 1rem 1rem 1rem;
+    }
 }
 
 @media only screen and (max-width: 540px) { 
+    .childForm{ 
+        width: 80%;
+    }   
     .childFormInner {
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 450px) { 
+    .childForm{ 
+        width: 100%;
+    }   
 }
 

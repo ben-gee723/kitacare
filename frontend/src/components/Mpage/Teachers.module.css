@@ -1,12 +1,23 @@
 .header {
-  text-align: center;
-  color: #0c8da8;
-  -webkit-box-shadow: #f9a26b4d 0px 5px 15px;
-          box-shadow: #f9a26b4d 0px 5px 15px;
-  background-color: rgba(0, 0, 0, 0.9);
+  text-align: left;
+  color: #ff4e13;
   width: 100%;
-  margin: 0 auto;
-  padding: 0.2rem;
+  margin: 0.5rem 0.5rem 0 0.8rem;
+  padding: 0.4rem;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-top: 0.5rem;
 }
 
 .container {
@@ -45,29 +56,36 @@
           justify-content: center;
   padding: 0.5rem 0 0.5rem 0;
   width: 21em;
-  margin: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.9);
+  margin: 1rem;
+  background-color: #fdfeff;
   color: #fdfeff;
   border-radius: 0.5rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
           box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
 }
 
-.card {
-  color: #423f40;
-  background-color: red;
-}
-
 .cardtitle {
-  background-color: yellow;
-}
-
-.listgroup {
-  background-color: lightblue;
+  padding-top: 0.2rem;
+  font-weight: 600;
+  color: #0c8da8;
+  text-align: center;
 }
 
 .listgroupitem {
-  background-color: #fdfeff;
-  color: #423f40;
+  background-color: #0c8d9b;
+  color: #fdfeff;
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.2rem;
+  line-height: 2rem;
+}
+
+.btn {
+  margin: 0 auto;
+  margin-bottom: 0.7rem;
 }
 /*# sourceMappingURL=Teachers.module.css.map */
