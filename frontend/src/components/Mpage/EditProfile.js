@@ -81,6 +81,7 @@ export default function EditProfile(props) {
             onSubmit={(e) => changePasswordHandler(e)}
             name="managerForm"
           >
+            <div>
             <div >
               <label className="details">Your current password: </label>
               <br />
@@ -110,6 +111,7 @@ export default function EditProfile(props) {
               <button type="submit" value="Register" className="att">
                 Submit
               </button>
+            </div>
             </div>
           </form>
         )}

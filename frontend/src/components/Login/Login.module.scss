@@ -3,15 +3,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    
     flex-direction: column;
+    min-height: 90vh;
+    
     
   }
-  .loginContainer {
-    display: grid;
-    place-items: center;
-  }
+  
   .btnContainer {
     display: flex;
-    width: 66%;
+    
+  }
+
+  .loginBox {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  }
+
+  @media only screen and (max-width: 768px){
+    .loginBox{
+      padding: 0;
+    }
   }
