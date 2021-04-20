@@ -1,0 +1,101 @@
+.regForm {
+  margin: 1rem auto;
+  width: 65%;
+  height: auto;
+}
+
+.formContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.formContColumn {
+  margin: 1rem;
+  width: 29%;
+}
+
+.addinfo {
+  color: black;
+}
+
+.addinfo label {
+  font-weight: bold;
+  margin-top: .5rem;
+}
+
+.addinfo input {
+  background-color: lightgray;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: .5rem;
+}
+
+.btnContainer {
+  margin: 5px auto;
+}
+
+.btnContainer button {
+  padding: 10px;
+  width: 49%;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.btnContainer .submitBtn {
+  width: 100%;
+  background-color: #f74d25;
+}
+
+.btnContainer .deleteBtn {
+  background-color: #198da8;
+  margin-right: 1%;
+}
+
+.btnContainer .cancelBtn {
+  background-color: #423f40;
+  margin-left: 1%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .regForm {
+    width: 100%;
+  }
+  .formContColumn {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .regForm {
+    width: 100%;
+  }
+  .formContColumn {
+    width: 29%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .regForm {
+    width: 80%;
+  }
+  .formContColumn {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .regForm {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=ChildEdit.module.css.map */

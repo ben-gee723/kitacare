@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   align-content: center;
+  min-height: 90vh;
 }
 
 .regContainer {
@@ -19,17 +20,7 @@
 
 .btnContainer {
   display: flex;
-  width: 66%;
-}
-
-.formContainer {
-  display: grid;
-  place-items: center;
-}
-
-.address {
-  margin-top: 20px;
-  width: 66%;
+  
 }
 
 .listUnstyled{
@@ -59,10 +50,6 @@
 }
 .submitButtons button{
   width: 100px;
-}
-.regH {
-  font-size: 3rem;
-
 }
 
 
