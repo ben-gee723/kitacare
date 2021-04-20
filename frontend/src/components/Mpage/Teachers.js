@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../../Container";
 import axios from "axios";
 import UserCard from "./UserCard";
-import styles from "./Teachers.module.scss"
+import styles from "./Teachers.module.scss";
 
 export default function Teachers() {
   const { kg } = useContext(MyContext);
@@ -22,6 +22,7 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -40,6 +41,7 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -60,6 +62,7 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -74,42 +77,41 @@ export default function Teachers() {
   return (
     <div>
       <div className={styles.btn}>
-       <button className='next' onClick={generateCodeHandler}>
-        Generate Code
-      </button>
-      {verificationCode && <p>VerificationCode: {verificationCode}</p>}
+        <button className='next' onClick={generateCodeHandler}>
+          Generate Code
+        </button>
+        {verificationCode && <p>VerificationCode: {verificationCode}</p>}
       </div>
       <div className={styles.header}>
         <h4>Managers</h4>
-        </div>
-        <div className={styles.container}>
-          {managers &&
-            managers.map((manager, i) => {
-              return (
-                <UserCard
-                  user={manager}
-                  imageNum={i > 3 ? i % 4 : i}
-                  key={manager.email}
-                />
-              );
-            })}
-        </div>
+      </div>
+      <div className={styles.container}>
+        {managers &&
+          managers.map((manager, i) => {
+            return (
+              <UserCard
+                user={manager}
+                imageNum={i > 3 ? i % 4 : i}
+                key={manager.email}
+              />
+            );
+          })}
+      </div>
       <div className={styles.header}>
         <h4>Teachers</h4>
-        </div>
-        <div className={styles.container}>
-          {teachers &&
-            teachers.map((teacher, i) => {
-              return (
-                <UserCard
-                  user={teacher}
-                  imageNum={i > 3 ? i % 4 : i}
-                  key={teacher.email}
-                />
-              );
-            })}
-        </div>
-     
+      </div>
+      <div className={styles.container}>
+        {teachers &&
+          teachers.map((teacher, i) => {
+            return (
+              <UserCard
+                user={teacher}
+                imageNum={i > 3 ? i % 4 : i}
+                key={teacher.email}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 }

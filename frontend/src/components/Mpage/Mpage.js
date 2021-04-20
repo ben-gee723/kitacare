@@ -27,6 +27,7 @@ export default function Mpage(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -46,6 +47,7 @@ export default function Mpage(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -65,6 +67,7 @@ export default function Mpage(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {

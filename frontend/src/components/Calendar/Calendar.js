@@ -13,6 +13,7 @@ import {
   toDate,
   addMonths,
   subMonths,
+  parse
 } from "date-fns";
 import {
   faChevronCircleLeft,
@@ -38,6 +39,7 @@ export default function Calendar() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -93,17 +95,25 @@ export default function Calendar() {
     let day = startDate;
 
     //console.log(day)
+
     let formattedDate = "";
+
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
+
+        const relatedEvent = showEvents.find((event) => {
+          return isSameDay(Date.parse(day), Date.parse(event.startDate));
+        });
+
         days.push(
           <div
             className={`column cell ${
               !isSameMonth(day, monthStart)
                 ? "disabled"
-                : isSameDay(day, selectedDate)
+                : isSameDay(day, selectedDate) || relatedEvent
                 ? "selected"
                 : ""
             }`}
@@ -125,54 +135,53 @@ export default function Calendar() {
     return <div className='body'>{rows}</div>;
   };
 
-  const events = () => {
-    const monthStart = startOfMonth(currentDate);
-    const dateFormat = "d";
-    const rows = [];
-    let days = [];
-    let formattedDate = "";
-    {
-      showEvents.map(events => {
-        const eventObj = {
-          ...events,
-          startDate: events.startDate.split("T"),
-          endDate: events.endDate.split("T"),
-        };
-      //  console.log(eventObj);
-        for (const i in eventObj.startDate) {
-          let firstDay = new Date(eventObj.startDate[i]);
-          const endDay = new Date(eventObj.endDate[i]);
-          while (firstDay <= endDay) {
-            for (let i = 0; i < 1; i++) {
-              formattedDate = format(firstDay, dateFormat);
-              const cloneDay = firstDay;
-              console.log(firstDay);
-              days.push(
-                <div
-                  className={`column cell ${
-                    !isSameMonth(firstDay, monthStart) ? firstDay : false
-                  }`}
-                  key={firstDay}
-                  onClick={() => onDateClick(toDate(cloneDay))}
-                >
-                  <span className='number'>{formattedDate}</span>
-                  <span className='bg'>{formattedDate}</span>
-                </div>
-              );
-              firstDay = addDays(firstDay, 1);
-            }
-            rows.push(
-              <div className='row' key={firstDay}>
-                {days}
-              </div>
-            );
-            days = [];
-          }
-        }
-        return <div className='body'>{rows}</div>;
-      });
-    }
-  };
+  // const events = () => {
+  //   const monthStart = startOfMonth(currentDate);
+  //   const dateFormat = "d";
+  //   const rows = [];
+  //   let days = [];
+  //   let formattedDate = "";
+  //
+  //     return showEvents.map(events => {
+  //       const eventObj = {
+  //         ...events,
+  //         startDate: events.startDate.split("T"),
+  //         endDate: events.endDate.split("T"),
+  //       };
+  //     //  console.log(eventObj);
+  //       for (const i in eventObj.startDate) {
+  //         let firstDay = new Date(eventObj.startDate[i]);
+  //         const endDay = new Date(eventObj.endDate[i]);
+  //         while (firstDay <= endDay) {
+  //           for (let i = 0; i < 1; i++) {
+  //             formattedDate = format(firstDay, dateFormat);
+  //             const cloneDay = firstDay;
+  //             console.log(firstDay);
+  //             days.push(
+  //               <div
+  //                 className={`column cell ${
+  //                   !isSameMonth(firstDay, monthStart) ? firstDay : false
+  //                 }`}
+  //                 key={firstDay}
+  //                 onClick={() => onDateClick(toDate(cloneDay))}
+  //               >
+  //                 <span className='number'>{formattedDate}</span>
+  //                 <span className='bg'>{formattedDate}</span>
+  //               </div>
+  //             );
+  //             firstDay = addDays(firstDay, 1);
+  //           }
+  //           rows.push(
+  //             <div className='row' key={firstDay}>
+  //               {days}
+  //             </div>
+  //           );
+  //           days = [];
+  //         }
+  //       }
+  //       return <div className='body'>{rows}</div>;
+  //     });
+  // };
 
   const nextMonth = () => {
     setCurrentDate(addMonths(currentDate, 1));
@@ -194,7 +203,7 @@ export default function Calendar() {
       <>
         <div>{header()}</div>
         <div>{days()}</div>
-        <div style={{ backgroundColor: "red" }}>{events()}</div>
+        {/*<div style={{ backgroundColor: "red" }}>{events()}</div>*/}
         <div onClick={() => setShowForm(!showForm)}>{cells()}</div>
       </>
     </div>

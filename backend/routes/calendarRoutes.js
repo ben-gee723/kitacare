@@ -1,5 +1,8 @@
+/** @format */
+
 const express = require("express");
 const router = express.Router();
+const { auth } = require("../middlewares/authentication");
 const {
   getAllEvents,
   getSingleEvent,
@@ -14,11 +17,11 @@ const {
   putUpdateEvent,
 } = require("../controllers/calendarControllers/putControllers");
 
-router.get("/getAllEvents", getAllEvents);
-router.get("/getSingleEvent/:id", getSingleEvent);
-router.post("/postNewEvent", postNewEvent);
-router.put("/putUpdateEvent", putUpdateEvent);
-router.delete("/deleteSingleEvent/:id", deleteSingleEvent);
+router.get("/getAllEvents", auth, getAllEvents);
+router.get("/getSingleEvent/:id", auth, getSingleEvent);
+router.post("/postNewEvent", auth, postNewEvent);
+router.put("/putUpdateEvent", auth, putUpdateEvent);
+router.delete("/deleteSingleEvent/:id", auth, deleteSingleEvent);
 
 /* DEFAULT EXPORT */
 module.exports = router;
