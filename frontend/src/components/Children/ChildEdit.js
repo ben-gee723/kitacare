@@ -22,8 +22,10 @@ export default function ChildEdit(props) {
     ).then((result) => {
       if (result.success) {
         setDeleteChild(result.deletedChild);
+        alert("Child delete successful")
       } else {
         console.log(result);
+        alert("Child delete not successful")
       }
     });
   };
@@ -44,8 +46,10 @@ export default function ChildEdit(props) {
           pathname: "/success",
           state: { child: "child" },
         });
+        alert("Edit child successful")
       } else {
         console.log(result);
+        alert("Edit child not successful")
       }
     });
   };
@@ -239,10 +243,14 @@ export default function ChildEdit(props) {
               Delete
             </button>
             <Link to='/children'>
-              <button className={styles.cancelBtn}>Cancel</button>
+              <button
+                className={styles.cancelBtn}
+                onClick={() => alert("Edit cancelled")}
+              >Cancel</button>
             </Link>
           </div>
         </div>
+
       </form>
     </div>
   );
