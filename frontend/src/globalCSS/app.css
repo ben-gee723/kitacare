@@ -236,7 +236,7 @@ ul {
 /* Iphone + Android */
 @media only screen and (max-width: 46rem) {
   .calendar {
-    width: 20.3rem;
+    width: 100%;
   }
   .calendar .body .cell {
     height: 2.5em;
@@ -434,7 +434,7 @@ html body {
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .att:hover {
@@ -447,7 +447,7 @@ html body {
 }
 
 .add {
-  background-color: #f9a26b;
+  background-color: #d3763c;
   border: none;
   border-radius: 0.25rem;
   color: #fdfeff;
@@ -461,7 +461,7 @@ html body {
   background: #fdfeff;
   -webkit-transition: 0.2 ease-out;
   transition: 0.2 ease-out;
-  border: 1px solid #f9a26b;
+  border: 1px solid #d3763c;
   cursor: pointer;
   color: #f9a26b;
 }
@@ -488,7 +488,7 @@ html body {
 }
 
 .fixedit {
-  background-color: #85d1ff;
+  background-color: #0c8d9b;
   border: none;
   border-radius: 0.25rem;
   color: #fdfeff;
@@ -498,6 +498,7 @@ html body {
   padding: 0.5rem;
   width: 20%;
   margin-left: 0.5rem;
+  margin-right: 0.2rem;
   margin-top: 0.5rem;
 }
 
@@ -530,6 +531,47 @@ html body {
   color: #f9a26b;
 }
 
+.edit2 {
+  background-color: #85d1ff;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fdfeff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.edit2:hover {
+  background: #fdfeff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #85d1ff;
+  cursor: pointer;
+  color: #f9a26b;
+}
+
+.edit3 {
+  background-color: #68e3e6;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fdfeff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-left: 0.2rem;
+}
+
+.edit3:hover {
+  background: #fdfeff;
+  -webkit-transition: 0.2 ease-out;
+  transition: 0.2 ease-out;
+  border: 1px solid #85d1ff;
+  cursor: pointer;
+  color: #f9a26b;
+}
+
 .back {
   background-color: #f9a26b4d;
   border-radius: 0.25rem;
@@ -550,5 +592,14 @@ html body {
   border: 1px solid #423f40;
   cursor: pointer;
   color: #423f40;
+}
+
+@media only screen and (max-width: 600px) {
+  .add {
+    font-size: 0.8rem;
+  }
+  .view {
+    font-size: 0.8rem;
+  }
 }
 /*# sourceMappingURL=app.css.map */

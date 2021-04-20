@@ -8,7 +8,6 @@ import { MyContext } from "../../Container";
 
 export default function Login(props) {
   const { setIsLogin, setUser, user } = useContext(MyContext);
-  const [kg, setKg] = useState({});
 
   const [formData, setFormData] = useState({
     email: "",

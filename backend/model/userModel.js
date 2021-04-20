@@ -24,7 +24,7 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: false,
   },
-  birthday: { type: Date, required: true },
+  birthday: { type: Date, required:false },
   img: { type: String, required: false },
   role: {
     type: String,

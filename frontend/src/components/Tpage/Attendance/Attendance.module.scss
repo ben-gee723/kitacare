@@ -1,71 +1,85 @@
 @import "../../../globalCSS/variables";
 
 .tAttendance{
-    min-height: 30rem;
-    max-height: 90rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 1rem;
+     
 }
 
-.attendance, .hereChild, .notHereChild {
-    border-radius: 1rem;
-    padding: 1rem;
-    margin: 1rem;
+.tAttendance div h3 {
+    text-align: center;
+}
+
+.centering{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
+    border-radius: 5px;
+    padding: 0 5px;
+    width: 33rem;
 }
 
 .attendance {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #f5f5f5;
-    max-width: 50rem;
+    border-radius: 5px;
     display: inline-flexbox;
-    margin: 2rem auto;
+    margin: 1rem auto;
     text-align: center;
+    padding: 2px;
 }
 
-.hereStyle h1, .notHereStyle h1 {
-    padding: 0 1rem;
+.hereChild name, .notHereChild name {
+    margin: 5px 0;
+    border-radius: 10px;
+}
+
+.hereChild name p, .notHereChild name p {
     text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .hereChild, .notHereChild {
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 5px;
+    height: 2.7rem;
     display: flex;
-    align-items: center;
+    align-content: center;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 2.5px 7.5px;
     background-color: #f5f5f5;
 }
 
+.notHereChild name {
+    display: flex;
+    width: 9rem;
+}
+
 .hereChild {
-    background-color: rgb(25,141,168);
+    background-color: rgb(186, 230, 255);
 }
 
 .notHereChild {
-    background-color: lightgray;
+    background-color: rgb(231, 231, 231);
 }
 
 .hereChild form, .notHereChild form {
-    border-radius: 1rem;
-    padding: .7rem;
-    margin: 0;
-    background-color: white;
-    width: 14rem;
+    border-radius: 5px;
+    width: 11rem;
     display: flex;
     justify-content: space-between;
     align-content: center;
-    vertical-align: middle;
 }
 
 .hereChild button, .notHereChild button {
-    border-radius: 1rem;
-    width: 5rem;
+    border-radius: 5px;
+    width: 4.5rem;
     border: none;
-    background-color: rgb(247,77,37);
+    background-color: rgb(95, 194, 251);
     color: white;
-
 }
 
-.hereChild input, .notHereChild input {
-    border-radius: 1rem;
-    margin: .5rem;
-    border: 1px solid  black;
+.hereChild label, .notHereChild label {
+    margin: 5px;
 }
 
 

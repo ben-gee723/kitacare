@@ -10,18 +10,14 @@ export default function ManagerRegister(props) {
 
   useEffect(() => {
     if (formData.manager) {
-      async function registerHandler() {
-        let email;
-        if (props.kg) {
-          email = await sendData("kg registration", {
-            ...formData,
-            kg: props.kg,
-          });
-        } else {
-          email = await sendData("manager registration", formData);
-        }
+      if (props.kg) {
+        sendData("kg registration", {
+          ...formData,
+          kg: props.kg,
+        });
+      } else {
+        sendData("manager registration", formData);
       }
-      registerHandler();
     }
   }, [formData]);
 

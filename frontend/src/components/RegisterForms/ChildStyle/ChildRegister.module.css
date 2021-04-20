@@ -1,0 +1,127 @@
+.formContainter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.childForm {
+  padding: 0 5px 0 5px;
+}
+
+.childFormContainerInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.childFormInner {
+  margin: 1rem;
+  width: 21rem;
+}
+
+.regInfo {
+  padding: 5px 0px;
+}
+
+.regInfo h3 {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.inputBox input {
+  border: none;
+  background-color: #f1f1f1;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.inputBox label {
+  margin-top: 5px;
+}
+
+.inputBox input, .emerInput input {
+  padding: 5px 10px;
+}
+
+.listUnstyled {
+  margin: 1rem 0rem;
+  padding: .5rem;
+  border-radius: 5px;
+  list-style: none;
+  background-color: #f1f1f1;
+}
+
+.formCheckLabel {
+  margin: .6rem 1rem 1rem 1rem;
+}
+
+.emerInput label {
+  margin: 5px 0 5px 0;
+}
+
+.emerInput input {
+  border: none;
+  margin: 5px 0;
+  background-color: #f1f1f1;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.att {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem auto;
+  padding: .5rem;
+  width: 9rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-radius: 5px;
+  background-color: darkorange;
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1024px) {
+  .childForm {
+    width: 100%;
+  }
+  .childFormInner {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .childFormInner {
+    width: 29%;
+  }
+  .formCheckLabel {
+    margin: .34rem 1rem 1rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .childForm {
+    width: 80%;
+  }
+  .childFormInner {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .childForm {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=ChildRegister.module.css.map */

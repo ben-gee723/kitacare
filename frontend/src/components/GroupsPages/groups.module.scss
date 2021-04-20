@@ -22,7 +22,7 @@
   width: 21em;
   margin: 1rem 1rem;
   background-color: $light;
-  color: $light;
+  color: $dark;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .col1 {
@@ -39,7 +39,7 @@
     justify-content: flex-start;
     margin: 0 auto;
     width: 95%;
-    background-color: $secondary-blue;
+    background-color: $primary-graygreen;
     border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
     padding-left: 0.5rem;
@@ -135,61 +135,26 @@
 
 //SINGLE GROUP EDIT
 .regForm {
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 25%;
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
-  .formContainer {
-    margin: 0 auto;
-  }
-  h1 {
-    padding-top: 0.5rem;
-    padding-bottom: 1rem;
-    color: $primary-blue;
-    font-size: 2rem;
-    text-align: center;
-  }
-  .addinfo {
-    input[type="text"] {
-      margin: 0 auto;
-      border-radius: 0.3rem;
-      background-color: $secondary-orange-tranparent;
-      color: $dark;
-      border: 0.1rem solid $secondary-orange;
-      padding: 5px 5px;
-    }
-    label {
-      color: $dark;
-      font-weight: 500;
-    }
-  }
-}
-
-//ADD GROUP
-
-.maincontainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 2rem auto;
-  width: 30%;
+  width: 22rem;
   padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0 0.313rem 0.938rem;
   .addcontainer {
-    width: 40%;
+    width: 18rem;
     margin: 0 auto;
   }
   .addinfo {
+    margin: 0 auto;
+    text-align: center;
     input[type="text"] {
       border-radius: 0.3rem;
-      background-color: $secondary-orange-tranparent;
-      color: $dark;
-      border: 0.1rem solid $secondary-orange;
-      padding: 5px 5px;
+      background-color: $light-light-gray;
+      color: $black;
+      border: 0.1rem solid $light-gray;
+      padding: 0.35rem 0.35rem;
+      margin: 0.2rem;
     }
     label {
       color: $dark;
@@ -199,15 +164,62 @@
   .title {
     h3 {
       color: $primary-blue;
-      font-size: 1.15rem;
+      font-size: 1.35rem;
       text-align: center;
-      margin-right: 0rem;
+      margin-left: 0.1rem;
       margin-bottom: 1rem;
     }
   }
   .btn {
-    width: 100%;
-    margin: 2rem 12rem;
+    margin: 0.55rem 0 0.5rem 0;
+    text-align: center;
+    p {
+      padding-top: 0.5rem;
+    }}
+  padding-top: 0.5rem;
+}
+
+//ADD GROUP
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 22rem;
+  padding: 2rem;
+  .addcontainer {
+    width: 18rem;
+    margin: 0 auto;
+  }
+  .addinfo {
+    margin: 0 auto;
+    text-align: center;
+    input[type="text"] {
+      border-radius: 0.3rem;
+      background-color: $light-light-gray;
+      color: $black;
+      border: 0.1rem solid $light-gray;
+      padding: 0.35rem 0.35rem;
+      margin: 0.2rem;
+    }
+    label {
+      color: $dark;
+      font-weight: 500;
+    }
+  }
+  .title {
+    h3 {
+      color: $primary-blue;
+      font-size: 1.35rem;
+      text-align: center;
+      margin-left: 0.1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .btn {
+    margin: 0.55rem 0 0.5rem 0;
+    text-align: center;
     p {
       padding-top: 0.5rem;
     }

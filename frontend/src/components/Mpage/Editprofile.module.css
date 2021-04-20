@@ -2,27 +2,57 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5rem;
+}
+
+.editBtns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .regForm {
-  padding: 0 5rem;
-  width: 100vh;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .regForm input {
-  background-color: lightblue;
+  background-color: #85d1ff;
   border: none;
   border-radius: 5px;
-  padding: 20px 10px;
-  width: 20rem;
-}
-
-.editHead {
-  color: #0c8da8;
-  font-size: 1rem;
+  padding: 5px 5px;
+  width: 23rem;
 }
 
 .address {
-  padding-left: 5px;
+  padding-left: 5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .formContainer {
+    width: 100%;
+    padding: 0 2rem;
+    display: block;
+  }
+  .regBox {
+    margin: 0;
+    display: block;
+  }
+  .regForm {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .regForm input {
+    width: 100%;
+  }
+  .address {
+    padding: 0;
+  }
 }
 /*# sourceMappingURL=Editprofile.module.css.map */

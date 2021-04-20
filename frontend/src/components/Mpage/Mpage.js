@@ -28,14 +28,14 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
+      .then((result) => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
   const getAllTeachers = () => {
     axios({
@@ -47,15 +47,14 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(response => {
+      .then((response) => {
         if (response.data.success) {
-          console.log(response.data.teachers);
           setTeachers(response.data.teachers);
         } else {
           console.log(response);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
   const getAllChildren = () => {
     axios({
@@ -67,15 +66,14 @@ export default function Mpage(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(response => {
+      .then((response) => {
         if (response.data.success) {
-          console.log(response.data.allChildren);
           setChildren(response.data.allChildren);
         } else {
           console.log(response);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
   useEffect(() => {
     getAllGroups();
@@ -102,8 +100,7 @@ export default function Mpage(props) {
               value='edit'
               className='edit'
               onClick={() => handleEdit()}
-              className='edit'
-            >
+              className='edit'>
               Edit Info
             </button>
           </div>
