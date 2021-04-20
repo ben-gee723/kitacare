@@ -150,7 +150,7 @@ export default function Calendar() {
               days.push(
                 <div
                   className={`column cell ${
-                    !isSameMonth(firstDay, monthStart) ? firstDay : false
+                    !isSameMonth(firstDay, monthStart) ? firstDay : ""
                   }`}
                   key={firstDay}
                   onClick={() => onDateClick(toDate(cloneDay))}
@@ -162,7 +162,7 @@ export default function Calendar() {
               firstDay = addDays(firstDay, 1);
             }
             rows.push(
-              <div className='row' key={firstDay}>
+              <div className='row' key={firstDay} style={{backgroundColor: "red"}}>
                 {days}
               </div>
             );
