@@ -5,26 +5,26 @@ import React from "react";
 export default function Here({ hereChildren, handleAttendance }) {
     return (
         <div className={styles.attendance} >
-            <h1> Here </h1>
+            <h4> Here </h4>
             {hereChildren &&
                 hereChildren.map((child) => {
                     return (
                         <div key={child.child._id} className={styles.hereChild} >
-                            <div>
-                                <h3>
+                            <name>
+                                <p>
                                     {child.child.firstName} {child.child.lastName}
-                                </h3>
-                            </div>
+                                </p>
+                            </name>
                             <div>
                                 <form onSubmit={(e) => handleAttendance(e, child.child._id)}>
                                     <label>
                                         <input
-                                            type='radio'
+                                            type='checkbox'
                                             name='attendanceStatus'
                                             value='notHere'
                                         />{" "}
-                    Not Here
-                  </label>
+                                    Not Here
+                                    </label>
                                     <button type='submit'> Submit</button>
                                 </form>
                             </div>
