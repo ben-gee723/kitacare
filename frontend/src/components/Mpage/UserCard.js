@@ -68,7 +68,6 @@ export default function UserCard(props) {
     axios(obj)
       .then((result) => {
         if (result.data.success) {
-          //reload the page:
           setGroups(null);
           window.location.reload();
         } else {
@@ -91,7 +90,6 @@ export default function UserCard(props) {
     })
       .then((result) => {
         if (result.data.success) {
-          //close the lines and reload the page:
           setShowRoles(false);
           window.location.reload();
         } else {
@@ -118,7 +116,6 @@ export default function UserCard(props) {
               ? `Group: ${user.group.groupName}`
               : "Please assign a group"}
           </div>
-          {/* <div className={styles.listgroupitem}>{user.role}</div> */}
         </div>
         <div className={styles.btn}>
           <button
