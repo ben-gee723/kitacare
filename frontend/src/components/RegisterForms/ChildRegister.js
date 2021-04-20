@@ -3,7 +3,7 @@ import styles from "./registerForm.module.scss";
 import { sendData, submitForm } from "../../logic/registerLogic";
 import { MyContext } from "../../Container";
 
-export default function ChildRegister() {
+export default function ChildRegister(props) {
   const { kg, user } = useContext(MyContext);
   const [formData, setFormData] = useState("");
   const [categories, setCategories] = useState([
@@ -40,12 +40,14 @@ export default function ChildRegister() {
     console.log(childObj);
   };
 
-
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
     });
+    setTimeout(function () {
+      props.history.push({ pathname: "/children" });
+    }, 2000);
   };
 
   //

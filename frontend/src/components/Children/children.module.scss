@@ -9,12 +9,17 @@
 }
 
 .kid {
-  width: 50%;
-  height: 50%;;
+  width: 100%;
+  height: 100%;;
   margin: 0 auto;
+}
+
+.kidimg {
   background-color: $secondary-lightblue-transparent2;
   border-radius: 50%;
-  margin-top: 1rem;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto;
 }
 
 .groups{
@@ -39,7 +44,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0.5rem 0 0.5rem 0;
-  width: 20%;
+  width: 20rem;
   margin: 1rem;
   background-color: $light;
   color: $dark;
@@ -60,7 +65,7 @@
     margin: 0 auto;
     width: 95%;
    // border-radius: 0.5rem;
-    background-color: rgba(57, 100, 74, 0.5);
+    background-color: $primary-graygreen;
     border-top: 0.05rem solid $light-gray;
     padding-right: 2rem;
     padding-left: 0.6rem;

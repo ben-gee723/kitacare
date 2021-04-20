@@ -60,13 +60,13 @@ export default function SingleGroupEdit(props) {
   return (
     <div className={styles.regForm}>
       <form
-        className={styles.formContainer}
+        className={styles.addcontainer}
         onSubmit={handleEdit}
         name='managerForm'
         key='group._id'
       >
-        <div>
-          <h1>Edit Group!</h1>
+        <div className={styles.title}>
+          <h3>Edit Group!</h3>
         </div>
         <div className={styles.addinfo}>
           <label>Group Name</label>
@@ -109,7 +109,7 @@ export default function SingleGroupEdit(props) {
           />
         </div>
         <br />
-        <div className={styles.btnContainer}>
+        <div className={styles.btn}>
           <Link to='/groups'>
             <button className='cancel'>Cancel</button>
           </Link>
@@ -130,7 +130,10 @@ export default function SingleGroupEdit(props) {
         type='submit'
         value='delete'
         className='next'
-        style={{ width: "16%", marginLeft:"8.6rem", marginBottom: "1rem" , marginTop:"0.5rem"}}
+        style={{
+          width: "5rem",
+        margin: "0 auto"
+        }}
         onClick={() => handleDelete(group._id)}
       >
         Delete

@@ -4,19 +4,23 @@ import { Link } from "react-router-dom";
 import styles from "./groups.module.scss";
 import { MyContext } from "../../Container";
 
-export default function AddGroup() {
+export default function AddGroup(props) {
   const { user } = useContext(MyContext);
   const [data, setData] = useState({});
   const [message, setMessage] = useState({
     submitting: false,
     status: null,
   });
-  
+
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
-    })}
+    });
+    setTimeout(function () {
+      props.history.push({ pathname: "/groups" });
+    }, 2000);
+  };
 
   const submitForm = e => {
     e.preventDefault();
@@ -32,10 +36,7 @@ export default function AddGroup() {
     })
       .then(response => {
         if (response.data.success) {
-          handleMessage(
-            true,
-            "Thank you! We received your information."
-          );
+          handleMessage(true, "Thank you! We received your information.");
           console.log(response.data.group);
         } else {
           console.log(response);
@@ -106,10 +107,13 @@ export default function AddGroup() {
             Submit
           </button>
           {message.status && (
-                <p className={!message.status.ok ? "errorMsg" : ""} style={{fontSize: "0.65rem"}}>
-                  {message.status.msg}
-                </p>
-              )}
+            <p
+              className={!message.status.ok ? "errorMsg" : ""}
+              style={{ fontSize: "0.65rem" }}
+            >
+              {message.status.msg}
+            </p>
+          )}
         </div>
       </form>
     </div>

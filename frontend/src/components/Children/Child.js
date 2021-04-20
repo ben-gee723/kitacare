@@ -82,7 +82,9 @@ export default function Child(props) {
 
   return (
     <div className={styles.scontainer} key={child._id}>
+      <div className={styles.kidimg}>
       <img src={randImg} className={styles.kid} />
+      </div>
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
