@@ -17,19 +17,25 @@ export default function SingleGroup(props) {
     <div>
       <div className={styles.scontainer} key={group._id}>
         <>
-        {showForm && (
-          <div>
-            <SingleGroupEdit />
-          </div>
-        )}
+          {showForm && (
+            <div>
+              <SingleGroupEdit />
+            </div>
+          )}
           <div>
             <div className={styles.col1}>
               <p className={styles.bold}>Group:</p>
               <p className={styles.bold2}>{group.groupName}</p>
             </div>
             <div className={styles.col}>
-              <p className={styles.info}>Teacher:{group.teachers.firstName}</p>
-              <p className={styles.info}>{group.teachers.lastName}</p>
+              <p className={styles.info}>Teacher:</p>
+              {group.teachers.map((teacher) => {
+                return (
+                  <p className={styles.info}>
+                    {teacher.firstname} {teacher.lastname}
+                  </p>
+                );
+              })}
             </div>
             <div className={styles.col}>
               <p className={styles.info1}>Room:</p>

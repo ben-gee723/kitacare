@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useEffect, useState } from "react";
 import {
   format,
@@ -37,16 +39,14 @@ export default function Calendar() {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
-        console.log(result);
+      .then((result) => {
         if (result.data.success) {
           setShowEvents(result.data.event);
-          console.log(result.data.event);
         } else {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
   const header = () => {
@@ -108,8 +108,7 @@ export default function Calendar() {
                 : ""
             }`}
             key={day}
-            onClick={() => onDateClick(toDate(cloneDay))}
-          >
+            onClick={() => onDateClick(toDate(cloneDay))}>
             <span className='number'>{formattedDate}</span>
             <span className='bg'>{formattedDate}</span>
           </div>
@@ -181,7 +180,7 @@ export default function Calendar() {
   const prevMonth = () => {
     setCurrentDate(subMonths(currentDate, 1));
   };
-  const onDateClick = day => {
+  const onDateClick = (day) => {
     setSelectedDate(day);
   };
 

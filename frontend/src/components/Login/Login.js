@@ -8,7 +8,6 @@ import { MyContext } from "../../Container";
 
 export default function Login(props) {
   const { setIsLogin, setUser, user } = useContext(MyContext);
-  const [kg, setKg] = useState({});
 
   const [formData, setFormData] = useState({
     email: "",
@@ -91,13 +90,12 @@ export default function Login(props) {
 
         <br />
         <div className={styles.btnContainer}>
-        <button type='submit' value='Login' className='next'>
+          <button type='submit' value='Login' className='next'>
             Login
           </button>
           <Link to='/'>
             <button className='cancel'>Cancel</button>
           </Link>
-          
         </div>
       </form>
     </div>

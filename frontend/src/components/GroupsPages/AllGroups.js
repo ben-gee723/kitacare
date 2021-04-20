@@ -19,24 +19,27 @@ export default function AllGroups(props) {
         "Content-Type": "application/json",
       },
     })
-      .then(result => {
-        console.log(result);
+      .then((result) => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result.data.allGroups);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
-  const handleEdit = group => {
+  const handleEdit = (group) => {
     props.history.push({ pathname: "/editgroup", state: { group: group } });
+  };
+
+  const viewChildrenHandler = (groupId) => {
+    props.history.push({ pathname: "/children", state: { group: groupId } });
   };
   return (
     <div className={styles.container}>
       <div key={groups._id} className={styles.cContainer}>
-        {groups.map(group => {
+        {groups.map((group) => {
           return (
             <div className={styles.acontainer} key={group._id}>
               <div className={styles.col1}>
@@ -44,9 +47,12 @@ export default function AllGroups(props) {
                 <p className={styles.bold2}>{group.groupName}</p>
               </div>
               <div className={styles.col}>
-                <p className={styles.info}>
-                  Teacher:{group.teachers[0]}
-                </p>
+                <p className={styles.info}>Teachers:</p>
+                {group.teachers.map((teacher) => (
+                  <p className={styles.info}>
+                    {teacher.firstName} {teacher.lastName}
+                  </p>
+                ))}
                 <p className={styles.info}>{group.teachers.lastName}</p>
               </div>
               <div className={styles.col}>
@@ -62,21 +68,27 @@ export default function AllGroups(props) {
                 <p className={styles.info}>{group.ageGroup}</p>
               </div>
               <div>
-              <button
-                type='submit'
-                value='edit'
-                className='fixedit'
-                onClick={() => handleEdit(group)}
-              >
-                Edit
-              </button>
-              <Link to='/children'>
-                {" "}
-                <button type='submit' value='view' className='view'>
+                <button
+                  type='submit'
+                  value='edit'
+                  className='fixedit'
+                  onClick={() => handleEdit(group)}>
+                  Edit
+                </button>
+                {/* <Link
+                  to={{
+                    pathname: "/children",
+                    state: { group: group._id },
+                  }}> */}{" "}
+                <button
+                  type='submit'
+                  value='view'
+                  className='view'
+                  onClick={() => viewChildrenHandler(group._id)}>
                   view children
                 </button>
-              </Link>
-            </div>
+                {/* </Link> */}
+              </div>
             </div>
           );
         })}

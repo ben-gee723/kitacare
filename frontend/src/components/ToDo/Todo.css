@@ -14,13 +14,13 @@
 
 .app .btn {
   border: none;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 0.5rem;
   width: 70px;
   background: #00a881;
   color: white;
   cursor: pointer;
-  margin-left: 0.1rem;
+  margin-left: 0.2rem;
 }
 
 .app .btn:focus {
@@ -32,11 +32,12 @@
 }
 
 .todos-container .todo-form label {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .todos-container .todo-form .input-item input {
-  width: 100%;
   padding: 8px;
   border-radius: 0.5rem;
   border: none;
@@ -74,38 +75,20 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-decoration: line-through;
 }
 
-.todones-container .todones-item p {
-  text-align: center;
-  text-decoration: line-through;
+.todones-container .todones-item .dones {
   opacity: 0.5;
 }
 
-.todones-container h3 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: black;
+.input-todo {
+  width: 18rem;
 }
 
-.todones-container .todones-item {
-  padding: 5px 10px;
-  background: #a5e89d;
-  margin: 10px 0;
-  border-radius: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.todones-container .todones-item p {
-  text-decoration: line-through;
-  opacity: 0.5;
+@media only screen and (max-width: 768px) {
+  .input-todo {
+    width: 80%;
+  }
 }
 /*# sourceMappingURL=Todo.css.map */

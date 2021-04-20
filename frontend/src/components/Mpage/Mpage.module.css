@@ -1,5 +1,4 @@
 .mpContainer {
-  margin: 0 auto;
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,14 +9,11 @@
 }
 
 .welcome {
-  margin: 1rem 6rem;
   text-align: center;
   color: #0c8da8;
   -webkit-box-shadow: #f9a26b4d 0px 5px 15px;
           box-shadow: #f9a26b4d 0px 5px 15px;
   background-color: rgba(0, 0, 0, 0.9);
-  width: 100%;
-  margin: 0 auto;
 }
 
 .mInfo {
@@ -58,6 +54,10 @@
 }
 
 .mGroup {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   background-color: #fdfeff;
   padding: 1rem;
   border-radius: 1rem;
@@ -69,7 +69,26 @@
   color: #ff4e13;
 }
 
+.mChildren {
+  border-radius: 1rem;
+  padding: 1rem;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mChildren h3 {
+  color: #ff4e13;
+}
+
 .mTeachers {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   background-color: #fdfeff;
   padding: 1rem;
   border-radius: 1rem;
@@ -79,6 +98,10 @@
 
 .mTeachers h3 {
   color: #ff4e13;
+}
+
+.mTeachers button {
+  margin: 0.2rem;
 }
 
 .mTodo {
@@ -94,149 +117,68 @@
 }
 
 .calendar {
-  margin-left: 1.5rem;
   -ms-grid-column: 2;
       grid-column-start: 2;
-  -ms-grid-row: 1;
-      grid-row-start: 1;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
   border-radius: 1rem;
 }
 
 /* Iphone + Android */
-@media only screen and (min-width: 414px) and (max-width: 736px) {
-  .mTodo {
-    position: relative;
-    margin-right: 2.5rem;
-  }
-}
-
-@media only screen and (max-width: 46rem) {
+@media only screen and (max-width: 768px) {
   .mpContainer {
-    margin: 0 auto;
+    display: block;
     padding: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 190vh;
-  }
-  .welcome {
-    margin: 1rem 6rem;
-    text-align: center;
-    padding-top: 0.2rem;
     width: 100%;
-    margin: 0 auto;
-  }
-  .welcome h2 {
-    font-size: 1.5rem;
-  }
-  .mInfo {
-    width: 40%;
-    padding: 0;
-    line-height: 1.5rem;
-    margin-right: 0;
-    height: 16.35rem;
-  }
-  .mInfo .mImg {
-    width: 85%;
-    height: 45%;
-    margin: 0 auto;
-  }
-  .mInfo .mImg img {
-    position: relative;
-    right: 0.2rem;
   }
   .features {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .mInfo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 50%;
-  }
-  .mGroup {
+    margin: 0;
+    margin-top: 10px;
+    line-height: normal;
     padding: 1rem;
-    font-size: 0.7rem;
   }
   .mTeachers {
-    padding: 1rem;
-    font-size: 0.7rem;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .mTeachers button {
+    margin: 0;
+  }
+  .mChildren {
+    margin: 0;
+    margin-top: 10px;
+  }
+  .mImg {
+    margin-right: 1rem;
+  }
+  .mGroup {
+    margin: 0;
+    margin-top: 15px;
+  }
+  .mGroup h2 {
+    font-size: 1.2rem;
   }
   .mTodo {
-    position: relative;
-    right: 11rem;
-    margin-left: 1.5rem;
-    bottom: 18.4rem;
-  }
-  .mTodo input {
-    width: 100%;
+    margin: 0;
+    margin-top: 15px;
   }
   .calendar {
-    position: relative;
-    width: 150%;
-    padding-top: 0.2rem;
-    padding-right: 20.55rem;
-    bottom: 18rem;
-    right: 5.35rem;
+    width: 100%;
+    margin: 0;
+    margin-top: 15px;
   }
-}
-
-/*KINDLE + TABLETS + IPAD*/
-@media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
   .welcome {
-    margin: 1rem 6rem;
-    text-align: center;
-    padding-top: 0.2rem;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .welcome h2 {
-    font-size: 1.5rem;
-  }
-  .mInfo {
-    width: 40%;
-    padding-top: 2rem;
-    line-height: 1.5rem;
-    margin-right: 0;
-    height: 18rem;
-  }
-  .mInfo .mImg {
-    width: 55%;
-    height: 52%;
-    margin: 0 auto;
-  }
-  .mInfo .mImg img {
-    position: relative;
-    top: 0.2rem;
-    left: 0.2rem;
-    width: 80%;
-  }
-  .features {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 50%;
-  }
-  .mGroup, .mTeachers {
-    padding: 1rem;
-    font-size: 0.85rem;
-    height: 16rem;
-  }
-  .calendar {
-    position: relative;
-    bottom: 45rem;
-    right: 23.5rem;
+    padding-top: 1rem;
+    color: #0c8da8;
+    font-size: 0.7rem;
   }
 }
 /*# sourceMappingURL=Mpage.module.css.map */
