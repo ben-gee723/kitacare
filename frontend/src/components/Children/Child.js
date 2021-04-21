@@ -29,21 +29,21 @@ export default function Child(props) {
       },
       withCredentials: true,
     })
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           setGroups(result.data.allGroups);
         } else {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   const handleEditGroup = () => {
     getAllGroups();
   };
 
-  const changeGroup = (id) => {
+  const changeGroup = id => {
     //to assign none as group:
     let obj;
     if (selectedGroup === "empty") {
@@ -70,19 +70,21 @@ export default function Child(props) {
       };
     }
     axios(obj)
-      .then((result) => {
+      .then(result => {
         if (result.data.success) {
           history.push("/groups");
         } else {
           console.log(result.data);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   return (
     <div className={styles.scontainer} key={child._id}>
-      <img src={randImg} className={styles.kid} alt='profileImg' />
+      <div className={styles.kidimg}>
+        <img src={randImg} className={styles.kid} alt='profileImg' />
+      </div>
       <div className={styles.col1}>
         <p className={styles.bold2}>
           {child.firstName} {child.lastName}
@@ -136,7 +138,8 @@ export default function Child(props) {
             type='submit'
             value='edit'
             className='fixedit'
-            onClick={() => props.handleEdit(child)}>
+            onClick={() => props.handleEdit(child)}
+          >
             Edit
           </button>
         )}
@@ -145,7 +148,8 @@ export default function Child(props) {
             type='submit'
             value='edit'
             className='add'
-            onClick={() => handleEditGroup()}>
+            onClick={() => handleEditGroup()}
+          >
             Edit Group
           </button>
         )}
@@ -160,8 +164,9 @@ export default function Child(props) {
                 flexFlow: "row wrap",
                 justifyContent: "space-between",
                 color: "black",
-              }}>
-              {groups.map((group) => {
+              }}
+            >
+              {groups.map(group => {
                 return (
                   <label key={group.groupName} htmlFor={group.groupName}>
                     <input
@@ -198,7 +203,8 @@ export default function Child(props) {
               <button
                 onClick={() => changeGroup(child._id)}
                 disabled={selectedGroup ? false : true}
-                className='add'>
+                className='add'
+              >
                 save
               </button>
             </div>
