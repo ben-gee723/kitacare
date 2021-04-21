@@ -47,7 +47,6 @@ export default function Mpage(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -67,7 +66,6 @@ export default function Mpage(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -133,7 +131,7 @@ export default function Mpage(props) {
               how many children in that teachers group and all the teachers
               necessary information!
             </p>
-            <p>Total: {teachers.lengt}</p>
+            <p>Total: {teachers.length}</p>
             <Link to='/tregister'>
               <button type='submit' value='add' className='add'>
                 Add

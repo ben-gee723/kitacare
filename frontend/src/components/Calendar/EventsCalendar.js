@@ -1,83 +1,76 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import styles from "./calendar.module.scss";
+import { format } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackspace } from "@fortawesome/free-solid-svg-icons";
 
 export default function EventsCalendar() {
-  const events = () => {
-    const monthStart = startOfMonth(currentDate);
-    {
-      showEvents.map(events => {
-        const eventObj = {
-          ...events,
-          startDate: events.startDate.split("T"),
-          endDate: events.endDate.split("T"),
-        };
-        console.log(eventObj);
-        for (const i in eventObj.startDate) {
-          const dateFormat = "d";
-          const dateFormat3 = "MM";
-          if (
-            format(monthStart, dateFormat3) ===
-            format(new Date(eventObj.startDate[i]), dateFormat3)
-          ) {
-            return (
-              <div>{format(new Date(eventObj.startDate[i], dateFormat))}</div>
-            );
-          } else {
-            console.log("different month");
-          }
+  const backspace = <FontAwesomeIcon icon={faBackspace} size='2x' />;
+  const [showEvents, setShowEvents] = useState([]);
+  const dateFormat = "dd/MM";
+  const history = useHistory();
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:3001/calendar/getAllEvents`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      withCredentials: true
+    })
+      .then(result => {
+        if (result.data.success) {
+          setShowEvents(result.data.event);
+        } else {
+          console.log(result.data.getAllEvents);
         }
-      });
-    }
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  const handleDelete = id => {
+    axios(`http://localhost:3001/calendar/deleteSingleEvent/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    }).then(result => {
+      if (result.data.success) {
+        console.log(result.data);
+        history.go(0);
+      } else {
+        console.log(result);
+      }
+    });
   };
 
-  const events = () => {
-    const monthStart = startOfMonth(currentDate);
-    const dateFormat = "d";
-    const rows = [];
-    let days = [];
-    let formattedDate = "";
-    {
-      showEvents.map(events => {
-        const eventObj = {
-          ...events,
-          startDate: events.startDate.split("T"),
-          endDate: events.endDate.split("T"),
-        };
-        console.log(eventObj);
-        for (const i in eventObj.startDate) {
-          let firstDay = new Date(eventObj.startDate[i]);
-          const endDay = new Date(eventObj.endDate[i]);
-          while (firstDay <= endDay) {
-            for (let i = 0; i < 7; i++) {
-              formattedDate = format(firstDay, dateFormat);
-              const cloneDay = firstDay;
-              days.push(
-                <div
-                  className={`column cell ${
-                    !isSameMonth(firstDay, monthStart)
-                      ? "disabled"
-                      : isSameDay(firstDay, selectedDate)
-                      ? "selected"
-                      : ""
-                  }`}
-                  key={firstDay}
-                  onClick={() => onDateClick(toDate(cloneDay))}
-                >
-                  <span className='number'>{formattedDate}</span>
-                  <span className='bg'>{formattedDate}</span>
-                </div>
-              );
-              firstDay = addDays(firstDay, 1);
-            }
-            rows.push(
-              <div className='row' key={firstDay}>
-                {days}
-              </div>
-            );
-            days = [];
-          }
-        }
-        return <div className='body'>{rows}</div>;
-      });
-    }
-  };
+  return (
+    <div>
+      {showEvents.map(event => {
+        return (
+          <div className={styles.container}>
+            <p>
+              <span className={styles.date}>
+                {" "}
+                {format(new Date(event.startDate), dateFormat)} -{" "}
+                {format(new Date(event.endDate), dateFormat)}{" "}
+              </span>{" "}
+              : {event.name}
+            </p>
+            <button
+              type='submit'
+              value='delete'
+              className={styles.delete}
+              onClick={() => handleDelete(event._id)}
+            >
+              {backspace}
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }

@@ -16,11 +16,16 @@ export default function SingleGroupEdit(props) {
   });
   let history = useHistory();
 
+  let timer;
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
     });
+    timer = setTimeout(() => {
+     props.history.push({ pathname: "/groups" });
+    }, 2000);
+    return () => clearTimeout(timer);
   };
 
   const handleDelete = () => {
@@ -28,7 +33,7 @@ export default function SingleGroupEdit(props) {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    }).then((result) => {
+    }).then(result => {
       if (result.data.success) {
         console.log(result.data);
         history.push("/groups");
@@ -38,24 +43,26 @@ export default function SingleGroupEdit(props) {
     });
   };
 
-  const handleEdit = (e) => {
+  const handleEdit = e => {
     e.preventDefault();
     setMessage({ submitting: true });
-    axios(`http://localhost:3001/groups/${group._id}`, editedGroup, {
+    axios(`http://localhost:3001/groups/updateGroup/${group._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    }).then((result) => {
+      data: editedGroup,
+    }).then(result => {
       if (result.success) {
         setEditedGroup(result.group);
         handleMessage(true, "Thank you! The group was updated.");
+       // history.go(0)
       } else {
         console.log(result);
       }
     });
   };
 
-  const editedValue = (e) => {
+  const editedValue = e => {
     setEditedGroup({ ...group, [e.target.name]: e.target.value });
   };
 
@@ -65,7 +72,8 @@ export default function SingleGroupEdit(props) {
         className={styles.addcontainer}
         onSubmit={handleEdit}
         name='managerForm'
-        key='group._id'>
+        key='group._id'
+      >
         <div className={styles.title}>
           <h3>Edit Group!</h3>
         </div>
@@ -120,7 +128,8 @@ export default function SingleGroupEdit(props) {
           {message.status && (
             <p
               className={!message.status.ok ? "errorMsg" : ""}
-              style={{ fontSize: "0.65rem" }}>
+              style={{ fontSize: "0.65rem" }}
+            >
               {message.status.msg}
             </p>
           )}
@@ -134,7 +143,8 @@ export default function SingleGroupEdit(props) {
           width: "5rem",
           margin: "0 auto",
         }}
-        onClick={() => handleDelete(group._id)}>
+        onClick={() => handleDelete(group._id)}
+      >
         Delete
       </button>
     </div>

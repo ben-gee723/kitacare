@@ -28,8 +28,6 @@ import Mpage from "./components/Mpage/Mpage";
 import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Container from "./Container";
-//for product:
-//import Container from "./Container_product";
 
 import Attendance from "./components/Tpage/Attendance/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
