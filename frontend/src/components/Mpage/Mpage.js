@@ -7,7 +7,7 @@ import Calendar from "../Calendar/Calendar";
 import ToDo from "../ToDo/ToDo";
 import axios from "axios";
 import { MyContext } from "../../Container";
-import managerImg from "../../images/manager.svg";
+import managerImg from "../../images/manager_photo.jpg";
 
 export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
@@ -83,9 +83,6 @@ export default function Mpage(props) {
   }, []);
   return (
     <>
-      <div className={styles.welcome}>
-        <h2>Welcome {user.firstName}!</h2>
-      </div>
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
@@ -132,11 +129,6 @@ export default function Mpage(props) {
               necessary information!
             </p>
             <p>Total: {teachers.length}</p>
-            <Link to='/tregister'>
-              <button type='submit' value='add' className='add'>
-                Add
-              </button>
-            </Link>
             <Link to='/teachers'>
               <button type='submit' value='view' className='view'>
                 View

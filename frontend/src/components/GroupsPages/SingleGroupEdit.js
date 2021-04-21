@@ -23,7 +23,7 @@ export default function SingleGroupEdit(props) {
       status: { ok, msg },
     });
     timer = setTimeout(() => {
-     props.history.push({ pathname: "/groups" });
+      props.history.push({ pathname: "/groups" });
     }, 2000);
     return () => clearTimeout(timer);
   };
@@ -54,8 +54,6 @@ export default function SingleGroupEdit(props) {
     }).then(result => {
       if (result.success) {
         setEditedGroup(result.group);
-        handleMessage(true, "Thank you! The group was updated.");
-       // history.go(0)
       } else {
         console.log(result);
       }
@@ -122,7 +120,14 @@ export default function SingleGroupEdit(props) {
           <Link to='/groups'>
             <button className='cancel'>Cancel</button>
           </Link>
-          <button type='submit' value='Edit' className='att'>
+          <button
+            type='submit'
+            value='Edit'
+            className='att'
+            onClick={() =>
+              handleMessage(true, "Thank you! The group was updated.")
+            }
+          >
             Submit
           </button>
           {message.status && (
