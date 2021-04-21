@@ -20,12 +20,13 @@
 
 .mImg {
   width: auto;
-  height: 10rem;
-  margin-bottom: 0.5rem;
+  height: auto;
   img {
     margin: 0 auto;
-    width: 100%;
-    height: 100%;
+    width: 10rem;
+    height: 10rem;
+    border: $primary-orange 1px solid;
+    border-radius: 50%;
   }
 }
 
