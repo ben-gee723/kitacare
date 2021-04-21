@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import SingleGroupEdit from "./SingleGroupEdit";
 import styles from "./groups.module.scss";
 import { Link } from "react-router-dom";

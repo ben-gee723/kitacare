@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function AllGroups(props) {
   const [groups, setGroups] = useState([]);
-  const { user } = useContext(MyContext);
+  const { user, reset } = useContext(MyContext);
 
   useEffect(() => {
     axios({
@@ -27,7 +27,7 @@ export default function AllGroups(props) {
           console.log(result.data.allGroups);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   }, []);
 
   const handleEdit = (group) => {

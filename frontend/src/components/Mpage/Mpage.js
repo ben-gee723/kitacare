@@ -11,7 +11,7 @@ import managerImg from "../../images/manager.svg";
 
 export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
-  const { kg, user } = useContext(MyContext);
+  const { kg, user, reset } = useContext(MyContext);
   const [teachers, setTeachers] = useState([]);
   const [children, setChildren] = useState([]);
 
@@ -36,7 +36,7 @@ export default function Mpage(props) {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   const getAllTeachers = () => {
     axios({
@@ -55,7 +55,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   const getAllChildren = () => {
     axios({
@@ -74,7 +74,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   useEffect(() => {
     getAllGroups();

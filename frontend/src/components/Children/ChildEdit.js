@@ -21,15 +21,17 @@ export default function ChildEdit(props) {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       }
-    ).then((result) => {
-      if (result.data.success) {
-        alert("Child has been deleted successfully");
-        history.push("/children");
-      } else {
-        console.log(result);
-        alert("Child hasn't been deleted successfully");
-      }
-    });
+    )
+      .then((result) => {
+        if (result.data.success) {
+          alert("Child has been deleted successfully");
+          history.push("/children");
+        } else {
+          console.log(result);
+          alert("Child hasn't been deleted successfully");
+        }
+      })
+      .catch((err) => reset());
   };
 
   const handleEdit = (e) => {
@@ -42,18 +44,20 @@ export default function ChildEdit(props) {
         withCredentials: true,
         data: editedChild,
       }
-    ).then((result) => {
-      if (result.data.success) {
-        history.push({
-          pathname: "/success",
-          state: { child: "child" },
-        });
-        alert("Child has been edited successfully");
-      } else {
-        console.log(result);
-        alert("Child hasn't been edited successfully");
-      }
-    });
+    )
+      .then((result) => {
+        if (result.data.success) {
+          history.push({
+            pathname: "/success",
+            state: { child: "child" },
+          });
+          alert("Child has been edited successfully");
+        } else {
+          console.log(result);
+          alert("Child hasn't been edited successfully");
+        }
+      })
+      .catch((err) => reset());
   };
 
   const editedValue = (e) => {

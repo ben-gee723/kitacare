@@ -7,7 +7,7 @@ import axios from "axios";
 import { MyContext } from "../../Container";
 
 export default function Login(props) {
-  const { setIsLogin, setUser, user } = useContext(MyContext);
+  const { setIsLogin, setUser, user, reset } = useContext(MyContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -50,24 +50,22 @@ export default function Login(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   return (
     <div className={styles.fcontainer}>
       <form className={styles.loginContainer} onSubmit={submitForm}>
-        <div className="reg">
-          Login to Account!
-        </div>
+        <div className='reg'>Login to Account!</div>
 
         <div className={styles.loginBox}>
-          <div className="inputBox">
-            <label className="details">E-mail</label>
+          <div className='inputBox'>
+            <label className='details'>E-mail</label>
             <br />
             <input
-              type="email"
-              name="email"
-              placeholder="E-mail"
+              type='email'
+              name='email'
+              placeholder='E-mail'
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -75,13 +73,13 @@ export default function Login(props) {
             />
           </div>
 
-          <div className="inputBox">
-            <label className="details">Password</label>
+          <div className='inputBox'>
+            <label className='details'>Password</label>
             <br />
             <input
-              type="password"
-              name="password"
-              placeholder="Password"
+              type='password'
+              name='password'
+              placeholder='Password'
               value={formData.password}
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
@@ -91,11 +89,11 @@ export default function Login(props) {
 
           <br />
           <div className={styles.btnContainer}>
-            <button type="submit" value="Login" className="next">
+            <button type='submit' value='Login' className='next'>
               Login
             </button>
-            <Link to="/">
-              <button className="cancel">Cancel</button>
+            <Link to='/'>
+              <button className='cancel'>Cancel</button>
             </Link>
           </div>
         </div>
