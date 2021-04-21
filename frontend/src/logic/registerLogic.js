@@ -83,7 +83,6 @@ const sendData = (type, payload) => {
   })
     .then((response) => {
       if (response.data.success) {
-        console.log(response.data);
         //push user to login page with user's email attached to props:
         return response.data.email;
       } else {
