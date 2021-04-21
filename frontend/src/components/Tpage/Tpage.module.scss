@@ -17,16 +17,16 @@
     margin-right: 2rem;    
 }
 
-.tImg {
-    border-radius: 50%;
+.tImg {    
     width: 10rem;
     height: 10rem;
-    background-color: $primary-lightblue;
+    //background-color: $primary-lightblue;
     margin-bottom: 1rem;
     img{
-        margin: -0.25rem 0 0.625rem 0.719rem;
-        width: 90%;
+        width: 100%;
         height: 100%;
+        border-radius: 50%;
+        border: 3px solid $primary-orange;
       }
 }
 
