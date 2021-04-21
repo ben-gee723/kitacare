@@ -35,6 +35,7 @@ export default function EventsCalendar() {
     axios(`http://localhost:3001/calendar/deleteSingleEvent/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     }).then(result => {
       if (result.data.success) {
         console.log(result.data);
