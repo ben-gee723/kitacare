@@ -84,3 +84,17 @@
 }
 
 
+@media only screen and (max-width: 768px) {
+    .tAttendance{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .centering {
+        width: 100%;
+    }
+    .hereChild label, .notHereChild label {
+        margin: 0;
+    }
+}
