@@ -1,31 +1,33 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./ChildEdit/ChildEdit.module.scss";
+import { MyContext } from "../../Container";
 
 export default function ChildEdit(props) {
-  const [deletedChild, setDeleteChild] = useState([]);
+  const { reset } = useContext(MyContext);
   const [editedChild, setEditedChild] = useState([]);
   const child = props.location.state.child;
   const history = useHistory();
 
-  const handleDelete = (props) => {
+  const handleDelete = (e) => {
+    e.preventDefault();
     axios(
-      `http://localhost:3001/groups/getSingleChild/${props.location.state.child._id}`,
+      `http://localhost:3001/child/deleteChild/${props.location.state.child._id}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       }
     ).then((result) => {
-      if (result.success) {
-        setDeleteChild(result.deletedChild);
-        alert("Child delete successful")
+      if (result.data.success) {
+        alert("Child has been deleted successfully");
+        history.push("/children");
       } else {
         console.log(result);
-        alert("Child delete not successful")
+        alert("Child hasn't been deleted successfully");
       }
     });
   };
@@ -46,10 +48,10 @@ export default function ChildEdit(props) {
           pathname: "/success",
           state: { child: "child" },
         });
-        alert("Edit child successful")
+        alert("Child has been edited successfully");
       } else {
         console.log(result);
-        alert("Edit child not successful")
+        alert("Child hasn't been edited successfully");
       }
     });
   };
@@ -60,9 +62,6 @@ export default function ChildEdit(props) {
 
   return (
     <div className={styles.regForm}>
-      {/* <div className={styles.reg}>
-          <h1>Edit Child!</h1>
-        </div> */}
       <form
         className={styles.formContainer}
         onSubmit={(e) => handleEdit(e)}
@@ -237,20 +236,19 @@ export default function ChildEdit(props) {
           <div className={styles.btnContainer}>
             <button
               className={styles.deleteBtn}
-              type='submit'
               value='delete'
-              onClick={() => handleDelete(child._id)}>
+              onClick={(e) => handleDelete(e)}>
               Delete
             </button>
             <Link to='/children'>
               <button
                 className={styles.cancelBtn}
-                onClick={() => alert("Edit cancelled")}
-              >Cancel</button>
+                onClick={() => alert("Edit cancelled")}>
+                Cancel
+              </button>
             </Link>
           </div>
         </div>
-
       </form>
     </div>
   );
