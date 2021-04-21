@@ -73,8 +73,8 @@ export default function EditProfile(props) {
   return (
     <div className={styles.regForm}>
       {showSuccess && ( //style this one!!!!
-        <div>
-          <p>Your profile has been succeessfully updated </p>
+        <div className={styles.updateBox}>
+          <h3>Your profile has been succeessfully updated </h3>
         </div>
       )}
       {/* form for changing password: */}
