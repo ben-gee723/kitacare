@@ -6,7 +6,6 @@ import styles from "./Tpage.module.scss";
 import { Link } from "react-router-dom";
 import ToDo from "../ToDo/ToDo";
 import { MyContext } from "../../Container";
-import managerImg from "../../images/manager.svg";
 
 export default function Tpage(props) {
   const { user } = useContext(MyContext);
@@ -27,7 +26,7 @@ export default function Tpage(props) {
       <div className={styles.tpContainer}>
         <div className={styles.tInfo}>
           <div className={styles.tImg}>
-            <img src={managerImg} alt='' />
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRwB0cF7kCDk34cCTq00XL6xX5kS19aTnDPA&usqp=CAU' alt='' />
           </div>
           <div>
           <p>
@@ -56,7 +55,7 @@ export default function Tpage(props) {
               {user.group.ageGroup && <li>Group age: {user.group.ageGroup}</li>}
               {user.group.room && <li>Room: {user.group.room}</li>}
               <br />
-
+              <br/>
               <button onClick={() => handleView()} className='add'>
                 View Group
               </button>
