@@ -1,11 +1,13 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./ChildEdit/ChildEdit.module.scss";
+import { MyContext } from "../../Container";
 
 export default function ChildEdit(props) {
+  const { reset } = useContext(MyContext);
   const [editedChild, setEditedChild] = useState([]);
   const child = props.location.state.child;
   const history = useHistory();
