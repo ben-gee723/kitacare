@@ -11,7 +11,6 @@ import "./globalCSS/app.scss";
 
 // Login & Error
 import Login from "./components/Login/Login";
-import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 
 // Registration
@@ -58,7 +57,6 @@ function App() {
           <Route path='/teachers' component={Teachers} />
           <Route path='/tpage' component={Tpage} />
           <Route path='/attendance' component={Attendance} />
-          <Route path='/logout' component={Logout} />
           <Route path='/calendar' component={Calendar} />
           <Route path='/groups' component={AllGroups} />
           <Route path='/editgroup' component={SingleGroupEdit} />
