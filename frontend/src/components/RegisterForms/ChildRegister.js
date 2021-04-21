@@ -34,29 +34,26 @@ export default function ChildRegister(props) {
   const submitChildForm = e => {
     e.preventDefault();
     let childObj = submitForm(e);
-
     setFormData({ child: childObj });
     handleMessage(true, "Thank you! Child added.");
     console.log(childObj);
   };
 
+  let timer;
   const handleMessage = (ok, msg) => {
     setMessage({
       submitting: false,
       status: { ok, msg },
     });
-    setTimeout(function () {
+    timer = setTimeout(() => {
       props.history.push({ pathname: "/children" });
     }, 2000);
+    return () => clearTimeout(timer);
   };
 
   //
   return (
     <div className={styles.formContainter}>
-      {/* <div className={styles.reg} >
-        <h1>Register Child</h1>
-      </div> */}
-
       <form
         onSubmit={e => submitChildForm(e)}
         name='childForm'

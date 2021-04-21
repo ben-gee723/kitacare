@@ -133,7 +133,7 @@ export default function Mpage(props) {
               how many children in that teachers group and all the teachers
               necessary information!
             </p>
-            <p>Total: {teachers.lengt}</p>
+            <p>Total: {teachers.length}</p>
             <Link to='/tregister'>
               <button type='submit' value='add' className='add'>
                 Add

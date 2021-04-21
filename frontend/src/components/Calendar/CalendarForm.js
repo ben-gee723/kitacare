@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useHistory } from 'react-router-dom'
 export default function CalendarForm(props) {
   const [data, setData] = useState({
     startDate: "",
@@ -10,11 +10,12 @@ export default function CalendarForm(props) {
     name: "",
     //creator: "",
   });
+  const history = useHistory()
   const [message, setMessage] = useState({
     submitting: false,
     status: null,
   });
-  console.log(data);
+  //console.log(data);
   const date = props.day;
 
   const handleMessage = (ok, msg) => {
@@ -38,8 +39,9 @@ export default function CalendarForm(props) {
     })
       .then((response) => {
         if (response.data.success) {
-          console.log(response.data.event);
+         // console.log(response.data.event);
           handleMessage(true, "Event added!");
+          history.go(0)
         } else {
           console.log(response);
         }

@@ -39,7 +39,7 @@
   width: auto;
   background: $light;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
- // border: 0.15rem solid $primary-lightblue;
+  // border: 0.15rem solid $primary-lightblue;
   border-radius: 0.5rem;
   height: auto;
   margin: 0 auto;
@@ -80,7 +80,6 @@
   width: 100%;
   position: relative;
   left: 1rem;
-  
 }
 .calendar .body .cell {
   position: relative;
@@ -100,11 +99,9 @@
   border-bottom: 0.05rem solid $secondary-blue;
   position: relative;
   left: 1rem;
-  
 }
 .calendar .body .row:last-child {
   border-bottom: none;
-  
 }
 .calendar .body .cell:last-child {
   border-right: none;
@@ -149,32 +146,31 @@
   width: calc(100% / 7);
 }
 
- /* Iphone + Android */
- @media only screen and (max-width: 46rem) {
-   .calendar {
-     width: 100%;
-   }
+/* Iphone + Android */
+@media only screen and (max-width: 46rem) {
+  .calendar {
+    width: 100%;
+  }
 
-   .calendar .body .cell {
-     height: 2.5em;
-   }
+  .calendar .body .cell {
+    height: 2.5em;
+  }
 
-   .month {
-     margin-left: 0.05rem;
-     font-size: 0.95rem;
-     color: $dark;
-   }
-   .calendar .header .icon:first-of-type {
-     margin-left: 2.75em;
-   }
-   .calendar .header .icon:last-of-type {
-     margin-right: 1em;
-   }
-   .calendar .days {
-     font-size: 0.5rem;
-   }
- }
-
+  .month {
+    margin-left: 0.05rem;
+    font-size: 0.95rem;
+    color: $dark;
+  }
+  .calendar .header .icon:first-of-type {
+    margin-left: 2.75em;
+  }
+  .calendar .header .icon:last-of-type {
+    margin-right: 1em;
+  }
+  .calendar .days {
+    font-size: 0.5rem;
+  }
+}
 
 /*KINDLE + IPAD */
 @media only screen and (min-width: 46.1rem) and (max-width: 80rem) {
@@ -201,7 +197,6 @@
     font-size: 0.5rem;
   }
 }
-
 
 /*CALENDAR FORM */
 .cform {
@@ -246,4 +241,24 @@
   }
 }
 
+//EVENTS CALENDAR
 
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  color: $dark;
+  .date {
+    font-size: 0.80rem;
+    font-weight: 600;
+  }
+}
+.delete {
+  color: $primary-blue;
+  border: none;
+  background-color: $light;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  margin: 0rem 0 0.5rem 0.25rem;
+  font-size: 0.55rem;
+}
