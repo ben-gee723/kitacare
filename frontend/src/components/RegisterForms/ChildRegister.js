@@ -155,8 +155,8 @@ export default function ChildRegister(props) {
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>First name</label> <br />
-              <input type='text' name='emerName1' placeholder='First Name' />
+              <label className={styles.details}>Full Name</label> <br />
+              <input type='text' name='emerName1' placeholder='Full Name' />
             </div>
 
             <div className={styles.emerInput}>
@@ -176,8 +176,8 @@ export default function ChildRegister(props) {
             </div>
 
             <div className={styles.emerInput}>
-              <label className={styles.details}>First name</label> <br />
-              <input type='text' name='emerName2' placeholder='First Name' />
+              <label className={styles.details}>Full Name</label> <br />
+              <input type='text' name='emerName2' placeholder='Full Name' />
             </div>
 
             <div className={styles.emerInput}>
