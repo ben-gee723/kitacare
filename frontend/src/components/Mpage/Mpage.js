@@ -7,7 +7,7 @@ import Calendar from "../Calendar/Calendar";
 import ToDo from "../ToDo/ToDo";
 import axios from "axios";
 import { MyContext } from "../../Container";
-import managerImg from "../../images/manager_photo.svg";
+import managerImg from "../../images/manager_photo.jpg";
 
 export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
