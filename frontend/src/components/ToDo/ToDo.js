@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function Todo() {
   let [todos, setTodos] = useState([]);
-  const { user } = useContext(MyContext);
+  const { user, reset } = useContext(MyContext);
   let toDos = todos.length ? todos.filter((item) => !item.done) : [];
   let toDones = todos.length ? todos.filter((item) => item.done) : [];
 
@@ -31,7 +31,7 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   }, []);
 
   let addItem = (value) => {
@@ -53,7 +53,7 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   let updateItem = (value) => {
@@ -74,7 +74,7 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   let deleteItem = (value) => {
@@ -95,7 +95,7 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   return (

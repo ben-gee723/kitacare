@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   format,
   startOfMonth,
@@ -22,6 +22,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CalendarForm from "./CalendarForm";
 import axios from "axios";
 import EventsCalendar from "./EventsCalendar";
+import { MyContext } from "../../Container";
 
 export default function Calendar() {
   const left = <FontAwesomeIcon icon={faChevronCircleLeft} />;
@@ -30,6 +31,7 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showForm, setShowForm] = useState(false);
   const [showEvents, setShowEvents] = useState([]);
+  const { reset } = useContext(MyContext);
 
   useEffect(() => {
     axios({
@@ -41,14 +43,14 @@ export default function Calendar() {
       },
       withCredentials: true,
     })
-      .then(result => {
+      .then((result) => {
         if (result.data.success) {
           setShowEvents(result.data.event);
         } else {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => reset());
   }, []);
 
   const header = () => {
@@ -100,7 +102,7 @@ export default function Calendar() {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
 
-        const relatedEvent = showEvents.find(event => {
+        const relatedEvent = showEvents.find((event) => {
           return isSameDay(Date.parse(day), Date.parse(event.startDate));
         });
 
@@ -114,8 +116,7 @@ export default function Calendar() {
                 : ""
             }`}
             key={day}
-            onClick={() => onDateClick(toDate(cloneDay))}
-          >
+            onClick={() => onDateClick(toDate(cloneDay))}>
             <span className='number'>{formattedDate}</span>
             <span className='bg'>{formattedDate}</span>
           </div>
@@ -138,7 +139,7 @@ export default function Calendar() {
   const prevMonth = () => {
     setCurrentDate(subMonths(currentDate, 1));
   };
-  const onDateClick = day => {
+  const onDateClick = (day) => {
     setSelectedDate(day);
   };
 

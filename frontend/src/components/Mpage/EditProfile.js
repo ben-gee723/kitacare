@@ -8,7 +8,7 @@ import { MyContext } from "../../Container";
 import { submitForm } from "../../logic/registerLogic";
 
 export default function EditProfile(props) {
-  const { setUser, user } = useContext(MyContext);
+  const { setUser, user, reset } = useContext(MyContext);
   const [nextUser, setNextUser] = useState(user);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
@@ -42,13 +42,15 @@ export default function EditProfile(props) {
         currentPassword: formObj.currentPassword,
         newPassword: formObj.newPassword,
       },
-    }).then((result) => {
-      if (result.data.success) {
-        setShowSuccess(true);
-      } else {
-        console.log(result); //work on error cases!!!!!
-      }
-    });
+    })
+      .then((result) => {
+        if (result.data.success) {
+          setShowSuccess(true);
+        } else {
+          console.log(result); //work on error cases!!!!!
+        }
+      })
+      .catch((err) => reset());
   };
 
   const editHandler = (e) => {
@@ -59,22 +61,24 @@ export default function EditProfile(props) {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
       data: formObj,
-    }).then((result) => {
-      if (result.data.success) {
-        console.log(result.data);
-        setUser(result.data.updatedUser);
-        setShowSuccess(true);
-      } else {
-        console.log(result); //prepare an error box!
-      }
-    });
+    })
+      .then((result) => {
+        if (result.data.success) {
+          console.log(result.data);
+          setUser(result.data.updatedUser);
+          setShowSuccess(true);
+        } else {
+          console.log(result); //prepare an error box!
+        }
+      })
+      .catch((err) => reset());
   };
 
   return (
     <div className={styles.regForm}>
       {showSuccess && ( //style this one!!!!
-        <div>
-          <p>Your profile has been succeessfully updated </p>
+        <div className={styles.updateBox}>
+          <h3>Your profile has been succeessfully updated </h3>
         </div>
       )}
       {/* form for changing password: */}

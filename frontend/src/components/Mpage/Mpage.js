@@ -11,7 +11,7 @@ import managerImg from "../../images/manager_photo.jpg";
 
 export default function Mpage(props) {
   const [groups, setGroups] = useState([]);
-  const { kg, user } = useContext(MyContext);
+  const { kg, user, reset } = useContext(MyContext);
   const [teachers, setTeachers] = useState([]);
   const [children, setChildren] = useState([]);
 
@@ -36,7 +36,7 @@ export default function Mpage(props) {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   const getAllTeachers = () => {
     axios({
@@ -55,7 +55,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   const getAllChildren = () => {
     axios({
@@ -74,7 +74,7 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
   useEffect(() => {
     getAllGroups();
@@ -86,7 +86,7 @@ export default function Mpage(props) {
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
-            <img src={managerImg} alt='manager' />
+            <img src='http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1.jpg' alt='manager' />
           </div>
           <div>
             <p>

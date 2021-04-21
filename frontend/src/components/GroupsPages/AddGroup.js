@@ -7,7 +7,7 @@ import styles from "./groups.module.scss";
 import { MyContext } from "../../Container";
 
 export default function AddGroup(props) {
-  const { user } = useContext(MyContext);
+  const { user, reset } = useContext(MyContext);
   const [data, setData] = useState({});
   const [message, setMessage] = useState({
     submitting: false,
@@ -47,7 +47,7 @@ export default function AddGroup(props) {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   const grabValue = (e) => {

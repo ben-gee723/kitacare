@@ -7,7 +7,7 @@ import UserCard from "./UserCard";
 import styles from "./Teachers.module.scss";
 
 export default function Teachers() {
-  const { kg } = useContext(MyContext);
+  const { kg, reset } = useContext(MyContext);
   const [teachers, setTeachers] = useState([]);
   const [managers, setManagers] = useState([]);
   const [verificationCode, setVerificationCode] = useState("");
@@ -31,7 +31,7 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
 
     axios({
       method: "GET",
@@ -50,7 +50,7 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   }, []);
 
   const generateCodeHandler = () => {
@@ -71,7 +71,7 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   return (
