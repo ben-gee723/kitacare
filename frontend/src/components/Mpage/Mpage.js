@@ -86,7 +86,7 @@ export default function Mpage(props) {
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
-            <img src={managerImg} alt='manager' />
+            <img src='http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1.jpg' alt='manager' />
           </div>
           <div>
             <p>
