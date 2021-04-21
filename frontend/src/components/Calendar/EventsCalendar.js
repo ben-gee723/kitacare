@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+/** @format */
+
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import styles from "./calendar.module.scss";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackspace } from "@fortawesome/free-solid-svg-icons";
+import { MyContext } from "../../Container";
 
 export default function EventsCalendar() {
   const backspace = <FontAwesomeIcon icon={faBackspace} size='2x' />;
   const [showEvents, setShowEvents] = useState([]);
   const dateFormat = "dd/MM";
   const history = useHistory();
+  const { reset } = useContext(MyContext);
 
   useEffect(() => {
     axios({
@@ -20,24 +24,24 @@ export default function EventsCalendar() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true
+      withCredentials: true,
     })
-      .then(result => {
+      .then((result) => {
         if (result.data.success) {
           setShowEvents(result.data.event);
         } else {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => reset());
   }, []);
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     axios(`http://localhost:3001/calendar/deleteSingleEvent/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    }).then(result => {
+    }).then((result) => {
       if (result.data.success) {
         console.log(result.data);
         history.go(0);
@@ -49,7 +53,7 @@ export default function EventsCalendar() {
 
   return (
     <div>
-      {showEvents.map(event => {
+      {showEvents.map((event) => {
         return (
           <div className={styles.container}>
             <p>
@@ -64,8 +68,7 @@ export default function EventsCalendar() {
               type='submit'
               value='delete'
               className={styles.delete}
-              onClick={() => handleDelete(event._id)}
-            >
+              onClick={() => handleDelete(event._id)}>
               {backspace}
             </button>
           </div>

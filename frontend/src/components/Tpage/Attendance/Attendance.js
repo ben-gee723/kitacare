@@ -10,7 +10,7 @@ import Here from "./Here";
 import NotHere from "./NotHere";
 
 export default function Attendance() {
-  const { user } = useContext(MyContext);
+  const { user, reset } = useContext(MyContext);
   // [{child:..., attendanceStatus: "here/notHere", date: ""}]
   const [here, setHere] = useState();
   const [notHere, setNotHere] = useState();
@@ -40,7 +40,7 @@ export default function Attendance() {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   }, []);
 
   const handleAttendance = (e, childId) => {
@@ -57,27 +57,29 @@ export default function Attendance() {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
       data: obj,
-    }).then((result) => {
-      if (result.data.success) {
-        //setAttendance for this child:
-        let id = result.data.updatedAttendance.child._id;
-        if (obj.attendanceStatus === "here") {
-          let newNotHere = notHere.filter((obj) => obj.child._id !== id);
-          setNotHere(newNotHere);
-          let filteredHere = here.filter((obj) => obj.child._id === id);
-          !filteredHere.length &&
-            setHere([...here, result.data.updatedAttendance]);
+    })
+      .then((result) => {
+        if (result.data.success) {
+          //setAttendance for this child:
+          let id = result.data.updatedAttendance.child._id;
+          if (obj.attendanceStatus === "here") {
+            let newNotHere = notHere.filter((obj) => obj.child._id !== id);
+            setNotHere(newNotHere);
+            let filteredHere = here.filter((obj) => obj.child._id === id);
+            !filteredHere.length &&
+              setHere([...here, result.data.updatedAttendance]);
+          } else {
+            let newHere = here.filter((obj) => obj.child._id !== id);
+            setHere(newHere);
+            let filteredNotHere = notHere.filter((obj) => obj.child._id === id);
+            !filteredNotHere.length &&
+              setNotHere([...notHere, result.data.updatedAttendance]);
+          }
         } else {
-          let newHere = here.filter((obj) => obj.child._id !== id);
-          setHere(newHere);
-          let filteredNotHere = notHere.filter((obj) => obj.child._id === id);
-          !filteredNotHere.length &&
-            setNotHere([...notHere, result.data.updatedAttendance]);
+          console.log(result);
         }
-      } else {
-        console.log(result);
-      }
-    });
+      })
+      .catch((err) => reset());
   };
 
   return (

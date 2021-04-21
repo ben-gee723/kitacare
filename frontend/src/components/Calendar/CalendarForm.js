@@ -1,16 +1,18 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+import { MyContext } from "../../Container";
 export default function CalendarForm(props) {
+  const { reset } = useContext(MyContext);
   const [data, setData] = useState({
     startDate: "",
     endDate: "",
     name: "",
     //creator: "",
   });
-  const history = useHistory()
+  const history = useHistory();
   const [message, setMessage] = useState({
     submitting: false,
     status: null,
@@ -39,14 +41,14 @@ export default function CalendarForm(props) {
     })
       .then((response) => {
         if (response.data.success) {
-         // console.log(response.data.event);
+          // console.log(response.data.event);
           handleMessage(true, "Event added!");
-          history.go(0)
+          history.go(0);
         } else {
           console.log(response);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reset());
   };
 
   const grabValue = (e) => {
