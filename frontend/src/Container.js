@@ -6,12 +6,13 @@ const MyContext = createContext("");
 export { MyContext };
 
 export default function Container(props) {
+  console.log("somethning");
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
+  console.log(user);
   const [kg, setKg] = useState(JSON.parse(localStorage.getItem("kg")) || null);
   const [isLogin, setIsLogin] = useState(Boolean(user));
-  const [groupID, setGroupID] = useState(null);
 
   useEffect(() => {
     if (user && user.kg) {
@@ -45,8 +46,6 @@ export default function Container(props) {
         setIsLogin,
         kg,
         setKg,
-        groupID,
-        setGroupID,
       }}>
       {props.children}
     </MyContext.Provider>

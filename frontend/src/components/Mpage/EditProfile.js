@@ -16,13 +16,15 @@ export default function EditProfile(props) {
 
   useEffect(() => {
     if (showSuccess) {
-      timer = setTimeout(() => {
-        props.history.push(
-          user.role == "Manager"
-            ? { pathname: "/mpage" }
-            : { pathname: "/tpage" }
-        );
-      }, 3000);
+      timer = () =>
+        setTimeout(() => {
+          props.history.push(
+            user.role == "Manager"
+              ? { pathname: "/mpage" }
+              : { pathname: "/tpage" }
+          );
+        }, 3000);
+      timer();
     }
     return () => {
       clearTimeout(timer);
@@ -35,6 +37,7 @@ export default function EditProfile(props) {
     axios(`http://localhost:3001/users/updatePassword/${user._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
       data: {
         currentPassword: formObj.currentPassword,
         newPassword: formObj.newPassword,
@@ -51,14 +54,15 @@ export default function EditProfile(props) {
   const editHandler = (e) => {
     e.preventDefault();
     let formObj = submitForm(e);
-    console.log(formObj);
     axios(`http://localhost:3001/users/users/${user._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
       data: formObj,
     }).then((result) => {
       if (result.data.success) {
         console.log(result.data);
+        setUser(result.data.updatedUser);
         setShowSuccess(true);
       } else {
         console.log(result); //prepare an error box!
@@ -79,39 +83,37 @@ export default function EditProfile(props) {
           <form
             className={styles.formContainer}
             onSubmit={(e) => changePasswordHandler(e)}
-            name="managerForm"
-          >
+            name='managerForm'>
             <div>
-            <div >
-              <label className="details">Your current password: </label>
+              <div>
+                <label className='details'>Your current password: </label>
+                <br />
+                <input
+                  type='password'
+                  name='currentPassword'
+                  placeholder='current password'
+                />
+              </div>
+              <div>
+                <label className='details'>Your new password: </label>
+                <br />
+                <input
+                  type='password'
+                  name='newPassword'
+                  placeholder='new password'
+                />
+              </div>
               <br />
-              <input
-                type="password"
-                name="currentPassword"
-                placeholder="current password"
-              />
-            </div>
-            <div >
-              <label className="details">Your new password: </label>
-              <br />
-              <input
-                type="password"
-                name="newPassword"
-                placeholder="new password"
-              />
-            </div>
-            <br />
-            <div className={styles.btnContainer}>
-              <button
-                className="cancel"
-                onClick={() => setShowPasswordForm(false)}
-              >
-                Cancel
-              </button>
-              <button type="submit" value="Register" className="att">
-                Submit
-              </button>
-            </div>
+              <div className={styles.btnContainer}>
+                <button
+                  className='cancel'
+                  onClick={() => setShowPasswordForm(false)}>
+                  Cancel
+                </button>
+                <button type='submit' value='Register' className='att'>
+                  Submit
+                </button>
+              </div>
             </div>
           </form>
         )}
@@ -121,99 +123,98 @@ export default function EditProfile(props) {
         <form
           className={styles.formContainer}
           onSubmit={(e) => editHandler(e)}
-          name="managerForm"
-        >
+          name='managerForm'>
           <div className={styles.regBox}>
             <div>
-              <div >
-                <label className="details">First name</label>
+              <div>
+                <label className='details'>First name</label>
                 <br />
                 <input
-                  type="text"
-                  name="firstName"
+                  type='text'
+                  name='firstName'
                   defaultValue={nextUser.firstName}
                 />
               </div>
 
-              <div >
-                <label className="details">Last name</label>
+              <div>
+                <label className='details'>Last name</label>
                 <br />
                 <input
-                  type="text"
-                  name="lastName"
+                  type='text'
+                  name='lastName'
                   defaultValue={nextUser.lastName}
                 />
               </div>
 
-              <div >
-                <label className="details">Birthday</label>
+              <div>
+                <label className='details'>Birthday</label>
                 <br />
                 <input
-                  type="date"
-                  name="birthday"
-                  defaultValue={nextUser.birthday}
+                  type='date'
+                  name='birthday'
+                  defaultValue={nextUser.birthday.split("T")[0]}
                   required
                 />
               </div>
 
-              <div >
-                <label className="details">Phone number</label>
+              <div>
+                <label className='details'>Phone number</label>
                 <br />
                 <input
-                  type="text"
-                  name="phoneNumber"
+                  type='text'
+                  name='phoneNumber'
                   defaultValue={nextUser.phoneNumber}
                 />
               </div>
 
-              <div >
-                <label className="details">Email</label>
+              <div>
+                <label className='details'>Email</label>
                 <br />
                 <input
-                  type="email"
-                  name="email"
+                  type='email'
+                  name='email'
                   defaultValue={nextUser.email}
                 />
               </div>
             </div>
 
             <div className={styles.address}>
-              <div >
-                <label className="details">Street</label>
+              <div>
+                <label className='details'>Street</label>
                 <br />
                 <input
-                  type="text"
-                  name="street"
+                  type='text'
+                  name='street'
                   defaultValue={nextUser.address.street}
                 />
               </div>
 
-              <div >
-                <label className="details">Number</label>
+              <div>
+                <label className='details'>Number</label>
                 <br />
                 <input
-                  type="text"
-                  name="number"
+                  type='text'
+                  name='number'
                   defaultValue={nextUser.address.number}
                 />
               </div>
 
-              <div >
-                <label className="details">City</label>
+              <div>
+                <label className='details'>City</label>
                 <br />
                 <input
-                  type="text"
-                  name="city"
+                  type='text'
+                  name='city'
                   defaultValue={nextUser.address.city}
                 />
               </div>
 
-              <div >
-                <label className="details">Post code</label>
+              <div>
+                <label className='details'>Post code</label>
                 <br />
                 <input
-                  type="number"
-                  name="postcode"
+                  type='number'
+                  name='postcode'
                   defaultValue={nextUser.address.postcode}
                 />
               </div>
@@ -221,24 +222,22 @@ export default function EditProfile(props) {
               <br />
               <div className={styles.editBtns}>
                 <Link to={user.role == "Manager" ? "/mpage" : "/tpage"}>
-                  <button className="cancel">Cancel</button>
+                  <button className='cancel'>Cancel</button>
                 </Link>
-                <button type="submit" value="Register" className="att">
+                <button type='submit' value='Register' className='att'>
                   Submit
                 </button>
                 {!showPasswordForm && !showSuccess && (
-                <button
-                  type="submit"
-                  value="Register"
-                  className="att"
-                  onClick={() => setShowPasswordForm(true)}
-                >
-                  Change Password
-                </button>
-              )}
+                  <button
+                    type='submit'
+                    value='Register'
+                    className='att'
+                    onClick={() => setShowPasswordForm(true)}>
+                    Change Password
+                  </button>
+                )}
               </div>
-              <br/>
-              
+              <br />
             </div>
           </div>
         </form>

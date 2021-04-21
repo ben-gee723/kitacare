@@ -2,6 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
+const { auth } = require("../middlewares/authentication");
 const {
   getKg,
   getKgs,
@@ -14,17 +15,17 @@ const { updateKg } = require("../controllers/kgControllers/putController");
 const { deleteKg } = require("../controllers/kgControllers/deleteController");
 
 //GET:
-router.get("/getKg/:id", getKg);
-router.get("/kgs", getKgs);
-router.get("/getVerificationCode/:id", getVerificationCode);
+router.get("/getKg/:id", auth, getKg);
+router.get("/kgs", auth, getKgs);
+router.get("/getVerificationCode/:id", auth, getVerificationCode);
 
 //POST:
-router.post("/register", addKgManager);
+router.post("/register", auth, addKgManager);
 
 //PUT:
-router.put("/updateKg/:id", updateKg);
+router.put("/updateKg/:id", auth, updateKg);
 
 //DELETE:
-router.delete("/deleteKg/:id", deleteKg);
+router.delete("/deleteKg/:id", auth, deleteKg);
 
 module.exports = router;

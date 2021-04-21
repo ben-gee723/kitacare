@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -24,7 +26,7 @@ export default function AddGroup(props) {
     return () => clearTimeout(timer);
   };
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     e.preventDefault();
     setMessage({ submitting: true });
     axios({
@@ -34,9 +36,10 @@ export default function AddGroup(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
       data: { ...data, kg: user.kg },
     })
-      .then(response => {
+      .then((response) => {
         if (response.data.success) {
           handleMessage(true, "Thank you! We received your information.");
           console.log(response.data.group);
@@ -44,10 +47,10 @@ export default function AddGroup(props) {
           console.log(response);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  const grabValue = e => {
+  const grabValue = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -111,8 +114,7 @@ export default function AddGroup(props) {
           {message.status && (
             <p
               className={!message.status.ok ? "errorMsg" : ""}
-              style={{ fontSize: "0.65rem" }}
-            >
+              style={{ fontSize: "0.65rem" }}>
               {message.status.msg}
             </p>
           )}

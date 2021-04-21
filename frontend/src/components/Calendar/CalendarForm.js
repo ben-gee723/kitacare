@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from 'react-router-dom'
@@ -23,7 +25,7 @@ export default function CalendarForm(props) {
     });
   };
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
@@ -32,9 +34,10 @@ export default function CalendarForm(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
       data: data,
     })
-      .then(response => {
+      .then((response) => {
         if (response.data.success) {
          // console.log(response.data.event);
           handleMessage(true, "Event added!");
@@ -43,10 +46,10 @@ export default function CalendarForm(props) {
           console.log(response);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  const grabValue = e => {
+  const grabValue = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -89,8 +92,7 @@ export default function CalendarForm(props) {
         {message.status && (
           <p
             className={!message.status.ok ? "errorMsg" : ""}
-            style={{ fontSize: "0.65rem" , margin: "0.5rem"}}
-          >
+            style={{ fontSize: "0.65rem", margin: "0.5rem" }}>
             {message.status.msg}
           </p>
         )}

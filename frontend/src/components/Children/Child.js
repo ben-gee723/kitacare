@@ -27,6 +27,7 @@ export default function Child(props) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true,
     })
       .then((result) => {
         if (result.data.success) {
@@ -54,11 +55,12 @@ export default function Child(props) {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       };
     } else {
       obj = {
         method: "PUT",
-        // withCredentials: true,
+        withCredentials: true,
         url: `http://localhost:3001/child/updateChild/${id}`,
         headers: {
           Accept: "application/json",

@@ -49,16 +49,30 @@
   border: none;
   color: white;
   font-weight: bold;
+  -webkit-transition: opacity 1s 1s ease-in-out;
+  transition: opacity 1s 1s ease-in-out;
 }
 
 .btnContainer .submitBtn {
   width: 100%;
   background-color: #f74d25;
+  border: 1px solid #f74d25;
+}
+
+.btnContainer .submitBtn:hover {
+  background-color: white;
+  color: #f74d25;
 }
 
 .btnContainer .deleteBtn {
   background-color: #198da8;
+  border: 1px solid #198da8;
   margin-right: 1%;
+}
+
+.btnContainer .deleteBtn:hover {
+  background-color: white;
+  color: #198da8;
 }
 
 .btnContainer .cancelBtn {

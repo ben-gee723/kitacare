@@ -26,7 +26,7 @@ exports.updateUser = async (req, res, next) => {
     }
     let updatedUser = await UserModel.findByIdAndUpdate(id, req.body, {
       new: true,
-    });
+    }).populate("group", "-__v");
     if (updatedUser) {
       res.send({ success: true, updatedUser: updatedUser });
     } else {

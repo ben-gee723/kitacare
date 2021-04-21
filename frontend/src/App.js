@@ -28,8 +28,6 @@ import Mpage from "./components/Mpage/Mpage";
 import Teachers from "./components/Mpage/Teachers";
 import Calendar from "./components/Calendar/Calendar";
 import Container from "./Container";
-//for product:
-//import Container from "./Container_product";
 
 import Attendance from "./components/Tpage/Attendance/Attendance";
 import AllGroups from "./components/GroupsPages/AllGroups";
@@ -38,6 +36,7 @@ import SingleGroup from "./components/GroupsPages/SingleGroup";
 import AllChildren from "./components/Children/AllChildren";
 import AddGroup from "./components/GroupsPages/AddGroup";
 import ChildEdit from "./components/Children/ChildEdit";
+import SuccessPage from "./components/Children/SuccessPage";
 
 function App() {
   return (
@@ -67,6 +66,7 @@ function App() {
           <Route path='/children' component={AllChildren} />
           <Route path='/addgroup' component={AddGroup} />
           <Route path='/editprofile' component={EditProfile} />
+          <Route path='/success' component={SuccessPage} />
           <Route component={NotFound} />
         </Switch>
         <Footer />
