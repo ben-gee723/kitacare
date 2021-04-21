@@ -20,6 +20,7 @@ export default function EventsCalendar() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      withCredentials: true
     })
       .then(result => {
         if (result.data.success) {
