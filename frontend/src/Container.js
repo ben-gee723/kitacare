@@ -1,16 +1,25 @@
 /** @format */
 
 import { useState, useEffect, createContext } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 const MyContext = createContext("");
 export { MyContext };
 
 export default function Container(props) {
+  const history = useHistory();
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
   const [kg, setKg] = useState(JSON.parse(localStorage.getItem("kg")) || null);
   const [isLogin, setIsLogin] = useState(Boolean(user));
+
+  const reset = () => {
+    //delete local storage:
+    localStorage.removeItem("kg");
+    localStorage.removeItem("user");
+    setUser(null);
+  };
 
   useEffect(() => {
     if (user && user.kg) {
@@ -32,6 +41,9 @@ export default function Container(props) {
           }
         })
         .catch((err) => console.log(err));
+    } else {
+      setIsLogin(false);
+      history.push("/login");
     }
   }, [user]);
 
@@ -44,6 +56,7 @@ export default function Container(props) {
         setIsLogin,
         kg,
         setKg,
+        reset,
       }}>
       {props.children}
     </MyContext.Provider>

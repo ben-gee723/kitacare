@@ -8,7 +8,7 @@ import Child from "./Child";
 
 export default function AllChildren(props) {
   const [children, setChildren] = useState([]);
-  const { user } = useContext(MyContext);
+  const { user, setUser, reset } = useContext(MyContext);
 
   useEffect(() => {
     let url;
@@ -39,7 +39,9 @@ export default function AllChildren(props) {
           console.log(result);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        reset();
+      });
   }, []);
 
   const handleEdit = (child) => {

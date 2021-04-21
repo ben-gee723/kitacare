@@ -70,7 +70,6 @@ exports.getAttendanceOfChild = async (req, res, next) => {
       let objToSave = { attendanceStatus: "notHere", date: date };
       child.attendance.push(objToSave);
       await child.save();
-      console.log(child);
       return {
         success: true,
         attendanceInfo: {
@@ -108,7 +107,6 @@ exports.getAttendanceOfChild = async (req, res, next) => {
         arr.push(obj);
       }
     });
-    console.log(arr);
     res.status(200).send({ success: true, attendanceArr: arr });
   } catch (err) {
     console.log(err);

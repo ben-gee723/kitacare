@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./ChildStyle/ChildRegister.module.scss";
 import { sendData, submitForm } from "../../logic/registerLogic";
@@ -25,13 +27,17 @@ export default function ChildRegister(props) {
 
   useEffect(() => {
     if (formData.child) {
-      sendData("child registration", { ...formData.child, kg: kg._id });
+      sendData("child registration", {
+        ...formData.child,
+        kg: kg._id,
+        attendance: [{ attendanceStatus: "notHere", date: "2021-04-21" }],
+      });
     } else {
       return;
     }
   }, [formData]);
 
-  const submitChildForm = e => {
+  const submitChildForm = (e) => {
     e.preventDefault();
     let childObj = submitForm(e);
     setFormData({ child: childObj });
@@ -55,10 +61,9 @@ export default function ChildRegister(props) {
   return (
     <div className={styles.formContainter}>
       <form
-        onSubmit={e => submitChildForm(e)}
+        onSubmit={(e) => submitChildForm(e)}
         name='childForm'
-        className={styles.childForm}
-      >
+        className={styles.childForm}>
         <div className={styles.childFormContainerInner}>
           <div className={styles.childFormInner}>
             <div className={styles.regInfo}>
