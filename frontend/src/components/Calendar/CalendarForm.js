@@ -13,7 +13,7 @@ export default function CalendarForm(props) {
     submitting: false,
     status: null,
   });
-  console.log(data);
+  //console.log(data);
   const date = props.day;
 
   const handleMessage = (ok, msg) => {
@@ -36,7 +36,7 @@ export default function CalendarForm(props) {
     })
       .then(response => {
         if (response.data.success) {
-          console.log(response.data.event);
+         // console.log(response.data.event);
           handleMessage(true, "Event added!");
           history.go(0)
         } else {

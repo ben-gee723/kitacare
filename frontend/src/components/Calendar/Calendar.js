@@ -92,9 +92,6 @@ export default function Calendar() {
     const rows = [];
     let days = [];
     let day = startDate;
-
-    //console.log(day)
-
     let formattedDate = "";
 
     while (day <= endDate) {
