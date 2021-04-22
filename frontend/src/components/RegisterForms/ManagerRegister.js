@@ -33,56 +33,64 @@ export default function ManagerRegister(props) {
         className={styles.formContainer}
         onSubmit={(e) => submitManagerForm(e)}
         name='managerForm'>
-        <div className='reg'>
-          Register a Menager!
-        </div>
+        <div className='reg'>Register a Menager!</div>
 
         <div className='inputBox'>
           <label className='details'>First name</label>
           <br />
-          <input type='text' name='firstName' placeholder='First Name' />
+          <input
+            type='text'
+            name='firstName'
+            placeholder='First Name'
+            required
+          />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Last name</label>
           <br />
-          <input type='text' name='lastName' placeholder='Last Name' />
+          <input type='text' name='lastName' placeholder='Last Name' required />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Birthday</label>
           <br />
-          <input type='date' name='birthday' placeholder='Birthday' />
+          <input type='date' name='birthday' placeholder='Birthday' required />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Phone number</label>
           <br />
-          <input type='text' name='phoneNumber' placeholder='Phone Number' />
+          <input
+            type='text'
+            name='phoneNumber'
+            placeholder='Phone Number'
+            required
+          />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Email</label>
           <br />
-          <input type='email' name='email' placeholder='E-mail' />
+          <input type='email' name='email' placeholder='E-mail' required />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Street</label>
           <br />
-          <input type='text' name='street' placeholder='Street' />
+          <input type='text' name='street' placeholder='Street' required />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Number</label>
           <br />
-          <input type='text' name='number' placeholder='Number' />
+          <input type='text' name='number' placeholder='Number' required />
         </div>
 
         <div className='inputBox'>
           <label className='details'>City</label>
           <br />
-          <input type='text' name='city' placeholder='City' />
+          <input type='text' name='city' placeholder='City' required />
         </div>
 
         <div className='inputBox'>
@@ -91,15 +99,20 @@ export default function ManagerRegister(props) {
           <input
             type='number'
             name='postcode'
-            required
             placeholder='Postcode'
+            required
           />
         </div>
 
         <div className='inputBox'>
           <label className='details'>Password</label>
           <br />
-          <input type='password' name='password' placeholder='Password' />
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            required
+          />
         </div>
 
         <br />
