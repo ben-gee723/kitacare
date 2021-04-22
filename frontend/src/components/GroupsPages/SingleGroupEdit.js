@@ -67,7 +67,7 @@ export default function SingleGroupEdit(props) {
   };
 
   const editedValue = (e) => {
-    setEditedGroup({ ...group, [e.target.name]: e.target.value });
+    setEditedGroup({ ...editedGroup, [e.target.name]: e.target.value });
   };
 
   return (

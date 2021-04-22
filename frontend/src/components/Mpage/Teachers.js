@@ -22,7 +22,6 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -41,7 +40,6 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
@@ -62,7 +60,6 @@ export default function Teachers() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     })
       .then((response) => {
         if (response.data.success) {
