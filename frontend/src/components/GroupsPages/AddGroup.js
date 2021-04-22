@@ -47,7 +47,9 @@ export default function AddGroup(props) {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const grabValue = (e) => {

@@ -39,9 +39,9 @@ export default function AllChildren(props) {
           console.log(result);
         }
       })
-      .catch((err) => {
-        reset();
-      });
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const handleEdit = (child) => {

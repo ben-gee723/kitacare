@@ -48,7 +48,9 @@ export default function CalendarForm(props) {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const grabValue = (e) => {

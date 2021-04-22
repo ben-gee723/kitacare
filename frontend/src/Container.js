@@ -40,7 +40,9 @@ export default function Container(props) {
             console.log(response);
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          err.response.status == 401 ? reset() : console.log(err)
+        );
     } else {
       setIsLogin(false);
       history.push("/login");

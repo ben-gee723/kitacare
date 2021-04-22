@@ -30,7 +30,9 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
 
     axios({
       method: "GET",
@@ -48,7 +50,9 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const generateCodeHandler = () => {
@@ -68,7 +72,9 @@ export default function Teachers() {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

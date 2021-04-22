@@ -50,7 +50,9 @@ export default function Login(props) {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

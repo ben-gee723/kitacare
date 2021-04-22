@@ -21,19 +21,20 @@ exports.updateChild = async (req, res, next) => {
       } //then save the child according to wantedGroup:
       let group = await GroupModel.findById(wantedGroupId);
       group.children.push(id);
-      group.save();
+      await group.save();
     }
     //update child document:
     const updatedChild = await ChildModel.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-    if (updatedChild) {
-      res.status(200).send({ success: true, updatedChild: updatedChild });
-    } else {
-      res
-        .status(400)
-        .send({ success: false, message: "no matching child found" });
-    }
+    console.log(updatedChild);
+
+    res.status(200).send({ success: true, updatedChild: updatedChild });
+    // } else {
+    //   res
+    //     .status(400)
+    //     .send({ success: false, message: "no matching child found" });
+    // }
   } catch (err) {
     console.log(err);
     next(err);
