@@ -72,17 +72,17 @@ export default function ChildRegister(props) {
 
             <div className={styles.inputBox}>
               <label className={styles.details}>First name</label> <br />
-              <input type='text' name='firstName' placeholder='First Name' />
+              <input type='text' name='firstName' placeholder='First Name' required />
             </div>
 
             <div className={styles.inputBox}>
               <label className={styles.details}>Last name</label> <br />
-              <input type='text' name='lastName' placeholder='Last Name' />
+              <input type='text' name='lastName' placeholder='Last Name' required />
             </div>
 
             <div className={styles.inputBox}>
               <label className={styles.details}>Birthday</label> <br />
-              <input type='date' name='birthday' placeholder='Birthday' />
+              <input type='date' name='birthday' placeholder='Birthday' required />
             </div>
 
             <div className={styles.inputBox}>
