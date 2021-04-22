@@ -17,7 +17,7 @@ export default function SuccessPage(props) {
     return clearTimeout(timer);
   }, []);
   return (
-    <div>
+    <div className={styles.sPage}>
       <h3>Child has been edited successfully </h3>
     </div>
   );

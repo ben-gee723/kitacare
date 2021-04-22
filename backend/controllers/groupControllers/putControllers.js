@@ -14,6 +14,6 @@ exports.updateGroup = async (req, res, next) => {
         }
     }
     catch (err) {
-        next(er)
+        next(err)
     }
 }
