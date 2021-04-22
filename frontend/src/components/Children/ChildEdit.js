@@ -31,7 +31,9 @@ export default function ChildEdit(props) {
           alert("Child hasn't been deleted successfully");
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const handleEdit = (e) => {
@@ -57,7 +59,9 @@ export default function ChildEdit(props) {
           alert("Child hasn't been edited successfully");
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const editedValue = (e) => {

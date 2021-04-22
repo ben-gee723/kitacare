@@ -40,7 +40,9 @@ export default function Attendance() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const handleAttendance = (e, childId) => {
@@ -79,7 +81,9 @@ export default function Attendance() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

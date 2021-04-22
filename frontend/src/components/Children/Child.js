@@ -36,7 +36,9 @@ export default function Child(props) {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const handleEditGroup = () => {
@@ -49,7 +51,6 @@ export default function Child(props) {
     if (selectedGroup === "empty") {
       obj = {
         method: "PUT",
-        // withCredentials: true,
         url: `http://localhost:3001/child/deleteChildsGroup/${id}`,
         headers: {
           Accept: "application/json",
@@ -72,7 +73,7 @@ export default function Child(props) {
     axios(obj)
       .then((result) => {
         if (result.data.success) {
-          history.push("/groups");
+          console.log(result.data);
         } else {
           console.log(result.data);
         }
@@ -135,7 +136,7 @@ export default function Child(props) {
       <div className={styles.btn2}>
         {user.role === "Manager" && (
           <button
-            type='submit'
+            // type='submit'
             value='edit'
             className='fixedit'
             onClick={() => props.handleEdit(child)}>
@@ -144,7 +145,7 @@ export default function Child(props) {
         )}
         {user.role === "Manager" && (
           <button
-            type='submit'
+            // type='submit'
             value='edit'
             className='add'
             onClick={() => handleEditGroup()}>

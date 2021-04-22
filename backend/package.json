@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.11"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ben-gee723/kitacare.git"

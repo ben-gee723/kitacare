@@ -27,7 +27,9 @@ export default function AllGroups(props) {
           console.log(result.data.allGroups);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const handleEdit = (group) => {

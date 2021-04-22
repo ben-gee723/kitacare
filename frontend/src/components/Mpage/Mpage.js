@@ -36,7 +36,9 @@ export default function Mpage(props) {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
   const getAllTeachers = () => {
     axios({
@@ -55,7 +57,9 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
   const getAllChildren = () => {
     axios({
@@ -74,7 +78,9 @@ export default function Mpage(props) {
           console.log(response);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
   useEffect(() => {
     getAllGroups();
@@ -86,7 +92,10 @@ export default function Mpage(props) {
       <div className={styles.mpContainer}>
         <div className={styles.mInfo}>
           <div className={styles.mImg}>
-            <img src='http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1.jpg' alt='manager' />
+            <img
+              src='http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1.jpg'
+              alt='manager'
+            />
           </div>
           <div>
             <p>

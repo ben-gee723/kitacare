@@ -33,7 +33,9 @@ export default function EventsCalendar() {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const handleDelete = (id) => {
@@ -41,14 +43,18 @@ export default function EventsCalendar() {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    }).then((result) => {
-      if (result.data.success) {
-        console.log(result.data);
-        history.go(0);
-      } else {
-        console.log(result);
-      }
-    });
+    })
+      .then((result) => {
+        if (result.data.success) {
+          console.log(result.data);
+          history.go(0);
+        } else {
+          console.log(result);
+        }
+      })
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

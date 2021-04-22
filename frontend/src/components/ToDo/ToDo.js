@@ -31,7 +31,9 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   let addItem = (value) => {
@@ -53,7 +55,9 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   let updateItem = (value) => {
@@ -74,7 +78,9 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   let deleteItem = (value) => {
@@ -95,7 +101,9 @@ export default function Todo() {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

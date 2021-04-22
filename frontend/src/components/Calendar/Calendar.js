@@ -50,7 +50,9 @@ export default function Calendar() {
           console.log(result.data.getAllEvents);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   }, []);
 
   const header = () => {

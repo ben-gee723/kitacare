@@ -37,7 +37,9 @@ export default function UserCard(props) {
           console.log(result.data);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const changeGroup = (id) => {
@@ -74,7 +76,9 @@ export default function UserCard(props) {
           console.log(result.data);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const changeRole = (id) => {
@@ -96,7 +100,9 @@ export default function UserCard(props) {
           console.log(result.data);
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (

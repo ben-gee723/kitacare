@@ -50,7 +50,9 @@ export default function EditProfile(props) {
           console.log(result); //work on error cases!!!!!
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   const editHandler = (e) => {
@@ -71,7 +73,9 @@ export default function EditProfile(props) {
           console.log(result); //prepare an error box!
         }
       })
-      .catch((err) => reset());
+      .catch((err) =>
+        err.response.status == 401 ? reset() : console.log(err)
+      );
   };
 
   return (
