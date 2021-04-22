@@ -44,12 +44,13 @@ export default function SingleGroupEdit(props) {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) => console.log(err));
   };
 
   const handleEdit = (e) => {
     e.preventDefault();
     setMessage({ submitting: true });
+    console.log(editedGroup)
     axios(`http://localhost:3001/groups/updateGroup/${group._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -63,7 +64,7 @@ export default function SingleGroupEdit(props) {
           console.log(result);
         }
       })
-      .catch((err) => reset());
+      .catch((err) => console.log(err));
   };
 
   const editedValue = (e) => {
