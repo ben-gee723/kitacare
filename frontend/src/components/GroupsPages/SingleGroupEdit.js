@@ -1,13 +1,11 @@
 /** @format */
 
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./groups.module.scss";
-import { MyContext } from "../../Container";
 
 export default function SingleGroupEdit(props) {
-  const { reset } = useContext(MyContext);
   const [editedGroup, setEditedGroup] = useState({});
   const [group, setGroup] = useState(
     props.location.state ? props.location.state.group : {}
@@ -35,39 +33,34 @@ export default function SingleGroupEdit(props) {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    })
-      .then((result) => {
-        if (result.data.success) {
-          console.log(result.data);
-          history.push("/groups");
-        } else {
-          console.log(result);
-        }
-      })
-      .catch((err) => console.log(err));
+    }).then(result => {
+      if (result.data.success) {
+        console.log(result.data);
+        history.push("/groups");
+      } else {
+        console.log(result);
+      }
+    });
   };
 
-  const handleEdit = (e) => {
+  const handleEdit = e => {
     e.preventDefault();
     setMessage({ submitting: true });
-    console.log(editedGroup)
     axios(`http://localhost:3001/groups/updateGroup/${group._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-      data: editedGroup,
-    })
-      .then((result) => {
-        if (result.success) {
-          setEditedGroup(result.group);
-        } else {
-          console.log(result);
-        }
-      })
-      .catch((err) => console.log(err));
+      data: JSON.stringify(editedGroup),
+    }).then(result => {
+      if (result.success) {
+        setEditedGroup(result.group);
+      } else {
+        console.log(result);
+      }
+    });
   };
 
-  const editedValue = (e) => {
+  const editedValue = e => {
     setEditedGroup({ ...group, [e.target.name]: e.target.value });
   };
 
@@ -77,7 +70,8 @@ export default function SingleGroupEdit(props) {
         className={styles.addcontainer}
         onSubmit={handleEdit}
         name='managerForm'
-        key='group._id'>
+        key='group._id'
+      >
         <div className={styles.title}>
           <h3>Edit Group!</h3>
         </div>
@@ -132,13 +126,15 @@ export default function SingleGroupEdit(props) {
             className='att'
             onClick={() =>
               handleMessage(true, "Thank you! The group was updated.")
-            }>
+            }
+          >
             Submit
           </button>
           {message.status && (
             <p
               className={!message.status.ok ? "errorMsg" : ""}
-              style={{ fontSize: "0.65rem" }}>
+              style={{ fontSize: "0.65rem" }}
+            >
               {message.status.msg}
             </p>
           )}
@@ -152,7 +148,8 @@ export default function SingleGroupEdit(props) {
           width: "5rem",
           margin: "0 auto",
         }}
-        onClick={() => handleDelete(group._id)}>
+        onClick={() => handleDelete(group._id)}
+      >
         Delete
       </button>
     </div>
