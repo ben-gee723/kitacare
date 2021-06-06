@@ -45,7 +45,6 @@ export default function Container(props) {
         );
     } else {
       setIsLogin(false);
-      history.push("/login");
     }
   }, [user]);
 

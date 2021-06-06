@@ -16,7 +16,6 @@ export default function Login(props) {
 
   useEffect(() => {
     if (props.location.state) {
-      console.log(props.location.state);
       setFormData({
         email: props.location.state.email,
         password: props.location.state.password,
@@ -48,6 +47,7 @@ export default function Login(props) {
           localStorage.setItem("user", JSON.stringify(response.data.user));
         } else {
           console.log(response);
+          //display a warning box for 3 min
         }
       })
       .catch((err) =>

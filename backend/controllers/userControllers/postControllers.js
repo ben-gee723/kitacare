@@ -113,8 +113,14 @@ exports.login = async (req, res, next) => {
           message: "user logged in successfuly",
           user: user,
         });
+    }else{
+      res.status(404).send({
+        success:false, message:"email or password is not correct"
+      })
     }
-  } catch (err) {}
+  } catch (err) {
+    next(err)
+  }
 };
 
 exports.addTodo = async (req, res, next) => {

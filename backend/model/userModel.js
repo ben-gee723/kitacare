@@ -41,15 +41,14 @@ UserSchema.pre("save", function (next) {
   next();
 });
 
-//compare user password with hashed password
+//compare user password with hashed password:
 UserSchema.methods.checkPassword = function (password) {
   return compare(password, this.password);
 };
 
-//create a token for user and push it into the tokens array.
+//create a token for user and push it into the tokens array:
 UserSchema.methods.generateAuthToken = function () {
   const user = this;
-  //payload + secret_key --> optional: expiration.
   const token = JWT.sign(
     { _id: user._id, email: user.email },
     process.env.SECRET_KEY, //config.secret_key want working! try later!
@@ -63,23 +62,6 @@ UserSchema.methods.generateAuthToken = function () {
   return token;
 };
 
-//verify auth token and find user into database
-// UserSchema.statics.findByToken = function (token) {
-//   const user = this;
-//   let decoded;
-//   try {
-//     decoded = JWT.verify(token, process.env.SECRET_KEY);
-//   } catch (err) {
-//     return;
-//   }
-//   let searchedUser = user
-//     .findOne({
-//       _id: decoded._id,
-//       "tokens.token": token,
-//     })
-//     .select("-password -__v");
-//   return searchedUser;
-// };
 //verify auth token and find user in database
 UserSchema.statics.findByToken = function (token) {
   const user = this;
