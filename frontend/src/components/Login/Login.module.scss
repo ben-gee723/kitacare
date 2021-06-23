@@ -12,8 +12,14 @@
   
   .btnContainer {
     display: flex;
-    
+    justify-content: space-evenly;
+    margin-bottom:1rem ;
   }
+
+  #explore{
+    margin-right: 0;
+  }
+  
 
   .loginBox {
   padding-left: 5rem;

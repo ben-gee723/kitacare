@@ -88,7 +88,6 @@ export default function Login(props) {
               }
             />
           </div>
-
           <br />
           <div className={styles.btnContainer}>
             <button type='submit' value='Login' className='next'>
@@ -97,6 +96,14 @@ export default function Login(props) {
             <Link to='/'>
               <button className='cancel'>Cancel</button>
             </Link>
+          </div>
+          <div className={styles.btnContainer}>
+              <button type='submit' value='Try it' className='att' id="explore" onClick={async()=>{
+                console.log(process.env.EXPLORE_ACCOUNT_EMAIL)
+                await setFormData({email:process.env.REACT_APP_EXPLORE_ACCOUNT_EMAIL,password: process.env.REACT_APP_EXPLORE_ACCOUNT_PASSWORD})
+              }}>
+              Just explore it
+            </button>
           </div>
         </div>
       </form>
